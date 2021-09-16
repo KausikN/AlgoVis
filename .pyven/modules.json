@@ -1,0 +1,177 @@
+{
+    "name": "AlgoVis",
+    "repoLink": "https://github.com/KausikN/AlgoVis",
+    "localPath": "E:/Github Codes and Projects/Projects/AlgoVis",
+    "modules": {
+        "app.py": {
+            "name": "app",
+            "type": "local",
+            "link": "https://github.com/KausikN/AlgoVis/blob/master/app.py",
+            "parentDir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "subDir": "",
+            "dependencies": [
+                "os.py",
+                "streamlit.py",
+                "json.py"
+            ]
+        },
+        "SortingVis.py": {
+            "name": "SortingVis",
+            "type": "local",
+            "link": "https://github.com/KausikN/AlgoVis/blob/master/SortingVis.py",
+            "parentDir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "subDir": "",
+            "dependencies": [
+                "functools.py",
+                "numpy.py",
+                "Libraries/PlotAnimateLibrary.py"
+            ]
+        },
+        "Libraries/MazeGen.py": {
+            "name": "MazeGen",
+            "type": "local",
+            "link": "https://github.com/KausikN/AlgoVis/blob/master/Libraries/MazeGen.py",
+            "parentDir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "subDir": "Libraries",
+            "dependencies": [
+                "os.py",
+                "cv2.py",
+                "numpy.py",
+                "matplotlib.pyplot.py",
+                "tqdm.py"
+            ]
+        },
+        "Libraries/PlotAnimateLibrary.py": {
+            "name": "PlotAnimateLibrary",
+            "type": "local",
+            "link": "https://github.com/KausikN/AlgoVis/blob/master/Libraries/PlotAnimateLibrary.py",
+            "parentDir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "subDir": "Libraries",
+            "dependencies": [
+                "matplotlib.pyplot.py",
+                "matplotlib/animation.py",
+                "numpy.py",
+                "os.py",
+                "cv2.py",
+                "PIL.py",
+                "tqdm.py",
+                "colorsys.py",
+                "matplotlib/pyplot.py",
+                "matplotlib/figure.py",
+                "matplotlib/backends/backend_agg.py"
+            ]
+        },
+        "streamlit.py": {
+            "name": "streamlit",
+            "type": "inbuilt",
+            "link": "",
+            "parentDir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "subDir": "",
+            "dependencies": []
+        },
+        "cv2.py": {
+            "name": "cv2",
+            "type": "inbuilt",
+            "link": "",
+            "parentDir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "subDir": "",
+            "dependencies": []
+        },
+        "colorsys.py": {
+            "name": "colorsys",
+            "type": "inbuilt",
+            "link": "",
+            "parentDir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "subDir": "",
+            "dependencies": []
+        },
+        "matplotlib/backends/backend_agg.py": {
+            "name": "backend_agg",
+            "type": "inbuilt",
+            "link": "",
+            "parentDir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "subDir": "matplotlib/backends",
+            "dependencies": []
+        },
+        "matplotlib/pyplot.py": {
+            "name": "pyplot",
+            "type": "inbuilt",
+            "link": "",
+            "parentDir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "subDir": "matplotlib",
+            "dependencies": []
+        },
+        "os.py": {
+            "name": "os",
+            "type": "inbuilt",
+            "link": "",
+            "parentDir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "subDir": "",
+            "dependencies": []
+        },
+        "PIL.py": {
+            "name": "PIL",
+            "type": "inbuilt",
+            "link": "",
+            "parentDir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "subDir": "",
+            "dependencies": []
+        },
+        "numpy.py": {
+            "name": "numpy",
+            "type": "inbuilt",
+            "link": "",
+            "parentDir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "subDir": "",
+            "dependencies": []
+        },
+        "matplotlib.pyplot.py": {
+            "name": "matplotlib.pyplot",
+            "type": "inbuilt",
+            "link": "",
+            "parentDir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "subDir": "",
+            "dependencies": []
+        },
+        "tqdm.py": {
+            "name": "tqdm",
+            "type": "inbuilt",
+            "link": "",
+            "parentDir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "subDir": "",
+            "dependencies": []
+        },
+        "functools.py": {
+            "name": "functools",
+            "type": "inbuilt",
+            "link": "",
+            "parentDir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "subDir": "",
+            "dependencies": []
+        },
+        "matplotlib/figure.py": {
+            "name": "figure",
+            "type": "inbuilt",
+            "link": "",
+            "parentDir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "subDir": "matplotlib",
+            "dependencies": []
+        },
+        "json.py": {
+            "name": "json",
+            "type": "inbuilt",
+            "link": "",
+            "parentDir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "subDir": "",
+            "dependencies": []
+        },
+        "matplotlib/animation.py": {
+            "name": "animation",
+            "type": "inbuilt",
+            "link": "",
+            "parentDir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "subDir": "matplotlib",
+            "dependencies": []
+        }
+    }
+}

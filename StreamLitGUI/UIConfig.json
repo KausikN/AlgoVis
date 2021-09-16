@@ -1,0 +1,10 @@
+{
+    "PROJECT_NAME": "AlgoVis",
+    "PROJECT_LINK": "https://github.com/KausikN/AlgoVis",
+
+    "PROJECT_DESC": "A python visualiser for various Algorithms",
+
+    "PROJECT_README": "README.md",
+
+    "PROJECT_MODES": ["Sort Algorithms", "Search Algorithms", "Maze Algorithms"]
+}

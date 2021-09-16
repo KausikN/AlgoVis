@@ -8,12 +8,18 @@ import numpy as np
 from Libraries import PlotAnimateLibrary as PAL
 
 # Main Functions
+# Generate Array Functions
+def GenerateArray_Random(size):
+    inputArr = np.arange(size)
+    np.random.shuffle(inputArr)
+    return inputArr
+
 # Visualiser Functions
 def SortVis_PlotGIF(SortFunc, inputArr, savePath="AlgoVis/GeneratedVisualisations/SortVis_Trace.gif", duration=2.0):
-    print("Input Array:", inputArr)
+    # print("Input Array:", inputArr)
     sortedArr, trace = SortFunc(inputArr)
-    print("Swaps:", len(trace))
-    print("Sorted Array:", sortedArr)
+    # print("Swaps:", len(trace))
+    # print("Sorted Array:", sortedArr)
     
     PlotIs = PAL.ListOrderPlot_Bar(trace)
 
@@ -21,6 +27,8 @@ def SortVis_PlotGIF(SortFunc, inputArr, savePath="AlgoVis/GeneratedVisualisation
     PlotIs = [PlotIs[0]] * padding + PlotIs + [PlotIs[-1]] * padding
 
     PAL.SaveImages2GIF(PlotIs, savePath, fps=len(PlotIs)/duration)
+
+    return sortedArr, trace
 
 # Sort Functions
 def Sort_InsertionSort(inputArr):
@@ -173,20 +181,27 @@ def Sort_QuickSort(inputArr): # TODO: Fix
 
     return sortedArr, trace
 
+# Main Vars
+SORT_ALGORITHMS = {
+    "Bubble Sort": Sort_BubbleSort,
+    "Insertion Sort": Sort_InsertionSort,
+    "Selection Sort": Sort_SelectionSort,
+    "2-Way Merge Sort": Sort_MergeSort
+}
+
 # Driver Code
-# Params
-SortFunc = Sort_MergeSort
+# # Params
+# SortFunc = Sort_MergeSort
 
-arraySize = 25
+# arraySize = 25
 
-savePath = "AlgoVis/GeneratedVisualisations/SortVis_" + SortFunc.__name__ + ".gif"
-duration = 2.0
-# Params
+# savePath = "AlgoVis/GeneratedVisualisations/SortVis_" + SortFunc.__name__ + ".gif"
+# duration = 2.0
+# # Params
 
-# RunCode
-# Generate Random Array
-inputArr = np.arange(arraySize)
-np.random.shuffle(inputArr)
+# # RunCode
+# # Generate Random Array
+# inputArr = GenerateArray_Random(arraySize)
 
-# Visualise
-SortVis_PlotGIF(SortFunc, inputArr, savePath, duration=duration)
+# # Visualise
+# SortVis_PlotGIF(SortFunc, inputArr, savePath, duration=duration)
