@@ -8,7 +8,7 @@ import streamlit as st
 import json
 import subprocess
 
-import SortingVis
+from Algorithms import SortingVis
 
 # Main Vars
 config = json.load(open('./StreamLitGUI/UIConfig.json', 'r'))
