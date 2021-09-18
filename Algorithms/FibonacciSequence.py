@@ -8,8 +8,8 @@ import functools
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 import numpy as np
-from Libraries import PlotAnimateLibrary as PAL
-from Libraries import SeriesVisualiseLibrary as SVL
+from .Libraries import PlotAnimateLibrary as PAL
+from .Libraries import SeriesVisualiseLibrary as SVL
 
 # Main Functions
 # Algorithm Functions
@@ -85,7 +85,7 @@ iters = 20
 
 # RunCode
 FibonacciFuncStandard = functools.partial(FibonacciFunc, startVal_1=startVal_1, startVal_2=startVal_2)
-trace, iterCount = SVL.Series_ValueConvergeVis(FibonacciFuncStandard, iters, titles=['Iteration', 'Value', "Standard Fibonacci Series for " + str(startVal_1) + "," + str(startVal_2)], annotate=annotate)
+trace, iterCount, I_plot = SVL.Series_ValueConvergeVis(FibonacciFuncStandard, iters, titles=['Iteration', 'Value', "Standard Fibonacci Series for " + str(startVal_1) + "," + str(startVal_2)], annotate=annotate)
 SVL.Series_ValueRun_TurtleCurves(trace, titles=["Standard Fibonacci Series for " + str(startVal_1) + "," + str(startVal_2)])
 
 # Generic Length Fibonacci
@@ -97,7 +97,7 @@ iters = 10
 
 # RunCode
 FibonacciFuncGenericLength = functools.partial(FibonacciFunc, startVals=startVals)
-trace, iterCount = SVL.Series_ValueConvergeVis(FibonacciFuncGenericLength, iters, titles=['Iteration', 'Value', "Generic Length Fibonacci Series for " + ','.join(np.array(startVals).astype(str))], annotate=annotate)
+trace, iterCount, I_plot = SVL.Series_ValueConvergeVis(FibonacciFuncGenericLength, iters, titles=['Iteration', 'Value', "Generic Length Fibonacci Series for " + ','.join(np.array(startVals).astype(str))], annotate=annotate)
 SVL.Series_ValueRun_TurtleCurves(trace, titles=["Generic Length Fibonacci Series for " + ','.join(np.array(startVals).astype(str))])
 
 # Generic Length Fibonacci
@@ -110,5 +110,5 @@ iters = -1
 
 # RunCode
 FibonacciFuncGenericFunc = functools.partial(FibonacciFunc, NextFunc=GenericFunc, startVals=startVals)
-trace, iterCount = SVL.Series_ValueConvergeVis(FibonacciFuncGenericFunc, iters, titles=['Iteration', 'Value', "Generic Function Fibonacci Series for " + ','.join(np.array(startVals).astype(str))], annotate=annotate)
+trace, iterCount, I_plot = SVL.Series_ValueConvergeVis(FibonacciFuncGenericFunc, iters, titles=['Iteration', 'Value', "Generic Function Fibonacci Series for " + ','.join(np.array(startVals).astype(str))], annotate=annotate)
 SVL.Series_ValueRun_TurtleCurves(trace, titles=["Generic Function Fibonacci Series for " + ','.join(np.array(startVals).astype(str))])

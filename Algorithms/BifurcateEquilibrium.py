@@ -8,7 +8,7 @@ import functools
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
-from Libraries import SeriesVisualiseLibrary as SVL
+from .Libraries import SeriesVisualiseLibrary as SVL
 
 # Main Functions
 # Algorithm Functions

@@ -4,11 +4,15 @@ Stream lit GUI for hosting {FEATUREDATA_PROJECT_NAME}
 
 # Imports
 import os
+import cv2
 import streamlit as st
 import json
 import subprocess
+import functools
 
 from Algorithms import SortingVis
+from Algorithms import RandomGenerator
+from Algorithms import CollatzConjecture
 
 # Main Vars
 config = json.load(open('./StreamLitGUI/UIConfig.json', 'r'))
@@ -41,8 +45,9 @@ def HomePage():
 
 #############################################################################################################################
 # Repo Based Vars
-DEFAULT_SAVEPATH_VIDEO = "StreamLitGUI/DefaultData/Video.avi"
-DEFAULT_SAVEPATH_VIDEO_CONVERTED = "StreamLitGUI/DefaultData/Video_Converted.mp4"
+DEFAULT_SAVEPATH_GIF = "StreamLitGUI/DefaultData/SavedGIF.gif"
+DEFAULT_SAVEPATH_VIDEO = "StreamLitGUI/DefaultData/SavedVideo.avi"
+DEFAULT_SAVEPATH_VIDEO_CONVERTED = "StreamLitGUI/DefaultData/SavedVideo_Converted.mp4"
 DEFAULT_VIDEO_DURATION = 2.0
 
 SortingVis_SORT_FUNCS = SortingVis.SORT_ALGORITHMS
@@ -122,6 +127,71 @@ def sort_algorithms():
         # Display Outputs
         UI_DisplaySortingOutput(array, array_sorted, trace)
 
+def search_algorithms():
+    # Title
+    st.header("Search Algorithms")
+
+    st.markdown("In Developement :stuck_out_tongue_winking_eye:")
+
+def random_generators():
+    # Title
+    st.header("Random Generators")
+
+    # Load Inputs
+    USERINPUT_numRange = st.slider("Select Random Value Range", 1, 100, (1, 5), 1)
+    USERINPUT_nframes = st.number_input("Select Number of Values to Generate", 1, 500, 10, 1)
+    USERINPUT_frameLim = (0, 1)
+    USERINPUT_saveFPS = USERINPUT_nframes / st.number_input("Select Animation Duration", 0.1, 2.5, 1.0, 0.1)
+
+    if st.button("Generate"):
+        # Process Inputs
+        animation = RandomGenerator.RandomGenerator_Vis(USERINPUT_numRange, USERINPUT_frameLim, USERINPUT_nframes, False)
+
+        # Display Outputs
+        st.markdown("## Generated Random Distribution")
+        RandomGenerator.PAL.SavePlotGIF(animation, DEFAULT_SAVEPATH_GIF, USERINPUT_saveFPS)
+        st.image(DEFAULT_SAVEPATH_GIF, "Generated Random Numbers", use_column_width=True)
+
+def collatz_conjecture():
+    # Title
+    st.header("Collatz Conjecture")
+
+    # Load Inputs
+    USERINPUT_Mode = st.selectbox("Select Mode", ["Converge Single Value", "Converge Range of Values"])
+
+    if USERINPUT_Mode == "Converge Single Value":
+        USERINPUT_startVal = st.number_input("Enter Starting Value", 1, 99999, 23, 1)
+        USERINPUT_maxIters = -1
+        annotate = False
+
+        if st.button("Visualise"):
+            # Process Inputs
+            ConvergeFuncSingle = functools.partial(CollatzConjecture.CollatzConjecture_Converge, max_iters=USERINPUT_maxIters)
+            trace, iterCount, I_plot = CollatzConjecture.SVL.Series_ValueConvergeVis(ConvergeFuncSingle, USERINPUT_startVal, titles=['Iteration', 'Value', "Collatz Convergence for " + str(USERINPUT_startVal)], annotate=annotate, plot=False)
+
+            # Display Outputs
+            st.markdown("## Single Value Trace")
+            colSize = (1, 3)
+            col1, col2 = st.columns(colSize)
+            col1.markdown("Number of Iterations")
+            col2.markdown("``` " + str(iterCount) + " ```")
+            st.image(I_plot, "Single Value Trace", use_column_width=True)
+
+    if USERINPUT_Mode == "Converge Range of Values":
+        USERINPUT_startRange = st.number_input("Enter Range Start", 1, 99999, 23, 1)
+        USERINPUT_endRange = st.number_input("Enter Range End", USERINPUT_startRange, 99999, 23, 1)
+        USERINPUT_rangeSkip = st.number_input("Enter Range Skip", 1, int((USERINPUT_endRange - USERINPUT_startRange)/2), 1, 1)
+        USERINPUT_maxIters = -1
+
+        if st.button("Visualise"):
+            # Process Inputs
+            computeRange = (USERINPUT_startRange, USERINPUT_endRange, USERINPUT_rangeSkip)
+            ConvergeFuncManyValues = functools.partial(CollatzConjecture.CollatzConjecture_Converge, max_iters=USERINPUT_maxIters)
+            traces, iters, I_plot = CollatzConjecture.SVL.Series_RangeConvergeVis(ConvergeFuncManyValues, computeRange, plotSkip=1, titles=['Start Value', 'Convergence Iterations Count', 'Values vs Collatz Convergence Time'], plot=False)
+
+            # Display Outputs
+            st.markdown("## Range Iterations")
+            st.image(I_plot, "Range Iterations", use_column_width=True)
     
 #############################################################################################################################
 # Driver Code

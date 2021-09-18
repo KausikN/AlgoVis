@@ -34,8 +34,9 @@ def SavePlotGIF(animation, savePath, fps=25):
     animation.save(savePath, writer=writer)
 
 # List Visualisations
-def List_PlotVisualise(values, titles=['', '', ''], plotLines=True, plotPoints=True, annotate=False):
+def List_PlotVisualise(values, titles=['', '', ''], plotLines=True, plotPoints=True, annotate=False, plot=True):
     fig, ax = plt.subplots()
+    canvas = FigureCanvasAgg(fig)
     if plotLines:
         ax.plot(list(range(1, len(values)+1)), values)
     if plotPoints:
@@ -50,8 +51,14 @@ def List_PlotVisualise(values, titles=['', '', ''], plotLines=True, plotPoints=T
         if annotate:
             ax.annotate(str(values[i]), (i+1, values[i]))
     # print("Trace:", ' '.join(values_str))
-    
-    plt.show()
+    if plot:
+        plt.show()
+
+    canvas.draw()
+    buf = canvas.buffer_rgba()
+    I_plot = np.asarray(buf)
+
+    return I_plot
 
 def ListProgressionPlot_Vis(values):
     frames = len(values)

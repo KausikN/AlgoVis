@@ -5,7 +5,7 @@ Link: https://www.youtube.com/watch?v=5mFpVDpKX70
 
 # Imports
 import functools
-from Libraries import SeriesVisualiseLibrary as SVL
+from .Libraries import SeriesVisualiseLibrary as SVL
 
 # Main Functions
 # Algorithm Functions
@@ -28,30 +28,30 @@ def CollatzConjecture_Converge(startVal, max_iters=-1):
     return values
 
 # Driver Code
-# Params
-ConvergeFunc = CollatzConjecture_Converge
-# Params
+# # Params
+# ConvergeFunc = CollatzConjecture_Converge
+# # Params
 
-# Converge for a value
-# Params
-startVal = 5798
-max_iters = -1
+# # Converge for a value
+# # Params
+# startVal = 5798
+# max_iters = -1
 
-annotate = False
-# Params
+# annotate = False
+# # Params
 
-# RunCode
-ConvergeFuncSingle = functools.partial(ConvergeFunc, max_iters=max_iters)
-trace, iterCount = SVL.Series_ValueConvergeVis(ConvergeFuncSingle, startVal, titles=['Iteration', 'Value', "Collatz Convergence for " + str(startVal)], annotate=annotate)
-SVL.Series_ValueRun_TurtleCurves(trace, titles=["Collatz Convergence for " + str(startVal)])
+# # RunCode
+# ConvergeFuncSingle = functools.partial(ConvergeFunc, max_iters=max_iters)
+# trace, iterCount, I_plot = SVL.Series_ValueConvergeVis(ConvergeFuncSingle, startVal, titles=['Iteration', 'Value', "Collatz Convergence for " + str(startVal)], annotate=annotate)
+# SVL.Series_ValueRun_TurtleCurves(trace, titles=["Collatz Convergence for " + str(startVal)])
 
-# Converge Over Many Values
-# Params
-computeRange = [10, 100, 1]
-max_iters = -1
-plotSkip = 1
-# Params
+# # Converge Over Many Values
+# # Params
+# computeRange = [10, 100, 1]
+# max_iters = -1
+# plotSkip = 1
+# # Params
 
-# RunCode
-ConvergeFuncManyValues = functools.partial(ConvergeFunc, max_iters=max_iters)
-traces, iters = SVL.Series_RangeConvergeVis(ConvergeFuncManyValues, computeRange, plotSkip=plotSkip, titles=['Start Value', 'Convergence Iterations Count', 'Values vs Collatz Convergence Time'])
+# # RunCode
+# ConvergeFuncManyValues = functools.partial(ConvergeFunc, max_iters=max_iters)
+# traces, iters, I_plot = SVL.Series_RangeConvergeVis(ConvergeFuncManyValues, computeRange, plotSkip=plotSkip, titles=['Start Value', 'Convergence Iterations Count', 'Values vs Collatz Convergence Time'])

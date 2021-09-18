@@ -7,7 +7,7 @@ Dzhanibekov effect Link: https://www.youtube.com/watch?v=1VPfZ_XzisU
 import math
 import functools
 import numpy as np
-from Libraries import Plot3DVisualiseLibrary as P3L
+from .Libraries import Plot3DVisualiseLibrary as P3L
 
 # Main Functions
 def Effect_UpwardSpiral(sP, time, ls=50, r=15, rs=1):

@@ -5,7 +5,7 @@ Digit based Series generation and visualisation
 # Imports
 import functools
 import numpy as np
-from Libraries import SeriesVisualiseLibrary as SVL
+from .Libraries import SeriesVisualiseLibrary as SVL
 
 # Main Functions
 # Converge Functions
@@ -63,7 +63,7 @@ annotate = False
 
 # RunCode
 ConvergeFuncSingle = functools.partial(ConvergeFunc, max_iters=max_iters)
-trace, iterCount = SVL.Series_ValueConvergeVis(ConvergeFuncSingle, startVal, titles=['Iteration', 'Value', "Digit Multiply Convergence for " + str(startVal)], annotate=annotate)
+trace, iterCount, I_plot = SVL.Series_ValueConvergeVis(ConvergeFuncSingle, startVal, titles=['Iteration', 'Value', "Digit Multiply Convergence for " + str(startVal)], annotate=annotate)
 SVL.Series_ValueRun_TurtleCurves(trace, titles=["Digit Multiply Convergence for " + str(startVal)])
 
 # Converge Over Many Values
@@ -75,4 +75,4 @@ plotSkip = 1
 
 # RunCode
 ConvergeFuncManyValues = functools.partial(ConvergeFunc, max_iters=max_iters)
-traces, iters = SVL.Series_RangeConvergeVis(ConvergeFuncManyValues, computeRange, plotSkip=plotSkip, titles=['Start Value', 'Convergence Iterations Count', 'Values vs Digit Multiply Convergence Time'])
+traces, iters, I_plot = SVL.Series_RangeConvergeVis(ConvergeFuncManyValues, computeRange, plotSkip=plotSkip, titles=['Start Value', 'Convergence Iterations Count', 'Values vs Digit Multiply Convergence Time'])

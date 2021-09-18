@@ -6,7 +6,7 @@ Link: https://www.youtube.com/watch?v=FGC5TdIiT9U
 # Imports
 import turtle
 import functools
-from Libraries import SeriesVisualiseLibrary as SVL
+from .Libraries import SeriesVisualiseLibrary as SVL
 
 # Main Functions
 # Algorithm Functions
@@ -84,5 +84,5 @@ annotate = True
 
 # RunCode
 ConvergeFuncSingle = functools.partial(RunFunc, iters=iters)
-trace, iterCount = SVL.Series_ValueConvergeVis(ConvergeFuncSingle, startVal, titles=['Iteration', 'Value', " Recaman Sequence for " + str(startVal)], plotLines=plotLines, plotPoints=plotPoints, annotate=annotate)
+trace, iterCount, I_plot = SVL.Series_ValueConvergeVis(ConvergeFuncSingle, startVal, titles=['Iteration', 'Value', " Recaman Sequence for " + str(startVal)], plotLines=plotLines, plotPoints=plotPoints, annotate=annotate)
 SVL.Series_ValueRun_TurtleCurves(trace, titles=['Recaman Sequence'])

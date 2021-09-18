@@ -8,8 +8,8 @@ import numpy as np
 from tqdm import tqdm
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
-from Libraries import PlotAnimateLibrary as PAL
-from Libraries import TurtleAnimateLibrary as TAL
+from . import PlotAnimateLibrary as PAL
+from . import TurtleAnimateLibrary as TAL
 
 # Main Functions
 # Execution Functions
@@ -36,11 +36,11 @@ def Series_ValueExecute(ConvergeFunc, startVal):
     return trace, len(trace)
 
 # Matplotlib Visualisation Functions
-def Series_ValueConvergeVis(ConvergeFunc, startVal, titles=['values', 'iters', 'Values vs Iters'], plotLines=True, plotPoints=True, annotate=False):
+def Series_ValueConvergeVis(ConvergeFunc, startVal, titles=['values', 'iters', 'Values vs Iters'], plotLines=True, plotPoints=True, annotate=False, plot=True):
     trace, iterCount = Series_ValueExecute(ConvergeFunc, startVal)
-    PAL.List_PlotVisualise(trace, titles=titles, plotLines=plotLines, plotPoints=plotPoints, annotate=annotate)
+    I_plot = PAL.List_PlotVisualise(trace, titles=titles, plotLines=plotLines, plotPoints=plotPoints, annotate=annotate, plot=plot)
 
-    return trace, iterCount
+    return trace, iterCount, I_plot
 
 def Series_GroupConvergeVis(ConvergeFunc, computeValues, plotSkip=1, titles=['values', 'iters', 'Values vs Iters']):
     traces, iters = Series_GroupExecute(ConvergeFunc, computeValues)
@@ -48,11 +48,11 @@ def Series_GroupConvergeVis(ConvergeFunc, computeValues, plotSkip=1, titles=['va
     
     return traces, iters
 
-def Series_RangeConvergeVis(ConvergeFunc, computeRange, plotSkip=1, titles=['values', 'iters', 'Values vs Iters']):
+def Series_RangeConvergeVis(ConvergeFunc, computeRange, plotSkip=1, titles=['values', 'iters', 'Values vs Iters'], plot=True):
     traces, iters = Series_RangeExecute(ConvergeFunc, computeRange)
-    PAL.List_PlotVisualise(iters[::plotSkip], titles=titles)
+    I_plot = PAL.List_PlotVisualise(iters[::plotSkip], titles=titles, plot=plot)
     
-    return traces, iters
+    return traces, iters, I_plot
 
 def Series_GroupSubPlotConvergeVis(ConvergeFunc, computeValues, plotSkip=1, titles=['values', 'iters', 'Values vs Iters']):
     traces, iters = Series_GroupExecute(ConvergeFunc, computeValues)

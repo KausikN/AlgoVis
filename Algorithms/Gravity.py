@@ -7,7 +7,7 @@ Gravity Link: https://www.youtube.com/watch?v=mezkHBPLZ4A
 import math
 import functools
 import numpy as np
-from Libraries import Plot3DVisualiseLibrary as P3L
+from .Libraries import Plot3DVisualiseLibrary as P3L
 
 # Main Functions
 def Effect_Gravity(sP, time, vi=[0, 0, 0], g=9.8):
