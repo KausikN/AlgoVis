@@ -66,23 +66,23 @@ def GenerateCellMatrix_Random(size):
     return cell_matrix
 
 # Driver Code
-# # Params
-# size = (10, 10)
+# Params
+size = (10, 10)
 
 
-# savePath = 'GeneratedVisualisations/GeneratedMaze.png'
+savePath = 'GeneratedVisualisations/GeneratedMaze.png'
 
-# display = True
-# save = False
-# # Params
+display = True
+save = False
+# Params
 
-# # RunCode
-# # Generate Maze
-# cell_matrix = GenerateCellMatrix_Random(size)
+# RunCode
+# Generate Maze
+cell_matrix = GenerateCellMatrix_Random(size)
 
-# # Visualise Maze
-# I_Maze = VisualiseCellMatrix(cell_matrix, display=display)
+# Visualise Maze
+I_Maze = VisualiseCellMatrix(cell_matrix, display=display)
 
-# # Save Maze Image
-# if save:
-#     cv2.imwrite(savePath, I_Maze)
+# Save Maze Image
+if save:
+    cv2.imwrite(savePath, I_Maze)

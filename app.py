@@ -76,15 +76,15 @@ def UI_DisplaySortingOutput(array, array_sorted, trace):
 
     colsize = (1, 3)
     
-    col1, col2 = st.beta_columns(colsize)
+    col1, col2 = st.columns(colsize)
     col1.markdown("Input Array")
     col2.markdown("```python\n" + str(array))
 
-    col1, col2 = st.beta_columns(colsize)
+    col1, col2 = st.columns(colsize)
     col1.markdown("Sorted Array")
     col2.markdown("```python\n" + str(array_sorted))
 
-    col1, col2 = st.beta_columns(colsize)
+    col1, col2 = st.columns(colsize)
     col1.markdown("Number of Swaps")
     col2.markdown("```python\n" + str(len(trace)) + " swaps")
 
