@@ -14,6 +14,19 @@
         "Bifurcate Convergence",
         "Recaman Sequence",
         "Fibonacci Sequence",
-        "Other Convergences"
+        "Other Convergences",
+        "KMeans Clustering"
+    ],
+
+    "SUB_APPS": [
+        "apps_SortingVis",
+        null,
+        "apps_RandomGenerator",
+        "apps_CollatzConjecture",
+        "apps_BifurcateEquilibrium",
+        "apps_RecamanSequence",
+        "apps_FibonacciSequence",
+        null,
+        "apps_KMeansClustering"
     ]
 }

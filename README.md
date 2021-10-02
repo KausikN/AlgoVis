@@ -17,6 +17,11 @@
     - If you want to change to another app, simply click on View Other Projects in top left and choose any other project and load and deploy.
 
 # AlgoVis
+## K-Means Clustering
+   - Visualise K-Means Clustering algorithm over iterations
+   
+   ![KMeans Clustering](GeneratedVisualisations/KMeansClustering_GIF.gif)
+
 ## Random Number Generation
    - Visualise Output Distribution on python's inbuilt Random Function
    
