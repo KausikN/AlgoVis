@@ -1,1 +1,1 @@
-web: sh setup.sh && sudo apt update && sudo apt install ffmpeg && streamlit run app.py
+web: sh setup.sh && streamlit run app.py
