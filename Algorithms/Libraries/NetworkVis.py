@@ -138,7 +138,7 @@ def GenerateNetworkImage(network):
             row.append((pos_x, pos_y))
         NODES_POSITIONS.append(row)
     
-    I = np.ones((IMAGE_SIZE[0], IMAGE_SIZE[1], 4), dtype=int) * IMAGE_COLOR_BG
+    I = np.ones((IMAGE_SIZE[0], IMAGE_SIZE[1], 4), dtype=np.uint8) * IMAGE_COLOR_BG
     
     # Generate Connections
     for layer in range(n_layers - 1):
@@ -152,7 +152,7 @@ def GenerateNetworkImage(network):
                 LINE_THICKNESS = GetRatio(abs(weights[layer][node][next_node]), weight_range) * CONNECTION_MAX_THICKNESS * min(IMAGE_SIZE)
                 LINE_THICKNESS = max(1, int(round(LINE_THICKNESS, 0)))
 
-                I = np.array(cv2.line(I, pos_1, pos_2, LINE_COLOR, LINE_THICKNESS), dtype=int)
+                I = np.array(cv2.line(I, pos_1, pos_2, LINE_COLOR, LINE_THICKNESS), dtype=np.uint8)
 
     # Generate Node Circles
     for layer in range(n_layers):
@@ -166,10 +166,10 @@ def GenerateNetworkImage(network):
             NODE_COLOR = tuple(CombineColors(NODE_COLOR, IMAGE_COLOR_BG))
 
             # Filled Circle
-            I = np.array(cv2.circle(I, pos, NODE_RADIUS, NODE_COLOR, -1), dtype=int)
+            I = np.array(cv2.circle(I, pos, NODE_RADIUS, NODE_COLOR, -1), dtype=np.uint8)
             # Outline Circle
             NODE_OUTLINE = max(1, int(NODE_OUTLINE_THICKNESS * min(IMAGE_SIZE)))
-            I = np.array(cv2.circle(I, pos, NODE_RADIUS, IMAGE_COLOR_FG, NODE_OUTLINE), dtype=int)
+            I = np.array(cv2.circle(I, pos, NODE_RADIUS, IMAGE_COLOR_FG, NODE_OUTLINE), dtype=np.uint8)
 
     return I
 
