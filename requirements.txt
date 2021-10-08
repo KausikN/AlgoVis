@@ -4,5 +4,5 @@ matplotlib
 Pillow
 scikit-learn
 tqdm
-pycopy-colorsys
+# pycopy-colorsys
 turtle
