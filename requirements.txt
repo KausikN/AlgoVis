@@ -5,4 +5,4 @@ Pillow
 scikit-learn
 tqdm
 # pycopy-colorsys
-turtle
+# turtle
