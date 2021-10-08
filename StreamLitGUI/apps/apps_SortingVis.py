@@ -11,6 +11,7 @@ Stream lit GUI for SortingVis
 # import functools
 
 from Algorithms import SortingVis
+from Algorithms.Libraries import VideoUtils
 
 #############################################################################################################################
 # Repo Based Vars
@@ -45,7 +46,7 @@ def UI_DisplaySortingOutput(array, array_sorted, trace):
     col2.markdown("```python\n" + str(len(trace)) + " swaps")
 
     # Display Video
-    FixSavedVideoFile()
+    VideoUtils.FixVideoFile(DEFAULT_SAVEPATH_VIDEO, DEFAULT_SAVEPATH_VIDEO_CONVERTED)
     VideoData = open(DEFAULT_SAVEPATH_VIDEO_CONVERTED, 'rb').read()
     st.video(VideoData)
 

@@ -62,7 +62,7 @@ def kmeans_clustering():
         # print(Results)
         # Save Animation
         KMeansClustering.Animate_KMeansConvergence(Dataset, Results, DEFAULT_SAVEPATH_VIDEO, duration=DEFAULT_VIDEO_DURATION)
-        FixSavedVideoFile()
+        KMeansClustering.VideoUtils.FixVideoFile(DEFAULT_SAVEPATH_VIDEO, DEFAULT_SAVEPATH_VIDEO_CONVERTED)
         # Display Animation Video
         st.video(DEFAULT_SAVEPATH_VIDEO_CONVERTED) 
     

@@ -7,6 +7,8 @@
     "PROJECT_README": "README.md",
 
     "PROJECT_MODES": [
+        "Feed Forward Neural Network",
+        "KMeans Clustering",
         "Sort Algorithms", 
         "Search Algorithms",
         "Random Generators",
@@ -14,11 +16,12 @@
         "Bifurcate Convergence",
         "Recaman Sequence",
         "Fibonacci Sequence",
-        "Other Convergences",
-        "KMeans Clustering"
+        "Other Convergences"
     ],
 
     "SUB_APPS": [
+        "apps_FNN",
+        "apps_KMeansClustering",
         "apps_SortingVis",
         null,
         "apps_RandomGenerator",
@@ -26,7 +29,6 @@
         "apps_BifurcateEquilibrium",
         "apps_RecamanSequence",
         "apps_FibonacciSequence",
-        null,
-        "apps_KMeansClustering"
+        null
     ]
 }

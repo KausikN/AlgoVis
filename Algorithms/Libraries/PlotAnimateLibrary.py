@@ -12,7 +12,6 @@ import cv2
 from PIL import Image
 from tqdm import tqdm
 import colorsys
-from matplotlib.pyplot import cm
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 

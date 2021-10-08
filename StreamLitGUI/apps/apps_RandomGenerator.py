@@ -5,7 +5,7 @@ Stream lit GUI for Random Generator
 # Imports
 # import os
 # import cv2
-import streamlit as st
+# import streamlit as st
 # import json
 # import subprocess
 # import functools
@@ -39,7 +39,7 @@ def UI_RandomFrequencyDistribution():
         # Display Outputs
         st.markdown("## Generated Random Frequency Distribution")
         VideoUtils.SaveFrames2Video(Is, DEFAULT_SAVEPATH_VIDEO, USERINPUT_saveFPS)
-        FixSavedVideoFile()
+        VideoUtils.FixVideoFile(DEFAULT_SAVEPATH_VIDEO, DEFAULT_SAVEPATH_VIDEO_CONVERTED)
         # Display Animation Video
         st.video(DEFAULT_SAVEPATH_VIDEO_CONVERTED)
 
@@ -57,7 +57,7 @@ def UI_Random2DPoints():
         # Display Outputs
         st.markdown("## Generated Random 2D Points")
         VideoUtils.SaveFrames2Video(Is, DEFAULT_SAVEPATH_VIDEO, USERINPUT_saveFPS)
-        FixSavedVideoFile()
+        VideoUtils.FixVideoFile(DEFAULT_SAVEPATH_VIDEO, DEFAULT_SAVEPATH_VIDEO_CONVERTED)
         # Display Animation Video
         st.video(DEFAULT_SAVEPATH_VIDEO_CONVERTED)
 
@@ -76,7 +76,7 @@ def UI_Random3DPoints():
         # Display Outputs
         st.markdown("## Generated Random 3D Points")
         VideoUtils.SaveFrames2Video(Is, DEFAULT_SAVEPATH_VIDEO, USERINPUT_saveFPS)
-        FixSavedVideoFile()
+        VideoUtils.FixVideoFile(DEFAULT_SAVEPATH_VIDEO, DEFAULT_SAVEPATH_VIDEO_CONVERTED)
         # Display Animation Video
         st.video(DEFAULT_SAVEPATH_VIDEO_CONVERTED)
 

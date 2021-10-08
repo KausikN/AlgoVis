@@ -4,7 +4,6 @@ Link: https://www.youtube.com/watch?v=FGC5TdIiT9U
 '''
 
 # Imports
-import turtle
 import functools
 from .Libraries import SeriesVisualiseLibrary as SVL
 

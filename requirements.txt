@@ -1,3 +1,8 @@
 streamlit
 opencv-python-headless
 matplotlib
+Pillow
+scikit-learn
+tqdm
+pycopy-colorsys
+turtle

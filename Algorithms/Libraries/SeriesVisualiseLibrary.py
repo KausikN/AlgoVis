@@ -3,7 +3,6 @@ Digit based Series generation and visualisation
 '''
 
 # Imports
-import turtle
 import numpy as np
 from tqdm import tqdm
 import matplotlib.pyplot as plt

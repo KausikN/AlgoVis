@@ -45,13 +45,74 @@ def PlotLabelledData(Dataset, title='', plot=True):
     for ul in unique_labels:
         X_ul = X[labels == ul]
 
-        # If 3D
         if Dataset['dim'] >= 3:
             ax.scatter3D(X_ul[:, 0], X_ul[:, 1], X_ul[:, 2], label=ul)
         elif Dataset['dim'] == 2:
             ax.scatter(X_ul[:, 0], X_ul[:, 1], label=ul)
         elif Dataset['dim'] == 1:
             ax.scatter(X_ul[:, 0], np.zeros(X_ul.shape), label=ul)
+
+    # Plot Centers
+    if centers.shape[0] > 0:
+        centersParams = {'marker': 'x', 'label': 'Centers', 's': 50, 'c': 'black'}
+        if Dataset['dim'] >= 3:
+            ax.scatter3D(centers[:, 0], centers[:, 1], centers[:, 2], **centersParams)
+        elif Dataset['dim'] == 2:
+            ax.scatter(centers[:, 0], centers[:, 1], **centersParams)
+        elif Dataset['dim'] == 1:
+            ax.scatter(centers[:, 0], np.zeros(centers.shape), **centersParams)
+
+    # plt.legend()
+    plt.title(title)
+
+    canvas.draw()
+    buf = canvas.buffer_rgba()
+    I_plot = cv2.cvtColor(np.asarray(buf), cv2.COLOR_RGBA2RGB)
+    
+    # if plot:
+    #     plt.show()
+    plt.close(fig)
+
+    return I_plot
+
+def PlotUnlabelledData(Dataset, title='', lines=True, plot=True):
+    '''
+    Plots the datapoints.
+    '''
+    global fig, canvas
+    fig = plt.figure()
+    canvas = FigureCanvasAgg(fig)
+    fig.clear()
+
+    X = Dataset['points']
+    centers = np.array([])
+    if 'centers' in Dataset.keys():
+        centers = Dataset['centers']
+
+    # Init Plot
+    ax = None
+    # If 3D
+    if Dataset['dim'] >= 3:
+        ax = plt.axes(projection='3d')
+    else:
+        ax = plt.axes()
+
+    # Plot the data
+    if Dataset['dim'] >= 3:
+        if not lines:
+            ax.scatter3D(X[:, 0], X[:, 1], X[:, 2])
+        else:
+            ax.plot3D(X[:, 0], X[:, 1], X[:, 2])
+    elif Dataset['dim'] == 2:
+        if not lines:
+            ax.scatter(X[:, 0], X[:, 1])
+        else:
+            ax.plot(X[:, 0], X[:, 1])
+    elif Dataset['dim'] == 1:
+        if not lines:
+            ax.scatter(X[:, 0], np.zeros(X.shape))
+        else:
+            ax.plot(X[:, 0], np.zeros(X.shape))
 
     # Plot Centers
     if centers.shape[0] > 0:
@@ -93,6 +154,29 @@ def GenerateRandomBlobs(N, dim, centers, plot=False):
     # Plot the dataset
     if plot:
         PlotLabelledData(Dataset, title='Random Blobs')
+
+    return Dataset
+
+def GeneratePolynomialDistributionData(N, x_dim, y_dim, valRange=[-1.0, 1.0]):
+    '''
+    Generates a dataset of Xs with Y = poly(X).
+    '''
+    # Init Dataset
+    Dataset = {}
+    # Generate random dataset
+    X = np.random.uniform(valRange[0], valRange[1], (N, x_dim))
+
+    Ys = []
+    for i in range(y_dim):
+        randomPolyDegree = np.random.randint(-5, 6)
+        randomCoeffs = np.random.uniform(-1.0, 1.0, (x_dim + 1))
+        Y = np.sum(randomCoeffs[1:] * (X**randomPolyDegree), axis=-1) + randomCoeffs[0]
+        Ys.append(Y)
+    Ys = np.dstack(Ys)[0]
+    Dataset['X'] = np.array(X)
+    Dataset['Y'] = np.array(Ys)
+    Dataset['X_dim'] = x_dim
+    Dataset['Y_dim'] = y_dim
 
     return Dataset
 

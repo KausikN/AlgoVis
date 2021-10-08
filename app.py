@@ -54,7 +54,7 @@ DEFAULT_SAVEPATH_VIDEO_CONVERTED = "StreamLitGUI/DefaultData/SavedVideo_Converte
 DEFAULT_VIDEO_DURATION = 2.0
 
 # Util Vars
-COMMAND_VIDEO_CONVERT = 'ffmpeg -i \"{path_in}\" -vcodec libx264 \"{path_out}\"'
+
 
 # Util Functions
 def RunSubApp(path):
@@ -76,15 +76,6 @@ def GetFunctionsByPrefixName(module, prefixName):
 
 def GetNames(data):
     return [x['name'] for x in data.keys()]
-
-def FixSavedVideoFile():
-    if os.path.exists(DEFAULT_SAVEPATH_VIDEO_CONVERTED):
-        os.remove(DEFAULT_SAVEPATH_VIDEO_CONVERTED)
-
-    convert_cmd = COMMAND_VIDEO_CONVERT.format(path_in=DEFAULT_SAVEPATH_VIDEO, path_out=DEFAULT_SAVEPATH_VIDEO_CONVERTED)
-    print("Running Conversion Command:")
-    print(convert_cmd + "\n")
-    ConvertOutput = subprocess.getoutput(convert_cmd)
 
 # Main Functions
 
