@@ -1,6 +1,6 @@
 streamlit
 # opencv-python-headless
-opencv-python
+opencv-python-headless==4.2.0.32
 matplotlib
 Pillow
 scikit-learn
