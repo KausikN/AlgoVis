@@ -12,10 +12,16 @@ import functools
 
 # Main Vars
 config = json.load(open('./StreamLitGUI/UIConfig.json', 'r'))
+config_subapp = {}
 
 # Main Functions
 def main():
     global DEFAULT_VIDEO_DURATION
+    global config
+    global config_subapp
+
+    # Set Project Modes
+    config['PROJECT_MODES'] = [p['APP_NAME'] for p in config['SUB_APPS']]
 
     # Create Sidebar
     selected_box = st.sidebar.selectbox(
@@ -31,10 +37,12 @@ def main():
         HomePage()
     else:
         # Run SubApp
-        RunSubApp(SUB_APPS_PATH + config['SUB_APPS'][config['PROJECT_MODES'].index(selected_box)] + '.py')
-        correspondingFuncName = selected_box.replace(' ', '_').lower()
-        if correspondingFuncName in globals().keys():
-            globals()[correspondingFuncName]()
+        subAppIndex = config['PROJECT_MODES'].index(selected_box)
+        config_subapp = config['SUB_APPS'][subAppIndex]
+        RunSubApp(SUB_APPS_PATH + config['SUB_APPS'][subAppIndex]['FILE_NAME'] + '.py')
+        # correspondingFuncName = selected_box.replace(' ', '_').lower()
+        # if correspondingFuncName in globals().keys():
+        #     globals()[correspondingFuncName]()
  
 
 def HomePage():

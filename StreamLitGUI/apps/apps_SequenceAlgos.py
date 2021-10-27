@@ -1,5 +1,5 @@
 """
-Stream lit GUI for Collatz Conjecture
+Stream lit GUI for Sequence Algorithms
 """
 
 # Imports
@@ -10,7 +10,24 @@ Stream lit GUI for Collatz Conjecture
 # import subprocess
 # import functools
 
-from Algorithms import CollatzConjecture
+from Algorithms.SequenceAlgos import CollatzConjecture
+
+# Main Functions
+def main_SequenceAlgos():
+    SUBAPP_MODES = config_subapp["ALGORITHMS"]
+
+    # Create Sidebar
+    selected_box = st.sidebar.selectbox(
+    'Choose Sequence Algorithm',
+        tuple(
+            SUBAPP_MODES
+        )
+    )
+
+    # Add Functions
+    correspondingFuncName = selected_box.replace(' ', '_').lower()
+    if correspondingFuncName in globals().keys():
+        globals()[correspondingFuncName]()
 
 #############################################################################################################################
 # Repo Based Vars
@@ -72,3 +89,4 @@ def collatz_conjecture():
     
 #############################################################################################################################
 # Driver Code
+main_SequenceAlgos()

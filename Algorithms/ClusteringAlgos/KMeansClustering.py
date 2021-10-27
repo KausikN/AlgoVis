@@ -10,8 +10,8 @@ from tqdm import tqdm
 
 from sklearn.cluster import KMeans
 
-from .Libraries import DatasetGenerators
-from .Libraries import VideoUtils
+from .._Libraries import DatasetGenerators
+from .._Libraries import VideoUtils
 
 # Main Functions
 # Evaluation and Visualization

@@ -1,5 +1,5 @@
 """
-Stream lit GUI for KMeans Clustering
+Stream lit GUI for Clustering Algorithms
 """
 
 # Imports
@@ -10,7 +10,24 @@ Stream lit GUI for KMeans Clustering
 # import subprocess
 # import functools
 
-from Algorithms import KMeansClustering
+from Algorithms.ClusteringAlgos import KMeansClustering
+
+# Main Functions
+def main_ClusteringAlgos():
+    SUBAPP_MODES = config_subapp["ALGORITHMS"]
+
+    # Create Sidebar
+    selected_box = st.sidebar.selectbox(
+    'Choose Clustering Algorithm',
+        tuple(
+            SUBAPP_MODES
+        )
+    )
+
+    # Add Functions
+    correspondingFuncName = selected_box.replace(' ', '_').lower()
+    if correspondingFuncName in globals().keys():
+        globals()[correspondingFuncName]()
 
 #############################################################################################################################
 # Repo Based Vars
@@ -68,3 +85,4 @@ def kmeans_clustering():
     
 #############################################################################################################################
 # Driver Code
+main_ClusteringAlgos()

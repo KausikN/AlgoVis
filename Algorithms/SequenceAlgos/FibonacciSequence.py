@@ -6,7 +6,7 @@ Link: https://www.youtube.com/watch?v=SjSHVDfXHQ4
 # Imports
 import functools
 import numpy as np
-from .Libraries import SeriesVisualiseLibrary as SVL
+from .._Libraries import SeriesVisualiseLibrary as SVL
 
 # Main Functions
 # Algorithm Functions

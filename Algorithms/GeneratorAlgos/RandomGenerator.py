@@ -10,7 +10,7 @@ import numpy as np
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 from matplotlib.figure import Figure
 
-from .Libraries import PlotAnimateLibrary as PAL
+from .._Libraries import PlotAnimateLibrary as PAL
 
 # Main Params
 YData = {}

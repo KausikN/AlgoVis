@@ -1,5 +1,5 @@
 """
-Stream lit GUI for SortingVis
+Stream lit GUI for Sort Algorithms
 """
 
 # Imports
@@ -10,8 +10,25 @@ Stream lit GUI for SortingVis
 # import subprocess
 # import functools
 
-from Algorithms import SortingVis
-from Algorithms.Libraries import VideoUtils
+from Algorithms.SortAlgos import SortingVis
+from Algorithms._Libraries import VideoUtils
+
+# Main Functions
+def main_SortAlgos():
+    SUBAPP_MODES = config_subapp["ALGORITHMS"]
+
+    # Create Sidebar
+    selected_box = st.sidebar.selectbox(
+    'Choose Sort Algorithm',
+        tuple(
+            SUBAPP_MODES
+        )
+    )
+
+    # Add Functions
+    correspondingFuncName = selected_box.replace(' ', '_').lower()
+    if correspondingFuncName in globals().keys():
+        globals()[correspondingFuncName]()
 
 #############################################################################################################################
 # Repo Based Vars
@@ -80,3 +97,4 @@ def sort_algorithms():
     
 #############################################################################################################################
 # Driver Code
+main_SortAlgos()

@@ -9,9 +9,9 @@ import functools
 import numpy as np
 from tqdm import tqdm
 
-from .Libraries import VideoUtils
-from .Libraries import NetworkVis
-from .Libraries import DatasetGenerators
+from .._Libraries import VideoUtils
+from .._Libraries import NetworkVis
+from .._Libraries import DatasetGenerators
 from .FunctionsLibrary import LossFunctions
 from .FunctionsLibrary import ActivationFunctions
 

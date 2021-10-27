@@ -5,7 +5,7 @@ Link: https://www.youtube.com/watch?v=FGC5TdIiT9U
 
 # Imports
 import functools
-from .Libraries import SeriesVisualiseLibrary as SVL
+from .._Libraries import SeriesVisualiseLibrary as SVL
 
 # Main Functions
 # Algorithm Functions

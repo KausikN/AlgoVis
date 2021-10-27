@@ -6,29 +6,69 @@
 
     "PROJECT_README": "README.md",
 
-    "PROJECT_MODES": [
-        "Feed Forward Neural Network",
-        "KMeans Clustering",
-        "Sort Algorithms", 
-        "Search Algorithms",
-        "Random Generators",
-        "Collatz Conjecture",
-        "Bifurcate Convergence",
-        "Recaman Sequence",
-        "Fibonacci Sequence",
-        "Other Convergences"
-    ],
-
     "SUB_APPS": [
-        "apps_FNN",
-        "apps_KMeansClustering",
-        "apps_SortingVis",
-        null,
-        "apps_RandomGenerator",
-        "apps_CollatzConjecture",
-        "apps_BifurcateEquilibrium",
-        "apps_RecamanSequence",
-        "apps_FibonacciSequence",
-        null
+        {
+            "APP_NAME": "Neural Networks",
+            "FILE_NAME": "apps_AIAlgos",
+            "ALGORITHMS": [
+                "Feed Forward Neural Network"
+            ]
+        },
+        {
+            "APP_NAME": "Classification Algorithms",
+            "FILE_NAME": "apps_ClassificationAlgos",
+            "ALGORITHMS": [
+                "Linear Regression"
+            ]
+        },
+        {
+            "APP_NAME": "Clustering Algorithms",
+            "FILE_NAME": "apps_ClusteringAlgos",
+            "ALGORITHMS": [
+                "KMeans Clustering"
+            ]
+        },
+        {
+            "APP_NAME": "Sort Algorithms",
+            "FILE_NAME": "apps_SortAlgos",
+            "ALGORITHMS": [
+                "Sort Algorithms"
+            ]
+        },
+        {
+            "APP_NAME": "Search Algorithms",
+            "FILE_NAME": "apps_SearchAlgos",
+            "ALGORITHMS": [
+                
+            ]
+        },
+        {
+            "APP_NAME": "Generator Algorithms",
+            "FILE_NAME": "apps_GeneratorAlgos",
+            "ALGORITHMS": [
+                "Random Generators"
+            ]
+        },
+        {
+            "APP_NAME": "Sequence Algorithms",
+            "FILE_NAME": "apps_SequenceAlgos",
+            "ALGORITHMS": [
+                "Collatz Conjecture"
+            ]
+        },
+        {
+            "APP_NAME": "Equation Algorithms",
+            "FILE_NAME": "apps_EquationAlgos",
+            "ALGORITHMS": [
+                
+            ]
+        },
+        {
+            "APP_NAME": "Other Algorithms",
+            "FILE_NAME": "apps_OtherAlgos",
+            "ALGORITHMS": [
+                
+            ]
+        }
     ]
 }

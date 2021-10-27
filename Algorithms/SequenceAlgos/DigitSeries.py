@@ -5,7 +5,7 @@ Digit based Series generation and visualisation
 # Imports
 import functools
 import numpy as np
-from .Libraries import SeriesVisualiseLibrary as SVL
+from .._Libraries import SeriesVisualiseLibrary as SVL
 
 # Main Functions
 # Converge Functions

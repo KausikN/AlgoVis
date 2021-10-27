@@ -180,6 +180,26 @@ def GeneratePolynomialDistributionData(N, x_dim, y_dim, valRange=[-1.0, 1.0]):
 
     return Dataset
 
+def GeneratePolynomialNoisyData_2D(N, degree, noise_factor=0.5, valRange=[-1.0, 1.0], coeffValRange=[-1.0, 1.0]):
+    '''
+    Generates a dataset of Xs with Y = poly(X) with noise.
+    '''
+    # Init Dataset
+    Dataset = {}
+    # Generate random dataset
+    X = np.random.uniform(valRange[0], valRange[1], N)
+
+    randomCoeffs = np.random.uniform(coeffValRange[0], coeffValRange[1], (degree + 1))
+    Y = np.zeros(N)
+    for i in range(degree+1):
+        Y += randomCoeffs[i] * (X**i) + np.random.normal(0, noise_factor, N)
+
+    Dataset['X'] = np.array(X)
+    Dataset['Y'] = np.array(Y)
+    Dataset['degree'] = degree
+
+    return Dataset
+
 # Driver Code
 # Params
 

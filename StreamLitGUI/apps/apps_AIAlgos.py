@@ -1,5 +1,5 @@
 """
-Stream lit GUI for FNN
+Stream lit GUI for AI Algorithms
 """
 
 # Imports
@@ -10,7 +10,24 @@ Stream lit GUI for FNN
 # import subprocess
 # import functools
 
-from Algorithms import FNN
+from Algorithms.AIAlgos import FNN
+
+# Main Functions
+def main_AIAlgos():
+    SUBAPP_MODES = config_subapp["ALGORITHMS"]
+
+    # Create Sidebar
+    selected_box = st.sidebar.selectbox(
+    'Choose AI Algorithm',
+        tuple(
+            SUBAPP_MODES
+        )
+    )
+
+    # Add Functions
+    correspondingFuncName = selected_box.replace(' ', '_').lower()
+    if correspondingFuncName in globals().keys():
+        globals()[correspondingFuncName]()
 
 #############################################################################################################################
 # Repo Based Vars
@@ -173,3 +190,4 @@ def feed_forward_neural_network():
     
 #############################################################################################################################
 # Driver Code
+main_AIAlgos()

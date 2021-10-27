@@ -5,7 +5,7 @@ Algorithm Visualisation for Sorting Algorithms
 # Imports
 import functools
 import numpy as np
-from .Libraries import PlotAnimateLibrary as PAL
+from .._Libraries import PlotAnimateLibrary as PAL
 
 # Main Functions
 # Generate Array Functions

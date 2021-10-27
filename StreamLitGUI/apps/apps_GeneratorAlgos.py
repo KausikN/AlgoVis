@@ -1,5 +1,5 @@
 """
-Stream lit GUI for Random Generator
+Stream lit GUI for Generator Algorithms
 """
 
 # Imports
@@ -10,8 +10,25 @@ Stream lit GUI for Random Generator
 # import subprocess
 # import functools
 
-from Algorithms import RandomGenerator
-from Algorithms.Libraries import VideoUtils
+from Algorithms.GeneratorAlgos import RandomGenerator
+from Algorithms._Libraries import VideoUtils
+
+# Main Functions
+def main_GeneratorAlgos():
+    SUBAPP_MODES = config_subapp["ALGORITHMS"]
+
+    # Create Sidebar
+    selected_box = st.sidebar.selectbox(
+    'Choose Generator Algorithm',
+        tuple(
+            SUBAPP_MODES
+        )
+    )
+
+    # Add Functions
+    correspondingFuncName = selected_box.replace(' ', '_').lower()
+    if correspondingFuncName in globals().keys():
+        globals()[correspondingFuncName]()
 
 #############################################################################################################################
 # Repo Based Vars
@@ -99,3 +116,4 @@ def random_generators():
     
 #############################################################################################################################
 # Driver Code
+main_GeneratorAlgos()
