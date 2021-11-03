@@ -24,6 +24,7 @@ def Animate_KMeansConvergence(Dataset, Results, savePath, duration=2.0):
     for i in tqdm(range(len(trace))):
         iterData = trace[i]
         Dataset_iter['labels'] = iterData['labels']
+        Dataset_iter['unique_labels'] = np.unique(Dataset_iter['labels'])
         Dataset_iter['centers'] = iterData['centers']
         I_plot = DatasetGenerators.PlotLabelledData(Dataset_iter, title='KMeans Trace Iteration ' + str(iterData['iter']), plot=False)
         Is.append(I_plot)

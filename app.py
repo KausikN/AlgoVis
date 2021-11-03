@@ -5,6 +5,7 @@ Stream lit GUI for hosting AlgoVis
 # Imports
 import os
 import cv2
+import numpy as np
 import streamlit as st
 import json
 import subprocess

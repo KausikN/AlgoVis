@@ -17,7 +17,7 @@ canvas = FigureCanvasAgg(fig)
 
 # Main Functions
 # Plot Functions
-def PlotLabelledData(Dataset, title='', plot=True):
+def PlotLabelledData(Dataset, title='', plot=False):
     '''
     Plots the data with labels.
     '''
@@ -62,20 +62,20 @@ def PlotLabelledData(Dataset, title='', plot=True):
         elif Dataset['dim'] == 1:
             ax.scatter(centers[:, 0], np.zeros(centers.shape), **centersParams)
 
-    # plt.legend()
+    plt.legend()
     plt.title(title)
 
     canvas.draw()
     buf = canvas.buffer_rgba()
     I_plot = cv2.cvtColor(np.asarray(buf), cv2.COLOR_RGBA2RGB)
     
-    # if plot:
-    #     plt.show()
+    if plot:
+        plt.show()
     plt.close(fig)
 
     return I_plot
 
-def PlotUnlabelledData(Dataset, title='', lines=True, plot=True):
+def PlotUnlabelledData(Dataset, title='', lines=True, plot=False):
     '''
     Plots the datapoints.
     '''
@@ -131,8 +131,8 @@ def PlotUnlabelledData(Dataset, title='', lines=True, plot=True):
     buf = canvas.buffer_rgba()
     I_plot = cv2.cvtColor(np.asarray(buf), cv2.COLOR_RGBA2RGB)
     
-    # if plot:
-    #     plt.show()
+    if plot:
+        plt.show()
     plt.close(fig)
 
     return I_plot
@@ -153,7 +153,29 @@ def GenerateRandomBlobs(N, dim, centers, plot=False):
 
     # Plot the dataset
     if plot:
-        PlotLabelledData(Dataset, title='Random Blobs')
+        PlotLabelledData(Dataset, title='Random Blobs', plot=True)
+
+    return Dataset
+
+def GeneratePointsFromImage(I, plot=False):
+    '''
+    Generates a dataset of points from an image.
+    '''
+    # Init Dataset
+    Dataset = {}
+    # Assign binary image
+    I_bin = np.array(I)
+    # Get points
+    points = list(zip(*np.where(I_bin)))
+    points = np.array(points)
+    Dataset['points'] = points
+    Dataset['labels'] = np.zeros(points.shape[0], dtype=int)
+    Dataset['unique_labels'] = np.unique(Dataset['labels'])
+    Dataset['dim'] = 2
+
+    # Plot the dataset
+    if plot:
+        PlotLabelledData(Dataset, title='Image Points', plot=True)
 
     return Dataset
 
@@ -207,3 +229,5 @@ def GeneratePolynomialNoisyData_2D(N, degree, noise_factor=0.5, valRange=[-1.0, 
 
 # RunCode
 # Dataset = GenerateRandomBlobs(N=200, dim=3, centers=None, plot=True)
+# I = cv2.imread("1.PNG")
+# Dataset = GeneratePointsFromImage(I, thresh=0.5, plot=True)
