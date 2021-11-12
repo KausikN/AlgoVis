@@ -41,7 +41,7 @@ def identity(x):
     '''
     Identity Function
     '''
-    return x
+    return np.ones(x.shape)
 
 def softplus(x):
     '''
@@ -63,9 +63,9 @@ def exponential(x):
 
 def linear(x):
     '''
-    Linear Derivative Function
+    Linear Function
     '''
-    return 1
+    return x
 
 # Derivatives Functions
 def sigmoid_deriv(x):
@@ -106,7 +106,7 @@ def identity_deriv(x):
     '''
     Identity Derivative Function
     '''
-    return 1
+    return np.zeros(x.shape)
 
 def softplus_deriv(x):
     '''
@@ -130,7 +130,7 @@ def linear_deriv(x):
     '''
     Linear Derivative Function
     '''
-    return 1
+    return np.ones(x.shape)
 
 # Driver Code
 # Params

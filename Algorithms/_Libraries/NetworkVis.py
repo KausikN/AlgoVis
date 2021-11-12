@@ -24,13 +24,15 @@ def GetRatio(val, valRange):
 
 def CombineColors(col1, col2):
     '''
-    Combines two colors
+    Combines col1 with col2 based on alpha of col1
     '''
     a1 = col1[3]
-    a2 = col2[3]
+    # a2 = col2[3]
+    a2 = 255 - a1
     amuls = [a1 / (a1 + a2), a2 / (a1 + a2)]
     combCol = [(col1[i]*amuls[0] + col2[i]*amuls[1]) for i in range(len(col1)-1)]
     combCol.append(max(a1, a2))
+    # combCol = np.array(combCol, dtype=int)
 
     return combCol
 
@@ -48,6 +50,7 @@ def GenerateRandomNetwork(layer_sizes):
     n_layers = len(layer_sizes)
     nodes = []
     weights = []
+    biases = []
 
     # Generate Nodes
     for layer in range(n_layers):
@@ -59,9 +62,15 @@ def GenerateRandomNetwork(layer_sizes):
         weights_layer = np.random.uniform(RANDOM_WEIGHTS_RANGE[0], RANDOM_WEIGHTS_RANGE[1], (layer_sizes[layer], layer_sizes[layer+1]))
         weights.append(list(weights_layer))
 
+    # Generate Biases
+    for layer in range(n_layers - 1):
+        biases_layer = np.random.uniform(RANDOM_WEIGHTS_RANGE[0], RANDOM_WEIGHTS_RANGE[1], (1, layer_sizes[layer+1]))
+        biases.append(list(biases_layer))
+
     network = {
         'nodes': nodes,
         'weights': weights,
+        'biases': biases,
         'node_range': RANDOM_NODES_RANGE,
         'weight_range': RANDOM_WEIGHTS_RANGE
     }
@@ -75,6 +84,7 @@ def GenerateFullNetwork(layer_sizes):
     n_layers = len(layer_sizes)
     nodes = []
     weights = []
+    biases = []
 
     # Generate Nodes
     for layer in range(n_layers):
@@ -86,9 +96,15 @@ def GenerateFullNetwork(layer_sizes):
         weights_layer = np.ones((layer_sizes[layer], layer_sizes[layer+1]))
         weights.append(list(weights_layer))
 
+    # Generate Biases
+    for layer in range(n_layers - 1):
+        biases_layer = np.ones((1, layer_sizes[layer+1]))
+        biases.append(list(biases_layer))
+
     network = {
         'nodes': nodes,
         'weights': weights,
+        'biases': biases,
         'node_range': [0.0, 1.0],
         'weight_range': [0.0, 1.0]
     }
@@ -99,21 +115,26 @@ def GenerateNetworkImage(network):
     '''
     Generates an image of the network
     '''
+    # print()
+    # print("GEN IMAGE")
+    # print("NODES:", network['nodes'])
+    # print("WEIGHTS", network['weights'])
 
     # Image Params
-    IMAGE_SIZE = (512, 512)
+    IMAGE_SIZE = (1024, 1024)
     IMAGE_PADDING = (0.1, 0.1)
     NODE_PADDING_RATIO = (0.5, 0.25)
 
     IMAGE_COLOR_BG = (0, 0, 0, 255)
     IMAGE_COLOR_FG = (255, 255, 255, 255)
+    NODE_COLOR_BIAS = (0, 0, 255, 255)
     NODE_COLOR_POSITIVE = (0, 255, 0, 255)
     NODE_COLOR_NEGATIVE = (255, 0, 0, 255)
     CONNECTION_COLOR_POSITIVE = (0, 255, 0, 255)
     CONNECTION_COLOR_NEGATIVE = (255, 0, 0, 255)
 
     NODE_OUTLINE_THICKNESS = 0.005
-    CONNECTION_MAX_THICKNESS = 0.005
+    CONNECTION_MAX_THICKNESS = 0.025
 
     # Network Params
     # Get the number of nodes in each layer and number of layers
@@ -121,19 +142,21 @@ def GenerateNetworkImage(network):
     n_layers = network_layer_sizes.shape[0]
     nodes_values = network['nodes']
     weights = network['weights']
+    biases = network['biases']
 
     # Find Node Maximum Allowed Radius
     x_inc = (1 / (n_layers + 1))
-    y_inc = (1 / (np.max(network_layer_sizes) + 1))
+    y_inc = (1 / (np.max(network_layer_sizes) + 1 + 1))
     node_r_x = x_inc * NODE_PADDING_RATIO[0]
-    node_r_y= y_inc * NODE_PADDING_RATIO[1]
+    node_r_y = y_inc * NODE_PADDING_RATIO[1]
     NODE_RADIUS = int(min(node_r_x * IMAGE_SIZE[0], node_r_y * IMAGE_SIZE[1]) / 2)
 
     NODES_POSITIONS = []
     for layer in range(n_layers):
         row = []
         pos_x = (layer + 1) * x_inc
-        for node in range(network_layer_sizes[layer]):
+        biasAdd = 1 if (layer < (n_layers-1)) else 0
+        for node in range(network_layer_sizes[layer] + biasAdd):
             pos_y = (node + 1) * y_inc
             row.append((pos_x, pos_y))
         NODES_POSITIONS.append(row)
@@ -141,6 +164,8 @@ def GenerateNetworkImage(network):
     I = np.ones((IMAGE_SIZE[0], IMAGE_SIZE[1], 4), dtype=np.uint8) * IMAGE_COLOR_BG
     
     # Generate Connections
+    weight_range = [0, np.max(np.abs(network['weight_range']))]
+    # Weights
     for layer in range(n_layers - 1):
         for node in range(network_layer_sizes[layer]):
             for next_node in range(network_layer_sizes[layer + 1]):
@@ -148,10 +173,33 @@ def GenerateNetworkImage(network):
                 pos_2 = tuple([int(NODES_POSITIONS[layer+1][next_node][i] * IMAGE_SIZE[i]) for i in range(len(IMAGE_SIZE))])
                 
                 LINE_COLOR = CONNECTION_COLOR_POSITIVE if weights[layer][node][next_node] > 0 else CONNECTION_COLOR_NEGATIVE
-                weight_range = [0, np.max(np.abs(network['weight_range']))]
-                LINE_THICKNESS = GetRatio(abs(weights[layer][node][next_node]), weight_range) * CONNECTION_MAX_THICKNESS * min(IMAGE_SIZE)
+                
+                wRatio = GetRatio(abs(weights[layer][node][next_node]), weight_range)
+                if wRatio > 1.0:
+                    print(layer, node, next_node, wRatio, weights[layer][node][next_node], weight_range)
+                LINE_THICKNESS = wRatio * CONNECTION_MAX_THICKNESS * min(IMAGE_SIZE)
                 LINE_THICKNESS = max(1, int(round(LINE_THICKNESS, 0)))
+                # print("W:", layer, node, next_node, weights[layer][node][next_node], LINE_COLOR, LINE_THICKNESS)
 
+                if LINE_THICKNESS > 0:
+                    I = np.array(cv2.line(I, pos_1, pos_2, LINE_COLOR, LINE_THICKNESS), dtype=np.uint8)
+
+    # Biases
+    for layer in range(n_layers - 1):
+        for next_node in range(network_layer_sizes[layer+1]):
+            pos_1 = tuple([int(NODES_POSITIONS[layer][network_layer_sizes[layer]][i] * IMAGE_SIZE[i]) for i in range(len(IMAGE_SIZE))])
+            pos_2 = tuple([int(NODES_POSITIONS[layer+1][next_node][i] * IMAGE_SIZE[i]) for i in range(len(IMAGE_SIZE))])
+            
+            LINE_COLOR = CONNECTION_COLOR_POSITIVE if biases[layer][0][next_node] > 0 else CONNECTION_COLOR_NEGATIVE
+
+            bRatio = GetRatio(abs(biases[layer][0][next_node]), weight_range)
+            if bRatio > 1.0:
+                print(layer, next_node, bRatio, biases[layer][0][next_node], weight_range)
+            LINE_THICKNESS = bRatio * CONNECTION_MAX_THICKNESS * min(IMAGE_SIZE)
+            LINE_THICKNESS = max(1, int(round(LINE_THICKNESS, 0)))
+            # print("B:", layer, next_node, biases[layer][0][next_node], LINE_COLOR, LINE_THICKNESS)
+
+            if LINE_THICKNESS > 0:
                 I = np.array(cv2.line(I, pos_1, pos_2, LINE_COLOR, LINE_THICKNESS), dtype=np.uint8)
 
     # Generate Node Circles
@@ -164,12 +212,24 @@ def GenerateNetworkImage(network):
             NODE_ALPHA = GetRatio(nodes_values[layer][node], node_val_range)
             NODE_COLOR[3] = int(NODE_ALPHA * NODE_COLOR[3])
             NODE_COLOR = tuple(CombineColors(NODE_COLOR, IMAGE_COLOR_BG))
+            # NODE_COLOR = tuple(NODE_COLOR)
+            # print("NODE:", layer, node, nodes_values[layer][node], NODE_COLOR)
 
             # Filled Circle
             I = np.array(cv2.circle(I, pos, NODE_RADIUS, NODE_COLOR, -1), dtype=np.uint8)
             # Outline Circle
             NODE_OUTLINE = max(1, int(NODE_OUTLINE_THICKNESS * min(IMAGE_SIZE)))
             I = np.array(cv2.circle(I, pos, NODE_RADIUS, IMAGE_COLOR_FG, NODE_OUTLINE), dtype=np.uint8)
+
+    # Generate Node Circles for Bias Nodes
+    for layer in range(n_layers - 1):
+        pos = tuple([int(NODES_POSITIONS[layer][network_layer_sizes[layer]][i] * IMAGE_SIZE[i]) for i in range(len(IMAGE_SIZE))])
+        NODE_COLOR = tuple(NODE_COLOR_BIAS)
+        # Filled Circle
+        I = np.array(cv2.circle(I, pos, NODE_RADIUS, NODE_COLOR, -1), dtype=np.uint8)
+        # Outline Circle
+        NODE_OUTLINE = max(1, int(NODE_OUTLINE_THICKNESS * min(IMAGE_SIZE)))
+        I = np.array(cv2.circle(I, pos, NODE_RADIUS, IMAGE_COLOR_FG, NODE_OUTLINE), dtype=np.uint8)
 
     return I
 

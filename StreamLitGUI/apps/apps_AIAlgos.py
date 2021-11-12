@@ -131,17 +131,28 @@ def UI_GetNetworkInputs(USERINPUT_DIM_X, USERINPUT_DIM_Y):
     col2.image(I_act_fn, use_column_width=True)
     col3.image(I_act_fn_deriv, use_column_width=True)
 
+    # Output Activation Function
+    col1, col2, col3 = st.columns((1, 1.5, 1.5))
+    USERINPUT_OutputActivationFunc = col1.selectbox("Output Activation Function", list(ACTIVATION_FUNCTIONS.keys()))
+    maxLimit = col1.number_input("Out Act Func Plot Limit", 0.1, 100.0, 1.0, 0.1)
+    I_out_act_fn, I_out_act_fn_deriv = FNN.PlotFunctionAndDerivative(USERINPUT_OutputActivationFunc, 
+        ACTIVATION_FUNCTIONS[USERINPUT_OutputActivationFunc]["func"], ACTIVATION_FUNCTIONS[USERINPUT_OutputActivationFunc]["deriv"], 
+        [-maxLimit, maxLimit], 100
+    )
+    col2.image(I_out_act_fn, use_column_width=True)
+    col3.image(I_out_act_fn_deriv, use_column_width=True)
+
     # Loss Function
     col1, col2, col3 = st.columns((1, 1.5, 1.5))
     USERINPUT_LossFunc = col1.selectbox("Loss Function", list(LOSS_FUNCTIONS.keys()))
-    maxLimit = col1.number_input("Loss Func Plot Limit", 0.1, 100.0, 1.0, 0.1)
-    LossFunc = functools.partial(LOSS_FUNCTIONS[USERINPUT_LossFunc]["func"], t=0.0)
-    LossFuncDeriv = functools.partial(LOSS_FUNCTIONS[USERINPUT_LossFunc]["deriv"], t=0.0)
-    I_loss_fn, I_loss_fn_deriv = FNN.PlotFunctionAndDerivative(USERINPUT_LossFunc, LossFunc, LossFuncDeriv, [-maxLimit, maxLimit], 100)
-    col2.image(I_loss_fn, use_column_width=True)
-    col3.image(I_loss_fn_deriv, use_column_width=True)
+    # maxLimit = col1.number_input("Loss Func Plot Limit", 0.1, 100.0, 1.0, 0.1)
+    # LossFunc = functools.partial(LOSS_FUNCTIONS[USERINPUT_LossFunc]["func"], t=0.0)
+    # LossFuncDeriv = functools.partial(LOSS_FUNCTIONS[USERINPUT_LossFunc]["deriv"], t=0.0)
+    # I_loss_fn, I_loss_fn_deriv = FNN.PlotFunctionAndDerivative(USERINPUT_LossFunc, LossFunc, LossFuncDeriv, [-maxLimit, maxLimit], 100)
+    # col2.image(I_loss_fn, use_column_width=True)
+    # col3.image(I_loss_fn_deriv, use_column_width=True)
 
-    return USERINPUT_NETWORK_SIZES, USERINPUT_ActivationFunc, USERINPUT_LossFunc
+    return USERINPUT_NETWORK_SIZES, USERINPUT_ActivationFunc, USERINPUT_OutputActivationFunc, USERINPUT_LossFunc
 
 # Repo Based Functions
 def feed_forward_neural_network():
@@ -160,7 +171,7 @@ def feed_forward_neural_network():
     USERINPUT_DIM_Y = col3.number_input("Number of Output Data Dimensions", 1, 10, 2, 1)
 
     st.markdown("## Network Inputs")
-    USERINPUT_NETWORK_SIZES, USERINPUT_ActivationFunc, USERINPUT_LossFunc = UI_GetNetworkInputs(USERINPUT_DIM_X, USERINPUT_DIM_Y)
+    USERINPUT_NETWORK_SIZES, USERINPUT_ActivationFunc, USERINPUT_OutputActivationFunc, USERINPUT_LossFunc = UI_GetNetworkInputs(USERINPUT_DIM_X, USERINPUT_DIM_Y)
 
     st.markdown("## Train Inputs")
     USERINPUT_learning_rate = st.number_input("Learning Rate", 0.01, 100.0, 0.3, 0.01)
@@ -172,8 +183,9 @@ def feed_forward_neural_network():
         Dataset = GenerateDataset(USERINPUT_N, USERINPUT_DIM_X, USERINPUT_DIM_Y, [-1, 1])
         # print(Dataset)
         funcs = {
-            "act_fn": ACTIVATION_FUNCTIONS[USERINPUT_ActivationFunc]["func"],
-            "act_fn_deriv": ACTIVATION_FUNCTIONS[USERINPUT_ActivationFunc]["deriv"],
+            "act_fns": 
+                [ACTIVATION_FUNCTIONS[USERINPUT_ActivationFunc]] * (len(USERINPUT_NETWORK_SIZES) - 2)
+                + [ACTIVATION_FUNCTIONS[USERINPUT_OutputActivationFunc]],
             "loss_fn": LOSS_FUNCTIONS[USERINPUT_LossFunc]["func"],
             "loss_fn_deriv": LOSS_FUNCTIONS[USERINPUT_LossFunc]["deriv"]
         }

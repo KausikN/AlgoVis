@@ -80,8 +80,8 @@ def ImageAddText(I, text, textColor=[255, 255, 255]):
     pos = (int(I_size[1]/10), int(I_size[0]/10))
 
     font = cv2.FONT_HERSHEY_SIMPLEX
-    fontScale = 0.5
-    fontThickness = 1
+    fontScale = 0.5 * (np.max(I.shape) / 512)
+    fontThickness = max(1, int(1 * (np.max(I.shape) / 512)))
     paddingScale = 0.01
     padding = [int(I.shape[0] * paddingScale), int(I.shape[1] * paddingScale)]
 

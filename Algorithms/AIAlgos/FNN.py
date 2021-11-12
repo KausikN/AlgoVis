@@ -39,6 +39,16 @@ def GenerateHistoryVideo(history, savePath, duration=2.0):
     print(WsSame)
     print("\n\n")
 
+    print("Bs Diff:")
+    bsSame = []
+    for i in range(len(history["bs"])-1):
+        diffs = []
+        for layer in range(len(history["bs"][i])):
+            diffs.append(np.sum(np.abs(np.array(history["bs"][i][layer]) - np.array(history["bs"][i+1][layer]))))
+        bsSame.append(np.round(np.max(diffs), 2))
+    print(bsSame)
+    print("\n\n")
+
     print("Generating", history["n_iters"], "frames...")
     for i in tqdm(range(history["n_iters"])):
         nodes_vals = []
@@ -51,10 +61,18 @@ def GenerateHistoryVideo(history, savePath, duration=2.0):
             flat_ws = np.array(history["Ws"][i][j]).flatten()
             weights_vals.extend(flat_ws)
         weights_range = [min(weights_vals), max(weights_vals)]
+        biases_vals = []
+        for j in range(len(history["bs"][i])):
+            flat_bs = np.array(history["bs"][i][j]).flatten()
+            biases_vals.extend(flat_bs)
+        biases_range = [min(biases_vals), max(biases_vals)]
+        # print() # TODO HERE #######################################################
+        weights_range = [min(weights_range[0], biases_range[0]), max(weights_vals[1], biases_vals[1])]
 
         network = {
             'nodes': history["nodes"][i],
             'weights': history["Ws"][i],
+            'biases': history["bs"][i],
             'node_range': nodes_range,
             'weight_range': weights_range
         }
@@ -73,7 +91,9 @@ def PlotFunctionAndDerivative(fn_name, fn, fn_deriv, valRange=[0.0, 1.0], N=100)
     Xs = np.linspace(valRange[0], valRange[1], N)
 
     # Function Plot
-    Ys = np.array([fn(X) for X in Xs])
+    # Ys = np.array([fn(X) for X in Xs])
+    Ys = np.array(fn(Xs))
+    print(Xs.shape, Ys.shape)
     Points = np.dstack((Xs, Ys))[0]
     Dataset = {
         "points": Points,
@@ -83,7 +103,8 @@ def PlotFunctionAndDerivative(fn_name, fn, fn_deriv, valRange=[0.0, 1.0], N=100)
     I_fn = DatasetGenerators.PlotUnlabelledData(Dataset, fn_title, lines=True, plot=False)
 
     # Function Derivative Plot
-    Ys_deriv = np.array([fn_deriv(X) for X in Xs])
+    # Ys_deriv = np.array([fn_deriv(X) for X in Xs])
+    Ys_deriv = np.array(fn_deriv(Xs))
     Points_deriv = np.dstack((Xs, Ys_deriv))[0]
     Dataset_deriv = {
         "points": Points_deriv,
@@ -100,8 +121,11 @@ def initialize_parameters(layer_sizes, funcs):
     Ws = []
     bs = []
     for i in range(len(layer_sizes)-1):
-        W = np.random.randn(layer_sizes[i+1], layer_sizes[i])
-        b = 0
+        # W = np.random.randn(layer_sizes[i+1], layer_sizes[i])
+        # b = 0
+        # W = np.random.randn(layer_sizes[i], layer_sizes[i+1])
+        W = np.zeros((layer_sizes[i], layer_sizes[i+1]))
+        b = np.zeros((1, layer_sizes[i+1]))
         Ws.append(W)
         bs.append(b)
 
@@ -110,10 +134,7 @@ def initialize_parameters(layer_sizes, funcs):
         "layer_sizes": layer_sizes,
         "Ws": Ws,
         "bs" : bs,
-        "act_fn": {
-            "func": funcs["act_fn"],
-            "deriv": funcs["act_fn_deriv"]
-        },
+        "act_fns": funcs["act_fns"],
         "loss_fn": {
             "func": funcs["loss_fn"],
             "deriv": funcs["loss_fn_deriv"]
@@ -127,15 +148,15 @@ def forward_prop(X, parameters):
 
     Ws = parameters["Ws"]
     bs = parameters["bs"]
-    act_fn = parameters["act_fn"]["func"]
+    act_fns = parameters["act_fns"]
+
     # Initial a = x
     a = X
     for i in range(len(Ws)):
         # o = W a(previous layer) + b
-        Wa = np.dot(a, Ws[i].T)
-        o = Wa + bs[i]
+        o = np.dot(a, Ws[i]) + bs[i]
         # a = activation(o)
-        a = act_fn(o)
+        a = act_fns[i]["func"](o)
         # Save all activations
         As.append(list(o.flatten()))
 
@@ -146,42 +167,42 @@ def backward_prop(X, y, parameters):
     n_layers = parameters["n_layers"]
     Ws = parameters["Ws"]
     bs = parameters["bs"]
-    act_fn = parameters["act_fn"]["func"]
-    act_fn_deriv = parameters["act_fn"]["deriv"]
+    act_fns = parameters["act_fns"]
     loss_fn_deriv = parameters["loss_fn"]["deriv"]
 
     grads = {}
     
+    # Find final activations
     a = X
     node_values = [np.copy(a)]
-    # Find final activations
     for i in range(len(Ws)):
-        o = np.dot(a, Ws[i].T) + bs[i]
-        a = act_fn(o)
+        o = np.dot(a, Ws[i]) + bs[i]
+        a = act_fns[i]["func"](o)
         node_values.append(np.copy(a))
 
     # Find loss Derivative at output layer
-    grads["dE"] = loss_fn_deriv(a, y)
-    grads["dA"] = act_fn_deriv(a)
-    grads["dO"] = []
-    for i in range(n_layers):
-        grads["dO"].append([])
-    grads["dO"][-1] = grads["dE"] * grads["dA"]
     grads["dW"] = []
     grads["db"] = []
+    grads["dE"] = loss_fn_deriv(a, y)
+    
     # Find grads of nodes by going from last layer to first layer
+    dO = grads["dE"]
     layer_indices = list(reversed(range(n_layers-1)))
     for i in layer_indices:
-        dO = grads["dO"][i+1]
+        # Find dA
+        grads["dA"] = act_fns[i]["deriv"](node_values[i+1])
+        # Find dO
+        dO = dO * grads["dA"]
         # Find dW
-        dW = np.dot(dO.T, node_values[i])
+        # dW = np.dot(dO.T, node_values[i])
+        dW = np.dot(node_values[i].T, dO)
         grads["dW"].insert(0, dW)
         # Find db
-        db = np.sum(bs[i] * dO)
+        # db = np.sum(bs[i] * dO)
+        db = dO
         grads["db"].insert(0, db)
-        # Find dO for ith layer
-        dO_i = np.dot(dO, Ws[i])
-        grads["dO"][i] = act_fn_deriv(node_values[i]) * dO_i
+        # Update dO
+        dO = np.dot(dO, Ws[i].T)
 
     return grads
 
@@ -214,19 +235,21 @@ def model(X, Y, layer_sizes, n_epochs, lr, funcs):
             y = y.reshape(1, y.shape[0])
 
             y_out, As = forward_prop(x, parameters)
-            loss = funcs["loss_fn"](y_out, y)[0]
+            loss = parameters["loss_fn"]["func"](y_out, y)[0]
             grads = backward_prop(x, y, parameters)
             parameters = update_parameters(parameters, grads, lr)
             
             # Record History
             # Convert Ws and bs to lists
-            bs = parameters["bs"]
+            bs = []
             Ws = []
             for W in parameters["Ws"]:
-                W = (W.T).tolist()
+                W = (W).tolist()
                 Ws.append(W)
+            for b in parameters["bs"]:
+                b = (b).tolist()
+                bs.append(b)
 
-            bs = list(bs)
             history["nodes"].append(As)
             history["Ws"].append(Ws)
             history["bs"].append(bs)
@@ -258,8 +281,9 @@ def predict(X, parameters):
 # learning_rate = 0.3
 # n_epochs = 5
 # funcs = {
-#     "act_fn": ActivationFunctions.sigmoid,
-#     "act_fn_deriv": ActivationFunctions.sigmoid_deriv,
+#     "act_fns": [
+#         {"func": ActivationFunctions.sigmoid, "deriv": ActivationFunctions.sigmoid_deriv},
+#     ] * (len(network_layers)+1),
 #     "loss_fn": LossFunctions.categorical_cross_entropy_error,
 #     "loss_fn_deriv": LossFunctions.categorical_cross_entropy_error_deriv
 # }
