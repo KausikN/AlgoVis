@@ -3,6 +3,7 @@ Data Generators
 '''
 
 # Imports
+import json
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
@@ -138,6 +139,7 @@ def PlotUnlabelledData(Dataset, title='', lines=True, plot=False):
     return I_plot
 
 # Generate Functions
+# Points Datasets
 def GenerateRandomBlobs(N, dim, centers, plot=False):
     '''
     Generates a random dataset of 2D points.
@@ -222,12 +224,64 @@ def GeneratePolynomialNoisyData_2D(N, degree, noise_factor=0.5, valRange=[-1.0, 
 
     return Dataset
 
+# Graph Datasets
+def GenerateRandomAdjacencyMatrix(N, prob_edge=0.5, weight_range=[0.1, 1.0], weights_int_only=False, no_self_loops=True, undirected=True):
+    '''
+    Generates a random adjacency matrix.
+    '''
+    # Generate random adjacency matrix
+    Adj = np.random.uniform(low=weight_range[0], high=weight_range[1], size=(N, N))
+    Adj_mask = np.random.uniform(low=0.0, high=1.0, size=(N, N)) > prob_edge
+    Adj[Adj_mask] = np.inf
+    if weights_int_only:
+        Adj = np.round(Adj, decimals=0)
+    if no_self_loops:
+        Adj[np.diag_indices(N)] = np.inf
+    if undirected:
+        for i in range(N):
+            for j in range(N):
+                Adj[i, j] = min(Adj[i, j], Adj[j, i])
+    return Adj
+
+def GenerateJSONDataFromAdjacencyMatrix(Adj):
+    '''
+    Generates jsonData from a adjacency matrix.
+    '''
+    # Generate jsonData
+    AdjData = Adj.tolist()
+    for i in range(len(AdjData)):
+        for j in range(len(AdjData[i])):
+            if AdjData[i][j] == np.inf:
+                AdjData[i][j] = 'inf'
+    jsonData = {"adjacency_matrix": AdjData}
+    jsonData = json.dumps(jsonData, indent=4)
+    return jsonData
+
+def GenerateAdjacencyMatrixFromJSONData(jsonData):
+    '''
+    Generates a adjacency matrix from jsonData.
+    '''
+    # Generate adjacency matrix
+    AdjData = jsonData['adjacency_matrix']
+    for i in range(len(AdjData)):
+        for j in range(len(AdjData[i])):
+            if AdjData[i][j] == 'inf':
+                AdjData[i][j] = np.inf
+    Adj = np.array(AdjData)
+    return Adj
+
+def DirectReturn(data):
+    '''
+    Directly returns the data.
+    '''
+    return data
+
 # Driver Code
 # Params
 
 # Params
 
 # RunCode
-# Dataset = GenerateRandomBlobs(N=200, dim=3, centers=None, plot=True)
-# I = cv2.imread("1.PNG")
-# Dataset = GeneratePointsFromImage(I, thresh=0.5, plot=True)
+# Data = GenerateRandomAdjacencyMatrix(5, prob_edge=0.5, weight_range=[-10, 10], weights_int_only=True)
+# jsonData = GenerateJSONDataFromAdjacencyMatrix(Data)
+# print(jsonData)

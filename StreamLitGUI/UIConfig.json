@@ -36,10 +36,10 @@
             ]
         },
         {
-            "APP_NAME": "Search Algorithms",
-            "FILE_NAME": "apps_SearchAlgos",
+            "APP_NAME": "Graph Algorithms",
+            "FILE_NAME": "apps_GraphAlgos",
             "ALGORITHMS": [
-                
+                "BFS"
             ]
         },
         {
