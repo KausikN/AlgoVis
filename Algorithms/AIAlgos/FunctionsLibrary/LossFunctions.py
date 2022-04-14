@@ -26,9 +26,18 @@ def binary_cross_entropy_error_deriv(y, t):
 def categorical_cross_entropy_error_deriv(y, t):
     return -t / y
 
-# Driver Code
-# Params
-
-# Params
-
-# RunCode
+# Main Vars
+LOSS_FUNCTIONS = {
+    "mean_squared_error": {
+        "func": mean_squared_error,
+        "deriv": mean_squared_error_deriv
+    },
+    "binary_cross_entropy_error": {
+        "func": binary_cross_entropy_error,
+        "deriv": binary_cross_entropy_error_deriv
+    },
+    "categorical_cross_entropy_error": {
+        "func": categorical_cross_entropy_error,
+        "deriv": categorical_cross_entropy_error_deriv
+    }
+}

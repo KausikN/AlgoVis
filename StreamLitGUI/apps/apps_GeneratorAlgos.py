@@ -10,8 +10,7 @@ Stream lit GUI for Generator Algorithms
 # import subprocess
 # import functools
 
-from Algorithms.GeneratorAlgos import RandomGenerator
-from Algorithms._Libraries import VideoUtils
+from Algorithms.GeneratorAlgos.RandomGenerator import *
 
 # Main Functions
 def main_GeneratorAlgos():
@@ -51,7 +50,7 @@ def UI_RandomFrequencyDistribution():
 
     if st.button("Generate"):
         # Process Inputs
-        Is = RandomGenerator.RandomFrequencyDistribution_Vis(USERINPUT_numRange, USERINPUT_nframes, 'Random Frequency Distribution')
+        Is = RandomFrequencyDistribution_Vis(USERINPUT_numRange, USERINPUT_nframes, 'Random Frequency Distribution')
 
         # Display Outputs
         st.markdown("## Generated Random Frequency Distribution")
@@ -69,7 +68,7 @@ def UI_Random2DPoints():
 
     if st.button("Generate"):
         # Process Inputs
-        Is = RandomGenerator.Random2DPointsGenerator_Vis([USERINPUT_pointXBounds, USERINPUT_pointYBounds], USERINPUT_nframes, 'Random 2D Points')
+        Is = Random2DPointsGenerator_Vis([USERINPUT_pointXBounds, USERINPUT_pointYBounds], USERINPUT_nframes, 'Random 2D Points')
 
         # Display Outputs
         st.markdown("## Generated Random 2D Points")
@@ -88,7 +87,7 @@ def UI_Random3DPoints():
 
     if st.button("Generate"):
         # Process Inputs
-        Is = RandomGenerator.Random3DPointsGenerator_Vis([USERINPUT_pointXBounds, USERINPUT_pointYBounds, USERINPUT_pointZBounds], USERINPUT_nframes, 'Random 3D Points')
+        Is = Random3DPointsGenerator_Vis([USERINPUT_pointXBounds, USERINPUT_pointYBounds, USERINPUT_pointZBounds], USERINPUT_nframes, 'Random 3D Points')
 
         # Display Outputs
         st.markdown("## Generated Random 3D Points")

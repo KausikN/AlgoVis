@@ -10,8 +10,7 @@ Stream lit GUI for Sort Algorithms
 # import subprocess
 # import functools
 
-from Algorithms.SortAlgos import SortingVis
-from Algorithms._Libraries import VideoUtils
+from Algorithms.SortAlgos.SortingVis import *
 
 # Main Functions
 def main_SortAlgos():
@@ -32,7 +31,7 @@ def main_SortAlgos():
 
 #############################################################################################################################
 # Repo Based Vars
-SortingVis_SORT_FUNCS = SortingVis.SORT_ALGORITHMS
+
 
 # Util Vars
 
@@ -69,28 +68,30 @@ def UI_DisplaySortingOutput(array, array_sorted, trace):
 
 # Repo Based Functions
 def sort_algorithms():
+    global DEFAULT_VIDEO_DURATION
+
     # Title
     st.header("Sort Algorithms")
 
     # Prereq Loaders
 
     # Load Inputs
-    SORT_FUNCS_NAMES = list(SortingVis_SORT_FUNCS.keys())
+    SORT_FUNCS_NAMES = list(SORT_ALGORITHMS.keys())
     USERINPUT_SortAlgoName = st.selectbox("Select Sort Algorithm", SORT_FUNCS_NAMES)
 
     USERINPUT_ArraySize = st.slider("Select Array Size", 5, 100, 25, 5)
 
-    DEFAULT_VIDEO_DURATION = st.number_input("Select Video Duration", 0.5, 10.0, 2.0, 0.5)
+    # DEFAULT_VIDEO_DURATION = st.number_input("Select Video Duration", 0.5, 10.0, 2.0, 0.5)
 
     # Process Inputs
     if st.button("Visualise"):
-        USERINPUT_SortFunc = SortingVis_SORT_FUNCS[USERINPUT_SortAlgoName]
+        USERINPUT_SortFunc = SORT_ALGORITHMS[USERINPUT_SortAlgoName]
 
         # Generate Array
-        array = SortingVis.GenerateArray_Random(USERINPUT_ArraySize)
+        array = GenerateArray_Random(USERINPUT_ArraySize)
 
         # Visualise Array
-        array_sorted, trace = SortingVis.SortVis_PlotGIF(USERINPUT_SortFunc, array, DEFAULT_SAVEPATH_VIDEO, duration=DEFAULT_VIDEO_DURATION)
+        array_sorted, trace = SortVis_PlotGIF(USERINPUT_SortFunc, array, DEFAULT_SAVEPATH_VIDEO, duration=DEFAULT_VIDEO_DURATION)
         
         # Display Outputs
         UI_DisplaySortingOutput(array, array_sorted, trace)

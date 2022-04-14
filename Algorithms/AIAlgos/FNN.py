@@ -4,16 +4,14 @@ Simple Fully Connected Neural Network
 
 # Imports
 import cv2
-import json
-import functools
 import numpy as np
 from tqdm import tqdm
 
 from .._Libraries import VideoUtils
 from .._Libraries import NetworkVis
 from .._Libraries import DatasetGenerators
-from .FunctionsLibrary import LossFunctions
-from .FunctionsLibrary import ActivationFunctions
+from .FunctionsLibrary.LossFunctions import *
+from .FunctionsLibrary.ActivationFunctions import *
 
 # Utils Functions
 def GenerateHistoryVideo(history, savePath, duration=2.0):
@@ -93,7 +91,6 @@ def PlotFunctionAndDerivative(fn_name, fn, fn_deriv, valRange=[0.0, 1.0], N=100)
     # Function Plot
     # Ys = np.array([fn(X) for X in Xs])
     Ys = np.array(fn(Xs))
-    print(Xs.shape, Ys.shape)
     Points = np.dstack((Xs, Ys))[0]
     Dataset = {
         "points": Points,
@@ -267,42 +264,3 @@ def predict(X, parameters):
     return y_pred >= 0.5
 
 # Driver Code
-# # Params
-# network_layers = [4]
-
-# X = [
-#     [0, 0],
-#     [0, 1],
-#     [1, 0],
-#     [1, 1]
-# ]
-# Y = [[0, 0], [1, 1], [1, 1], [0, 0]]
-
-# learning_rate = 0.3
-# n_epochs = 5
-# funcs = {
-#     "act_fns": [
-#         {"func": ActivationFunctions.sigmoid, "deriv": ActivationFunctions.sigmoid_deriv},
-#     ] * (len(network_layers)+1),
-#     "loss_fn": LossFunctions.categorical_cross_entropy_error,
-#     "loss_fn_deriv": LossFunctions.categorical_cross_entropy_error_deriv
-# }
-
-# savePath = "GeneratedVisualisations/Haha.avi"
-# duration = 1.0
-# # Params
-
-# # RunCode
-# X = np.array(X)
-# Y = np.array(Y)
-# network_layers = [X.shape[1]] + network_layers + [Y.shape[1]]
-
-# # Train Model
-# trained_parameters, history = model(X, Y, network_layers, n_epochs, learning_rate, funcs=funcs)
-
-# # Generate Video
-# tempSavePath = "GeneratedVisualisations/temp.avi"
-# GenerateHistoryVideo(history, tempSavePath, duration)
-
-# # Fix Video
-# VideoUtils.FixVideoFile(tempSavePath, savePath)

@@ -11,7 +11,7 @@ Stream lit GUI for Clustering Algorithms
 # import subprocess
 # import functools
 
-from Algorithms.ClusteringAlgos import KMeansClustering
+from Algorithms.ClusteringAlgos.KMeansClustering import *
 
 # Main Functions
 def main_ClusteringAlgos():
@@ -62,7 +62,7 @@ def UI_PointsDatasetLoad():
 
         DatasetLoader = {
             "name": "Generate Random",
-            "func": KMeansClustering.DatasetGenerators.GenerateRandomBlobs,
+            "func": DatasetGenerators.GenerateRandomBlobs,
             "params": {"N": USERINPUT_N, "dim": USERINPUT_DIM, "centers": USERINPUT_ClusterCount, "plot": False}
         }
 
@@ -88,7 +88,7 @@ def UI_PointsDatasetLoad():
 
         DatasetLoader = {
             "name": "Load Image",
-            "func": KMeansClustering.DatasetGenerators.GeneratePointsFromImage,
+            "func": DatasetGenerators.GeneratePointsFromImage,
             "params": {"I": USERINPUT_Image, "plot": False}
         }
 
@@ -118,11 +118,11 @@ def kmeans_clustering():
         Dataset = DatasetLoader["func"](**DatasetLoader["params"])
         # print(Dataset)
         # Run KMeans
-        Results = KMeansClustering.KMeansClustering(Dataset, USERINPUT_K, USERINPUT_max_iters)
+        Results = KMeansClustering(Dataset, USERINPUT_K, USERINPUT_max_iters)
         # print(Results)
         # Save Animation
-        KMeansClustering.Animate_KMeansConvergence(Dataset, Results, DEFAULT_SAVEPATH_VIDEO, duration=DEFAULT_VIDEO_DURATION)
-        KMeansClustering.VideoUtils.FixVideoFile(DEFAULT_SAVEPATH_VIDEO, DEFAULT_SAVEPATH_VIDEO_CONVERTED)
+        Animate_KMeansConvergence(Dataset, Results, DEFAULT_SAVEPATH_VIDEO, duration=DEFAULT_VIDEO_DURATION)
+        VideoUtils.FixVideoFile(DEFAULT_SAVEPATH_VIDEO, DEFAULT_SAVEPATH_VIDEO_CONVERTED)
         # Display Animation Video
         st.video(DEFAULT_SAVEPATH_VIDEO_CONVERTED) 
     

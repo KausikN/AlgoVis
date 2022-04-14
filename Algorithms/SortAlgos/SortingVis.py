@@ -3,9 +3,9 @@ Algorithm Visualisation for Sorting Algorithms
 '''
 
 # Imports
-import functools
 import numpy as np
 from .._Libraries import PlotAnimateLibrary as PAL
+from .._Libraries import VideoUtils
 
 # Main Functions
 # Generate Array Functions
@@ -190,18 +190,3 @@ SORT_ALGORITHMS = {
 }
 
 # Driver Code
-# # Params
-# SortFunc = Sort_MergeSort
-
-# arraySize = 25
-
-# savePath = "AlgoVis/GeneratedVisualisations/SortVis_" + SortFunc.__name__ + ".gif"
-# duration = 2.0
-# # Params
-
-# # RunCode
-# # Generate Random Array
-# inputArr = GenerateArray_Random(arraySize)
-
-# # Visualise
-# SortVis_PlotGIF(SortFunc, inputArr, savePath, duration=duration)

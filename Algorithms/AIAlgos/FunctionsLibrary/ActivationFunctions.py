@@ -132,9 +132,46 @@ def linear_deriv(x):
     '''
     return np.ones(x.shape)
 
-# Driver Code
-# Params
-
-# Params
-
-# RunCode
+# Main Vars
+ACTIVATION_FUNCS = {
+    "sigmoid": {
+        "func": sigmoid,
+        "deriv": sigmoid_deriv
+    },
+    "tanh": {
+        "func": tanh,
+        "deriv": tanh_deriv
+    },
+    "relu": {
+        "func": relu,
+        "deriv": relu_deriv
+    },
+    "leaky_relu": {
+        "func": leaky_relu,
+        "deriv": leaky_relu_deriv
+    },
+    "softmax": {
+        "func": softmax,
+        "deriv": softmax_deriv
+    },
+    "identity": {
+        "func": identity,
+        "deriv": identity_deriv
+    },
+    "softplus": {
+        "func": softplus,
+        "deriv": softplus_deriv
+    },
+    "softsign": {
+        "func": softsign,
+        "deriv": softsign_deriv
+    },
+    "exponential": {
+        "func": exponential,
+        "deriv": exponential_deriv
+    },
+    "linear": {
+        "func": linear,
+        "deriv": linear_deriv
+    }
+}

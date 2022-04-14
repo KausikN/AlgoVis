@@ -124,8 +124,8 @@ def PlotRegressionCurves(x, y, bs, degrees, title='', curve_pts=1000):
     buf = canvas.buffer_rgba()
     I_plot = cv2.cvtColor(np.asarray(buf), cv2.COLOR_RGBA2RGB)
 
-    plt.close(fig)
-    return I_plot
+    # plt.close(fig)
+    return I_plot, fig
 
 def PlotPredictions(x, y, y_pred, degree, title=''):
     # Setup Plot
@@ -155,8 +155,8 @@ def PlotPredictions(x, y, y_pred, degree, title=''):
     buf = canvas.buffer_rgba()
     I_plot = cv2.cvtColor(np.asarray(buf), cv2.COLOR_RGBA2RGB)
 
-    plt.close(fig)
-    return I_plot
+    # plt.close(fig)
+    return I_plot, fig
 
 def PlotErrors(errors, degrees, title=''):
     # Setup Plot
@@ -177,7 +177,7 @@ def PlotErrors(errors, degrees, title=''):
     buf = canvas.buffer_rgba()
     I_plot = cv2.cvtColor(np.asarray(buf), cv2.COLOR_RGBA2RGB)
 
-    plt.close(fig)
-    return I_plot
+    # plt.close(fig)
+    return I_plot, fig
 
 # Driver Code

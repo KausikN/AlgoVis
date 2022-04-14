@@ -5,14 +5,13 @@ Stream lit GUI for Classifier Algorithms
 # Imports
 # import os
 # import cv2
-import numpy as np
+# import numpy as np
 import streamlit as st
 # import json
 # import subprocess
 # import functools
 
-from Algorithms.ClassificationAlgos import BayesClassifier
-from Algorithms.ClassificationAlgos import LinearRegression
+from Algorithms.ClassificationAlgos.LinearRegression import *
 
 # Main Functions
 def main_ClassificationAlgos():
@@ -68,31 +67,35 @@ def linear_regression():
     # Process Inputs
     if st.button("Visualise"):
         # Generate Dataset
-        Dataset = LinearRegression.DatasetGenerators.GeneratePolynomialNoisyData_2D(
+        Dataset = DatasetGenerators.GeneratePolynomialNoisyData_2D(
             N=USERINPUT_N, degree=USERINPUT_TrueDegree, noise_factor=USERINPUT_NoiseFactor, valRange=[-1.0, 1.0], coeffValRange=[-1.0, 1.0]
         )
 
         # Run Polynomial Regressions
         degrees_coeffs = []
         for i in range(USERINPUT_RegDegrees[0], USERINPUT_RegDegrees[1] + 1):
-            coeffs = LinearRegression.PolynomialRegression(Dataset['X'], Dataset['Y'], i)
+            coeffs = PolynomialRegression(Dataset['X'], Dataset['Y'], i)
             degrees_coeffs.append(coeffs)
         # Find Errors
-        errors = LinearRegression.GetErrors(Dataset['X'], Dataset['Y'], degrees_coeffs)
+        errors = GetErrors(Dataset['X'], Dataset['Y'], degrees_coeffs)
         best_coeffs_index = np.argmin(errors)
 
         # Generate and Display Classification Images
         col1, col2 = st.columns(2)
         col1.markdown("Best Fit Polynomial - Degree " + str(USERINPUT_RegDegrees[0] + best_coeffs_index))
-        col2.markdown("```python\n" + LinearRegression.DisplayPolynomial(degrees_coeffs[best_coeffs_index]))
+        col2.markdown("```python\n" + DisplayPolynomial(degrees_coeffs[best_coeffs_index]))
 
         degrees = np.arange(USERINPUT_RegDegrees[0], USERINPUT_RegDegrees[1] + 1)
-        I_regCurves = LinearRegression.PlotRegressionCurves(Dataset['X'], Dataset['Y'], degrees_coeffs, 
-            degrees=degrees, title='Regression Curves')
-        st.image(I_regCurves, caption="Regression Curves", use_column_width=True)
+        I_regCurves, fig_regCurves = PlotRegressionCurves(
+            Dataset['X'], Dataset['Y'], degrees_coeffs, 
+            degrees=degrees, title='Regression Curves'
+        )
+        # st.image(I_regCurves, caption="Regression Curves", use_column_width=True)
+        st.plotly_chart(fig_regCurves, use_container_width=True)
 
-        I_errors = LinearRegression.PlotErrors(errors, degrees, title='Degrees vs Errors')
-        st.image(I_errors, caption="Degrees vs Errors", use_column_width=True)
+        I_errors, fig_errors = PlotErrors(errors, degrees, title='Degrees vs Errors')
+        # st.image(I_errors, caption="Degrees vs Errors", use_column_width=True)
+        st.plotly_chart(fig_errors, use_container_width=True)
     
 #############################################################################################################################
 # Driver Code

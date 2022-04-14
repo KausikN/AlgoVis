@@ -3,15 +3,14 @@ Stream lit GUI for Graph Algorithms
 """
 
 # Imports
-import os
-import cv2
-import numpy as np
-import streamlit as st
-import json
-import subprocess
-import functools
+# import os
+# import cv2
+# import numpy as np
+# import streamlit as st
+# import json
+# import functools
 
-from Algorithms.GraphAlgos import BFS
+from Algorithms.GraphAlgos.BFS import *
 
 # Main Functions
 def main_ClusteringAlgos():
@@ -59,7 +58,7 @@ def UI_GraphLoad():
             USERINPUT_JSONData = open(GRAPH_DEFAULT_PATH_EXAMPLE, 'rb')
         USERINPUT_JSONData = json.load(USERINPUT_JSONData)
 
-        USERINPUT_AdjMatrix = BFS.DatasetGenerators.GenerateAdjacencyMatrixFromJSONData(USERINPUT_JSONData)
+        USERINPUT_AdjMatrix = DatasetGenerators.GenerateAdjacencyMatrixFromJSONData(USERINPUT_JSONData)
 
     # Genrate Random Graph
     elif USERINPUT_GraphLoadType == GRAPH_LOADTYPES[1]:
@@ -69,10 +68,10 @@ def UI_GraphLoad():
         USERINPUT_WeightRange = col3.slider("Enter Weights Range", -100, 100, (-10, 10), 1)
         USERINPUT_WeightsIntOnly = st.checkbox("Integer Weights Only?")
 
-        USERINPUT_AdjMatrix = BFS.DatasetGenerators.GenerateRandomAdjacencyMatrix(USERINPUT_N, USERINPUT_ProbEdge, USERINPUT_WeightRange, USERINPUT_WeightsIntOnly)
+        USERINPUT_AdjMatrix = DatasetGenerators.GenerateRandomAdjacencyMatrix(USERINPUT_N, USERINPUT_ProbEdge, USERINPUT_WeightRange, USERINPUT_WeightsIntOnly)
 
     # Display Graph
-    USERINPUT_Image, NodesPos = BFS.GraphVis.PlotGraph_AdjacencyMatrix(USERINPUT_AdjMatrix, show_edge_wt=True, plot=False)
+    USERINPUT_Image, NodesPos = GraphVis.PlotGraph_AdjacencyMatrix(USERINPUT_AdjMatrix, show_edge_wt=True, plot=False)
     st.image(USERINPUT_Image, caption="Input Graph", use_column_width=True)
 
     return USERINPUT_AdjMatrix, NodesPos
@@ -97,11 +96,11 @@ def bfs():
     if st.button("Visualise"):
         # print(USERINPUT_AdjMatrix)
         # Run BFS
-        Results = BFS.BFS(USERINPUT_AdjMatrix, USERINPUT_StartNode)
+        Results = BFS(USERINPUT_AdjMatrix, USERINPUT_StartNode)
         # print(Results)
         # Save Animation
-        BFS.Animate_BFS(USERINPUT_AdjMatrix, Results, NodesPos, DEFAULT_SAVEPATH_VIDEO, duration=DEFAULT_VIDEO_DURATION)
-        BFS.VideoUtils.FixVideoFile(DEFAULT_SAVEPATH_VIDEO, DEFAULT_SAVEPATH_VIDEO_CONVERTED)
+        Animate_BFS(USERINPUT_AdjMatrix, Results, NodesPos, DEFAULT_SAVEPATH_VIDEO, duration=DEFAULT_VIDEO_DURATION)
+        VideoUtils.FixVideoFile(DEFAULT_SAVEPATH_VIDEO, DEFAULT_SAVEPATH_VIDEO_CONVERTED)
         # Display Animation Video
         st.video(DEFAULT_SAVEPATH_VIDEO_CONVERTED) 
     

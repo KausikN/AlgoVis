@@ -10,7 +10,7 @@ Stream lit GUI for AI Algorithms
 # import subprocess
 # import functools
 
-from Algorithms.AIAlgos import FNN
+from Algorithms.AIAlgos.FNN import *
 
 # Main Functions
 def main_AIAlgos():
@@ -31,70 +31,10 @@ def main_AIAlgos():
 
 #############################################################################################################################
 # Repo Based Vars
-ACTIVATION_FUNCTIONS = {
-    "sigmoid": {
-        "func": FNN.ActivationFunctions.sigmoid,
-        "deriv": FNN.ActivationFunctions.sigmoid_deriv
-    },
-    "tanh": {
-        "func": FNN.ActivationFunctions.tanh,
-        "deriv": FNN.ActivationFunctions.tanh_deriv
-    },
-    "relu": {
-        "func": FNN.ActivationFunctions.relu,
-        "deriv": FNN.ActivationFunctions.relu_deriv
-    },
-    "leaky_relu": {
-        "func": FNN.ActivationFunctions.leaky_relu,
-        "deriv": FNN.ActivationFunctions.leaky_relu_deriv
-    },
-    "softmax": {
-        "func": FNN.ActivationFunctions.softmax,
-        "deriv": FNN.ActivationFunctions.softmax_deriv
-    },
-    "identity": {
-        "func": FNN.ActivationFunctions.identity,
-        "deriv": FNN.ActivationFunctions.identity_deriv
-    },
-    "softplus": {
-        "func": FNN.ActivationFunctions.softplus,
-        "deriv": FNN.ActivationFunctions.softplus_deriv
-    },
-    "softsign": {
-        "func": FNN.ActivationFunctions.softsign,
-        "deriv": FNN.ActivationFunctions.softsign_deriv
-    },
-    "exponential": {
-        "func": FNN.ActivationFunctions.exponential,
-        "deriv": FNN.ActivationFunctions.exponential_deriv
-    },
-    "linear": {
-        "func": FNN.ActivationFunctions.linear,
-        "deriv": FNN.ActivationFunctions.linear_deriv
-    }
-}
-
-LOSS_FUNCTIONS = {
-    "mean_squared_error": {
-        "func": FNN.LossFunctions.mean_squared_error,
-        "deriv": FNN.LossFunctions.mean_squared_error_deriv
-    },
-    "binary_cross_entropy_error": {
-        "func": FNN.LossFunctions.binary_cross_entropy_error,
-        "deriv": FNN.LossFunctions.binary_cross_entropy_error_deriv
-    },
-    "categorical_cross_entropy_error": {
-        "func": FNN.LossFunctions.categorical_cross_entropy_error,
-        "deriv": FNN.LossFunctions.categorical_cross_entropy_error_deriv
-    }
-}
-
 
 # Util Vars
 
-
 # Util Functions
-
 
 # Main Functions
 def GetNetworkSize(network_size_str):
@@ -105,7 +45,7 @@ def GetNetworkSize(network_size_str):
     return network_size
 
 def GenerateDataset(N, x_dim, y_dim, valRange):
-    Dataset = FNN.DatasetGenerators.GeneratePolynomialDistributionData(N, x_dim, y_dim, valRange)
+    Dataset = DatasetGenerators.GeneratePolynomialDistributionData(N, x_dim, y_dim, valRange)
     return Dataset
 
 # UI Functions
@@ -115,17 +55,17 @@ def UI_GetNetworkInputs(USERINPUT_DIM_X, USERINPUT_DIM_Y):
     USERINPUT_network_size = col1.text_input("Network Size (',' separated sizes of each hidden layer)", "2, 4, 2")
     USERINPUT_NETWORK_SIZES = [USERINPUT_DIM_X] + GetNetworkSize(USERINPUT_network_size) + [USERINPUT_DIM_Y]
     
-    NetworkFull = FNN.NetworkVis.GenerateFullNetwork(USERINPUT_NETWORK_SIZES)
-    I_NetworkFull = FNN.NetworkVis.GenerateNetworkImage(NetworkFull)
+    NetworkFull = NetworkVis.GenerateFullNetwork(USERINPUT_NETWORK_SIZES)
+    I_NetworkFull = NetworkVis.GenerateNetworkImage(NetworkFull)
     col2.image(I_NetworkFull, use_column_width=True)
 
     # Functions
     # Activation Function
     col1, col2, col3 = st.columns((1, 1.5, 1.5))
-    USERINPUT_ActivationFunc = col1.selectbox("Activation Function", list(ACTIVATION_FUNCTIONS.keys()))
+    USERINPUT_ActivationFunc = col1.selectbox("Activation Function", list(ACTIVATION_FUNCS.keys()))
     maxLimit = col1.number_input("Act Func Plot Limit", 0.1, 100.0, 1.0, 0.1)
-    I_act_fn, I_act_fn_deriv = FNN.PlotFunctionAndDerivative(USERINPUT_ActivationFunc, 
-        ACTIVATION_FUNCTIONS[USERINPUT_ActivationFunc]["func"], ACTIVATION_FUNCTIONS[USERINPUT_ActivationFunc]["deriv"], 
+    I_act_fn, I_act_fn_deriv = PlotFunctionAndDerivative(USERINPUT_ActivationFunc, 
+        ACTIVATION_FUNCS[USERINPUT_ActivationFunc]["func"], ACTIVATION_FUNCS[USERINPUT_ActivationFunc]["deriv"], 
         [-maxLimit, maxLimit], 100
     )
     col2.image(I_act_fn, use_column_width=True)
@@ -133,10 +73,10 @@ def UI_GetNetworkInputs(USERINPUT_DIM_X, USERINPUT_DIM_Y):
 
     # Output Activation Function
     col1, col2, col3 = st.columns((1, 1.5, 1.5))
-    USERINPUT_OutputActivationFunc = col1.selectbox("Output Activation Function", list(ACTIVATION_FUNCTIONS.keys()))
+    USERINPUT_OutputActivationFunc = col1.selectbox("Output Activation Function", list(ACTIVATION_FUNCS.keys()))
     maxLimit = col1.number_input("Out Act Func Plot Limit", 0.1, 100.0, 1.0, 0.1)
-    I_out_act_fn, I_out_act_fn_deriv = FNN.PlotFunctionAndDerivative(USERINPUT_OutputActivationFunc, 
-        ACTIVATION_FUNCTIONS[USERINPUT_OutputActivationFunc]["func"], ACTIVATION_FUNCTIONS[USERINPUT_OutputActivationFunc]["deriv"], 
+    I_out_act_fn, I_out_act_fn_deriv = PlotFunctionAndDerivative(USERINPUT_OutputActivationFunc, 
+        ACTIVATION_FUNCS[USERINPUT_OutputActivationFunc]["func"], ACTIVATION_FUNCS[USERINPUT_OutputActivationFunc]["deriv"], 
         [-maxLimit, maxLimit], 100
     )
     col2.image(I_out_act_fn, use_column_width=True)
@@ -148,7 +88,7 @@ def UI_GetNetworkInputs(USERINPUT_DIM_X, USERINPUT_DIM_Y):
     # maxLimit = col1.number_input("Loss Func Plot Limit", 0.1, 100.0, 1.0, 0.1)
     # LossFunc = functools.partial(LOSS_FUNCTIONS[USERINPUT_LossFunc]["func"], t=0.0)
     # LossFuncDeriv = functools.partial(LOSS_FUNCTIONS[USERINPUT_LossFunc]["deriv"], t=0.0)
-    # I_loss_fn, I_loss_fn_deriv = FNN.PlotFunctionAndDerivative(USERINPUT_LossFunc, LossFunc, LossFuncDeriv, [-maxLimit, maxLimit], 100)
+    # I_loss_fn, I_loss_fn_deriv = PlotFunctionAndDerivative(USERINPUT_LossFunc, LossFunc, LossFuncDeriv, [-maxLimit, maxLimit], 100)
     # col2.image(I_loss_fn, use_column_width=True)
     # col3.image(I_loss_fn_deriv, use_column_width=True)
 
@@ -184,19 +124,19 @@ def feed_forward_neural_network():
         # print(Dataset)
         funcs = {
             "act_fns": 
-                [ACTIVATION_FUNCTIONS[USERINPUT_ActivationFunc]] * (len(USERINPUT_NETWORK_SIZES) - 2)
-                + [ACTIVATION_FUNCTIONS[USERINPUT_OutputActivationFunc]],
+                [ACTIVATION_FUNCS[USERINPUT_ActivationFunc]] * (len(USERINPUT_NETWORK_SIZES) - 2)
+                + [ACTIVATION_FUNCS[USERINPUT_OutputActivationFunc]],
             "loss_fn": LOSS_FUNCTIONS[USERINPUT_LossFunc]["func"],
             "loss_fn_deriv": LOSS_FUNCTIONS[USERINPUT_LossFunc]["deriv"]
         }
         # Train FNN
-        trained_parameters, history = FNN.model(Dataset["X"], Dataset["Y"], USERINPUT_NETWORK_SIZES, 
+        trained_parameters, history = model(Dataset["X"], Dataset["Y"], USERINPUT_NETWORK_SIZES, 
             USERINPUT_epochs, USERINPUT_learning_rate, funcs=funcs)
 
         # Generate Video
-        FNN.GenerateHistoryVideo(history, DEFAULT_SAVEPATH_VIDEO, DEFAULT_VIDEO_DURATION)
+        GenerateHistoryVideo(history, DEFAULT_SAVEPATH_VIDEO, DEFAULT_VIDEO_DURATION)
         # Fix Video
-        FNN.VideoUtils.FixVideoFile(DEFAULT_SAVEPATH_VIDEO, DEFAULT_SAVEPATH_VIDEO_CONVERTED)
+        VideoUtils.FixVideoFile(DEFAULT_SAVEPATH_VIDEO, DEFAULT_SAVEPATH_VIDEO_CONVERTED)
         # Display Animation Video
         st.video(DEFAULT_SAVEPATH_VIDEO_CONVERTED)
     

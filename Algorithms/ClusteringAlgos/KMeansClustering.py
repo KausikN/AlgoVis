@@ -102,32 +102,3 @@ def KMeansClustering_Library(Dataset, K, max_iters=300):
     return Results
 
 # Driver Code
-# # Params
-# K = 50
-# max_iters = 100
-
-# N = 2000
-# dim = 2
-# cluster_count = 50
-
-# savePath = 'GeneratedVisualisations/KMeansClustering_1.gif'
-# duration = 2.0
-# # Params
-
-# # RunCode
-# # Generate Random Data
-# Dataset = DatasetGenerators.GenerateRandomBlobs(N=N, dim=dim, centers=cluster_count, plot=False)
-# # Plot Dataset
-# # DatasetGenerators.PlotLabelledData(Dataset, title='Original Dataset')
-
-# # KMeans Clustering
-# Results = KMeansClustering(Dataset, K, max_iters)
-
-# # Plot Clustered Dataset
-# # Dataset_pred = deepcopy(Dataset)
-# # Dataset_pred['labels'] = Results['labels_pred']
-# # Dataset_pred['centers'] = Results['centers_pred']
-# # DatasetGenerators.PlotLabelledData(Dataset_pred, title='KMeans Clustered')
-
-# # Save Animation
-# Animate_KMeansConvergence(Dataset, Results, savePath, duration=duration)

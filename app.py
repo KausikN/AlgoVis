@@ -55,7 +55,7 @@ def HomePage():
 
 #############################################################################################################################
 # Repo Based Vars
-SUB_APPS_PATH = 'StreamLitGUI/apps/'
+SUB_APPS_PATH = "StreamLitGUI/apps/"
 
 DEFAULT_SAVEPATH_GIF = "StreamLitGUI/DefaultData/SavedGIF.gif"
 DEFAULT_SAVEPATH_VIDEO = "StreamLitGUI/DefaultData/SavedVideo.avi"
@@ -72,7 +72,7 @@ def RunSubApp(path):
 
 def RunAllSubApps(dir_path):
     for f in os.listdir(dir_path):
-        if f.endswith('.py'):
+        if f.endswith(".py"):
             # print("Running SubApp: " + f)
             RunSubApp(os.path.join(dir_path, f))
 
@@ -84,7 +84,7 @@ def GetFunctionsByPrefixName(module, prefixName):
     return funcs
 
 def GetNames(data):
-    return [x['name'] for x in data.keys()]
+    return [x["name"] for x in data.keys()]
 
 # Main Functions
 

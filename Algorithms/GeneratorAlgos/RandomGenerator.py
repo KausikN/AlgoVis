@@ -11,6 +11,7 @@ from matplotlib.backends.backend_agg import FigureCanvasAgg
 from matplotlib.figure import Figure
 
 from .._Libraries import PlotAnimateLibrary as PAL
+from .._Libraries import VideoUtils
 
 # Main Params
 YData = {}
@@ -167,16 +168,3 @@ def Random3DPointsGenerator_Vis(valuesBound=[(0, 100), (0, 100), (0, 100)], nfra
     
 
 # Driver Code
-# # Params
-# numRange = (1, 5)
-# nframes = 500
-# frameLim = (0, 1)
-# show = True
-# saveGIF = False
-# savePath = 'GeneratedGIFS/RandomGen_GIF.gif'
-# saveFPS = 25
-
-# # RunCode
-# animation = RandomGenerator_Vis(numRange, frameLim, nframes, show)
-# if saveGIF:
-#     PAL.SavePlotGIF(animation, savePath, saveFPS)
