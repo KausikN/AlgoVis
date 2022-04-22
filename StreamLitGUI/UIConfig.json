@@ -53,7 +53,9 @@
             "APP_NAME": "Sequence Algorithms",
             "FILE_NAME": "apps_SequenceAlgos",
             "ALGORITHMS": [
-                "Collatz Conjecture"
+                "Collatz Conjecture",
+                "Digit Series",
+                "Fibonacci Series"
             ]
         },
         {

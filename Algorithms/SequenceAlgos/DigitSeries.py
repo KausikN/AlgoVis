@@ -48,31 +48,10 @@ def DigitMultiplySeries_Converge(startVal, max_iters=-1):
 
     return values
 
+# Main Vars
+DIGITSERIES_FUNCS = {
+    "Digit Sum Series": DigitSumSeries_Converge,
+    "Digit Multiply Series": DigitMultiplySeries_Converge
+}
+
 # Driver Code
-# Params
-ConvergeFunc = DigitMultiplySeries_Converge
-# Params
-
-# Converge for a value
-# Params
-startVal = 95
-max_iters = -1
-
-annotate = False
-# Params
-
-# RunCode
-ConvergeFuncSingle = functools.partial(ConvergeFunc, max_iters=max_iters)
-trace, iterCount, I_plot = SVL.Series_ValueConvergeVis(ConvergeFuncSingle, startVal, titles=['Iteration', 'Value', "Digit Multiply Convergence for " + str(startVal)], annotate=annotate)
-SVL.Series_ValueRun_TurtleCurves(trace, titles=["Digit Multiply Convergence for " + str(startVal)])
-
-# Converge Over Many Values
-# Params
-computeRange = [10, 100, 1]
-max_iters = -1
-plotSkip = 1
-# Params
-
-# RunCode
-ConvergeFuncManyValues = functools.partial(ConvergeFunc, max_iters=max_iters)
-traces, iters, I_plot = SVL.Series_RangeConvergeVis(ConvergeFuncManyValues, computeRange, plotSkip=plotSkip, titles=['Start Value', 'Convergence Iterations Count', 'Values vs Digit Multiply Convergence Time'])
