@@ -6,7 +6,7 @@ Link:
 # Imports
 import numpy as np
 import matplotlib.pyplot as plt
-from .Libraries import SeriesVisualiseLibrary as SVL
+from .._Libraries import SeriesVisualiseLibrary as SVL
 
 # Main Functions
 # Algorithm Classes

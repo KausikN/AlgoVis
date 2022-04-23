@@ -5,7 +5,7 @@ Stream lit GUI for Sort Algorithms
 # Imports
 # import os
 # import cv2
-# import streamlit as st
+import streamlit as st
 # import json
 # import subprocess
 # import functools
