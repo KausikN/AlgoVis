@@ -55,7 +55,8 @@
             "ALGORITHMS": [
                 "Collatz Conjecture",
                 "Digit Series",
-                "Fibonacci Series"
+                "Fibonacci Series",
+                "Recaman Sequence"
             ]
         },
         {

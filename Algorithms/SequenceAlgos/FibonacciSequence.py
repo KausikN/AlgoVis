@@ -67,7 +67,7 @@ def FibonacciGenericFunc_ReverseGenericLength(curVals, curIter, iters, positiveO
     return curVals, newVal, (newVal <= 0) and (positiveOnly)
 
 # Main Vars
-FIBONACCISERIES_FUNCS = {
+FIBONACCI_FUNCS = {
     "Standard": Fibonacci_Standard,
     "Generic Length": Fibonacci_GenericLength,
     "Add Odd Elements": functools.partial(Fibonacci_GenericFunc, NextFunc=FibonacciGenericFunc_OddAdd),

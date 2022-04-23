@@ -14,6 +14,7 @@ from matplotlib import pyplot as plt
 from Algorithms.SequenceAlgos.CollatzConjecture import *
 from Algorithms.SequenceAlgos.DigitSeries import *
 from Algorithms.SequenceAlgos.FibonacciSequence import *
+from Algorithms.SequenceAlgos.RecamanSequence import RECAMAN_FUNCS
 
 # Main Functions
 def main_SequenceAlgos():
@@ -69,7 +70,7 @@ def UI_DisplayRangeTraces(traces, title=""):
     st.plotly_chart(fig, use_container_width=True)
 
 def UI_SingleValueConvergence(ConvergeFunc, title=""):
-    USERINPUT_startVal = st.number_input("Enter Starting Value", 1, 99999, 23, 1)
+    USERINPUT_startVal = st.number_input("Enter Starting Value", 0, 99999, 23, 1)
     annotate = False
 
     if st.button("Visualise"):
@@ -105,10 +106,11 @@ def collatz_conjecture():
     st.header("Collatz Conjecture")
 
     # Load Inputs
+    USERINPUT_Variant = st.selectbox("Select Variant", list(COLLATZ_FUNCS.keys()))
     USERINPUT_Mode = st.selectbox("Select Mode", ["Converge Single Value", "Converge Range of Values"])
 
     # Process Inputs
-    ConvergeFunc = functools.partial(CollatzConjecture_Converge, max_iters=-1)
+    ConvergeFunc = functools.partial(COLLATZ_FUNCS[USERINPUT_Variant], max_iters=-1)
     if USERINPUT_Mode == "Converge Single Value":
         UI_SingleValueConvergence(ConvergeFunc, "Collatz")
     elif USERINPUT_Mode == "Converge Range of Values":
@@ -119,30 +121,28 @@ def digit_series():
     st.header("Digit Series")
 
     # Load Inputs
-    USERINPUT_Series = st.selectbox("Select Series", list(DIGITSERIES_FUNCS.keys()))
+    USERINPUT_Variant = st.selectbox("Select Series", list(DIGITSERIES_FUNCS.keys()))
     USERINPUT_Mode = st.selectbox("Select Mode", ["Converge Single Value", "Converge Range of Values"])
 
     # Process Inputs
-    USERINPUT_SeriesFunc = DIGITSERIES_FUNCS[USERINPUT_Series]
+    USERINPUT_VariantFunc = DIGITSERIES_FUNCS[USERINPUT_Variant]
     if USERINPUT_Mode == "Converge Single Value":
-        UI_SingleValueConvergence(USERINPUT_SeriesFunc, USERINPUT_Series)
+        UI_SingleValueConvergence(USERINPUT_VariantFunc, USERINPUT_Variant)
     elif USERINPUT_Mode == "Converge Range of Values":
-        UI_RangeConvergence(USERINPUT_SeriesFunc, USERINPUT_Series)
+        UI_RangeConvergence(USERINPUT_VariantFunc, USERINPUT_Variant)
 
 def fibonacci_series():
     # Title
     st.header("Fibonacci Series")
 
     # Load Inputs
-    USERINPUT_Series = st.selectbox("Select Fibonacci Variant", list(FIBONACCISERIES_FUNCS.keys()))
-
-    # Process Inputs
-    USERINPUT_SeriesFunc = FIBONACCISERIES_FUNCS[USERINPUT_Series]
+    USERINPUT_Variant = st.selectbox("Select Fibonacci Variant", list(FIBONACCI_FUNCS.keys()))
     USERINPUT_iters = st.number_input("Enter Iterations", 1, 250, 5, 1)
     USERINPUT_startVals = st.text_input("Enter Starting Values", "1, 1")
     USERINPUT_startVals = ParseListString(USERINPUT_startVals, int)
 
-    ConvergeFunc = functools.partial(USERINPUT_SeriesFunc, startVals=USERINPUT_startVals)
+    # Process Inputs
+    ConvergeFunc = functools.partial(FIBONACCI_FUNCS[USERINPUT_Variant], startVals=USERINPUT_startVals)
     annotate = False
     if st.button("Visualise"):
         # Process Inputs
@@ -155,6 +155,18 @@ def fibonacci_series():
         col1.markdown("Number of Iterations")
         col2.markdown("``` " + str(iterCount) + " ```")
         UI_DisplaySingleTrace(trace, "Fibonacci Series")
+
+def recaman_sequence():
+    # Title
+    st.header("Recaman Sequence")
+
+    # Load Inputs
+    USERINPUT_Variant = st.selectbox("Select Variant", list(RECAMAN_FUNCS.keys()))
+    USERINPUT_iters = st.number_input("Enter Iterations", 1, 250, 10, 1)
+
+    # Process Inputs
+    ConvergeFunc = functools.partial(RECAMAN_FUNCS[USERINPUT_Variant], iters=USERINPUT_iters)
+    UI_SingleValueConvergence(ConvergeFunc, "Recaman Sequence")
     
 #############################################################################################################################
 # Driver Code

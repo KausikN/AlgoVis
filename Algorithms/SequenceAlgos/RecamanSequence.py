@@ -9,7 +9,7 @@ from .._Libraries import SeriesVisualiseLibrary as SVL
 
 # Main Functions
 # Algorithm Functions
-def Recaman_Run(startVal, iters=10, minFill=-1):
+def Recaman_Standard(startVal, iters=10, minFill=-1):
     values = [startVal]
     curVal = startVal
     curStep = 1
@@ -66,22 +66,9 @@ def Recaman_Run(startVal, iters=10, minFill=-1):
 
     return values
 
+# Main Vars
+RECAMAN_FUNCS = {
+    "Standard": Recaman_Standard
+}
+
 # Driver Code
-# Params
-RunFunc = Recaman_Run
-# Params
-
-# Run for a value
-# Params
-startVal = 0
-iters = 100
-
-plotPoints = False
-plotLines = True
-annotate = True
-# Params
-
-# RunCode
-ConvergeFuncSingle = functools.partial(RunFunc, iters=iters)
-trace, iterCount, I_plot = SVL.Series_ValueConvergeVis(ConvergeFuncSingle, startVal, titles=['Iteration', 'Value', " Recaman Sequence for " + str(startVal)], plotLines=plotLines, plotPoints=plotPoints, annotate=annotate)
-SVL.Series_ValueRun_TurtleCurves(trace, titles=['Recaman Sequence'])

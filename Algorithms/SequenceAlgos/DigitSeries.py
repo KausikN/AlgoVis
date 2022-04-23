@@ -9,7 +9,7 @@ from .._Libraries import SeriesVisualiseLibrary as SVL
 
 # Main Functions
 # Converge Functions
-def DigitSumSeries_Converge(startVal, max_iters=-1):
+def DigitSeries_Sum_Converge(startVal, max_iters=-1):
     values = [np.abs(startVal)]
     sign = np.sign(startVal)
     curVal = np.abs(startVal)
@@ -27,7 +27,7 @@ def DigitSumSeries_Converge(startVal, max_iters=-1):
 
     return values
 
-def DigitMultiplySeries_Converge(startVal, max_iters=-1):
+def DigitSeries_Multiply_Converge(startVal, max_iters=-1):
     values = [np.abs(startVal)]
     sign = np.sign(startVal)
     curVal = np.abs(startVal)
@@ -50,8 +50,8 @@ def DigitMultiplySeries_Converge(startVal, max_iters=-1):
 
 # Main Vars
 DIGITSERIES_FUNCS = {
-    "Digit Sum Series": DigitSumSeries_Converge,
-    "Digit Multiply Series": DigitMultiplySeries_Converge
+    "Digit Sum Series": DigitSeries_Sum_Converge,
+    "Digit Multiply Series": DigitSeries_Multiply_Converge
 }
 
 # Driver Code

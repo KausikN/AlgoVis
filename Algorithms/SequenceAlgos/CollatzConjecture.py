@@ -27,4 +27,9 @@ def CollatzConjecture_Converge(startVal, max_iters=-1):
 
     return values
 
+# Main Vars
+COLLATZ_FUNCS = {
+    "Collatz Conjecture": CollatzConjecture_Converge
+}
+
 # Driver Code
