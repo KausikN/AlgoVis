@@ -1,13 +1,13 @@
 {
     "repo_name": "AlgoVis",
     "requirements": [
-        "matplotlib==3.4.3",
-        "networkx==2.6.3",
-        "numpy==1.19.5",
-        "opencv_python==4.5.4.58",
-        "Pillow==9.1.0",
-        "scikit_learn==1.0.2",
-        "streamlit==1.8.0",
-        "tqdm==4.62.3"
+        "streamlit",
+        "matplotlib",
+        "numpy",
+        "opencv_python",
+        "tqdm",
+        "Pillow",
+        "scikit_learn",
+        "networkx"
     ]
 }

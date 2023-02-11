@@ -99,10 +99,10 @@ def bfs():
         Results = BFS(USERINPUT_AdjMatrix, USERINPUT_StartNode)
         # print(Results)
         # Save Animation
-        Animate_BFS(USERINPUT_AdjMatrix, Results, NodesPos, DEFAULT_SAVEPATH_VIDEO, duration=DEFAULT_VIDEO_DURATION)
-        VideoUtils.FixVideoFile(DEFAULT_SAVEPATH_VIDEO, DEFAULT_SAVEPATH_VIDEO_CONVERTED)
+        Animate_BFS(USERINPUT_AdjMatrix, Results, NodesPos, PATHS["default"]["save"]["video"], duration=DEFAULT_VIDEO_DURATION)
+        VideoUtils.FixVideoFile(PATHS["default"]["save"]["video"], PATHS["default"]["save"]["video_converted"])
         # Display Animation Video
-        st.video(DEFAULT_SAVEPATH_VIDEO_CONVERTED) 
+        st.video(PATHS["default"]["save"]["video_converted"]) 
     
 #############################################################################################################################
 # Driver Code

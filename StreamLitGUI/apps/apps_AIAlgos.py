@@ -134,11 +134,11 @@ def feed_forward_neural_network():
             USERINPUT_epochs, USERINPUT_learning_rate, funcs=funcs)
 
         # Generate Video
-        GenerateHistoryVideo(history, DEFAULT_SAVEPATH_VIDEO, DEFAULT_VIDEO_DURATION)
+        GenerateHistoryVideo(history, PATHS["default"]["save"]["video"], DEFAULT_VIDEO_DURATION)
         # Fix Video
-        VideoUtils.FixVideoFile(DEFAULT_SAVEPATH_VIDEO, DEFAULT_SAVEPATH_VIDEO_CONVERTED)
+        VideoUtils.FixVideoFile(PATHS["default"]["save"]["video"], PATHS["default"]["save"]["video_converted"])
         # Display Animation Video
-        st.video(DEFAULT_SAVEPATH_VIDEO_CONVERTED)
+        st.video(PATHS["default"]["save"]["video_converted"])
     
 #############################################################################################################################
 # Driver Code

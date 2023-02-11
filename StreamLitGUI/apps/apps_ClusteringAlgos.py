@@ -121,10 +121,10 @@ def kmeans_clustering():
         Results = KMeansClustering(Dataset, USERINPUT_K, USERINPUT_max_iters)
         # print(Results)
         # Save Animation
-        Animate_KMeansConvergence(Dataset, Results, DEFAULT_SAVEPATH_VIDEO, duration=DEFAULT_VIDEO_DURATION)
-        VideoUtils.FixVideoFile(DEFAULT_SAVEPATH_VIDEO, DEFAULT_SAVEPATH_VIDEO_CONVERTED)
+        Animate_KMeansConvergence(Dataset, Results, PATHS["default"]["save"]["video"], duration=DEFAULT_VIDEO_DURATION)
+        VideoUtils.FixVideoFile(PATHS["default"]["save"]["video"], PATHS["default"]["save"]["video_converted"])
         # Display Animation Video
-        st.video(DEFAULT_SAVEPATH_VIDEO_CONVERTED) 
+        st.video(PATHS["default"]["save"]["video_converted"]) 
     
 #############################################################################################################################
 # Driver Code

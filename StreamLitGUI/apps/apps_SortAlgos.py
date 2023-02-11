@@ -62,8 +62,8 @@ def UI_DisplaySortingOutput(array, array_sorted, trace):
     col2.markdown("```python\n" + str(len(trace)) + " swaps")
 
     # Display Video
-    VideoUtils.FixVideoFile(DEFAULT_SAVEPATH_VIDEO, DEFAULT_SAVEPATH_VIDEO_CONVERTED)
-    VideoData = open(DEFAULT_SAVEPATH_VIDEO_CONVERTED, 'rb').read()
+    VideoUtils.FixVideoFile(PATHS["default"]["save"]["video"], PATHS["default"]["save"]["video_converted"])
+    VideoData = open(PATHS["default"]["save"]["video_converted"], 'rb').read()
     st.video(VideoData)
 
 # Repo Based Functions
@@ -91,7 +91,7 @@ def sort_algorithms():
         array = GenerateArray_Random(USERINPUT_ArraySize)
 
         # Visualise Array
-        array_sorted, trace = SortVis_PlotGIF(USERINPUT_SortFunc, array, DEFAULT_SAVEPATH_VIDEO, duration=DEFAULT_VIDEO_DURATION)
+        array_sorted, trace = SortVis_PlotGIF(USERINPUT_SortFunc, array, PATHS["default"]["save"]["video"], duration=DEFAULT_VIDEO_DURATION)
         
         # Display Outputs
         UI_DisplaySortingOutput(array, array_sorted, trace)

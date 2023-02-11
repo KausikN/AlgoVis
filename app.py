@@ -40,7 +40,7 @@ def main():
         # Run SubApp
         subAppIndex = config['PROJECT_MODES'].index(selected_box)
         config_subapp = config['SUB_APPS'][subAppIndex]
-        RunSubApp(SUB_APPS_PATH + config['SUB_APPS'][subAppIndex]['FILE_NAME'] + '.py')
+        RunSubApp(PATHS["sub_apps"] + config['SUB_APPS'][subAppIndex]['FILE_NAME'] + '.py')
         # correspondingFuncName = selected_box.replace(' ', '_').lower()
         # if correspondingFuncName in globals().keys():
         #     globals()[correspondingFuncName]()
@@ -55,11 +55,16 @@ def HomePage():
 
 #############################################################################################################################
 # Repo Based Vars
-SUB_APPS_PATH = "StreamLitGUI/apps/"
-
-DEFAULT_SAVEPATH_GIF = "StreamLitGUI/DefaultData/SavedGIF.gif"
-DEFAULT_SAVEPATH_VIDEO = "StreamLitGUI/DefaultData/SavedVideo.avi"
-DEFAULT_SAVEPATH_VIDEO_CONVERTED = "StreamLitGUI/DefaultData/SavedVideo_Converted.mp4"
+PATHS = {
+    "sub_apps": "StreamLitGUI/apps/",
+    "default": {
+        "save": {
+            "gif": "StreamLitGUI/DefaultData/SavedGIF.gif",
+            "video": "StreamLitGUI/DefaultData/SavedVideo.avi",
+            "video_converted": "StreamLitGUI/DefaultData/SavedVideo_Converted.mp4"
+        }
+    }
+}
 DEFAULT_VIDEO_DURATION = 2.0
 
 # Util Vars
@@ -94,7 +99,7 @@ def GetNames(data):
 
 # Repo Based Functions
 # # Run All Sub Apps
-# RunAllSubApps(SUB_APPS_PATH)
+# RunAllSubApps(PATHS["sub_apps"])
 
 # Custom Apps
 def search_algorithms():

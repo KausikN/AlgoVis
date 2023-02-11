@@ -54,10 +54,10 @@ def UI_RandomFrequencyDistribution():
 
         # Display Outputs
         st.markdown("## Generated Random Frequency Distribution")
-        VideoUtils.SaveFrames2Video(Is, DEFAULT_SAVEPATH_VIDEO, USERINPUT_saveFPS)
-        VideoUtils.FixVideoFile(DEFAULT_SAVEPATH_VIDEO, DEFAULT_SAVEPATH_VIDEO_CONVERTED)
+        VideoUtils.SaveFrames2Video(Is, PATHS["default"]["save"]["video"], USERINPUT_saveFPS)
+        VideoUtils.FixVideoFile(PATHS["default"]["save"]["video"], PATHS["default"]["save"]["video_converted"])
         # Display Animation Video
-        st.video(DEFAULT_SAVEPATH_VIDEO_CONVERTED)
+        st.video(PATHS["default"]["save"]["video_converted"])
 
 def UI_Random2DPoints():
     col1, col2 = st.columns(2)
@@ -72,10 +72,10 @@ def UI_Random2DPoints():
 
         # Display Outputs
         st.markdown("## Generated Random 2D Points")
-        VideoUtils.SaveFrames2Video(Is, DEFAULT_SAVEPATH_VIDEO, USERINPUT_saveFPS)
-        VideoUtils.FixVideoFile(DEFAULT_SAVEPATH_VIDEO, DEFAULT_SAVEPATH_VIDEO_CONVERTED)
+        VideoUtils.SaveFrames2Video(Is, PATHS["default"]["save"]["video"], USERINPUT_saveFPS)
+        VideoUtils.FixVideoFile(PATHS["default"]["save"]["video"], PATHS["default"]["save"]["video_converted"])
         # Display Animation Video
-        st.video(DEFAULT_SAVEPATH_VIDEO_CONVERTED)
+        st.video(PATHS["default"]["save"]["video_converted"])
 
 def UI_Random3DPoints():
     col1, col2, col3 = st.columns(3)
@@ -91,10 +91,10 @@ def UI_Random3DPoints():
 
         # Display Outputs
         st.markdown("## Generated Random 3D Points")
-        VideoUtils.SaveFrames2Video(Is, DEFAULT_SAVEPATH_VIDEO, USERINPUT_saveFPS)
-        VideoUtils.FixVideoFile(DEFAULT_SAVEPATH_VIDEO, DEFAULT_SAVEPATH_VIDEO_CONVERTED)
+        VideoUtils.SaveFrames2Video(Is, PATHS["default"]["save"]["video"], USERINPUT_saveFPS)
+        VideoUtils.FixVideoFile(PATHS["default"]["save"]["video"], PATHS["default"]["save"]["video_converted"])
         # Display Animation Video
-        st.video(DEFAULT_SAVEPATH_VIDEO_CONVERTED)
+        st.video(PATHS["default"]["save"]["video_converted"])
 
 RANDOMGENERATOR_VISUALISAITON_MAP = {
     "Random Frequency Distribution": UI_RandomFrequencyDistribution,
