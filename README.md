@@ -20,38 +20,38 @@
 ## K-Means Clustering
    - Visualise K-Means Clustering algorithm over iterations
    
-   ![KMeans Clustering](GeneratedVisualisations/KMeansClustering_GIF.gif)
+   ![KMeans Clustering](Data/GeneratedVisualisations/KMeansClustering_GIF.gif)
 
 ## Random Number Generation
    - Visualise Output Distribution on python's inbuilt Random Function
    
-   ![Random Generator](GeneratedVisualisations/RandomGen_GIF.gif)
+   ![Random Generator](Data/GeneratedVisualisations/RandomGen_GIF.gif)
    
 ## Sorting Algorithms Visualiser
    Visualise sorting procedures for various sorting algorithms
 
    - Bubble Sort
    
-   ![Bubble Sort Vis](GeneratedVisualisations/SortVis_Sort_BubbleSort.gif)
+   ![Bubble Sort Vis](Data/GeneratedVisualisations/SortVis_Sort_BubbleSort.gif)
 
    - Insertion Sort
    
-   ![Insertion Sort Vis](GeneratedVisualisations/SortVis_Sort_InsertionSort.gif)
+   ![Insertion Sort Vis](Data/GeneratedVisualisations/SortVis_Sort_InsertionSort.gif)
 
    - Selection Sort
    
-   ![Selection Sort Vis](GeneratedVisualisations/SortVis_Sort_SelectionSort.gif)
+   ![Selection Sort Vis](Data/GeneratedVisualisations/SortVis_Sort_SelectionSort.gif)
 
    - Merge Sort
    
-   ![Merge Sort Vis](GeneratedVisualisations/SortVis_Sort_MergeSort.gif)
+   ![Merge Sort Vis](Data/GeneratedVisualisations/SortVis_Sort_MergeSort.gif)
 
 ## Collatz Conjecture
    - Visualise Collatz Conjecture Convergence
    
-   ![Collatz Conjecture 1](GeneratedVisualisations/CollatzConjecture_ConvergenceSingleValue.png)
-   ![Collatz Conjecture Turtle](GeneratedVisualisations/CollatzConjecture_ConvergenceTurtle.PNG)
-   ![Collatz Conjecture 2](GeneratedVisualisations/CollatzConjecture_ConvergenceItersCount.png)
+   ![Collatz Conjecture 1](Data/GeneratedVisualisations/CollatzConjecture_ConvergenceSingleValue.png)
+   ![Collatz Conjecture Turtle](Data/GeneratedVisualisations/CollatzConjecture_ConvergenceTurtle.PNG)
+   ![Collatz Conjecture 2](Data/GeneratedVisualisations/CollatzConjecture_ConvergenceItersCount.png)
 
    - Video on Collatz Conjecture
    
@@ -60,8 +60,8 @@
 ## Bifurcate Population Convergence
    - Visualise Bifurcate Population Convergence
    
-   ![Bifurcate 1](GeneratedVisualisations/Bifurcation_PopulationConvergence.png)
-   ![Bifurcate 2](GeneratedVisualisations/Bifurcation_BifurcationPlot.png)
+   ![Bifurcate 1](Data/GeneratedVisualisations/Bifurcation_PopulationConvergence.png)
+   ![Bifurcate 2](Data/GeneratedVisualisations/Bifurcation_BifurcationPlot.png)
 
    - Video on Bifurcate Population Conjecture
    
@@ -70,8 +70,8 @@
 ## Recaman Sequence
    - Visualise Recaman Sequence
    
-   ![Recaman Sequence](GeneratedVisualisations/Recaman_Sequence.png)
-   ![Recaman Sequence Turtle](GeneratedVisualisations/Recaman_SequenceTurtle.PNG)
+   ![Recaman Sequence](Data/GeneratedVisualisations/Recaman_Sequence.png)
+   ![Recaman Sequence Turtle](Data/GeneratedVisualisations/Recaman_SequenceTurtle.PNG)
       
    - Video on Recaman Sequence
    
@@ -82,18 +82,18 @@
    
    - Standard Fibonacci Sequence
 
-   ![Standard Fibonacci](GeneratedVisualisations/Fibonacci_Standard.png)
-   ![Standard Fibonacci Turtle](GeneratedVisualisations/Fibonacci_StandardTurtle.PNG)
+   ![Standard Fibonacci](Data/GeneratedVisualisations/Fibonacci_Standard.png)
+   ![Standard Fibonacci Turtle](Data/GeneratedVisualisations/Fibonacci_StandardTurtle.PNG)
 
    - General Length Fibonacci Sequence
 
-   ![General Length Fibonacci](GeneratedVisualisations/Fibonacci_GenericLength.png)
-   ![General Length Fibonacci Turtle](GeneratedVisualisations/Fibonacci_GenericLengthTurtle.PNG)
+   ![General Length Fibonacci](Data/GeneratedVisualisations/Fibonacci_GenericLength.png)
+   ![General Length Fibonacci Turtle](Data/GeneratedVisualisations/Fibonacci_GenericLengthTurtle.PNG)
 
    - Custom Function Fibonacci Sequence - Here used Reverse Fibonacci Function
 
-   ![General Func Fibonacci](GeneratedVisualisations/Fibonacci_GenericFunc.png)
-   ![General Func Fibonacci Turtle](GeneratedVisualisations/Fibonacci_GenericFuncTurtle.PNG)
+   ![General Func Fibonacci](Data/GeneratedVisualisations/Fibonacci_GenericFunc.png)
+   ![General Func Fibonacci Turtle](Data/GeneratedVisualisations/Fibonacci_GenericFuncTurtle.PNG)
 
    - Video on Fibonacci Sequence
    
@@ -102,6 +102,6 @@
 ## Digit Sum and Multiply Convergence
    - Visualise Digit Sum and Multiply Convergence
    
-   ![Digit Multiply 1](GeneratedVisualisations/DigitMultiply_ConvergenceSingleValue.png)
-   ![Digit Multiply Turtle](GeneratedVisualisations/DigitMultiply_ConvergenceTurtle.PNG)
-   ![Digit Multiply 2](GeneratedVisualisations/DigitMultiply_ConvergenceItersCount.png)
+   ![Digit Multiply 1](Data/GeneratedVisualisations/DigitMultiply_ConvergenceSingleValue.png)
+   ![Digit Multiply Turtle](Data/GeneratedVisualisations/DigitMultiply_ConvergenceTurtle.PNG)
+   ![Digit Multiply 2](Data/GeneratedVisualisations/DigitMultiply_ConvergenceItersCount.png)

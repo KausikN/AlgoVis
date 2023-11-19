@@ -42,7 +42,7 @@ rotationSpeed = 0
 plotData = False
 saveData = {
     "save": True,
-    "path":"AlgoVis/GeneratedVisualisations/" + saveName + "_" +
+    "path": "Data/GeneratedVisualisations/" + saveName + "_" +
         ("Uniform" if GeneratorFunc == P3L.GeneratePoints_Uniform else "Random") + ".gif",
     "fps": 30,
     "figSize": [640, 480]

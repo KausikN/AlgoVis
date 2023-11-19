@@ -70,7 +70,7 @@ def GenerateCellMatrix_Random(size):
 size = (10, 10)
 
 
-savePath = "GeneratedVisualisations/GeneratedMaze.png"
+savePath = "Data/GeneratedVisualisations/GeneratedMaze.png"
 
 display = True
 save = False
