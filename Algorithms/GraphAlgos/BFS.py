@@ -1,6 +1,6 @@
-'''
+"""
 Breadth First Search Algorithm
-'''
+"""
 
 # Imports
 import numpy as np
@@ -15,15 +15,15 @@ from .._Libraries import VideoUtils
 # Main Functions
 # Evaluation and Visualization
 def Animate_BFS(AdjMatrix, Results, NodesPos, savePath, duration=2.0):
-    trace = Results['trace']
+    trace = Results["trace"]
 
     # Generate Plot Images
     Is = []
     for i in tqdm(range(len(trace))):
         iterData = trace[i]
-        visited = iterData['visited']
+        visited = iterData["visited"]
         colors = [GraphVis.GetColor(visited[i]) for i in range(len(visited))]
-        I_plot, _ = GraphVis.PlotGraph_AdjacencyMatrix(AdjMatrix, colors, title='BFS Trace Iteration ' + str(iterData['iter']), pos=NodesPos, plot=False)
+        I_plot, _ = GraphVis.PlotGraph_AdjacencyMatrix(AdjMatrix, colors, title="BFS Trace Iteration " + str(iterData["iter"]), pos=NodesPos, plot=False)
         Is.append(I_plot)
 
     # Save Video/GIF
@@ -44,12 +44,12 @@ def BFS(AdjMatrix, source=0):
     Results = {}
     trace = []
     
-    currIter = {'iter': 0, 'visited': deepcopy(visited)}
+    currIter = {"iter": 0, "visited": deepcopy(visited)}
     trace.append(currIter)
 
     visited[source] = 1.0
 
-    currIter = {'iter': 0, 'visited': deepcopy(visited)}
+    currIter = {"iter": 0, "visited": deepcopy(visited)}
     trace.append(currIter)
 
     # BFS
@@ -65,13 +65,13 @@ def BFS(AdjMatrix, source=0):
                 queue.append(v)
                 visited[v] = 0.5
         # Update Trace
-        currIter = {'iter': len(trace), 'visited': deepcopy(visited)}
+        currIter = {"iter": len(trace), "visited": deepcopy(visited)}
         trace.append(currIter)
     
     Results = {}
-    Results['source'] = source
-    Results['visited'] = visited
-    Results['trace'] = trace
+    Results["source"] = source
+    Results["visited"] = visited
+    Results["trace"] = trace
     return Results
 
 # Driver Code

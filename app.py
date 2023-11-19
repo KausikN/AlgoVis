@@ -5,14 +5,14 @@ Stream lit GUI for hosting AlgoVis
 # Imports
 import os
 import cv2
+import json
+import functools
+import subprocess
 import numpy as np
 import streamlit as st
-import json
-import subprocess
-import functools
 
 # Main Vars
-config = json.load(open('./StreamLitGUI/UIConfig.json', 'r'))
+config = json.load(open("./StreamLitGUI/UIConfig.json", "r"))
 config_subapp = {}
 
 # Main Functions
@@ -22,36 +22,36 @@ def main():
     global config_subapp
 
     # Set Project Modes
-    config['PROJECT_MODES'] = [p['APP_NAME'] for p in config['SUB_APPS']]
+    config["PROJECT_MODES"] = [p["APP_NAME"] for p in config["SUB_APPS"]]
 
     # Create Sidebar
     selected_box = st.sidebar.selectbox(
-    'Choose one of the following',
+    "Choose one of the following",
         tuple(
-            [config['PROJECT_NAME']] + 
-            config['PROJECT_MODES']
+            [config["PROJECT_NAME"]] + 
+            config["PROJECT_MODES"]
         )
     )
     DEFAULT_VIDEO_DURATION = st.sidebar.slider("Generated Video Duration", 0.1, 5.0, 2.0, 0.1)
     
-    if selected_box == config['PROJECT_NAME']:
+    if selected_box == config["PROJECT_NAME"]:
         HomePage()
     else:
         # Run SubApp
-        subAppIndex = config['PROJECT_MODES'].index(selected_box)
-        config_subapp = config['SUB_APPS'][subAppIndex]
-        RunSubApp(PATHS["sub_apps"] + config['SUB_APPS'][subAppIndex]['FILE_NAME'] + '.py')
-        # correspondingFuncName = selected_box.replace(' ', '_').lower()
+        subAppIndex = config["PROJECT_MODES"].index(selected_box)
+        config_subapp = config["SUB_APPS"][subAppIndex]
+        RunSubApp(PATHS["sub_apps"] + config["SUB_APPS"][subAppIndex]["FILE_NAME"] + ".py")
+        # correspondingFuncName = selected_box.replace(" ", "_").lower()
         # if correspondingFuncName in globals().keys():
         #     globals()[correspondingFuncName]()
  
 
 def HomePage():
-    st.title(config['PROJECT_NAME'])
-    st.markdown('Github Repo: ' + "[" + config['PROJECT_LINK'] + "](" + config['PROJECT_LINK'] + ")")
-    st.markdown(config['PROJECT_DESC'])
+    st.title(config["PROJECT_NAME"])
+    st.markdown("Github Repo: " + "[" + config["PROJECT_LINK"] + "](" + config["PROJECT_LINK"] + ")")
+    st.markdown(config["PROJECT_DESC"])
 
-    # st.write(open(config['PROJECT_README'], 'r').read())
+    # st.write(open(config["PROJECT_README"], "r").read())
 
 #############################################################################################################################
 # Repo Based Vars
@@ -73,7 +73,7 @@ DEFAULT_VIDEO_DURATION = 2.0
 # Util Functions
 def RunSubApp(path):
     if os.path.exists(path):
-        exec(open(path, 'r').read(), globals())
+        exec(open(path, "r").read(), globals())
 
 def RunAllSubApps(dir_path):
     for f in os.listdir(dir_path):

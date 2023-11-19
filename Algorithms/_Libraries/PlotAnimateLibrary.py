@@ -1,6 +1,6 @@
-'''
+"""
 PlotGIFLibrary is a library for generation, editing and viewing of GIFs / Videos of Plot Data
-'''
+"""
 
 # Imports
 import matplotlib.pyplot as plt
@@ -33,7 +33,7 @@ def SavePlotGIF(animation, savePath, fps=25):
     animation.save(savePath, writer=writer)
 
 # List Visualisations
-def List_PlotVisualise(values, titles=['', '', ''], plotLines=True, plotPoints=True, annotate=False, plot=True):
+def List_PlotVisualise(values, titles=["", "", ""], plotLines=True, plotPoints=True, annotate=False, plot=True):
     fig, ax = plt.subplots()
     canvas = FigureCanvasAgg(fig)
     if plotLines:
@@ -49,7 +49,7 @@ def List_PlotVisualise(values, titles=['', '', ''], plotLines=True, plotPoints=T
         values_str.append(str(values[i]))
         if annotate:
             ax.annotate(str(values[i]), (i+1, values[i]))
-    # print("Trace:", ' '.join(values_str))
+    # print("Trace:", " ".join(values_str))
     if plot:
         plt.show()
 
@@ -62,7 +62,7 @@ def List_PlotVisualise(values, titles=['', '', ''], plotLines=True, plotPoints=T
 def ListProgressionPlot_Vis(values):
     frames = len(values)
     ListProgressionPlot_CreatePlotFigure(values)
-    return CreatePlotGIF(plotData['fig'], ListProgressionPlot_Update, SimplePlot_Init, frames, True)
+    return CreatePlotGIF(plotData["fig"], ListProgressionPlot_Update, SimplePlot_Init, frames, True)
 
 def ListProgressionPlot_CreatePlotFigure(values):
     global plotData
@@ -70,33 +70,33 @@ def ListProgressionPlot_CreatePlotFigure(values):
     global YData
 
     fig, ax = plt.subplots()
-    XData['lim'] = [0, len(values)]
-    YData['lim'] = [min(values)-1, max(values)+1]
-    XData['data'] = range(len(values))
-    YData['data'] = values
-    plotData['ax'] = ax
-    plotData['fig'] = fig
+    XData["lim"] = [0, len(values)]
+    YData["lim"] = [min(values)-1, max(values)+1]
+    XData["data"] = range(len(values))
+    YData["data"] = values
+    plotData["ax"] = ax
+    plotData["fig"] = fig
 
 def SimplePlot_Init():
     global XData
     global YData
     global plotData
-    plotData['ax'].set_xlim(XData['lim'][0], XData['lim'][1])
-    plotData['ax'].set_ylim(YData['lim'][0], YData['lim'][1])
-    plotData['curIndex'] = 0
+    plotData["ax"].set_xlim(XData["lim"][0], XData["lim"][1])
+    plotData["ax"].set_ylim(YData["lim"][0], YData["lim"][1])
+    plotData["curIndex"] = 0
 
 def ListProgressionPlot_Update(i):
     global XData
     global YData
     global plotData
     
-    if plotData['curIndex'] > 0:
-        plt.plot([XData['data'][plotData['curIndex']-1], XData['data'][plotData['curIndex']]], [YData['data'][plotData['curIndex']-1], YData['data'][plotData['curIndex']]])
+    if plotData["curIndex"] > 0:
+        plt.plot([XData["data"][plotData["curIndex"]-1], XData["data"][plotData["curIndex"]]], [YData["data"][plotData["curIndex"]-1], YData["data"][plotData["curIndex"]]])
     else:
-        plt.plot([XData['data'][plotData['curIndex']]], [YData['data'][plotData['curIndex']]])
-    plt.scatter([XData['data'][plotData['curIndex']]], [YData['data'][plotData['curIndex']]])
+        plt.plot([XData["data"][plotData["curIndex"]]], [YData["data"][plotData["curIndex"]]])
+    plt.scatter([XData["data"][plotData["curIndex"]]], [YData["data"][plotData["curIndex"]]])
 
-    plotData['curIndex'] += 1
+    plotData["curIndex"] += 1
 # Func Animation Plot Visualisation ######################################################################################
 
 # Image by Image Plot Visualisation ######################################################################################
@@ -110,7 +110,7 @@ canvas = FigureCanvasAgg(fig)
 def SaveImages2GIF(frames, savePath, fps=20.0, size=(640, 480)):
     frames_updated = []
         
-    if os.path.splitext(savePath)[-1] == '.gif':
+    if os.path.splitext(savePath)[-1] == ".gif":
         for frame in tqdm(frames):
             # frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             frames_updated.append(Image.fromarray(frame))
@@ -118,9 +118,9 @@ def SaveImages2GIF(frames, savePath, fps=20.0, size=(640, 480)):
         extraFrames = []
         if len(frames_updated) > 1:
             extraFrames = frames_updated[1:]
-        frames_updated[0].save(savePath, save_all=True, append_images=extraFrames, format='GIF', loop=0)
+        frames_updated[0].save(savePath, save_all=True, append_images=extraFrames, format="GIF", loop=0)
     else:
-        out = cv2.VideoWriter(savePath, cv2.VideoWriter_fourcc(*'XVID'), fps, size)
+        out = cv2.VideoWriter(savePath, cv2.VideoWriter_fourcc(*"XVID"), fps, size)
         for frame in frames:
             out.write(frame)
         out.release()
@@ -149,7 +149,7 @@ def ListOrderPlot_Bar(listTrace, showAxis=True):
         fig.clear(True)
         ax = fig.add_subplot(111)
         if not showAxis:
-            ax.axis('off')
+            ax.axis("off")
             ax.margins(0)
             fig.tight_layout(pad=0)
 
@@ -175,7 +175,7 @@ nframes = 500
 frameLim = (0, 1)
 show = False
 saveGIF = True
-savePath = 'GeneratedGIFS/RandomGen_GIF.gif'
+savePath = "GeneratedGIFS/RandomGen_GIF.gif"
 saveFPS = 25
 
 # RunCode

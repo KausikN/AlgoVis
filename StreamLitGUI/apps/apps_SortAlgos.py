@@ -18,14 +18,14 @@ def main_SortAlgos():
 
     # Create Sidebar
     selected_box = st.sidebar.selectbox(
-    'Choose Sort Algorithm',
+    "Choose Sort Algorithm",
         tuple(
             SUBAPP_MODES
         )
     )
 
     # Add Functions
-    correspondingFuncName = selected_box.replace(' ', '_').lower()
+    correspondingFuncName = selected_box.replace(" ", "_").lower()
     if correspondingFuncName in globals().keys():
         globals()[correspondingFuncName]()
 
@@ -63,7 +63,7 @@ def UI_DisplaySortingOutput(array, array_sorted, trace):
 
     # Display Video
     VideoUtils.FixVideoFile(PATHS["default"]["save"]["video"], PATHS["default"]["save"]["video_converted"])
-    VideoData = open(PATHS["default"]["save"]["video_converted"], 'rb').read()
+    VideoData = open(PATHS["default"]["save"]["video_converted"], "rb").read()
     st.video(VideoData)
 
 # Repo Based Functions

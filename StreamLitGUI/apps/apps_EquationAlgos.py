@@ -19,14 +19,14 @@ def main_EquationAlgos():
 
     # Create Sidebar
     selected_box = st.sidebar.selectbox(
-    'Choose Sort Algorithm',
+    "Choose Sort Algorithm",
         tuple(
             SUBAPP_MODES
         )
     )
 
     # Add Functions
-    correspondingFuncName = selected_box.replace(' ', '_').lower()
+    correspondingFuncName = selected_box.replace(" ", "_").lower()
     if correspondingFuncName in globals().keys():
         globals()[correspondingFuncName]()
 

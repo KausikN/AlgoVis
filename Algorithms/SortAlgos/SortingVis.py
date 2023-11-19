@@ -1,6 +1,6 @@
-'''
+"""
 Algorithm Visualisation for Sorting Algorithms
-'''
+"""
 
 # Imports
 import numpy as np

@@ -19,14 +19,14 @@ def main_ClassificationAlgos():
 
     # Create Sidebar
     selected_box = st.sidebar.selectbox(
-    'Choose Classification Algorithm',
+    "Choose Classification Algorithm",
         tuple(
             SUBAPP_MODES
         )
     )
 
     # Add Functions
-    correspondingFuncName = selected_box.replace(' ', '_').lower()
+    correspondingFuncName = selected_box.replace(" ", "_").lower()
     if correspondingFuncName in globals().keys():
         globals()[correspondingFuncName]()
 
@@ -74,10 +74,10 @@ def linear_regression():
         # Run Polynomial Regressions
         degrees_coeffs = []
         for i in range(USERINPUT_RegDegrees[0], USERINPUT_RegDegrees[1] + 1):
-            coeffs = PolynomialRegression(Dataset['X'], Dataset['Y'], i)
+            coeffs = PolynomialRegression(Dataset["X"], Dataset["Y"], i)
             degrees_coeffs.append(coeffs)
         # Find Errors
-        errors = GetErrors(Dataset['X'], Dataset['Y'], degrees_coeffs)
+        errors = GetErrors(Dataset["X"], Dataset["Y"], degrees_coeffs)
         best_coeffs_index = np.argmin(errors)
 
         # Generate and Display Classification Images
@@ -87,13 +87,13 @@ def linear_regression():
 
         degrees = np.arange(USERINPUT_RegDegrees[0], USERINPUT_RegDegrees[1] + 1)
         I_regCurves, fig_regCurves = PlotRegressionCurves(
-            Dataset['X'], Dataset['Y'], degrees_coeffs, 
-            degrees=degrees, title='Regression Curves'
+            Dataset["X"], Dataset["Y"], degrees_coeffs, 
+            degrees=degrees, title="Regression Curves"
         )
         # st.image(I_regCurves, caption="Regression Curves", use_column_width=True)
         st.plotly_chart(fig_regCurves, use_container_width=True)
 
-        I_errors, fig_errors = PlotErrors(errors, degrees, title='Degrees vs Errors')
+        I_errors, fig_errors = PlotErrors(errors, degrees, title="Degrees vs Errors")
         # st.image(I_errors, caption="Degrees vs Errors", use_column_width=True)
         st.plotly_chart(fig_errors, use_container_width=True)
     

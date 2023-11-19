@@ -1,7 +1,7 @@
-'''
+"""
 Algorithm Visualisation for my approach to fitting a polynomial using extrema points
 Link: 
-'''
+"""
 
 # Imports
 import numpy as np
@@ -35,6 +35,6 @@ annotate = False
 
 # RunCode
 extremas = np.array(extremas)
-plt.plot(extremas[:, 0], extremas[:, 1], color='#6699cc', alpha=0.7, linewidth=3, solid_capstyle='round', zorder=2)
+plt.plot(extremas[:, 0], extremas[:, 1], color="#6699cc", alpha=0.7, linewidth=3, solid_capstyle="round", zorder=2)
 plt.scatter(extremas[:, 0], extremas[:, 1])
 plt.show()

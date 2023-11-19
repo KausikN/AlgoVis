@@ -18,14 +18,14 @@ def main_GeneratorAlgos():
 
     # Create Sidebar
     selected_box = st.sidebar.selectbox(
-    'Choose Generator Algorithm',
+    "Choose Generator Algorithm",
         tuple(
             SUBAPP_MODES
         )
     )
 
     # Add Functions
-    correspondingFuncName = selected_box.replace(' ', '_').lower()
+    correspondingFuncName = selected_box.replace(" ", "_").lower()
     if correspondingFuncName in globals().keys():
         globals()[correspondingFuncName]()
 
@@ -50,7 +50,7 @@ def UI_RandomFrequencyDistribution():
 
     if st.button("Generate"):
         # Process Inputs
-        Is = RandomFrequencyDistribution_Vis(USERINPUT_numRange, USERINPUT_nframes, 'Random Frequency Distribution')
+        Is = RandomFrequencyDistribution_Vis(USERINPUT_numRange, USERINPUT_nframes, "Random Frequency Distribution")
 
         # Display Outputs
         st.markdown("## Generated Random Frequency Distribution")
@@ -68,7 +68,7 @@ def UI_Random2DPoints():
 
     if st.button("Generate"):
         # Process Inputs
-        Is = Random2DPointsGenerator_Vis([USERINPUT_pointXBounds, USERINPUT_pointYBounds], USERINPUT_nframes, 'Random 2D Points')
+        Is = Random2DPointsGenerator_Vis([USERINPUT_pointXBounds, USERINPUT_pointYBounds], USERINPUT_nframes, "Random 2D Points")
 
         # Display Outputs
         st.markdown("## Generated Random 2D Points")
@@ -87,7 +87,7 @@ def UI_Random3DPoints():
 
     if st.button("Generate"):
         # Process Inputs
-        Is = Random3DPointsGenerator_Vis([USERINPUT_pointXBounds, USERINPUT_pointYBounds, USERINPUT_pointZBounds], USERINPUT_nframes, 'Random 3D Points')
+        Is = Random3DPointsGenerator_Vis([USERINPUT_pointXBounds, USERINPUT_pointYBounds, USERINPUT_pointZBounds], USERINPUT_nframes, "Random 3D Points")
 
         # Display Outputs
         st.markdown("## Generated Random 3D Points")

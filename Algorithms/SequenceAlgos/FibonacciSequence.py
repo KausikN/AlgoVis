@@ -1,7 +1,7 @@
-'''
+"""
 Algorithm Visualisation for Fibonacci and related series
 Link: https://www.youtube.com/watch?v=SjSHVDfXHQ4
-'''
+"""
 
 # Imports
 import functools

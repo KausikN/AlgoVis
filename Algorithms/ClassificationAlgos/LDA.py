@@ -1,6 +1,6 @@
-'''
+"""
 Linear Discriminant Analysis
-'''
+"""
 
 # Imports
 

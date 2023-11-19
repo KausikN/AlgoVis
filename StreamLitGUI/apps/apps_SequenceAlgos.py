@@ -22,14 +22,14 @@ def main_SequenceAlgos():
 
     # Create Sidebar
     selected_box = st.sidebar.selectbox(
-    'Choose Sequence Algorithm',
+    "Choose Sequence Algorithm",
         tuple(
             SUBAPP_MODES
         )
     )
 
     # Add Functions
-    correspondingFuncName = selected_box.replace(' ', '_').lower()
+    correspondingFuncName = selected_box.replace(" ", "_").lower()
     if correspondingFuncName in globals().keys():
         globals()[correspondingFuncName]()
 

@@ -18,14 +18,14 @@ def main_AIAlgos():
 
     # Create Sidebar
     selected_box = st.sidebar.selectbox(
-    'Choose AI Algorithm',
+    "Choose AI Algorithm",
         tuple(
             SUBAPP_MODES
         )
     )
 
     # Add Functions
-    correspondingFuncName = selected_box.replace(' ', '_').lower()
+    correspondingFuncName = selected_box.replace(" ", "_").lower()
     if correspondingFuncName in globals().keys():
         globals()[correspondingFuncName]()
 
@@ -52,7 +52,7 @@ def GenerateDataset(N, x_dim, y_dim, valRange):
 def UI_GetNetworkInputs(USERINPUT_DIM_X, USERINPUT_DIM_Y):
     # Network Size
     col1, col2 = st.columns(2)
-    USERINPUT_network_size = col1.text_input("Network Size (',' separated sizes of each hidden layer)", "2, 4, 2")
+    USERINPUT_network_size = col1.text_input("Network Size ("," separated sizes of each hidden layer)", "2, 4, 2")
     USERINPUT_NETWORK_SIZES = [USERINPUT_DIM_X] + GetNetworkSize(USERINPUT_network_size) + [USERINPUT_DIM_Y]
     
     NetworkFull = NetworkVis.GenerateFullNetwork(USERINPUT_NETWORK_SIZES)

@@ -1,6 +1,6 @@
-'''
+"""
 Library Functions for 3D Plot Visualisation
-'''
+"""
 
 # Imports
 import os
@@ -61,8 +61,8 @@ def InitAnimation():
 # animation function.  This will be called sequentially with the frame number
 def UpdateAnimation(i):
     global Lines, Pts, x_t, fig, ax, speedUpFactor, rotationSpeed
-    print(i, "done", end='\r')
-    # we'll step two time-steps per frame.  This leads to nice results.
+    print(i, "done", end="\r")
+    # we"ll step two time-steps per frame.  This leads to nice results.
     i = (speedUpFactor * i) % x_t.shape[1]
 
     for line, pt, xi in zip(Lines, Pts, x_t):
@@ -90,15 +90,15 @@ def AnimateEffect(EffectFunc, N_trajectories, GeneratorFunc, timeInterval=[0, 4]
 
     # Set up figure & 3D axis for animation
     fig = plt.figure(figsize=saveData["figSize"])
-    ax = fig.add_axes([0, 0, 1, 1], projection='3d')
-    ax.axis('off')
+    ax = fig.add_axes([0, 0, 1, 1], projection="3d")
+    ax.axis("off")
 
     # choose a different color for each trajectory
     colors = plt.cm.jet(np.linspace(0, 1, N_trajectories))
 
     # Set up lines and points
-    Lines = sum([ax.plot([], [], [], '-', c=c) for c in colors], [])
-    Pts = sum([ax.plot([], [], [], 'o', c=c) for c in colors], [])
+    Lines = sum([ax.plot([], [], [], "-", c=c) for c in colors], [])
+    Pts = sum([ax.plot([], [], [], "o", c=c) for c in colors], [])
 
     # Prepare the axes limits
     ax.set_xlim(plotLims[0])
@@ -115,11 +115,11 @@ def AnimateEffect(EffectFunc, N_trajectories, GeneratorFunc, timeInterval=[0, 4]
 
     # Save as mp4. This requires mplayer or ffmpeg to be installed
     if saveData["save"]:
-        if os.path.splitext(saveData["path"])[-1] == '.gif':
+        if os.path.splitext(saveData["path"])[-1] == ".gif":
             writer = animation.PillowWriter(fps=saveData["fps"])
             anim.save(saveData["path"], writer=writer, )
         else:
-            anim.save(saveData["path"], fps=saveData["fps"], extra_args=['-vcodec', 'libx264'])
+            anim.save(saveData["path"], fps=saveData["fps"], extra_args=["-vcodec", "libx264"])
 
     if plotData:
         plt.show()
@@ -137,15 +137,15 @@ def AnimateEffect_Generic(EffectFunc, Points, Colors, timeInterval=[0, 4], plotL
 
     # Set up figure & 3D axis for animation
     fig = plt.figure(figsize=saveData["figSize"])
-    ax = fig.add_axes([0, 0, 1, 1], projection='3d')
-    ax.axis('off')
+    ax = fig.add_axes([0, 0, 1, 1], projection="3d")
+    ax.axis("off")
 
     # choose a different color for each trajectory
     colors = np.array(Colors)
 
     # Set up lines and points
-    Lines = sum([ax.plot([], [], [], '-', c=c) for c in colors], [])
-    Pts = sum([ax.plot([], [], [], 'o', c=c) for c in colors], [])
+    Lines = sum([ax.plot([], [], [], "-", c=c) for c in colors], [])
+    Pts = sum([ax.plot([], [], [], "o", c=c) for c in colors], [])
 
     # Prepare the axes limits
     ax.set_xlim(plotLims[0])
@@ -162,11 +162,11 @@ def AnimateEffect_Generic(EffectFunc, Points, Colors, timeInterval=[0, 4], plotL
 
     # Save as mp4. This requires mplayer or ffmpeg to be installed
     if saveData["save"]:
-        if os.path.splitext(saveData["path"])[-1] == '.gif':
+        if os.path.splitext(saveData["path"])[-1] == ".gif":
             writer = animation.PillowWriter(fps=saveData["fps"])
             anim.save(saveData["path"], writer=writer, )
         else:
-            anim.save(saveData["path"], fps=saveData["fps"], extra_args=['-vcodec', 'libx264'])
+            anim.save(saveData["path"], fps=saveData["fps"], extra_args=["-vcodec", "libx264"])
 
     if plotData:
         plt.show()

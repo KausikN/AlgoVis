@@ -1,6 +1,6 @@
-'''
+"""
 Bayes Classifier
-'''
+"""
 
 # Imports
 

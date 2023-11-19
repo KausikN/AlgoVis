@@ -1,6 +1,6 @@
-'''
+"""
 Simple Fully Connected Neural Network
-'''
+"""
 
 # Imports
 import cv2
@@ -68,11 +68,11 @@ def GenerateHistoryVideo(history, savePath, duration=2.0):
         weights_range = [min(weights_range[0], biases_range[0]), max(weights_vals[1], biases_vals[1])]
 
         network = {
-            'nodes': history["nodes"][i],
-            'weights': history["Ws"][i],
-            'biases': history["bs"][i],
-            'node_range': nodes_range,
-            'weight_range': weights_range
+            "nodes": history["nodes"][i],
+            "weights": history["Ws"][i],
+            "biases": history["bs"][i],
+            "node_range": nodes_range,
+            "weight_range": weights_range
         }
         I = NetworkVis.GenerateNetworkImage(network)
         I_rgb = np.array(I[:, :, :3], dtype=np.uint8)
@@ -253,7 +253,7 @@ def model(X, Y, layer_sizes, n_epochs, lr, funcs):
             history["loss"].append(loss)
 
         if(i%1 == 0):
-            print(f'EPOCH {i}: {loss}')
+            print(f"EPOCH {i}: {loss}")
 
     return parameters, history
 

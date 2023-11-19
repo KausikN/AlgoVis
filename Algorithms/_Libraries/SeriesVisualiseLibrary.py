@@ -1,6 +1,6 @@
-'''
+"""
 Digit based Series generation and visualisation
-'''
+"""
 
 # Imports
 import numpy as np
@@ -35,25 +35,25 @@ def Series_ValueExecute(ConvergeFunc, startVal):
     return trace, len(trace)
 
 # Matplotlib Visualisation Functions
-def Series_ValueConvergeVis(ConvergeFunc, startVal, titles=['values', 'iters', 'Values vs Iters'], plotLines=True, plotPoints=True, annotate=False, plot=True):
+def Series_ValueConvergeVis(ConvergeFunc, startVal, titles=["values", "iters", "Values vs Iters"], plotLines=True, plotPoints=True, annotate=False, plot=True):
     trace, iterCount = Series_ValueExecute(ConvergeFunc, startVal)
     I_plot = PAL.List_PlotVisualise(trace, titles=titles, plotLines=plotLines, plotPoints=plotPoints, annotate=annotate, plot=plot)
 
     return trace, iterCount, I_plot
 
-def Series_GroupConvergeVis(ConvergeFunc, computeValues, plotSkip=1, titles=['values', 'iters', 'Values vs Iters']):
+def Series_GroupConvergeVis(ConvergeFunc, computeValues, plotSkip=1, titles=["values", "iters", "Values vs Iters"]):
     traces, iters = Series_GroupExecute(ConvergeFunc, computeValues)
     PAL.List_PlotVisualise(iters[::plotSkip], titles=titles)
     
     return traces, iters
 
-def Series_RangeConvergeVis(ConvergeFunc, computeRange, plotSkip=1, titles=['values', 'iters', 'Values vs Iters'], plot=True):
+def Series_RangeConvergeVis(ConvergeFunc, computeRange, plotSkip=1, titles=["values", "iters", "Values vs Iters"], plot=True):
     traces, iters = Series_RangeExecute(ConvergeFunc, computeRange)
     I_plot = PAL.List_PlotVisualise(iters[::plotSkip], titles=titles, plot=plot)
     
     return traces, iters, I_plot
 
-def Series_GroupSubPlotConvergeVis(ConvergeFunc, computeValues, plotSkip=1, titles=['values', 'iters', 'Values vs Iters']):
+def Series_GroupSubPlotConvergeVis(ConvergeFunc, computeValues, plotSkip=1, titles=["values", "iters", "Values vs Iters"]):
     traces, iters = Series_GroupExecute(ConvergeFunc, computeValues)
 
     plt.title(titles[2])
@@ -76,7 +76,7 @@ def Series_GroupSubPlotConvergeVis(ConvergeFunc, computeValues, plotSkip=1, titl
 
     return traces, iters
 
-def Series_CombinedPlotConvergeVis(ConvergeFunc, computeValues, plotSkip=1, titles=['values', 'iters', 'Values vs Iters']):
+def Series_CombinedPlotConvergeVis(ConvergeFunc, computeValues, plotSkip=1, titles=["values", "iters", "Values vs Iters"]):
     traces, iters = Series_GroupExecute(ConvergeFunc, computeValues)
 
     ax = plt.subplot(1,1,1)
@@ -97,7 +97,7 @@ def Series_CombinedPlotConvergeVis(ConvergeFunc, computeValues, plotSkip=1, titl
     return traces, iters
 
 # Turtle Visualisation Functions
-def Series_ValueRun_TurtleCurves(trace, titles=['values', 'iters', 'Values vs Iters']):
+def Series_ValueRun_TurtleCurves(trace, titles=["values", "iters", "Values vs Iters"]):
     # trace, iterCount = Series_ValueExecute(ConvergeFunc, startVal)
     trace = np.array(trace)
     dataRange = np.array([np.min(trace), np.max(trace)])

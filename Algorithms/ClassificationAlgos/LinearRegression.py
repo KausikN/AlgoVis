@@ -1,6 +1,6 @@
-'''
+"""
 Linear Regression
-'''
+"""
 
 # Imports
 import cv2
@@ -83,14 +83,14 @@ def GetErrors(x, y, degrees_coeffs):
 
 # Display Functions
 def DisplayPolynomial(coeffs):
-    polyStr = f'y = {coeffs[0]}'
+    polyStr = f"y = {coeffs[0]}"
     for i in range(1, len(coeffs)):
-        polyStr += f' + {coeffs[i]}*x^{i}'
+        polyStr += f" + {coeffs[i]}*x^{i}"
 
     return polyStr
 
 # Plot Functions
-def PlotRegressionCurves(x, y, bs, degrees, title='', curve_pts=1000):
+def PlotRegressionCurves(x, y, bs, degrees, title="", curve_pts=1000):
     # Setup Plot
     global fig, canvas
     fig = plt.figure()
@@ -115,8 +115,8 @@ def PlotRegressionCurves(x, y, bs, degrees, title='', curve_pts=1000):
 
     plt.legend()
     plt.title(title)
-    plt.xlabel('x')
-    plt.ylabel('y')
+    plt.xlabel("x")
+    plt.ylabel("y")
     # plt.show()
 
     # Retrieve Image
@@ -127,7 +127,7 @@ def PlotRegressionCurves(x, y, bs, degrees, title='', curve_pts=1000):
     # plt.close(fig)
     return I_plot, fig
 
-def PlotPredictions(x, y, y_pred, degree, title=''):
+def PlotPredictions(x, y, y_pred, degree, title=""):
     # Setup Plot
     global fig, canvas
     fig = plt.figure()
@@ -146,8 +146,8 @@ def PlotPredictions(x, y, y_pred, degree, title=''):
 
     plt.legend()
     plt.title(title)
-    plt.xlabel('x')
-    plt.ylabel('y')
+    plt.xlabel("x")
+    plt.ylabel("y")
     # plt.show()
 
     # Retrieve Image
@@ -158,7 +158,7 @@ def PlotPredictions(x, y, y_pred, degree, title=''):
     # plt.close(fig)
     return I_plot, fig
 
-def PlotErrors(errors, degrees, title=''):
+def PlotErrors(errors, degrees, title=""):
     # Setup Plot
     global fig, canvas
     fig = plt.figure()
@@ -168,8 +168,8 @@ def PlotErrors(errors, degrees, title=''):
 
     plt.legend()
     plt.title(title)
-    plt.xlabel('Degrees')
-    plt.ylabel('Error')
+    plt.xlabel("Degrees")
+    plt.ylabel("Error")
     # plt.show()
 
     # Retrieve Image

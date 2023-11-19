@@ -19,14 +19,14 @@ def main_ClusteringAlgos():
 
     # Create Sidebar
     selected_box = st.sidebar.selectbox(
-    'Choose Clustering Algorithm',
+    "Choose Clustering Algorithm",
         tuple(
             SUBAPP_MODES
         )
     )
 
     # Add Functions
-    correspondingFuncName = selected_box.replace(' ', '_').lower()
+    correspondingFuncName = selected_box.replace(" ", "_").lower()
     if correspondingFuncName in globals().keys():
         globals()[correspondingFuncName]()
 
@@ -69,11 +69,11 @@ def UI_PointsDatasetLoad():
     # Load Image
     elif USERINPUT_DatasetLoadType == DATASET_LOADTYPES[1]:
         
-        USERINPUT_ImageData = st.file_uploader("Upload Start Image", ['png', 'jpg', 'jpeg', 'bmp'])
+        USERINPUT_ImageData = st.file_uploader("Upload Start Image", ["png", "jpg", "jpeg", "bmp"])
         if USERINPUT_ImageData is not None:
             USERINPUT_ImageData = USERINPUT_ImageData.read()
         else:
-            USERINPUT_ImageData = open(DATASET_DEFAULT_PATH_EXAMPLEIMAGE, 'rb').read()
+            USERINPUT_ImageData = open(DATASET_DEFAULT_PATH_EXAMPLEIMAGE, "rb").read()
         USERINPUT_Image = cv2.imdecode(np.frombuffer(USERINPUT_ImageData, np.uint8), cv2.IMREAD_COLOR)
         USERINPUT_Image = np.array(cv2.cvtColor(USERINPUT_Image, cv2.COLOR_BGR2GRAY))
         col1, col2 = st.columns(2)

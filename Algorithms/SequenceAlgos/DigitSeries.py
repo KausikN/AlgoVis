@@ -1,6 +1,6 @@
-'''
+"""
 Digit based Series generation and visualisation
-'''
+"""
 
 # Imports
 import functools

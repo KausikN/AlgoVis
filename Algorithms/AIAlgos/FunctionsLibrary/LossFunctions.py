@@ -1,6 +1,6 @@
-'''
+"""
 Loss Functions
-'''
+"""
 
 # Imports
 import numpy as np

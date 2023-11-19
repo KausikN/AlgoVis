@@ -1,7 +1,7 @@
-'''
+"""
 Algorithm Visualisation for the Collatz Conjecture
 Link: https://www.youtube.com/watch?v=5mFpVDpKX70
-'''
+"""
 
 # Imports
 import functools

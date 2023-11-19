@@ -1,7 +1,7 @@
-'''
+"""
 Algorithm Visualisation for the Dzhanibekov effect
 Dzhanibekov effect Link: https://www.youtube.com/watch?v=1VPfZ_XzisU
-'''
+"""
 
 # Imports
 import math

@@ -18,14 +18,14 @@ def main_ClusteringAlgos():
 
     # Create Sidebar
     selected_box = st.sidebar.selectbox(
-    'Choose Graph Algorithm',
+    "Choose Graph Algorithm",
         tuple(
             SUBAPP_MODES
         )
     )
 
     # Add Functions
-    correspondingFuncName = selected_box.replace(' ', '_').lower()
+    correspondingFuncName = selected_box.replace(" ", "_").lower()
     if correspondingFuncName in globals().keys():
         globals()[correspondingFuncName]()
 
@@ -53,9 +53,9 @@ def UI_GraphLoad():
     # Load Image
     if USERINPUT_GraphLoadType == GRAPH_LOADTYPES[0]:
         
-        USERINPUT_JSONData = st.file_uploader("Upload JSON", ['json'])
+        USERINPUT_JSONData = st.file_uploader("Upload JSON", ["json"])
         if USERINPUT_JSONData is None:
-            USERINPUT_JSONData = open(GRAPH_DEFAULT_PATH_EXAMPLE, 'rb')
+            USERINPUT_JSONData = open(GRAPH_DEFAULT_PATH_EXAMPLE, "rb")
         USERINPUT_JSONData = json.load(USERINPUT_JSONData)
 
         USERINPUT_AdjMatrix = DatasetGenerators.GenerateAdjacencyMatrixFromJSONData(USERINPUT_JSONData)

@@ -1,6 +1,6 @@
-'''
+"""
 TurtleAnimateLibrary is a library for generation and viewing of turtle based visualisations and animations
-'''
+"""
 
 # Imports
 import turtle
@@ -28,7 +28,7 @@ def DrawRightDownSemiCircle(tur, r):
     DrawPartialCircle(tur, r, 180)
 
 # List Visualisations
-def List_TurtleValuePlot(values, titles=['']):
+def List_TurtleValuePlot(values, titles=[""]):
     if len(values) == 0:
         return
 
@@ -42,7 +42,7 @@ def List_TurtleValuePlot(values, titles=['']):
     turtle.done()
     # tur.clear()
 
-def List_TurtleValueAlternatingCurves(values, titles=[''], scale=1):
+def List_TurtleValueAlternatingCurves(values, titles=[""], scale=1):
     if len(values) == 0:
         return
 
@@ -72,7 +72,7 @@ def List_TurtleValueAlternatingCurves(values, titles=[''], scale=1):
     turtle.done()
     # tur.clear()
 
-def List_TurtleValueFixedCurves(values, titles=[''], scale=1, leftDown=True, rightUp=True):
+def List_TurtleValueFixedCurves(values, titles=[""], scale=1, leftDown=True, rightUp=True):
     if len(values) == 0:
         return
 

@@ -1,7 +1,7 @@
-'''
+"""
 Algorithm Visualisation for Recaman Sequence
 Link: https://www.youtube.com/watch?v=FGC5TdIiT9U
-'''
+"""
 
 # Imports
 import functools

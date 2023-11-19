@@ -1,6 +1,6 @@
-'''
+"""
 PlotGIFLibrary is a library for generation, editing and viewing of GIFs / Videos of Plot Data
-'''
+"""
 
 # Imports
 import cv2
@@ -29,14 +29,14 @@ def RandomGenerator_Vis_OLD(numRange=(0, 100), frameLim=(0, 100), nframes=100, s
     global XData
     global YData
 
-    XData['lim'] = numRange
-    YData['lim'] = (0, 1)
+    XData["lim"] = numRange
+    YData["lim"] = (0, 1)
     frames = np.linspace(frameLim[0], frameLim[1], nframes)
 
     RandomGenerator_CreatePlotFigure()
-    YData['maxFreq'] = max(YData['data'])
+    YData["maxFreq"] = max(YData["data"])
 
-    return PAL.CreatePlotGIF(plotData['fig'], RandomGenerator_PlotUpdate, RandomGenerator_PlotInit, frames, show)
+    return PAL.CreatePlotGIF(plotData["fig"], RandomGenerator_PlotUpdate, RandomGenerator_PlotInit, frames, show)
 
 def RandomGenerator_CreatePlotFigure():
     global plotData
@@ -44,36 +44,36 @@ def RandomGenerator_CreatePlotFigure():
     global YData
 
     fig, ax = plt.subplots()
-    XData['data'] = range(XData['lim'][0], XData['lim'][1] + 1)
-    YData['data'] = [0]*(XData['lim'][1] - XData['lim'][0] + 1)
-    rects = plt.bar(XData['data'], YData['data'])
-    plotData['plotVar'] = rects
-    plotData['ax'] = ax
-    plotData['fig'] = fig
+    XData["data"] = range(XData["lim"][0], XData["lim"][1] + 1)
+    YData["data"] = [0]*(XData["lim"][1] - XData["lim"][0] + 1)
+    rects = plt.bar(XData["data"], YData["data"])
+    plotData["plotVar"] = rects
+    plotData["ax"] = ax
+    plotData["fig"] = fig
 
 def RandomGenerator_PlotInit():
     global XData
     global YData
     global plotData
-    plotData['ax'].set_xlim(XData['lim'][0], XData['lim'][1])
-    plotData['ax'].set_ylim(YData['lim'][0], YData['lim'][1])
+    plotData["ax"].set_xlim(XData["lim"][0], XData["lim"][1])
+    plotData["ax"].set_ylim(YData["lim"][0], YData["lim"][1])
 
 def RandomGenerator_PlotUpdate(i):
     global XData
     global YData
     global plotData
-    newVal = random.randint(XData['lim'][0], XData['lim'][1])
-    newVal_Index = XData['data'].index(newVal)
-    YData['data'][newVal_Index] += 1
-    if YData['data'][newVal_Index] > YData['maxFreq']:
-        YData['maxFreq'] = YData['data'][newVal_Index]
-        YData['lim'] = (YData['lim'][0], YData['maxFreq'] + 1)
-        plotData['ax'].set_ylim(YData['lim'][0], YData['lim'][1])
-    plotData['plotVar'][newVal_Index].set_height(YData['data'][newVal_Index])
+    newVal = random.randint(XData["lim"][0], XData["lim"][1])
+    newVal_Index = XData["data"].index(newVal)
+    YData["data"][newVal_Index] += 1
+    if YData["data"][newVal_Index] > YData["maxFreq"]:
+        YData["maxFreq"] = YData["data"][newVal_Index]
+        YData["lim"] = (YData["lim"][0], YData["maxFreq"] + 1)
+        plotData["ax"].set_ylim(YData["lim"][0], YData["lim"][1])
+    plotData["plotVar"][newVal_Index].set_height(YData["data"][newVal_Index])
 
 # New Functions
 # Random Functions
-def RandomFrequencyDistribution_Vis(numRange=(0, 100), nframes=100, title=''):
+def RandomFrequencyDistribution_Vis(numRange=(0, 100), nframes=100, title=""):
     # Setup Plot
     global fig, canvas
     fig = plt.figure()
@@ -103,7 +103,7 @@ def RandomFrequencyDistribution_Vis(numRange=(0, 100), nframes=100, title=''):
     plt.close(fig)
     return Is
 
-def Random2DPointsGenerator_Vis(valuesBound=[(0, 100), (0, 100)], nframes=100, title=''):
+def Random2DPointsGenerator_Vis(valuesBound=[(0, 100), (0, 100)], nframes=100, title=""):
     # Setup Plot
     global fig, canvas
     fig = plt.figure()
@@ -134,7 +134,7 @@ def Random2DPointsGenerator_Vis(valuesBound=[(0, 100), (0, 100)], nframes=100, t
     plt.close(fig)
     return Is
 
-def Random3DPointsGenerator_Vis(valuesBound=[(0, 100), (0, 100), (0, 100)], nframes=100, title=''):
+def Random3DPointsGenerator_Vis(valuesBound=[(0, 100), (0, 100), (0, 100)], nframes=100, title=""):
     # Setup Plot
     global fig, canvas
     fig = plt.figure()
@@ -150,7 +150,7 @@ def Random3DPointsGenerator_Vis(valuesBound=[(0, 100), (0, 100), (0, 100)], nfra
     for i in range(randPoints.shape[0]):
         fig.clear()
         plt.title(title)
-        ax = plt.axes(projection='3d')
+        ax = plt.axes(projection="3d")
         ax.set_xlim(valuesBound[0][0], valuesBound[0][1])
         ax.set_ylim(valuesBound[1][0], valuesBound[1][1])
 

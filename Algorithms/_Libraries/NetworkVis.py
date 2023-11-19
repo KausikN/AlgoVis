@@ -1,6 +1,6 @@
-'''
+"""
 Neural Network Visualiser
-'''
+"""
 
 # Imports
 import cv2
@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 # Main Functions
 # Utils Functions
-def DisplayImage(I, title=''):
+def DisplayImage(I, title=""):
     plt.imshow(I)
     plt.title(title)
     plt.show()
@@ -68,11 +68,11 @@ def GenerateRandomNetwork(layer_sizes):
         biases.append(list(biases_layer))
 
     network = {
-        'nodes': nodes,
-        'weights': weights,
-        'biases': biases,
-        'node_range': RANDOM_NODES_RANGE,
-        'weight_range': RANDOM_WEIGHTS_RANGE
+        "nodes": nodes,
+        "weights": weights,
+        "biases": biases,
+        "node_range": RANDOM_NODES_RANGE,
+        "weight_range": RANDOM_WEIGHTS_RANGE
     }
     return network
 
@@ -102,11 +102,11 @@ def GenerateFullNetwork(layer_sizes):
         biases.append(list(biases_layer))
 
     network = {
-        'nodes': nodes,
-        'weights': weights,
-        'biases': biases,
-        'node_range': [0.0, 1.0],
-        'weight_range': [0.0, 1.0]
+        "nodes": nodes,
+        "weights": weights,
+        "biases": biases,
+        "node_range": [0.0, 1.0],
+        "weight_range": [0.0, 1.0]
     }
     return network
 
@@ -117,8 +117,8 @@ def GenerateNetworkImage(network):
     '''
     # print()
     # print("GEN IMAGE")
-    # print("NODES:", network['nodes'])
-    # print("WEIGHTS", network['weights'])
+    # print("NODES:", network["nodes"])
+    # print("WEIGHTS", network["weights"])
 
     # Image Params
     IMAGE_SIZE = (1024, 1024)
@@ -138,11 +138,11 @@ def GenerateNetworkImage(network):
 
     # Network Params
     # Get the number of nodes in each layer and number of layers
-    network_layer_sizes = np.array([len(network['nodes'][i]) for i in range(len(network['nodes']))])
+    network_layer_sizes = np.array([len(network["nodes"][i]) for i in range(len(network["nodes"]))])
     n_layers = network_layer_sizes.shape[0]
-    nodes_values = network['nodes']
-    weights = network['weights']
-    biases = network['biases']
+    nodes_values = network["nodes"]
+    weights = network["weights"]
+    biases = network["biases"]
 
     # Find Node Maximum Allowed Radius
     x_inc = (1 / (n_layers + 1))
@@ -164,7 +164,7 @@ def GenerateNetworkImage(network):
     I = np.ones((IMAGE_SIZE[0], IMAGE_SIZE[1], 4), dtype=np.uint8) * IMAGE_COLOR_BG
     
     # Generate Connections
-    weight_range = [0, np.max(np.abs(network['weight_range']))]
+    weight_range = [0, np.max(np.abs(network["weight_range"]))]
     # Weights
     for layer in range(n_layers - 1):
         for node in range(network_layer_sizes[layer]):
@@ -208,7 +208,7 @@ def GenerateNetworkImage(network):
             pos = tuple([int(NODES_POSITIONS[layer][node][i] * IMAGE_SIZE[i]) for i in range(len(IMAGE_SIZE))])
 
             NODE_COLOR = list(NODE_COLOR_POSITIVE) if nodes_values[layer][node] > 0 else list(NODE_COLOR_NEGATIVE)
-            node_val_range = [0, np.max(np.abs(network['node_range']))]
+            node_val_range = [0, np.max(np.abs(network["node_range"]))]
             NODE_ALPHA = GetRatio(nodes_values[layer][node], node_val_range)
             NODE_COLOR[3] = int(NODE_ALPHA * NODE_COLOR[3])
             NODE_COLOR = tuple(CombineColors(NODE_COLOR, IMAGE_COLOR_BG))

@@ -1,7 +1,7 @@
-'''
+"""
 Algorithm Visualisation for any Equation
 Gravity Link: https://www.youtube.com/watch?v=mezkHBPLZ4A
-'''
+"""
 
 # Imports
 import functools

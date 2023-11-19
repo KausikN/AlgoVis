@@ -1,6 +1,6 @@
-'''
+"""
 Graph Visualiser
-'''
+"""
 
 # Imports
 import cv2
@@ -16,7 +16,7 @@ canvas = FigureCanvasAgg(fig)
 
 # Main Functions
 # Utils Functions
-def GetColor(i, n=1.0, cmap='gist_gray'):
+def GetColor(i, n=1.0, cmap="gist_gray"):
     '''
     Gets the color for a node in a graph.
     '''
@@ -43,7 +43,7 @@ def GenerateGraph_AdjacencyMatrix(Adj):
     return G
 
 # Plot Graph Functions
-def PlotGraph_AdjacencyMatrix(Adj, colors='#1f78b4', show_edge_wt=False, title='', pos=None, plot=False):
+def PlotGraph_AdjacencyMatrix(Adj, colors="#1f78b4", show_edge_wt=False, title="", pos=None, plot=False):
     '''
     Plots the adjacency matrix Graph.
     '''
@@ -71,7 +71,7 @@ def PlotGraph_AdjacencyMatrix(Adj, colors='#1f78b4', show_edge_wt=False, title='
     nx.draw_networkx(G, pos, ax=ax, with_labels=True, node_color=colors, font_color=(0.3, 1.0, 0.3))
 
     if show_edge_wt:
-        labels = nx.get_edge_attributes(G, 'weight')
+        labels = nx.get_edge_attributes(G, "weight")
         nx.draw_networkx_edge_labels(G, pos, font_size=7, edge_labels=labels, ax=ax)
 
     if plot:

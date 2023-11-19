@@ -1,7 +1,7 @@
-'''
+"""
 Algorithm Visualisation for Bifurcation Graph
 Video: https://www.youtube.com/watch?v=ovJcsL7vyrk
-'''
+"""
 
 # Imports
 import functools
@@ -51,7 +51,7 @@ def FindEquilibriumPopulations(trace, equilibriumRoundoff):
 
     return eqPops
 
-def BifurcatePlot(rValues, eqPops, titles=['', '', '']):
+def BifurcatePlot(rValues, eqPops, titles=["", "", ""]):
     # plt.plot(rValues, eqPops)
     colors = cm.rainbow(np.linspace(0, 1, len(rValues)))
     for i in range(len(rValues)):
@@ -83,10 +83,10 @@ plotSkip = 1
 
 # RunCode
 ConvergeFuncManyValues = functools.partial(ConvergeFunc, startVal=startVal, c=c, max_iters=max_iters, equilibriumRoundoff=equilibriumRoundoff, valueLimits=valueLimits)
-traces, iters = SVL.Series_CombinedPlotConvergeVis(ConvergeFuncManyValues, r_computeRange, plotSkip=plotSkip, titles=['Iteration', 'Value', 'Population Convergence'])
+traces, iters = SVL.Series_CombinedPlotConvergeVis(ConvergeFuncManyValues, r_computeRange, plotSkip=plotSkip, titles=["Iteration", "Value", "Population Convergence"])
 
 # Bifurcate Plot
 eqPopulations = []
 for trace in traces:
     eqPopulations.append(FindEquilibriumPopulations(trace, equilibriumRoundoff=equilibriumRoundoff))
-BifurcatePlot(r_computeRange, np.array(eqPopulations), titles=['r', 'Equilibrium Population', 'Bifurcation Plot'])
+BifurcatePlot(r_computeRange, np.array(eqPopulations), titles=["r", "Equilibrium Population", "Bifurcation Plot"])

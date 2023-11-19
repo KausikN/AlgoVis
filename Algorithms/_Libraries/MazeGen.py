@@ -1,6 +1,6 @@
-'''
+"""
 Maze Generator
-'''
+"""
 
 # Imports
 import os
@@ -41,7 +41,7 @@ def VisualiseCellMatrix(cell_matrix, image_scale=10, bg_color=[0, 0, 0], line_co
     
     # Show image
     if display:
-        plt.title('Maze')
+        plt.title("Maze")
         plt.imshow(I)
         plt.show()
 
@@ -70,7 +70,7 @@ def GenerateCellMatrix_Random(size):
 size = (10, 10)
 
 
-savePath = 'GeneratedVisualisations/GeneratedMaze.png'
+savePath = "GeneratedVisualisations/GeneratedMaze.png"
 
 display = True
 save = False
