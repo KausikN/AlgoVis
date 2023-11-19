@@ -114,13 +114,13 @@ def SaveImages2GIF(frames, savePath, fps=20.0, size=(640, 480)):
         for frame in tqdm(frames):
             # frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             frames_updated.append(Image.fromarray(frame))
-
         extraFrames = []
         if len(frames_updated) > 1:
             extraFrames = frames_updated[1:]
         frames_updated[0].save(savePath, save_all=True, append_images=extraFrames, format="GIF", loop=0)
     else:
-        out = cv2.VideoWriter(savePath, cv2.VideoWriter_fourcc(*"XVID"), fps, size)
+        codec = cv2.VideoWriter_fourcc(*'avc1')
+        out = cv2.VideoWriter(savePath, codec, fps, size)
         for frame in frames:
             out.write(frame)
         out.release()

@@ -52,12 +52,12 @@ def SaveFrames2Video(frames, pathOut, fps=20.0, size=None):
     if os.path.splitext(pathOut)[-1] == ".gif":
         frames_images = [Image.fromarray(frame) for frame in frames]
         extraFrames = []
-        if len(frames_images) > 1:
-            extraFrames = frames_images[1:]
+        if len(frames_images) > 1: extraFrames = frames_images[1:]
         frames_images[0].save(pathOut, save_all=True, append_images=extraFrames, format="GIF", loop=0)
     else:
         if size is None: size = (frames[0].shape[1], frames[0].shape[0])
-        out = cv2.VideoWriter(pathOut, cv2.VideoWriter_fourcc(*"XVID"), fps, size)
+        codec = cv2.VideoWriter_fourcc(*'avc1')
+        out = cv2.VideoWriter(pathOut, codec, fps, size)
         for frame in frames:
             out.write(frame)
         out.release()

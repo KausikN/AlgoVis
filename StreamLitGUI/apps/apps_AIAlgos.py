@@ -52,7 +52,7 @@ def GenerateDataset(N, x_dim, y_dim, valRange):
 def UI_GetNetworkInputs(USERINPUT_DIM_X, USERINPUT_DIM_Y):
     # Network Size
     col1, col2 = st.columns(2)
-    USERINPUT_network_size = col1.text_input("Network Size ("," separated sizes of each hidden layer)", "2, 4, 2")
+    USERINPUT_network_size = col1.text_input("Network Size (',' separated sizes of each hidden layer)", "2, 4, 2")
     USERINPUT_NETWORK_SIZES = [USERINPUT_DIM_X] + GetNetworkSize(USERINPUT_network_size) + [USERINPUT_DIM_Y]
     
     NetworkFull = NetworkVis.GenerateFullNetwork(USERINPUT_NETWORK_SIZES)
@@ -134,9 +134,10 @@ def feed_forward_neural_network():
             USERINPUT_epochs, USERINPUT_learning_rate, funcs=funcs)
 
         # Generate Video
-        GenerateHistoryVideo(history, PATHS["default"]["save"]["video"], DEFAULT_VIDEO_DURATION)
+        GenerateHistoryVideo(history, PATHS["default"]["save"]["video_converted"], DEFAULT_VIDEO_DURATION)
+        # GenerateHistoryVideo(history, PATHS["default"]["save"]["video"], DEFAULT_VIDEO_DURATION)
         # Fix Video
-        VideoUtils.FixVideoFile(PATHS["default"]["save"]["video"], PATHS["default"]["save"]["video_converted"])
+        # VideoUtils.FixVideoFile(PATHS["default"]["save"]["video"], PATHS["default"]["save"]["video_converted"])
         # Display Animation Video
         st.video(PATHS["default"]["save"]["video_converted"])
     
