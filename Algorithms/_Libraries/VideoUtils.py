@@ -72,6 +72,7 @@ def FixVideoFile(pathIn, pathOut):
     print("Running Conversion Command:")
     print(convert_cmd + "\n")
     ConvertOutput = subprocess.getoutput(convert_cmd)
+    print("Conversion Output: \n" + ConvertOutput + "\n")
 
 def ImageAddText(I, text, textColor=[255, 255, 255]):
     BG_COLOR = [0, 0, 0]
