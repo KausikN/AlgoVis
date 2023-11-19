@@ -116,12 +116,25 @@ def kmeans_clustering():
     if st.button("Visualise"):
         ## TEST
         import os
+        os.mkdir("HAHA/")
+        open("HAHA/HAHA.txt", "w").write("HAHALOL")
         print('--------------------------------')
         for (root,dirs,files) in os.walk('.', topdown=True):
             print(root) 
             print(dirs) 
             print(files) 
             print('--------------------------------')
+        try:
+            print("############ CHECK 1")
+            print(open("./HAHA/HAHA.txt", "r").read())
+            print("############ CHECK 1 END")
+        except: pass
+        try:
+            print("############ CHECK 2")
+            print(open("HAHA/HAHA.txt", "r").read())
+            print("############ CHECK 2 END")
+        except: pass
+
         # Generate Dataset
         Dataset = DatasetLoader["func"](**DatasetLoader["params"])
         # print(Dataset)
