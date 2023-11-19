@@ -114,6 +114,14 @@ def kmeans_clustering():
 
     # Process Inputs
     if st.button("Visualise"):
+        ## TEST
+        import os
+        print('--------------------------------')
+        for (root,dirs,files) in os.walk('.', topdown=True):
+            print(root) 
+            print(dirs) 
+            print(files) 
+            print('--------------------------------')
         # Generate Dataset
         Dataset = DatasetLoader["func"](**DatasetLoader["params"])
         # print(Dataset)
