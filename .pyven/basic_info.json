@@ -8,6 +8,7 @@
         "tqdm",
         "Pillow",
         "scikit_learn",
-        "networkx"
+        "networkx",
+        "plotly"
     ]
 }

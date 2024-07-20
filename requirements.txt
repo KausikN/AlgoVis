@@ -8,3 +8,4 @@ Pillow
 scikit_learn
 
 networkx
+plotly
