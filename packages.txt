@@ -1,3 +1,2 @@
 libgl1
-libx264
 ffmpeg

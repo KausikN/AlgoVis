@@ -3,5 +3,8 @@
         "StreamLitGUI/",
         "app.py",
         "Algorithms/"
-    ]
+    ],
+    "streamlit": {
+        "link": "https://kausikn-algovis.streamlit.app/"
+    }
 }
