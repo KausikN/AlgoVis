@@ -1,7 +1,7 @@
 streamlit
 matplotlib
 numpy
-opencv_python
+opencv-python-headless
 tqdm
 
 Pillow
