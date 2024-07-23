@@ -161,7 +161,7 @@ def GenerateNetworkImage(network):
             row.append((pos_x, pos_y))
         NODES_POSITIONS.append(row)
     
-    I = np.ones((IMAGE_SIZE[0], IMAGE_SIZE[1], 4), dtype=np.uint8) * IMAGE_COLOR_BG
+    I = (np.ones((IMAGE_SIZE[0], IMAGE_SIZE[1], 4), dtype=np.uint8) * IMAGE_COLOR_BG).astype(np.uint8)
     
     # Generate Connections
     weight_range = [0, np.max(np.abs(network["weight_range"]))]
