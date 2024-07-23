@@ -79,7 +79,7 @@ def GenerateHistoryVideo(history, savePath, duration=2.0):
         # Add iteration text
         itText = str(i) + "/" + str(history["n_iters"]) + ": " + str(round(history["loss"][i], 2))
         I_rgb = VideoUtils.ImageAddText(I_rgb, itText)
-        I_rgb = cv2.cvtColor(I_rgb, cv2.COLOR_BGR2RGB)
+        # I_rgb = cv2.cvtColor(I_rgb, cv2.COLOR_BGR2RGB)
         Is.append(I_rgb)
 
     fps = len(Is) / duration
