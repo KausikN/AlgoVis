@@ -182,6 +182,8 @@ def GenerateNetworkImage(network):
                 # print("W:", layer, node, next_node, weights[layer][node][next_node], LINE_COLOR, LINE_THICKNESS)
 
                 if LINE_THICKNESS > 0:
+                    print("DEBUG: ", pos_1, pos_2, LINE_COLOR, LINE_THICKNESS)
+                    print("DEBUG_I: ", I)
                     I = np.array(cv2.line(I, pos_1, pos_2, LINE_COLOR, LINE_THICKNESS), dtype=np.uint8)
 
     # Biases
