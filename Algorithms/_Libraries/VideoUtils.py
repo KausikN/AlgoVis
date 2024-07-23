@@ -10,6 +10,7 @@ from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
 from tqdm import tqdm
+from moviepy.editor import ImageClip, concatenate_videoclips
 
 # Main Functions
 def ReadImage(imgPath, imgSize=None, keepAspectRatio=False):
@@ -48,7 +49,7 @@ def ReadVideo(path):
 def WebcamVideo():
     return cv2.VideoCapture(0)
 
-def SaveFrames2Video(frames, pathOut, fps=20.0, size=None):
+def SaveFrames2Video_FFMPEG(frames, pathOut, fps=20.0, size=None):
     if os.path.splitext(pathOut)[-1] == ".gif":
         frames_images = [Image.fromarray(frame) for frame in frames]
         extraFrames = []
@@ -61,6 +62,20 @@ def SaveFrames2Video(frames, pathOut, fps=20.0, size=None):
         for frame in frames:
             out.write(frame)
         out.release()
+
+def SaveFrames2Video(frames, save_path, fps=24.0, size=None):
+    # Init
+    frame_duration = 1.0 / fps
+    FRAMES = []
+    # Create Image Clips
+    for i in range(len(frames)):
+        frame_clip = ImageClip(frames[i]).set_duration(frame_duration)
+        FRAMES.append(frame_clip)
+    # Concatenate
+    VIDEO = concatenate_videoclips(FRAMES, method="chain")
+    # Write Video
+    os.makedirs(os.path.dirname(save_path), exist_ok=True)
+    VIDEO.write_videofile(save_path, fps=fps)
 
 def FixVideoFile(pathIn, pathOut):
     COMMAND_VIDEO_CONVERT = "ffmpeg -i \"{path_in}\" -vcodec libx264 \"{path_out}\""

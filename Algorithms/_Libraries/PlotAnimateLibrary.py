@@ -14,6 +14,7 @@ from tqdm import tqdm
 import colorsys
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_agg import FigureCanvasAgg
+from moviepy.editor import ImageClip, concatenate_videoclips
 
 # Func Animation Plot Visualisation ######################################################################################
 # Main Params
@@ -107,7 +108,7 @@ fig = Figure(figsize=figsize, dpi=dpi)
 canvas = FigureCanvasAgg(fig)
 
 # Main Functions
-def SaveImages2GIF(frames, savePath, fps=20.0, size=(640, 480)):
+def SaveImages2GIF_FFMPEG(frames, savePath, fps=20.0, size=(640, 480)):
     frames_updated = []
         
     if os.path.splitext(savePath)[-1] == ".gif":
@@ -124,6 +125,20 @@ def SaveImages2GIF(frames, savePath, fps=20.0, size=(640, 480)):
         for frame in frames:
             out.write(frame)
         out.release()
+
+def SaveImages2GIF(frames, save_path, fps=24.0, size=(640, 480)):
+    # Init
+    frame_duration = 1.0 / fps
+    FRAMES = []
+    # Create Image Clips
+    for i in range(len(frames)):
+        frame_clip = ImageClip(frames[i]).set_duration(frame_duration)
+        FRAMES.append(frame_clip)
+    # Concatenate
+    VIDEO = concatenate_videoclips(FRAMES, method="chain")
+    # Write Video
+    os.makedirs(os.path.dirname(save_path), exist_ok=True)
+    VIDEO.write_videofile(save_path, fps=fps)
 
 def GenerateRainbowColors(n):
     colors = []

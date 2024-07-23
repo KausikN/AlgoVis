@@ -3,6 +3,7 @@ matplotlib
 numpy
 opencv-python-headless
 tqdm
+moviepy
 
 Pillow
 scikit_learn
