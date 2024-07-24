@@ -15,7 +15,7 @@
                 },
                 "check_based": {
                     "StartUICheck": true,
-                    "GenReqCheck": true
+                    "GenReqCheck": false
                 }
             }
         }
