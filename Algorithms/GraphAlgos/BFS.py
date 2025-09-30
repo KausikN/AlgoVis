@@ -7,6 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from copy import deepcopy
 from tqdm import tqdm
+from stqdm import stqdm
 
 from .._Libraries import GraphVis
 from .._Libraries import DatasetGenerators
@@ -14,12 +15,16 @@ from .._Libraries import VideoUtils
 
 # Main Functions
 # Evaluation and Visualization
-def Animate_BFS(AdjMatrix, Results, NodesPos, savePath, duration=2.0):
+def Animate_BFS(AdjMatrix, Results, NodesPos, savePath, duration=2.0, use_stqdm=False):
+    '''
+    Animate BFS Convergence and save as Video/GIF
+    '''
+    TQDM = stqdm if use_stqdm else tqdm
     trace = Results["trace"]
 
     # Generate Plot Images
     Is = []
-    for i in tqdm(range(len(trace))):
+    for i in TQDM(range(len(trace))):
         iterData = trace[i]
         visited = iterData["visited"]
         colors = [GraphVis.GetColor(visited[i]) for i in range(len(visited))]

@@ -47,6 +47,9 @@ DATASET_LOADTYPES = ["Generate Random", "Load Image"]
 
 # UI Functions
 def UI_PointsDatasetLoad():
+    '''
+    UI - Load Points Dataset
+    '''
     
     USERINPUT_DatasetLoadType = st.selectbox("Select Dataset Load Type", DATASET_LOADTYPES)
 
@@ -84,7 +87,7 @@ def UI_PointsDatasetLoad():
         USERINPUT_Threshold = col2.slider("Binarise Threshold", 0, 255, 128, 1)
         USERINPUT_Image = USERINPUT_Image >= USERINPUT_Threshold
 
-        st.image(USERINPUT_Image * 255, caption="Input Image", use_column_width=True)
+        st.image(USERINPUT_Image * 255, caption="Input Image", use_container_width=True)
 
         DatasetLoader = {
             "name": "Load Image",
@@ -118,11 +121,11 @@ def kmeans_clustering():
         Dataset = DatasetLoader["func"](**DatasetLoader["params"])
         # print(Dataset)
         # Run KMeans
-        Results = KMeansClustering(Dataset, USERINPUT_K, USERINPUT_max_iters)
+        Results = KMeansClustering(Dataset, USERINPUT_K, USERINPUT_max_iters, use_stqdm=True)
         # print(Results)
         # Save Animation
-        Animate_KMeansConvergence(Dataset, Results, PATHS["default"]["save"]["video_converted"], duration=DEFAULT_VIDEO_DURATION)
-        # Animate_KMeansConvergence(Dataset, Results, PATHS["default"]["save"]["video"], duration=DEFAULT_VIDEO_DURATION)
+        Animate_KMeansConvergence(Dataset, Results, PATHS["default"]["save"]["video_converted"], duration=DEFAULT_VIDEO_DURATION, use_stqdm=True)
+        # Animate_KMeansConvergence(Dataset, Results, PATHS["default"]["save"]["video"], duration=DEFAULT_VIDEO_DURATION, use_stqdm=True)
         # VideoUtils.FixVideoFile(PATHS["default"]["save"]["video"], PATHS["default"]["save"]["video_converted"])
         # Display Animation Video
         st.video(PATHS["default"]["save"]["video_converted"]) 

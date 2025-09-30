@@ -44,6 +44,9 @@ def main_SortAlgos():
 
 # UI Functions
 def UI_DisplaySortingOutput(array, array_sorted, trace):
+    '''
+    UI - Display Sorting Output
+    '''
     # Title
     st.markdown("## Sort Output")
 
@@ -51,11 +54,11 @@ def UI_DisplaySortingOutput(array, array_sorted, trace):
     
     col1, col2 = st.columns(colsize)
     col1.markdown("Input Array")
-    col2.markdown("```python\n" + str(array))
+    col2.markdown("```python\n" + str([int(x) for x in array]))
 
     col1, col2 = st.columns(colsize)
     col1.markdown("Sorted Array")
-    col2.markdown("```python\n" + str(array_sorted))
+    col2.markdown("```python\n" + str([int(x) for x in array_sorted]))
 
     col1, col2 = st.columns(colsize)
     col1.markdown("Number of Swaps")

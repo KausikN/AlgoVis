@@ -13,6 +13,9 @@ from .._Libraries import SeriesVisualiseLibrary as SVL
 # Main Functions
 # Algorithm Functions
 def Converge_Logistic(r, startVal=0.5, c=0, max_iters=-1, equilibriumRoundoff=4, valueLimits=[-10000000.0, 10000000.0]):
+    '''
+    Converge using the Logistic Map: x[n+1] = r*x[n]*(1-x[n]) + c
+    '''
     values = [startVal]
     curVal = startVal
     n_iters = 0
@@ -42,6 +45,9 @@ def Converge_Logistic(r, startVal=0.5, c=0, max_iters=-1, equilibriumRoundoff=4,
 
 # Visualisation Functions
 def FindEquilibriumPopulations(trace, equilibriumRoundoff):
+    '''
+    Find Equilibrium Populations from the trace
+    '''
     eqPops = [trace[-1]]
     finalPopRoundedOff = round(trace[-1], equilibriumRoundoff)
     for pop in trace[:-1][::-1]:
@@ -52,6 +58,9 @@ def FindEquilibriumPopulations(trace, equilibriumRoundoff):
     return eqPops
 
 def BifurcatePlot(rValues, eqPops, titles=["", "", ""]):
+    '''
+    Plot Bifurcation Diagram
+    '''
     # plt.plot(rValues, eqPops)
     colors = cm.rainbow(np.linspace(0, 1, len(rValues)))
     for i in range(len(rValues)):

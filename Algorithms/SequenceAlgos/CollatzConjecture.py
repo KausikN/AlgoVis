@@ -10,6 +10,9 @@ from .._Libraries import SeriesVisualiseLibrary as SVL
 # Main Functions
 # Algorithm Functions
 def CollatzConjecture_Converge(startVal, max_iters=-1):
+    '''
+    Converge using the Collatz Conjecture
+    '''
     values = [startVal]
     curVal = startVal
     n_iters = 0

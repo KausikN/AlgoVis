@@ -11,12 +11,18 @@ from .._Libraries import SeriesVisualiseLibrary as SVL
 # Main Functions
 # Algorithm Classes
 class Polynomial:
+    '''
+    Polynomial Class
+    '''
     def __init__(self, coeffs):
         self.coeffs = coeffs
         self.degree = len(coeffs) - 1
 
 # Algorithm Functions
 def ExtremaFitter_Fit(extremas):
+    '''
+    Fit Polynomial through given extrema points
+    '''
     equation = Polynomial([0]*(len(extremas) + 2))
 
     return equation

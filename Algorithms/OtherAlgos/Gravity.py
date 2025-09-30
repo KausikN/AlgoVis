@@ -11,6 +11,9 @@ from .._Libraries import Plot3DVisualiseLibrary as P3L
 
 # Main Functions
 def Effect_Gravity(sP, time, vi=[0, 0, 0], g=9.8):
+    '''
+    Gravity Effect
+    '''
     x_t = []
     for t in time:
         z = - ((0.5)*g*(t**2) + vi[1]*t)

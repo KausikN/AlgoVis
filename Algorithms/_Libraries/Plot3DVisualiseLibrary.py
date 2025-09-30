@@ -9,6 +9,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib import animation
 from tqdm import tqdm
+from stqdm import stqdm
 
 # Main Variables
 Lines = []
@@ -23,6 +24,9 @@ initRot = 30
 # Main Functions
 # Generation Functions
 def GeneratePoints_UniformRandom(N, Limits=[(-15, 15), (-15, 15), (-15, 15)], seed=5):
+    '''
+    Generate N points uniformly randomly distributed within the given Limits
+    '''
     np.random.seed(seed)
     x = Limits[0][0] + (Limits[0][1] - Limits[0][0]) * np.random.random(N)
     y = Limits[1][0] + (Limits[1][1] - Limits[1][0]) * np.random.random(N)
@@ -32,6 +36,9 @@ def GeneratePoints_UniformRandom(N, Limits=[(-15, 15), (-15, 15), (-15, 15)], se
     return pts
 
 def GeneratePoints_Uniform(N, Limits=[(-15, 15), (-15, 15), (-15, 15)]):
+    '''
+    Generate N points uniformly distributed within the given Limits
+    '''
     x = np.linspace(Limits[0][0], Limits[0][1], N)
     y = np.linspace(Limits[1][0], Limits[1][1], N)
     z = np.linspace(Limits[2][0], Limits[2][1], N)
@@ -49,6 +56,9 @@ def GeneratePoints_Uniform(N, Limits=[(-15, 15), (-15, 15), (-15, 15)]):
 # Visualisation Functions
 # initialization function: plot the background of each frame
 def InitAnimation():
+    '''
+    Initialize the animation
+    '''
     global Lines, Pts, x_t, fig, ax
     for line, pt in zip(Lines, Pts):
         line.set_data([], [])
@@ -60,6 +70,9 @@ def InitAnimation():
 
 # animation function.  This will be called sequentially with the frame number
 def UpdateAnimation(i):
+    '''
+    Update the animation by one frame
+    '''
     global Lines, Pts, x_t, fig, ax, speedUpFactor, rotationSpeed
     print(i, "done", end="\r")
     # we"ll step two time-steps per frame.  This leads to nice results.
@@ -78,15 +91,20 @@ def UpdateAnimation(i):
 
     return Lines + Pts
 
-def AnimateEffect(EffectFunc, N_trajectories, GeneratorFunc, timeInterval=[0, 4], plotLims=[(-25, 25), (-35, 35), (5, 55)], frames=500, frame_interval=30, plotData=True, saveData={"save": False}):
+def AnimateEffect(EffectFunc, N_trajectories, GeneratorFunc, timeInterval=[0, 4], plotLims=[(-25, 25), (-35, 35), (5, 55)], frames=500, frame_interval=30, plotData=True, saveData={"save": False}, use_stqdm=False):
+    '''
+    Animate the effect of a function on a set of points
+    '''
     global Lines, Pts, x_t, fig, ax, speedUpFactor
+    TQDM = stqdm if use_stqdm else tqdm
+
     # Choose random starting points, uniformly distributed from -15 to 15
     startPoints = GeneratorFunc(N_trajectories)
     N_trajectories = startPoints.shape[0]
 
     # Get Plot Points
     time = np.linspace(timeInterval[0], timeInterval[1], frames*speedUpFactor)
-    x_t = np.asarray([EffectFunc(sP, time) for sP in tqdm(startPoints)])
+    x_t = np.asarray([EffectFunc(sP, time) for sP in TQDM(startPoints)])
 
     # Set up figure & 3D axis for animation
     fig = plt.figure(figsize=saveData["figSize"])
@@ -125,15 +143,20 @@ def AnimateEffect(EffectFunc, N_trajectories, GeneratorFunc, timeInterval=[0, 4]
         plt.show()
 
 
-def AnimateEffect_Generic(EffectFunc, Points, Colors, timeInterval=[0, 4], plotLims=[(-25, 25), (-35, 35), (5, 55)], frames=500, frame_interval=30, plotData=True, saveData={"save": False}):
+def AnimateEffect_Generic(EffectFunc, Points, Colors, timeInterval=[0, 4], plotLims=[(-25, 25), (-35, 35), (5, 55)], frames=500, frame_interval=30, plotData=True, saveData={"save": False}, use_stqdm=False):
+    '''
+    Animate the effect of a function on a set of points
+    '''
     global Lines, Pts, x_t, fig, ax, speedUpFactor
+    TQDM = stqdm if use_stqdm else tqdm
+
     # Choose random starting points, uniformly distributed from -15 to 15
     startPoints = np.array(Points)
     N_trajectories = startPoints.shape[0]
 
     # Get Plot Points
     time = np.linspace(timeInterval[0], timeInterval[1], frames*speedUpFactor)
-    x_t = np.asarray([EffectFunc(sP, time) for sP in tqdm(startPoints)])
+    x_t = np.asarray([EffectFunc(sP, time) for sP in TQDM(startPoints)])
 
     # Set up figure & 3D axis for animation
     fig = plt.figure(figsize=saveData["figSize"])

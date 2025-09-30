@@ -10,6 +10,9 @@ from .._Libraries import SeriesVisualiseLibrary as SVL
 # Main Functions
 # Converge Functions
 def DigitSeries_Sum_Converge(startVal, max_iters=-1):
+    '''
+    Converge by summing the digits of the number until a single digit is obtained
+    '''
     values = [np.abs(startVal)]
     sign = np.sign(startVal)
     curVal = np.abs(startVal)
@@ -28,6 +31,9 @@ def DigitSeries_Sum_Converge(startVal, max_iters=-1):
     return values
 
 def DigitSeries_Multiply_Converge(startVal, max_iters=-1):
+    '''
+    Converge by multiplying the digits of the number until a single digit is obtained
+    '''
     values = [np.abs(startVal)]
     sign = np.sign(startVal)
     curVal = np.abs(startVal)

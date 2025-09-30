@@ -9,11 +9,13 @@ import subprocess
 from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
-from tqdm import tqdm
-from moviepy.editor import ImageClip, concatenate_videoclips
+from moviepy import ImageClip, concatenate_videoclips
 
 # Main Functions
 def ReadImage(imgPath, imgSize=None, keepAspectRatio=False):
+    '''
+    Read an image from a given path and resize it to a given size
+    '''
     I = cv2.imread(imgPath)
     if not imgSize == None:
         size_original = [I.shape[0], I.shape[1]]
@@ -34,22 +36,37 @@ def ReadImage(imgPath, imgSize=None, keepAspectRatio=False):
     return I
 
 def DisplayImage(I, title=""):
+    '''
+    Display an image with a given title
+    '''
     I = cv2.cvtColor(I, cv2.COLOR_BGR2RGB)
     plt.imshow(I, "gray")
     plt.title(title)
     plt.show()
 
 def SaveImage(I, path):
+    '''
+    Save an image to a given path
+    '''
     cv2.imwrite(path, I)
 
 def ReadVideo(path):
+    '''
+    Read a video from a given path
+    '''
     cap = cv2.VideoCapture(path)
     return cap
 
 def WebcamVideo():
+    '''
+    Access the webcam video feed
+    '''
     return cv2.VideoCapture(0)
 
 def SaveFrames2Video_FFMPEG(frames, pathOut, fps=20.0, size=None):
+    '''
+    Save a list of frames to a video file or GIF using FFMPEG
+    '''
     if os.path.splitext(pathOut)[-1] == ".gif":
         frames_images = [Image.fromarray(frame) for frame in frames]
         extraFrames = []
@@ -64,12 +81,15 @@ def SaveFrames2Video_FFMPEG(frames, pathOut, fps=20.0, size=None):
         out.release()
 
 def SaveFrames2Video(frames, save_path, fps=24.0, size=None):
+    '''
+    Save a list of frames to a video file or GIF using MoviePy
+    '''
     # Init
     frame_duration = 1.0 / fps
     FRAMES = []
     # Create Image Clips
     for i in range(len(frames)):
-        frame_clip = ImageClip(frames[i]).set_duration(frame_duration)
+        frame_clip = ImageClip(frames[i]).with_duration(frame_duration)
         FRAMES.append(frame_clip)
     # Concatenate
     VIDEO = concatenate_videoclips(FRAMES, method="chain")
@@ -78,6 +98,9 @@ def SaveFrames2Video(frames, save_path, fps=24.0, size=None):
     VIDEO.write_videofile(save_path, fps=fps)
 
 def FixVideoFile(pathIn, pathOut):
+    '''
+    Fix a video file by re-encoding it using FFMPEG
+    '''
     COMMAND_VIDEO_CONVERT = "ffmpeg -i \"{path_in}\" -vcodec libx264 \"{path_out}\""
     
     if os.path.exists(pathOut):
@@ -90,6 +113,9 @@ def FixVideoFile(pathIn, pathOut):
     print("Conversion Output: \n" + ConvertOutput + "\n")
 
 def ImageAddText(I, text, textColor=[255, 255, 255]):
+    '''
+    Add text to an image at the top-left corner
+    '''
     BG_COLOR = [0, 0, 0]
 
     I_size = I.shape[:2]

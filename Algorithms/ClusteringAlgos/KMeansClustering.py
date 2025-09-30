@@ -7,6 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from copy import deepcopy
 from tqdm import tqdm
+from stqdm import stqdm
 
 from sklearn.cluster import KMeans
 
@@ -15,13 +16,17 @@ from .._Libraries import VideoUtils
 
 # Main Functions
 # Evaluation and Visualization
-def Animate_KMeansConvergence(Dataset, Results, savePath, duration=2.0):
+def Animate_KMeansConvergence(Dataset, Results, savePath, duration=2.0, use_stqdm=False):
+    '''
+    Animate KMeans Convergence and save as Video/GIF
+    '''
+    TQDM = stqdm if use_stqdm else tqdm
     trace = Results["trace"]
 
     # Generate Plot Images
     Is = []
     Dataset_iter = deepcopy(Dataset)
-    for i in tqdm(range(len(trace))):
+    for i in TQDM(range(len(trace))):
         iterData = trace[i]
         Dataset_iter["labels"] = iterData["labels"]
         Dataset_iter["unique_labels"] = np.unique(Dataset_iter["labels"])
@@ -34,7 +39,11 @@ def Animate_KMeansConvergence(Dataset, Results, savePath, duration=2.0):
     VideoUtils.SaveFrames2Video(Is, savePath, fps=fps)
 
 # KMeans
-def KMeansClustering(Dataset, K, max_iters=300):
+def KMeansClustering(Dataset, K, max_iters=300, use_stqdm=False):
+    '''
+    K Means Clustering Algorithm
+    '''
+    TQDM = stqdm if use_stqdm else tqdm
     # Initialize
     # Init K centers as K random points from the dataset
     centers = np.array(Dataset["points"])
@@ -49,7 +58,7 @@ def KMeansClustering(Dataset, K, max_iters=300):
     # Trace
     trace = []
 
-    for i in tqdm(range(max_iters)):
+    for i in TQDM(range(max_iters)):
         # Calculate distance of each point from each center and assign the point to the closest center
         for j in range(len(Dataset["points"])):
             distances = np.zeros(K)
@@ -92,6 +101,9 @@ def KMeansClustering(Dataset, K, max_iters=300):
     return Results
 
 def KMeansClustering_Library(Dataset, K, max_iters=300):
+    '''
+    K Means Clustering using sklearn Library
+    '''
     kmeans = KMeans(n_clusters=K, max_iter=max_iters, random_state=0)
     labels_pred = kmeans.fit_predict(Dataset["points"])
     centers_pred = kmeans.cluster_centers_

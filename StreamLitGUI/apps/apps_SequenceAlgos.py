@@ -42,6 +42,9 @@ def main_SequenceAlgos():
 
 # Util Functions
 def ParseListString(data, dtype=int):
+    '''
+    Parse List from String
+    '''
     listData = [dtype(x.strip()) for x in data.split(",")]
     return listData
 
@@ -50,6 +53,9 @@ def ParseListString(data, dtype=int):
 
 # UI Functions
 def UI_DisplaySingleTrace(trace, title=""):
+    '''
+    UI - Display Single Trace
+    '''
     fig = plt.figure()
     plt.plot(trace)
     plt.scatter(list(range(len(trace))), trace)
@@ -59,6 +65,9 @@ def UI_DisplaySingleTrace(trace, title=""):
     st.plotly_chart(fig, use_container_width=True)
 
 def UI_DisplayRangeTraces(traces, title=""):
+    '''
+    UI - Display Range Traces
+    '''
     startVals = [trace[0] for trace in traces]
     itCounts = [len(trace) for trace in traces]
     fig = plt.figure()
@@ -70,6 +79,9 @@ def UI_DisplayRangeTraces(traces, title=""):
     st.plotly_chart(fig, use_container_width=True)
 
 def UI_SingleValueConvergence(ConvergeFunc, title=""):
+    '''
+    UI - Single Value Convergence
+    '''
     USERINPUT_startVal = st.number_input("Enter Starting Value", 0, 99999, 23, 1)
     annotate = False
 
@@ -86,6 +98,9 @@ def UI_SingleValueConvergence(ConvergeFunc, title=""):
         UI_DisplaySingleTrace(trace, title + " Convergence for " + str(USERINPUT_startVal))
 
 def UI_RangeConvergence(ConvergeFunc, title=""):
+    '''
+    UI - Range Convergence
+    '''
     USERINPUT_startRange = st.number_input("Enter Range Start", 1, 99999, 2, 1)
     USERINPUT_endRange = st.number_input("Enter Range End", USERINPUT_startRange, 99999, 23, 1)
     USERINPUT_rangeSkip = st.number_input("Enter Range Skip", 1, int((USERINPUT_endRange - USERINPUT_startRange)/2), 1, 1)
@@ -93,11 +108,11 @@ def UI_RangeConvergence(ConvergeFunc, title=""):
     if st.button("Visualise"):
         # Process Inputs
         computeRange = (USERINPUT_startRange, USERINPUT_endRange, USERINPUT_rangeSkip)
-        traces, iters, I_plot = SVL.Series_RangeConvergeVis(ConvergeFunc, computeRange, plotSkip=1, titles=["", "", ""], plot=False)
+        traces, iters, I_plot = SVL.Series_RangeConvergeVis(ConvergeFunc, computeRange, plotSkip=1, titles=["", "", ""], plot=False, use_stqdm=True)
 
         # Display Outputs
         st.markdown("## Range Iterations")
-        # st.image(I_plot, "Range Iterations", use_column_width=True)
+        # st.image(I_plot, "Range Iterations", use_container_width=True)
         UI_DisplayRangeTraces(traces, "Values vs " + title + " Convergence Iterations")
 
 # Repo Based Functions

@@ -1,7 +1,7 @@
 {
     "name": "AlgoVis",
     "repo_link": "https://github.com/KausikN/AlgoVis",
-    "local_path": "E:/Github Codes and Projects/Projects/AlgoVis",
+    "local_path": "D:/Github Codes and Projects/Projects/AlgoVis",
     "modules": {
         "*.py": {
             "name": "*",
@@ -15,7 +15,7 @@
             "name": "FNN",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/AIAlgos/FNN.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/AIAlgos",
             "dependencies": [
                 "*.py",
@@ -25,6 +25,7 @@
                 "VideoUtils.py",
                 "cv2.py",
                 "numpy.py",
+                "stqdm.py",
                 "tqdm.py"
             ]
         },
@@ -32,7 +33,7 @@
             "name": "ActivationFunctions",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/AIAlgos/FunctionsLibrary/ActivationFunctions.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/AIAlgos/FunctionsLibrary",
             "dependencies": [
                 "numpy.py"
@@ -42,7 +43,7 @@
             "name": "LossFunctions",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/AIAlgos/FunctionsLibrary/LossFunctions.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/AIAlgos/FunctionsLibrary",
             "dependencies": [
                 "numpy.py"
@@ -52,7 +53,7 @@
             "name": "BayesClassifier",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/ClassificationAlgos/BayesClassifier.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/ClassificationAlgos",
             "dependencies": []
         },
@@ -60,7 +61,7 @@
             "name": "LDA",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/ClassificationAlgos/LDA.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/ClassificationAlgos",
             "dependencies": []
         },
@@ -68,7 +69,7 @@
             "name": "LinearRegression",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/ClassificationAlgos/LinearRegression.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/ClassificationAlgos",
             "dependencies": [
                 "DatasetGenerators.py",
@@ -82,7 +83,7 @@
             "name": "KMeansClustering",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/ClusteringAlgos/KMeansClustering.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/ClusteringAlgos",
             "dependencies": [
                 "DatasetGenerators.py",
@@ -91,6 +92,7 @@
                 "deepcopy.py",
                 "matplotlib/pyplot.py",
                 "numpy.py",
+                "stqdm.py",
                 "tqdm.py"
             ]
         },
@@ -98,7 +100,7 @@
             "name": "EquationVis",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/EquationAlgos/EquationVis.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/EquationAlgos",
             "dependencies": [
                 "*.py",
@@ -112,7 +114,7 @@
             "name": "ExtremaEquationFitter",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/EquationAlgos/ExtremaEquationFitter.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/EquationAlgos",
             "dependencies": [
                 "SeriesVisualiseLibrary.py",
@@ -124,7 +126,7 @@
             "name": "TransformFunctions",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/EquationAlgos/FunctionsLibrary/TransformFunctions.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/EquationAlgos/FunctionsLibrary",
             "dependencies": [
                 "math.py"
@@ -134,7 +136,7 @@
             "name": "RandomGenerator",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/GeneratorAlgos/RandomGenerator.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/GeneratorAlgos",
             "dependencies": [
                 "Figure.py",
@@ -151,7 +153,7 @@
             "name": "BFS",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/GraphAlgos/BFS.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/GraphAlgos",
             "dependencies": [
                 "DatasetGenerators.py",
@@ -160,6 +162,7 @@
                 "deepcopy.py",
                 "matplotlib/pyplot.py",
                 "numpy.py",
+                "stqdm.py",
                 "tqdm.py"
             ]
         },
@@ -167,7 +170,7 @@
             "name": "BifurcateEquilibrium",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/OtherAlgos/BifurcateEquilibrium.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/OtherAlgos",
             "dependencies": [
                 "SeriesVisualiseLibrary.py",
@@ -181,7 +184,7 @@
             "name": "DzhanibekovEffect",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/OtherAlgos/DzhanibekovEffect.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/OtherAlgos",
             "dependencies": [
                 "Plot3DVisualiseLibrary.py",
@@ -194,7 +197,7 @@
             "name": "Gravity",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/OtherAlgos/Gravity.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/OtherAlgos",
             "dependencies": [
                 "Plot3DVisualiseLibrary.py",
@@ -207,7 +210,7 @@
             "name": "CollatzConjecture",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/SequenceAlgos/CollatzConjecture.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/SequenceAlgos",
             "dependencies": [
                 "SeriesVisualiseLibrary.py",
@@ -218,7 +221,7 @@
             "name": "DigitSeries",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/SequenceAlgos/DigitSeries.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/SequenceAlgos",
             "dependencies": [
                 "SeriesVisualiseLibrary.py",
@@ -230,7 +233,7 @@
             "name": "FibonacciSequence",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/SequenceAlgos/FibonacciSequence.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/SequenceAlgos",
             "dependencies": [
                 "SeriesVisualiseLibrary.py",
@@ -242,7 +245,7 @@
             "name": "RecamanSequence",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/SequenceAlgos/RecamanSequence.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/SequenceAlgos",
             "dependencies": [
                 "SeriesVisualiseLibrary.py",
@@ -253,7 +256,7 @@
             "name": "SortingVis",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/SortAlgos/SortingVis.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/SortAlgos",
             "dependencies": [
                 "PlotAnimateLibrary.py",
@@ -265,10 +268,9 @@
             "name": "DatasetGenerators",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/_Libraries/DatasetGenerators.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/_Libraries",
             "dependencies": [
-                "Figure.py",
                 "FigureCanvasAgg.py",
                 "cv2.py",
                 "json.py",
@@ -281,7 +283,7 @@
             "name": "GraphVis",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/_Libraries/GraphVis.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/_Libraries",
             "dependencies": [
                 "FigureCanvasAgg.py",
@@ -295,21 +297,19 @@
             "name": "MazeGen",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/_Libraries/MazeGen.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/_Libraries",
             "dependencies": [
                 "cv2.py",
                 "matplotlib/pyplot.py",
-                "numpy.py",
-                "os.py",
-                "tqdm.py"
+                "numpy.py"
             ]
         },
         "Algorithms/_Libraries/NetworkVis.py": {
             "name": "NetworkVis",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/_Libraries/NetworkVis.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/_Libraries",
             "dependencies": [
                 "cv2.py",
@@ -321,13 +321,14 @@
             "name": "Plot3DVisualiseLibrary",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/_Libraries/Plot3DVisualiseLibrary.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/_Libraries",
             "dependencies": [
                 "animation.py",
                 "numpy.py",
                 "os.py",
                 "pyplot.py",
+                "stqdm.py",
                 "tqdm.py"
             ]
         },
@@ -335,19 +336,22 @@
             "name": "PlotAnimateLibrary",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/_Libraries/PlotAnimateLibrary.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/_Libraries",
             "dependencies": [
                 "Figure.py",
                 "FigureCanvasAgg.py",
                 "FuncAnimation.py",
                 "Image.py",
+                "ImageClip.py",
                 "PillowWriter.py",
                 "colorsys.py",
+                "concatenate_videoclips.py",
                 "cv2.py",
                 "matplotlib/pyplot.py",
                 "numpy.py",
                 "os.py",
+                "stqdm.py",
                 "tqdm.py"
             ]
         },
@@ -355,7 +359,7 @@
             "name": "SeriesVisualiseLibrary",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/_Libraries/SeriesVisualiseLibrary.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/_Libraries",
             "dependencies": [
                 "Algorithms/_Libraries/PlotAnimateLibrary.py",
@@ -363,6 +367,7 @@
                 "matplotlib/cm.py",
                 "matplotlib/pyplot.py",
                 "numpy.py",
+                "stqdm.py",
                 "tqdm.py"
             ]
         },
@@ -370,7 +375,7 @@
             "name": "TurtleAnimateLibrary",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/_Libraries/TurtleAnimateLibrary.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/_Libraries",
             "dependencies": [
                 "turtle.py"
@@ -380,16 +385,17 @@
             "name": "VideoUtils",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/_Libraries/VideoUtils.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "Algorithms/_Libraries",
             "dependencies": [
                 "Image.py",
+                "ImageClip.py",
+                "concatenate_videoclips.py",
                 "cv2.py",
                 "matplotlib/pyplot.py",
                 "numpy.py",
                 "os.py",
-                "subprocess.py",
-                "tqdm.py"
+                "subprocess.py"
             ]
         },
         "DatasetGenerators.py": {
@@ -434,6 +440,14 @@
         },
         "Image.py": {
             "name": "Image",
+            "type": "missing",
+            "link": "",
+            "parent_dir": "",
+            "sub_dir": "",
+            "dependencies": []
+        },
+        "ImageClip.py": {
+            "name": "ImageClip",
             "type": "missing",
             "link": "",
             "parent_dir": "",
@@ -500,7 +514,7 @@
             "name": "apps_AIAlgos",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/StreamLitGUI/apps/apps_AIAlgos.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "StreamLitGUI/apps",
             "dependencies": [
                 "*.py",
@@ -511,7 +525,7 @@
             "name": "apps_ClassificationAlgos",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/StreamLitGUI/apps/apps_ClassificationAlgos.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "StreamLitGUI/apps",
             "dependencies": [
                 "*.py",
@@ -522,7 +536,7 @@
             "name": "apps_ClusteringAlgos",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/StreamLitGUI/apps/apps_ClusteringAlgos.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "StreamLitGUI/apps",
             "dependencies": [
                 "*.py",
@@ -534,7 +548,7 @@
             "name": "apps_EquationAlgos",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/StreamLitGUI/apps/apps_EquationAlgos.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "StreamLitGUI/apps",
             "dependencies": [
                 "*.py",
@@ -547,7 +561,7 @@
             "name": "apps_GeneratorAlgos",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/StreamLitGUI/apps/apps_GeneratorAlgos.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "StreamLitGUI/apps",
             "dependencies": [
                 "*.py",
@@ -558,7 +572,7 @@
             "name": "apps_GraphAlgos",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/StreamLitGUI/apps/apps_GraphAlgos.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "StreamLitGUI/apps",
             "dependencies": [
                 "*.py",
@@ -570,7 +584,7 @@
             "name": "apps_SequenceAlgos",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/StreamLitGUI/apps/apps_SequenceAlgos.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "StreamLitGUI/apps",
             "dependencies": [
                 "*.py",
@@ -585,7 +599,7 @@
             "name": "apps_SortAlgos",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/StreamLitGUI/apps/apps_SortAlgos.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "StreamLitGUI/apps",
             "dependencies": [
                 "*.py",
@@ -612,23 +626,27 @@
             "name": "app",
             "type": "local",
             "link": "https://github.com/KausikN/AlgoVis/blob/master/app.py",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "",
             "dependencies": [
-                "cv2.py",
-                "functools.py",
                 "json.py",
-                "numpy.py",
                 "os.py",
-                "streamlit.py",
-                "subprocess.py"
+                "streamlit.py"
             ]
         },
         "colorsys.py": {
             "name": "colorsys",
             "type": "inbuilt",
             "link": "",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
+            "sub_dir": "",
+            "dependencies": []
+        },
+        "concatenate_videoclips.py": {
+            "name": "concatenate_videoclips",
+            "type": "missing",
+            "link": "",
+            "parent_dir": "",
             "sub_dir": "",
             "dependencies": []
         },
@@ -636,7 +654,7 @@
             "name": "cv2",
             "type": "inbuilt",
             "link": "",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "",
             "dependencies": []
         },
@@ -652,7 +670,7 @@
             "name": "functools",
             "type": "inbuilt",
             "link": "",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "",
             "dependencies": []
         },
@@ -660,7 +678,7 @@
             "name": "json",
             "type": "inbuilt",
             "link": "",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "",
             "dependencies": []
         },
@@ -676,7 +694,7 @@
             "name": "math",
             "type": "inbuilt",
             "link": "",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "",
             "dependencies": []
         },
@@ -684,7 +702,7 @@
             "name": "cm",
             "type": "inbuilt",
             "link": "",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "matplotlib",
             "dependencies": []
         },
@@ -692,7 +710,7 @@
             "name": "pyplot",
             "type": "inbuilt",
             "link": "",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "matplotlib",
             "dependencies": []
         },
@@ -700,7 +718,7 @@
             "name": "networkx",
             "type": "inbuilt",
             "link": "",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "",
             "dependencies": []
         },
@@ -708,7 +726,7 @@
             "name": "numpy",
             "type": "inbuilt",
             "link": "",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "",
             "dependencies": []
         },
@@ -716,7 +734,7 @@
             "name": "os",
             "type": "inbuilt",
             "link": "",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "",
             "dependencies": []
         },
@@ -732,7 +750,15 @@
             "name": "random",
             "type": "inbuilt",
             "link": "",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
+            "sub_dir": "",
+            "dependencies": []
+        },
+        "stqdm.py": {
+            "name": "stqdm",
+            "type": "inbuilt",
+            "link": "",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "",
             "dependencies": []
         },
@@ -740,7 +766,7 @@
             "name": "streamlit",
             "type": "inbuilt",
             "link": "",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "",
             "dependencies": []
         },
@@ -748,7 +774,7 @@
             "name": "subprocess",
             "type": "inbuilt",
             "link": "",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "",
             "dependencies": []
         },
@@ -756,7 +782,7 @@
             "name": "tqdm",
             "type": "inbuilt",
             "link": "",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "",
             "dependencies": []
         },
@@ -764,7 +790,7 @@
             "name": "turtle",
             "type": "inbuilt",
             "link": "",
-            "parent_dir": "E:/Github Codes and Projects/Projects/AlgoVis",
+            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
             "sub_dir": "",
             "dependencies": []
         },

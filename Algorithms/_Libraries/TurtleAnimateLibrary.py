@@ -8,27 +8,45 @@ import turtle
 # Turtle Shape Functions
 # Level 1
 def DrawPartialCircle(tur, r, percent):
+    '''
+    Draw a partial circle with radius r and percent of the circle to be drawn
+    '''
     tur.circle(r, percent)
 
 # Level 2
 def DrawLeftDownSemiCircle(tur, r):
+    '''
+    Draw a left down semi circle with radius r
+    '''
     tur.setheading(-90)
     DrawPartialCircle(tur, -r, 180)
 
 def DrawRightUpSemiCircle(tur, r):
+    '''
+    Draw a right up semi circle with radius r
+    '''
     tur.setheading(90)
     DrawPartialCircle(tur, -r, 180)
 
 def DrawLeftUpSemiCircle(tur, r):
+    '''
+    Draw a left up semi circle with radius r
+    '''
     tur.setheading(90)
     DrawPartialCircle(tur, r, 180)
 
 def DrawRightDownSemiCircle(tur, r):
+    '''
+    Draw a right down semi circle with radius r
+    '''
     tur.setheading(-90)
     DrawPartialCircle(tur, r, 180)
 
 # List Visualisations
 def List_TurtleValuePlot(values, titles=[""]):
+    '''
+    Visualise a list of values as a turtle plot
+    '''
     if len(values) == 0:
         return
 
@@ -43,6 +61,9 @@ def List_TurtleValuePlot(values, titles=[""]):
     # tur.clear()
 
 def List_TurtleValueAlternatingCurves(values, titles=[""], scale=1):
+    '''
+    Visualise a list of values as turtle curves alternating between up and down
+    '''
     if len(values) == 0:
         return
 
@@ -73,6 +94,9 @@ def List_TurtleValueAlternatingCurves(values, titles=[""], scale=1):
     # tur.clear()
 
 def List_TurtleValueFixedCurves(values, titles=[""], scale=1, leftDown=True, rightUp=True):
+    '''
+    Visualise a list of values as turtle curves with fixed directions
+    '''
     if len(values) == 0:
         return
 

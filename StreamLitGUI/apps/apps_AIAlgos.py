@@ -3,12 +3,7 @@ Stream lit GUI for AI Algorithms
 """
 
 # Imports
-# import os
-# import cv2
 import streamlit as st
-# import json
-# import subprocess
-# import functools
 
 from Algorithms.AIAlgos.FNN import *
 
@@ -38,6 +33,9 @@ def main_AIAlgos():
 
 # Main Functions
 def GetNetworkSize(network_size_str):
+    '''
+    Get Network Size from string
+    '''
     network_size_str = network_size_str.split(",")
     network_size = []
     for size in network_size_str:
@@ -45,11 +43,17 @@ def GetNetworkSize(network_size_str):
     return network_size
 
 def GenerateDataset(N, x_dim, y_dim, valRange):
+    '''
+    Generate dataset
+    '''
     Dataset = DatasetGenerators.GeneratePolynomialDistributionData(N, x_dim, y_dim, valRange)
     return Dataset
 
 # UI Functions
 def UI_GetNetworkInputs(USERINPUT_DIM_X, USERINPUT_DIM_Y):
+    '''
+    UI - Get Network Inputs
+    '''
     # Network Size
     col1, col2 = st.columns(2)
     USERINPUT_network_size = col1.text_input("Network Size (',' separated sizes of each hidden layer)", "2, 4, 2")
@@ -57,7 +61,7 @@ def UI_GetNetworkInputs(USERINPUT_DIM_X, USERINPUT_DIM_Y):
     
     NetworkFull = NetworkVis.GenerateFullNetwork(USERINPUT_NETWORK_SIZES)
     I_NetworkFull = NetworkVis.GenerateNetworkImage(NetworkFull)
-    col2.image(I_NetworkFull, use_column_width=True)
+    col2.image(I_NetworkFull, use_container_width=True)
 
     # Functions
     # Activation Function
@@ -68,8 +72,8 @@ def UI_GetNetworkInputs(USERINPUT_DIM_X, USERINPUT_DIM_Y):
         ACTIVATION_FUNCS[USERINPUT_ActivationFunc]["func"], ACTIVATION_FUNCS[USERINPUT_ActivationFunc]["deriv"], 
         [-maxLimit, maxLimit], 100
     )
-    col2.image(I_act_fn, use_column_width=True)
-    col3.image(I_act_fn_deriv, use_column_width=True)
+    col2.image(I_act_fn, use_container_width=True)
+    col3.image(I_act_fn_deriv, use_container_width=True)
 
     # Output Activation Function
     col1, col2, col3 = st.columns((1, 1.5, 1.5))
@@ -79,8 +83,8 @@ def UI_GetNetworkInputs(USERINPUT_DIM_X, USERINPUT_DIM_Y):
         ACTIVATION_FUNCS[USERINPUT_OutputActivationFunc]["func"], ACTIVATION_FUNCS[USERINPUT_OutputActivationFunc]["deriv"], 
         [-maxLimit, maxLimit], 100
     )
-    col2.image(I_out_act_fn, use_column_width=True)
-    col3.image(I_out_act_fn_deriv, use_column_width=True)
+    col2.image(I_out_act_fn, use_container_width=True)
+    col3.image(I_out_act_fn_deriv, use_container_width=True)
 
     # Loss Function
     col1, col2, col3 = st.columns((1, 1.5, 1.5))
@@ -89,8 +93,8 @@ def UI_GetNetworkInputs(USERINPUT_DIM_X, USERINPUT_DIM_Y):
     # LossFunc = functools.partial(LOSS_FUNCTIONS[USERINPUT_LossFunc]["func"], t=0.0)
     # LossFuncDeriv = functools.partial(LOSS_FUNCTIONS[USERINPUT_LossFunc]["deriv"], t=0.0)
     # I_loss_fn, I_loss_fn_deriv = PlotFunctionAndDerivative(USERINPUT_LossFunc, LossFunc, LossFuncDeriv, [-maxLimit, maxLimit], 100)
-    # col2.image(I_loss_fn, use_column_width=True)
-    # col3.image(I_loss_fn_deriv, use_column_width=True)
+    # col2.image(I_loss_fn, use_container_width=True)
+    # col3.image(I_loss_fn_deriv, use_container_width=True)
 
     return USERINPUT_NETWORK_SIZES, USERINPUT_ActivationFunc, USERINPUT_OutputActivationFunc, USERINPUT_LossFunc
 
@@ -131,11 +135,13 @@ def feed_forward_neural_network():
         }
         # Train FNN
         trained_parameters, history = model(Dataset["X"], Dataset["Y"], USERINPUT_NETWORK_SIZES, 
-            USERINPUT_epochs, USERINPUT_learning_rate, funcs=funcs)
+            USERINPUT_epochs, USERINPUT_learning_rate, funcs=funcs, 
+            use_stqdm=True
+        )
 
         # Generate Video
-        GenerateHistoryVideo(history, PATHS["default"]["save"]["video_converted"], DEFAULT_VIDEO_DURATION)
-        # GenerateHistoryVideo(history, PATHS["default"]["save"]["video"], DEFAULT_VIDEO_DURATION)
+        GenerateHistoryVideo(history, PATHS["default"]["save"]["video_converted"], DEFAULT_VIDEO_DURATION, use_stqdm=True)
+        # GenerateHistoryVideo(history, PATHS["default"]["save"]["video"], DEFAULT_VIDEO_DURATION, use_stqdm=True)
         # Fix Video
         # VideoUtils.FixVideoFile(PATHS["default"]["save"]["video"], PATHS["default"]["save"]["video_converted"])
         # Display Animation Video

@@ -3,11 +3,9 @@ Maze Generator
 """
 
 # Imports
-import os
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-from tqdm import tqdm
 
 # Main Functions
 # Visualisation Functions

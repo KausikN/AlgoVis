@@ -5,6 +5,7 @@ Digit based Series generation and visualisation
 # Imports
 import numpy as np
 from tqdm import tqdm
+from stqdm import stqdm
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 from . import PlotAnimateLibrary as PAL
@@ -12,49 +13,72 @@ from . import TurtleAnimateLibrary as TAL
 
 # Main Functions
 # Execution Functions
-def Series_GroupExecute(ConvergeFunc, computeValues):
+def Series_GroupExecute(ConvergeFunc, computeValues, use_stqdm=False):
+    '''
+    Execute a convergence function on a group of values
+    '''
+    TQDM = stqdm if use_stqdm else tqdm
     iters = []
     traces = []
-    for i in tqdm(computeValues):
+    for i in TQDM(computeValues):
         trace = ConvergeFunc(i)
         traces.append(trace)
         iters.append(len(trace)-1)
     return traces, iters
 
-def Series_RangeExecute(ConvergeFunc, computeRange):
+def Series_RangeExecute(ConvergeFunc, computeRange, use_stqdm=False):
+    '''
+    Execute a convergence function on a range of values
+    '''
+    TQDM = stqdm if use_stqdm else tqdm
     iters = []
     traces = []
-    for i in tqdm(range(computeRange[0], computeRange[1]+1, computeRange[2])):
+    for i in TQDM(range(computeRange[0], computeRange[1]+1, computeRange[2])):
         trace = ConvergeFunc(i)
         traces.append(trace)
         iters.append(len(trace)-1)
     return traces, iters
 
 def Series_ValueExecute(ConvergeFunc, startVal):
+    '''
+    Execute a convergence function on a single value
+    '''
     trace = ConvergeFunc(startVal)
     return trace, len(trace)
 
 # Matplotlib Visualisation Functions
 def Series_ValueConvergeVis(ConvergeFunc, startVal, titles=["values", "iters", "Values vs Iters"], plotLines=True, plotPoints=True, annotate=False, plot=True):
+    '''
+    Visualise the convergence of a function on a single value
+    '''
     trace, iterCount = Series_ValueExecute(ConvergeFunc, startVal)
     I_plot = PAL.List_PlotVisualise(trace, titles=titles, plotLines=plotLines, plotPoints=plotPoints, annotate=annotate, plot=plot)
 
     return trace, iterCount, I_plot
 
-def Series_GroupConvergeVis(ConvergeFunc, computeValues, plotSkip=1, titles=["values", "iters", "Values vs Iters"]):
-    traces, iters = Series_GroupExecute(ConvergeFunc, computeValues)
+def Series_GroupConvergeVis(ConvergeFunc, computeValues, plotSkip=1, titles=["values", "iters", "Values vs Iters"], use_stqdm=False):
+    '''
+    Visualise the convergence of a function on a group of values
+    '''
+    traces, iters = Series_GroupExecute(ConvergeFunc, computeValues, use_stqdm=use_stqdm)
     PAL.List_PlotVisualise(iters[::plotSkip], titles=titles)
     
     return traces, iters
 
-def Series_RangeConvergeVis(ConvergeFunc, computeRange, plotSkip=1, titles=["values", "iters", "Values vs Iters"], plot=True):
-    traces, iters = Series_RangeExecute(ConvergeFunc, computeRange)
+def Series_RangeConvergeVis(ConvergeFunc, computeRange, plotSkip=1, titles=["values", "iters", "Values vs Iters"], plot=True, use_stqdm=False):
+    '''
+    Visualise the convergence of a function on a range of values
+    '''
+    traces, iters = Series_RangeExecute(ConvergeFunc, computeRange, use_stqdm=use_stqdm)
     I_plot = PAL.List_PlotVisualise(iters[::plotSkip], titles=titles, plot=plot)
     
     return traces, iters, I_plot
 
-def Series_GroupSubPlotConvergeVis(ConvergeFunc, computeValues, plotSkip=1, titles=["values", "iters", "Values vs Iters"]):
-    traces, iters = Series_GroupExecute(ConvergeFunc, computeValues)
+def Series_GroupSubPlotConvergeVis(ConvergeFunc, computeValues, plotSkip=1, titles=["values", "iters", "Values vs Iters"], use_stqdm=False):
+    '''
+    Visualise the convergence of a function on a group of values as subplots
+    '''
+    traces, iters = Series_GroupExecute(ConvergeFunc, computeValues, use_stqdm=use_stqdm)
 
     plt.title(titles[2])
     
@@ -76,8 +100,11 @@ def Series_GroupSubPlotConvergeVis(ConvergeFunc, computeValues, plotSkip=1, titl
 
     return traces, iters
 
-def Series_CombinedPlotConvergeVis(ConvergeFunc, computeValues, plotSkip=1, titles=["values", "iters", "Values vs Iters"]):
-    traces, iters = Series_GroupExecute(ConvergeFunc, computeValues)
+def Series_CombinedPlotConvergeVis(ConvergeFunc, computeValues, plotSkip=1, titles=["values", "iters", "Values vs Iters"], use_stqdm=False):
+    '''
+    Visualise the convergence of a function on a group of values as a combined plot
+    '''
+    traces, iters = Series_GroupExecute(ConvergeFunc, computeValues, use_stqdm=use_stqdm)
 
     ax = plt.subplot(1,1,1)
     colors = cm.rainbow(np.linspace(0, 1, len(traces)))
@@ -98,6 +125,9 @@ def Series_CombinedPlotConvergeVis(ConvergeFunc, computeValues, plotSkip=1, titl
 
 # Turtle Visualisation Functions
 def Series_ValueRun_TurtleCurves(trace, titles=["values", "iters", "Values vs Iters"]):
+    '''
+    Visualise the convergence of a function on a single value as turtle curves
+    '''
     # trace, iterCount = Series_ValueExecute(ConvergeFunc, startVal)
     trace = np.array(trace)
     dataRange = np.array([np.min(trace), np.max(trace)])

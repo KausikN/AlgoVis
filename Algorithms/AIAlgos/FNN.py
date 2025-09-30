@@ -6,6 +6,7 @@ Simple Fully Connected Neural Network
 import cv2
 import numpy as np
 from tqdm import tqdm
+from stqdm import stqdm
 
 from .._Libraries import VideoUtils
 from .._Libraries import NetworkVis
@@ -14,7 +15,11 @@ from .FunctionsLibrary.LossFunctions import *
 from .FunctionsLibrary.ActivationFunctions import *
 
 # Utils Functions
-def GenerateHistoryVideo(history, savePath, duration=2.0):
+def GenerateHistoryVideo(history, savePath, duration=2.0, use_stqdm=False):
+    '''
+    Generate a video of the neural network training history
+    '''
+    TQDM = stqdm if use_stqdm else tqdm
     Is = []
 
     print("Nodes Diff:")
@@ -48,7 +53,7 @@ def GenerateHistoryVideo(history, savePath, duration=2.0):
     print("\n\n")
 
     print("Generating", history["n_iters"], "frames...")
-    for i in tqdm(range(history["n_iters"])):
+    for i in TQDM(range(history["n_iters"])):
         nodes_vals = []
         for j in range(len(history["nodes"][i])):
             nodes_vals.extend(history["nodes"][i][j])
@@ -86,6 +91,9 @@ def GenerateHistoryVideo(history, savePath, duration=2.0):
     VideoUtils.SaveFrames2Video(Is, savePath, fps)
 
 def PlotFunctionAndDerivative(fn_name, fn, fn_deriv, valRange=[0.0, 1.0], N=100):
+    '''
+    Plot a function and its derivative over a given range
+    '''
     Xs = np.linspace(valRange[0], valRange[1], N)
 
     # Function Plot
@@ -115,6 +123,9 @@ def PlotFunctionAndDerivative(fn_name, fn, fn_deriv, valRange=[0.0, 1.0], N=100)
 # Main Functions
 # Init Functions
 def initialize_parameters(layer_sizes, funcs):
+    '''
+    Initialize the parameters of the neural network
+    '''
     Ws = []
     bs = []
     for i in range(len(layer_sizes)-1):
@@ -141,6 +152,9 @@ def initialize_parameters(layer_sizes, funcs):
 
 # Forward Propagation Functions
 def forward_prop(X, parameters):
+    '''
+    Forward propagation through the neural network
+    '''
     As = [list(X.flatten())]
 
     Ws = parameters["Ws"]
@@ -161,6 +175,9 @@ def forward_prop(X, parameters):
 
 # Backward Propogation Functions
 def backward_prop(X, y, parameters):
+    '''
+    Backward propagation through the neural network
+    '''
     n_layers = parameters["n_layers"]
     Ws = parameters["Ws"]
     bs = parameters["bs"]
@@ -204,6 +221,9 @@ def backward_prop(X, y, parameters):
     return grads
 
 def update_parameters(parameters, grads, lr):
+    '''
+    Update the parameters of the neural network using the gradients
+    '''
     Ws = parameters["Ws"]
     bs = parameters["bs"]
     for i in range(len(Ws)):
@@ -215,7 +235,11 @@ def update_parameters(parameters, grads, lr):
     return parameters
 
 # Model Functions
-def model(X, Y, layer_sizes, n_epochs, lr, funcs):
+def model(X, Y, layer_sizes, n_epochs, lr, funcs, use_stqdm=False):
+    '''
+    Train the neural network model
+    '''
+    TQDM = stqdm if use_stqdm else tqdm
     history = {
         "n_iters": n_epochs * X.shape[0],
         "layer_sizes": layer_sizes,
@@ -226,7 +250,7 @@ def model(X, Y, layer_sizes, n_epochs, lr, funcs):
     }
 
     parameters = initialize_parameters(layer_sizes, funcs)
-    for i in tqdm(range(0, n_epochs)):
+    for i in TQDM(range(0, n_epochs)):
         for x, y in zip(X, Y):
             x = x.reshape(1, x.shape[0])
             y = y.reshape(1, y.shape[0])
@@ -259,6 +283,9 @@ def model(X, Y, layer_sizes, n_epochs, lr, funcs):
 
 # Predict Functions
 def predict(X, parameters):
+    '''
+    Predict the output of the neural network for given input data
+    '''
     y_pred, _ = forward_prop(X, parameters)
     y_pred = np.squeeze(y_pred)
     return y_pred >= 0.5

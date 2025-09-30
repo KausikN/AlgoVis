@@ -4,11 +4,7 @@ Stream lit GUI for hosting AlgoVis
 
 # Imports
 import os
-import cv2
 import json
-import functools
-import subprocess
-import numpy as np
 import streamlit as st
 
 # Main Vars

@@ -90,11 +90,11 @@ def linear_regression():
             Dataset["X"], Dataset["Y"], degrees_coeffs, 
             degrees=degrees, title="Regression Curves"
         )
-        # st.image(I_regCurves, caption="Regression Curves", use_column_width=True)
+        # st.image(I_regCurves, caption="Regression Curves", use_container_width=True)
         st.plotly_chart(fig_regCurves, use_container_width=True)
 
         I_errors, fig_errors = PlotErrors(errors, degrees, title="Degrees vs Errors")
-        # st.image(I_errors, caption="Degrees vs Errors", use_column_width=True)
+        # st.image(I_errors, caption="Degrees vs Errors", use_container_width=True)
         st.plotly_chart(fig_errors, use_container_width=True)
     
 #############################################################################################################################

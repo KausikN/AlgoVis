@@ -16,6 +16,9 @@ canvas = FigureCanvasAgg(fig)
 
 # Main Functions
 def PolynomialRegression(x, y, degree):
+    '''
+    Polynomial Regression using Normal Equation Method
+    '''
     # In Polynomial Regression we have,
     # y = b0 + b1*x + b2*x^2 + ... bn*x^n
 
@@ -38,6 +41,9 @@ def PolynomialRegression(x, y, degree):
     return b
 
 def LinearRegression(x, y):
+    '''
+    Linear Regression using Least Squares Method
+    '''
     # In Linear Regression we have,
     # y = b0 + b1*x
     # where,
@@ -62,17 +68,26 @@ def LinearRegression(x, y):
 
 # Predict and Error Functions
 def Predict(b, x):
+    '''
+    Predict y values for given x using coefficients b
+    '''
     y_pred = np.array([b[0]] * len(x))
     for i in range(1, len(b)):
         y_pred = y_pred + (b[i] * (x ** i))
     return y_pred
 
 def Error_SumSquares(y, y_pred):
+    '''
+    Calculate Sum of Squares Error between actual and predicted y values
+    '''
     y = np.array(y)
     y_pred = np.array(y_pred)
     return np.sum((y - y_pred) ** 2)
 
 def GetErrors(x, y, degrees_coeffs):
+    '''
+    Get Errors for multiple polynomial degrees
+    '''
     y_preds = []
     for i in range(len(degrees_coeffs)):
         y_preds.append(Predict(degrees_coeffs[i], x))
@@ -83,6 +98,9 @@ def GetErrors(x, y, degrees_coeffs):
 
 # Display Functions
 def DisplayPolynomial(coeffs):
+    '''
+    Display Polynomial as String
+    '''
     polyStr = f"y = {coeffs[0]}"
     for i in range(1, len(coeffs)):
         polyStr += f" + {coeffs[i]}*x^{i}"
@@ -91,6 +109,9 @@ def DisplayPolynomial(coeffs):
 
 # Plot Functions
 def PlotRegressionCurves(x, y, bs, degrees, title="", curve_pts=1000):
+    '''
+    Plot Regression Curves for multiple polynomial degrees
+    '''
     # Setup Plot
     global fig, canvas
     fig = plt.figure()
@@ -128,6 +149,9 @@ def PlotRegressionCurves(x, y, bs, degrees, title="", curve_pts=1000):
     return I_plot, fig
 
 def PlotPredictions(x, y, y_pred, degree, title=""):
+    '''
+    Plot Predictions for given polynomial degree
+    '''
     # Setup Plot
     global fig, canvas
     fig = plt.figure()
@@ -159,6 +183,9 @@ def PlotPredictions(x, y, y_pred, degree, title=""):
     return I_plot, fig
 
 def PlotErrors(errors, degrees, title=""):
+    '''
+    Plot Errors for multiple polynomial degrees
+    '''
     # Setup Plot
     global fig, canvas
     fig = plt.figure()

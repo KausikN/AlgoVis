@@ -11,6 +11,9 @@ from .._Libraries import Plot3DVisualiseLibrary as P3L
 
 # Main Functions
 def Effect_UpwardSpiral(sP, time, ls=50, r=15, rs=1):
+    '''
+    Upward Spiral Effect
+    '''
     x_t = []
     for t in time:
         z = ls * t
@@ -46,7 +49,7 @@ saveData = {
         ("Uniform" if GeneratorFunc == P3L.GeneratePoints_Uniform else "Random") + ".gif",
     "fps": 30,
     "figSize": [640, 480]
-    }
+}
 # Params
 
 # RunCode

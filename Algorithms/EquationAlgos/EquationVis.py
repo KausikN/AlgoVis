@@ -13,6 +13,9 @@ from .FunctionsLibrary.TransformFunctions import *
 # Main Functions
 # Main Equation Functions
 def EquationVis_2D_Generic(X, TransformFunc, startPos=0.0, scale=1.0):
+    '''
+    Generic 2D Equation Visualization
+    '''
     Ys = []
     curState = startPos
     for x in X:
@@ -23,6 +26,9 @@ def EquationVis_2D_Generic(X, TransformFunc, startPos=0.0, scale=1.0):
     return Ys
 
 def EquationVis_2D_Combined(Ys, combinationStr="{F1}"):
+    '''
+    Combine multiple 2D Equations into one using combination string
+    '''
     N = Ys.shape[1]
     Ys_combined = []
     for i in range(N):

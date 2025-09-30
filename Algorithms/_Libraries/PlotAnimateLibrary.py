@@ -11,10 +11,11 @@ import os
 import cv2
 from PIL import Image
 from tqdm import tqdm
+from stqdm import stqdm
 import colorsys
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_agg import FigureCanvasAgg
-from moviepy.editor import ImageClip, concatenate_videoclips
+from moviepy import ImageClip, concatenate_videoclips
 
 # Func Animation Plot Visualisation ######################################################################################
 # Main Params
@@ -24,17 +25,26 @@ plotData = {}
 
 # Main Functions
 def CreatePlotGIF(plotFig, updateFunc, initFunc, frames=np.linspace(0, 2*np.pi, 64), show=False):
+    '''
+    Create a GIF from a plot figure, update function, init function and frames
+    '''
     animation = FuncAnimation(plotFig, updateFunc, frames, init_func=initFunc)
     if show:
         plt.show()
     return animation
 
 def SavePlotGIF(animation, savePath, fps=25):
+    '''
+    Save a plot GIF to a given path with a given fps
+    '''
     writer = PillowWriter(fps=fps)
     animation.save(savePath, writer=writer)
 
 # List Visualisations
 def List_PlotVisualise(values, titles=["", "", ""], plotLines=True, plotPoints=True, annotate=False, plot=True):
+    '''
+    Visualise a list of values as a plot
+    '''
     fig, ax = plt.subplots()
     canvas = FigureCanvasAgg(fig)
     if plotLines:
@@ -61,11 +71,17 @@ def List_PlotVisualise(values, titles=["", "", ""], plotLines=True, plotPoints=T
     return I_plot
 
 def ListProgressionPlot_Vis(values):
+    '''
+    Visualise the progression of a list of values as a plot animation
+    '''
     frames = len(values)
     ListProgressionPlot_CreatePlotFigure(values)
     return CreatePlotGIF(plotData["fig"], ListProgressionPlot_Update, SimplePlot_Init, frames, True)
 
 def ListProgressionPlot_CreatePlotFigure(values):
+    '''
+    Create the plot figure for the list progression plot
+    '''
     global plotData
     global XData
     global YData
@@ -79,6 +95,9 @@ def ListProgressionPlot_CreatePlotFigure(values):
     plotData["fig"] = fig
 
 def SimplePlot_Init():
+    '''
+    Initialize the simple plot
+    '''
     global XData
     global YData
     global plotData
@@ -87,6 +106,9 @@ def SimplePlot_Init():
     plotData["curIndex"] = 0
 
 def ListProgressionPlot_Update(i):
+    '''
+    Update the list progression plot by one frame
+    '''
     global XData
     global YData
     global plotData
@@ -108,11 +130,15 @@ fig = Figure(figsize=figsize, dpi=dpi)
 canvas = FigureCanvasAgg(fig)
 
 # Main Functions
-def SaveImages2GIF_FFMPEG(frames, savePath, fps=20.0, size=(640, 480)):
+def SaveImages2GIF_FFMPEG(frames, savePath, fps=20.0, size=(640, 480), use_stqdm=False):
+    '''
+    Save a list of images as a GIF or Video using FFMPEG
+    '''
+    TQDM = stqdm if use_stqdm else tqdm
     frames_updated = []
         
     if os.path.splitext(savePath)[-1] == ".gif":
-        for frame in tqdm(frames):
+        for frame in TQDM(frames):
             # frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             frames_updated.append(Image.fromarray(frame))
         extraFrames = []
@@ -127,12 +153,15 @@ def SaveImages2GIF_FFMPEG(frames, savePath, fps=20.0, size=(640, 480)):
         out.release()
 
 def SaveImages2GIF(frames, save_path, fps=24.0, size=(640, 480)):
+    '''
+    Save a list of images as a GIF or Video using MoviePy
+    '''
     # Init
     frame_duration = 1.0 / fps
     FRAMES = []
     # Create Image Clips
     for i in range(len(frames)):
-        frame_clip = ImageClip(frames[i]).set_duration(frame_duration)
+        frame_clip = ImageClip(frames[i]).with_duration(frame_duration)
         FRAMES.append(frame_clip)
     # Concatenate
     VIDEO = concatenate_videoclips(FRAMES, method="chain")
@@ -141,6 +170,9 @@ def SaveImages2GIF(frames, save_path, fps=24.0, size=(640, 480)):
     VIDEO.write_videofile(save_path, fps=fps)
 
 def GenerateRainbowColors(n):
+    '''
+    Generate n distinct colors in a rainbow spectrum
+    '''
     colors = []
 
     for i in range(n):
@@ -151,6 +183,9 @@ def GenerateRainbowColors(n):
 
 # Bar Visualisations
 def ListOrderPlot_Bar(listTrace, showAxis=True):
+    '''
+    Visualise the ordering of a list as a bar chart animation
+    '''
     global fig
     global canvas
 
@@ -181,20 +216,17 @@ def ListOrderPlot_Bar(listTrace, showAxis=True):
 
 # Image by Image Plot Visualisation ######################################################################################
 
+# # Driver Code
+# # Params
+# numRange = (1, 5)
+# nframes = 500
+# frameLim = (0, 1)
+# show = False
+# saveGIF = True
+# savePath = "GeneratedGIFS/RandomGen_GIF.gif"
+# saveFPS = 25
 
-'''
-# Driver Code
-# Params
-numRange = (1, 5)
-nframes = 500
-frameLim = (0, 1)
-show = False
-saveGIF = True
-savePath = "GeneratedGIFS/RandomGen_GIF.gif"
-saveFPS = 25
-
-# RunCode
-animation = RandomGenerator_Vis(numRange, frameLim, nframes, show)
-if saveGIF:
-    SavePlotGIF(animation, savePath, saveFPS)
-'''
+# # RunCode
+# animation = RandomGenerator_Vis(numRange, frameLim, nframes, show)
+# if saveGIF:
+#     SavePlotGIF(animation, savePath, saveFPS)

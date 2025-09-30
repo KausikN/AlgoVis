@@ -45,6 +45,9 @@ GRAPH_LOADTYPES = ["Load JSON", "Generate Random Graph"]
 
 # UI Functions
 def UI_GraphLoad():
+    '''
+    UI - Load Graph
+    '''
     
     USERINPUT_GraphLoadType = st.selectbox("Select Graph Load Type", GRAPH_LOADTYPES)
 
@@ -72,7 +75,7 @@ def UI_GraphLoad():
 
     # Display Graph
     USERINPUT_Image, NodesPos = GraphVis.PlotGraph_AdjacencyMatrix(USERINPUT_AdjMatrix, show_edge_wt=True, plot=False)
-    st.image(USERINPUT_Image, caption="Input Graph", use_column_width=True)
+    st.image(USERINPUT_Image, caption="Input Graph", use_container_width=True)
 
     return USERINPUT_AdjMatrix, NodesPos
 
@@ -99,8 +102,8 @@ def bfs():
         Results = BFS(USERINPUT_AdjMatrix, USERINPUT_StartNode)
         # print(Results)
         # Save Animation
-        Animate_BFS(USERINPUT_AdjMatrix, Results, NodesPos, PATHS["default"]["save"]["video_converted"], duration=DEFAULT_VIDEO_DURATION)
-        # Animate_BFS(USERINPUT_AdjMatrix, Results, NodesPos, PATHS["default"]["save"]["video"], duration=DEFAULT_VIDEO_DURATION)
+        Animate_BFS(USERINPUT_AdjMatrix, Results, NodesPos, PATHS["default"]["save"]["video_converted"], duration=DEFAULT_VIDEO_DURATION, use_stqdm=True)
+        # Animate_BFS(USERINPUT_AdjMatrix, Results, NodesPos, PATHS["default"]["save"]["video"], duration=DEFAULT_VIDEO_DURATION, use_stqdm=True)
         # VideoUtils.FixVideoFile(PATHS["default"]["save"]["video"], PATHS["default"]["save"]["video_converted"])
         # Display Animation Video
         st.video(PATHS["default"]["save"]["video_converted"]) 

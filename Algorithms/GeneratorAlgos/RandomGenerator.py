@@ -26,6 +26,9 @@ canvas = FigureCanvasAgg(fig)
 # OLD Functions
 # Random Generator Vis - Visualise the distribution of random number generator in python by visualising the frequency distribution
 def RandomGenerator_Vis_OLD(numRange=(0, 100), frameLim=(0, 100), nframes=100, show=True):
+    '''
+    Visualise the distribution of random number generator in python by visualising the frequency distribution
+    '''
     global XData
     global YData
 
@@ -39,6 +42,9 @@ def RandomGenerator_Vis_OLD(numRange=(0, 100), frameLim=(0, 100), nframes=100, s
     return PAL.CreatePlotGIF(plotData["fig"], RandomGenerator_PlotUpdate, RandomGenerator_PlotInit, frames, show)
 
 def RandomGenerator_CreatePlotFigure():
+    '''
+    Create Plot Figure for Random Generator Visualization
+    '''
     global plotData
     global XData
     global YData
@@ -52,6 +58,9 @@ def RandomGenerator_CreatePlotFigure():
     plotData["fig"] = fig
 
 def RandomGenerator_PlotInit():
+    '''
+    Initialize Plot for Random Generator Visualization
+    '''
     global XData
     global YData
     global plotData
@@ -59,6 +68,9 @@ def RandomGenerator_PlotInit():
     plotData["ax"].set_ylim(YData["lim"][0], YData["lim"][1])
 
 def RandomGenerator_PlotUpdate(i):
+    '''
+    Update Plot for Random Generator Visualization
+    '''
     global XData
     global YData
     global plotData
@@ -74,6 +86,9 @@ def RandomGenerator_PlotUpdate(i):
 # New Functions
 # Random Functions
 def RandomFrequencyDistribution_Vis(numRange=(0, 100), nframes=100, title=""):
+    '''
+    Visualise the distribution of random number generator in python by visualising the frequency distribution
+    '''
     # Setup Plot
     global fig, canvas
     fig = plt.figure()
@@ -104,6 +119,9 @@ def RandomFrequencyDistribution_Vis(numRange=(0, 100), nframes=100, title=""):
     return Is
 
 def Random2DPointsGenerator_Vis(valuesBound=[(0, 100), (0, 100)], nframes=100, title=""):
+    '''
+    Visualise generation of random 2D points within given bounds
+    '''
     # Setup Plot
     global fig, canvas
     fig = plt.figure()
@@ -135,6 +153,9 @@ def Random2DPointsGenerator_Vis(valuesBound=[(0, 100), (0, 100)], nframes=100, t
     return Is
 
 def Random3DPointsGenerator_Vis(valuesBound=[(0, 100), (0, 100), (0, 100)], nframes=100, title=""):
+    '''
+    Visualise generation of random 3D points within given bounds
+    '''
     # Setup Plot
     global fig, canvas
     fig = plt.figure()
