@@ -6,6 +6,7 @@
         "numpy",
         "opencv-python-headless",
         "tqdm",
+        "stqdm",
         "moviepy",
         "Pillow",
         "scikit_learn",
