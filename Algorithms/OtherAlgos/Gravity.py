@@ -12,7 +12,7 @@ from .._Libraries import Plot3DVisualiseLibrary as P3L
 # Main Functions
 def Effect_Gravity(sP, time, vi=[0, 0, 0], g=9.8):
     '''
-    Gravity Effect
+    Effect - Gravity Effect
     '''
     x_t = []
     for t in time:

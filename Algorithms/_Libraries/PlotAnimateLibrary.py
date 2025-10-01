@@ -43,7 +43,7 @@ def SavePlotGIF(animation, savePath, fps=25):
 # List Visualisations
 def List_PlotVisualise(values, titles=["", "", ""], plotLines=True, plotPoints=True, annotate=False, plot=True):
     '''
-    Visualise a list of values as a plot
+    List - Visualise a list of values as a plot
     '''
     fig, ax = plt.subplots()
     canvas = FigureCanvasAgg(fig)
@@ -72,7 +72,7 @@ def List_PlotVisualise(values, titles=["", "", ""], plotLines=True, plotPoints=T
 
 def ListProgressionPlot_Vis(values):
     '''
-    Visualise the progression of a list of values as a plot animation
+    List Progression Plot - Visualise the progression of a list of values as a plot animation
     '''
     frames = len(values)
     ListProgressionPlot_CreatePlotFigure(values)
@@ -80,7 +80,7 @@ def ListProgressionPlot_Vis(values):
 
 def ListProgressionPlot_CreatePlotFigure(values):
     '''
-    Create the plot figure for the list progression plot
+    List Progression Plot - Create the plot figure for the list progression plot
     '''
     global plotData
     global XData
@@ -96,7 +96,7 @@ def ListProgressionPlot_CreatePlotFigure(values):
 
 def SimplePlot_Init():
     '''
-    Initialize the simple plot
+    Simple Plot - Initialize the simple plot
     '''
     global XData
     global YData
@@ -107,7 +107,7 @@ def SimplePlot_Init():
 
 def ListProgressionPlot_Update(i):
     '''
-    Update the list progression plot by one frame
+    List Progression Plot - Update the list progression plot by one frame
     '''
     global XData
     global YData
@@ -184,7 +184,7 @@ def GenerateRainbowColors(n):
 # Bar Visualisations
 def ListOrderPlot_Bar(listTrace, showAxis=True):
     '''
-    Visualise the ordering of a list as a bar chart animation
+    List Order Plot - Visualise the ordering of a list as a bar chart animation
     '''
     global fig
     global canvas

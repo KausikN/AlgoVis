@@ -12,7 +12,7 @@ from .._Libraries import Plot3DVisualiseLibrary as P3L
 # Main Functions
 def Effect_UpwardSpiral(sP, time, ls=50, r=15, rs=1):
     '''
-    Upward Spiral Effect
+    Effect - Upward Spiral Effect
     '''
     x_t = []
     for t in time:

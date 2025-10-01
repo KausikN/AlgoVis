@@ -45,7 +45,7 @@ def DrawRightDownSemiCircle(tur, r):
 # List Visualisations
 def List_TurtleValuePlot(values, titles=[""]):
     '''
-    Visualise a list of values as a turtle plot
+    List - Visualise a list of values as a turtle plot
     '''
     if len(values) == 0:
         return
@@ -62,7 +62,7 @@ def List_TurtleValuePlot(values, titles=[""]):
 
 def List_TurtleValueAlternatingCurves(values, titles=[""], scale=1):
     '''
-    Visualise a list of values as turtle curves alternating between up and down
+    List - Visualise a list of values as turtle curves alternating between up and down
     '''
     if len(values) == 0:
         return
@@ -95,7 +95,7 @@ def List_TurtleValueAlternatingCurves(values, titles=[""], scale=1):
 
 def List_TurtleValueFixedCurves(values, titles=[""], scale=1, leftDown=True, rightUp=True):
     '''
-    Visualise a list of values as turtle curves with fixed directions
+    List - Visualise a list of values as turtle curves with fixed directions
     '''
     if len(values) == 0:
         return

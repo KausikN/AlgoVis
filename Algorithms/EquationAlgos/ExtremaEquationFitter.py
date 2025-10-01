@@ -21,7 +21,7 @@ class Polynomial:
 # Algorithm Functions
 def ExtremaFitter_Fit(extremas):
     '''
-    Fit Polynomial through given extrema points
+    Extreme Fitter - Fit Polynomial through given extrema points
     '''
     equation = Polynomial([0]*(len(extremas) + 2))
 

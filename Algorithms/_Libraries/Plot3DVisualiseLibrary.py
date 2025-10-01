@@ -25,7 +25,7 @@ initRot = 30
 # Generation Functions
 def GeneratePoints_UniformRandom(N, Limits=[(-15, 15), (-15, 15), (-15, 15)], seed=5):
     '''
-    Generate N points uniformly randomly distributed within the given Limits
+    Generate Points - Generate N points uniformly randomly distributed within the given Limits
     '''
     np.random.seed(seed)
     x = Limits[0][0] + (Limits[0][1] - Limits[0][0]) * np.random.random(N)
@@ -37,7 +37,7 @@ def GeneratePoints_UniformRandom(N, Limits=[(-15, 15), (-15, 15), (-15, 15)], se
 
 def GeneratePoints_Uniform(N, Limits=[(-15, 15), (-15, 15), (-15, 15)]):
     '''
-    Generate N points uniformly distributed within the given Limits
+    Generate Points - Generate N points uniformly distributed within the given Limits
     '''
     x = np.linspace(Limits[0][0], Limits[0][1], N)
     y = np.linspace(Limits[1][0], Limits[1][1], N)
@@ -93,7 +93,7 @@ def UpdateAnimation(i):
 
 def AnimateEffect(EffectFunc, N_trajectories, GeneratorFunc, timeInterval=[0, 4], plotLims=[(-25, 25), (-35, 35), (5, 55)], frames=500, frame_interval=30, plotData=True, saveData={"save": False}, use_stqdm=False):
     '''
-    Animate the effect of a function on a set of points
+    Animate Effect - Animate the effect of a function on a set of points
     '''
     global Lines, Pts, x_t, fig, ax, speedUpFactor
     TQDM = stqdm if use_stqdm else tqdm
@@ -145,7 +145,7 @@ def AnimateEffect(EffectFunc, N_trajectories, GeneratorFunc, timeInterval=[0, 4]
 
 def AnimateEffect_Generic(EffectFunc, Points, Colors, timeInterval=[0, 4], plotLims=[(-25, 25), (-35, 35), (5, 55)], frames=500, frame_interval=30, plotData=True, saveData={"save": False}, use_stqdm=False):
     '''
-    Animate the effect of a function on a set of points
+    Animate Effect - Generically animate the effect of a function on a set of points
     '''
     global Lines, Pts, x_t, fig, ax, speedUpFactor
     TQDM = stqdm if use_stqdm else tqdm

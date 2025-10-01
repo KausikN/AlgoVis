@@ -11,7 +11,7 @@ from .._Libraries import SeriesVisualiseLibrary as SVL
 # Converge Functions
 def DigitSeries_Sum_Converge(startVal, max_iters=-1):
     '''
-    Converge by summing the digits of the number until a single digit is obtained
+    Digit Series - Converge by summing the digits of the number until a single digit is obtained
     '''
     values = [np.abs(startVal)]
     sign = np.sign(startVal)
@@ -32,7 +32,7 @@ def DigitSeries_Sum_Converge(startVal, max_iters=-1):
 
 def DigitSeries_Multiply_Converge(startVal, max_iters=-1):
     '''
-    Converge by multiplying the digits of the number until a single digit is obtained
+    Digit Series - Converge by multiplying the digits of the number until a single digit is obtained
     '''
     values = [np.abs(startVal)]
     sign = np.sign(startVal)

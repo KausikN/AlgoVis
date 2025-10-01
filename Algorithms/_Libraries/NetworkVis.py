@@ -10,6 +10,9 @@ import matplotlib.pyplot as plt
 # Main Functions
 # Utils Functions
 def DisplayImage(I, title=""):
+    '''
+    Displays an image
+    '''
     plt.imshow(I)
     plt.title(title)
     plt.show()

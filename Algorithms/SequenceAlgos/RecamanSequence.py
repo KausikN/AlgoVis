@@ -11,7 +11,7 @@ from .._Libraries import SeriesVisualiseLibrary as SVL
 # Algorithm Functions
 def Recaman_Standard(startVal, iters=10, minFill=-1):
     '''
-    Standard Recaman Sequence
+    Recaman - Standard Recaman Sequence
     '''
     values = [startVal]
     curVal = startVal

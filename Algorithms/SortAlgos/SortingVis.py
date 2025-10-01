@@ -11,7 +11,7 @@ from .._Libraries import VideoUtils
 # Generate Array Functions
 def GenerateArray_Random(size):
     '''
-    Generate Random Array of given size
+    Generate Array - Generate Random Array of given size
     '''
     inputArr = np.arange(size)
     np.random.shuffle(inputArr)
@@ -20,7 +20,7 @@ def GenerateArray_Random(size):
 # Visualiser Functions
 def SortVis_PlotGIF(SortFunc, inputArr, savePath="AlgoVis/GeneratedVisualisations/SortVis_Trace.gif", duration=2.0):
     '''
-    Create and Save a GIF visualising the sorting algorithm
+    SortVis - Create and Save a GIF visualising the sorting algorithm
     '''
     # print("Input Array:", inputArr)
     sortedArr, trace = SortFunc(inputArr)
@@ -39,7 +39,7 @@ def SortVis_PlotGIF(SortFunc, inputArr, savePath="AlgoVis/GeneratedVisualisation
 # Sort Functions
 def Sort_InsertionSort(inputArr):
     '''
-    Insertion Sort
+    Sort - Insertion Sort
     '''
     sortedArr = list(inputArr)
     trace = []
@@ -53,7 +53,7 @@ def Sort_InsertionSort(inputArr):
 
 def Sort_BubbleSort(inputArr):
     '''
-    Bubble Sort
+    Sort - Bubble Sort
     '''
     sortedArr = list(inputArr)
     trace = []
@@ -66,7 +66,7 @@ def Sort_BubbleSort(inputArr):
 
 def Sort_SelectionSort(inputArr):
     '''
-    Selection Sort
+    Sort - Selection Sort
     '''
     sortedArr = list(inputArr)
     trace = []
@@ -81,7 +81,7 @@ def Sort_SelectionSort(inputArr):
 
 def Sort_MergeSort(inputArr):
     '''
-    Merge Sort
+    Sort - Merge Sort
     '''
     sortedArr = list(inputArr)
     trace = []
@@ -132,7 +132,7 @@ def Sort_MergeSort(inputArr):
 
 def Sort_QuickSort(inputArr): # TODO: Fix
     '''
-    Quick Sort
+    Sort - Quick Sort
     '''
     sortedArr = list(inputArr)
     trace = []

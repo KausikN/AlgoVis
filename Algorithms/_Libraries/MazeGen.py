@@ -48,8 +48,7 @@ def VisualiseCellMatrix(cell_matrix, image_scale=10, bg_color=[0, 0, 0], line_co
 # Generator Functions
 def GenerateCell_Random():
     '''
-    Generates a random cell with 4 binary values
-    Each binary value represents whether to draw a line in North, East, South, or West direction
+    Generate Cell - Generates a random cell with 4 binary values where each binary value represents whether to draw a line in North, East, South, or West direction
     '''
     # Generate binary for each direction
     cell = np.random.randint(0, 2, 4, dtype=bool)
@@ -57,7 +56,7 @@ def GenerateCell_Random():
 
 def GenerateCellMatrix_Random(size):
     '''
-    Generates a random cell matrix with given size
+    Generate Cell Matrix - Generates a random cell matrix with given size
     '''
     # Generate random cell matrix
     cell_matrix = np.random.randint(0, 2, (size[0], size[1], 4), dtype=bool)

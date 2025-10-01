@@ -18,14 +18,14 @@ canvas = FigureCanvasAgg(fig)
 # Utils Functions
 def GetColor(i, n=1.0, cmap="gist_gray"):
     '''
-    Gets the color for a node in a graph.
+    Gets the color for a node in a graph
     '''
     cmap = plt.get_cmap(cmap)
     return cmap(1.0 * (i/n))
 
 def GenerateGraph_AdjacencyMatrix(Adj):
     '''
-    Generates the NetworkX Graph Object from adjacency matrix.
+    Generate Graph - Generates the NetworkX Graph Object from adjacency matrix
     '''
     # Init Graph
     G = nx.Graph()
@@ -45,7 +45,7 @@ def GenerateGraph_AdjacencyMatrix(Adj):
 # Plot Graph Functions
 def PlotGraph_AdjacencyMatrix(Adj, colors="#1f78b4", show_edge_wt=False, title="", pos=None, plot=False):
     '''
-    Plots the adjacency matrix Graph.
+    Plot Graph - Plots the adjacency matrix Graph
     '''
     global fig, canvas
     fig = plt.figure()

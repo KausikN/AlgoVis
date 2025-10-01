@@ -45,6 +45,9 @@ def main_EquationAlgos():
 
 # UI Functions
 def UI_TransformFunc(groupNum, st=st):
+    '''
+    UI - Get Transform Function
+    '''
     st.markdown("Transform Function " + str(groupNum))
     # Get Func and Params
     USERINPUT_FuncName = st.selectbox("Function", tuple(TRANSFORM_FUNCS.keys()), key="Func_" + str(groupNum))
@@ -63,6 +66,9 @@ def UI_TransformFunc(groupNum, st=st):
     return USERINPUT_Func
 
 def UI_ConstructTransformFuncs():
+    '''
+    UI - Construct Transform Functions
+    '''
     st.markdown("### Transform Functions")
     # Get Funcs
     USERINPUT_NGroups = st.number_input("Number of Transform Functions", 1, 3, 1, 1)

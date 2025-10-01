@@ -44,6 +44,9 @@ def main_GeneratorAlgos():
 
 # UI Functions
 def UI_RandomFrequencyDistribution():
+    '''
+    UI - Random Frequency Distribution
+    '''
     USERINPUT_numRange = st.slider("Select Random Value Range", 1, 100, (1, 5), 1)
     USERINPUT_nframes = st.number_input("Select Number of Values to Generate", 1, 500, 10, 1)
     USERINPUT_saveFPS = USERINPUT_nframes / DEFAULT_VIDEO_DURATION
@@ -61,6 +64,9 @@ def UI_RandomFrequencyDistribution():
         st.video(PATHS["default"]["save"]["video_converted"])
 
 def UI_Random2DPoints():
+    '''
+    UI - Random 2D Points
+    '''
     col1, col2 = st.columns(2)
     USERINPUT_pointXBounds = col1.slider("Select X Values Bound", 1, 100, (1, 5), 1)
     USERINPUT_pointYBounds = col2.slider("Select Y Values Bound", 1, 100, (1, 5), 1)
@@ -80,6 +86,9 @@ def UI_Random2DPoints():
         st.video(PATHS["default"]["save"]["video_converted"])
 
 def UI_Random3DPoints():
+    '''
+    UI - Random 3D Points
+    '''
     col1, col2, col3 = st.columns(3)
     USERINPUT_pointXBounds = col1.slider("Select X Values Bound", 1, 100, (1, 5), 1)
     USERINPUT_pointYBounds = col2.slider("Select Y Values Bound", 1, 100, (1, 5), 1)

@@ -11,7 +11,7 @@ from .._Libraries import SeriesVisualiseLibrary as SVL
 # Algorithm Functions
 def CollatzConjecture_Converge(startVal, max_iters=-1):
     '''
-    Converge using the Collatz Conjecture
+    Collatz Conjecture - Converge using the Collatz Conjecture
     '''
     values = [startVal]
     curVal = startVal

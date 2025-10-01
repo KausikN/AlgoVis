@@ -8,13 +8,13 @@ import math
 # Main Functions
 def TransformFunc_None(state, **params):
     '''
-    No Transformation
+    Transform Func - No Transformation
     '''
     return 0
 
 def TransformFunc_SinCos(state, coeff=[1, 1], freq=[1, 1], **params):
     '''
-    Sin-Cos Transformation
+    Transform Func - Sin-Cos Transformation
     '''
     x = state[0]
     sinPart = math.sin(x * freq[0]) * coeff[0]
@@ -23,7 +23,7 @@ def TransformFunc_SinCos(state, coeff=[1, 1], freq=[1, 1], **params):
 
 def TransformFunc_Linear(state, coeffs=(0.0, 1.0), **params):
     '''
-    Linear Transformation
+    Transform Func - Linear Transformation
     '''
     x = state[0]
     return coeffs[0] + (x * coeffs[1])

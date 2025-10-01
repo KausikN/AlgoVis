@@ -14,7 +14,7 @@ from .._Libraries import SeriesVisualiseLibrary as SVL
 # Algorithm Functions
 def Converge_Logistic(r, startVal=0.5, c=0, max_iters=-1, equilibriumRoundoff=4, valueLimits=[-10000000.0, 10000000.0]):
     '''
-    Converge using the Logistic Map: x[n+1] = r*x[n]*(1-x[n]) + c
+    Converge - Converge using the Logistic Map: x[n+1] = r*x[n]*(1-x[n]) + c
     '''
     values = [startVal]
     curVal = startVal

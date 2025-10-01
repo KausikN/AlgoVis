@@ -19,7 +19,7 @@ canvas = FigureCanvasAgg(fig)
 # Plot Functions
 def PlotLabelledData(Dataset, title="", plot=False):
     '''
-    Plots the data with labels.
+    Plots the data with labels
     '''
     global fig, canvas
     fig = plt.figure()
@@ -77,7 +77,7 @@ def PlotLabelledData(Dataset, title="", plot=False):
 
 def PlotUnlabelledData(Dataset, title="", lines=True, plot=False):
     '''
-    Plots the datapoints.
+    Plots the datapoints
     '''
     global fig, canvas
     fig = plt.figure()
@@ -141,7 +141,7 @@ def PlotUnlabelledData(Dataset, title="", lines=True, plot=False):
 # Points Datasets
 def GenerateRandomBlobs(N, dim, centers, plot=False):
     '''
-    Generates a random dataset of 2D points.
+    Generates a random dataset of 2D points
     '''
     # Init Dataset
     Dataset = {}
@@ -160,7 +160,7 @@ def GenerateRandomBlobs(N, dim, centers, plot=False):
 
 def GeneratePointsFromImage(I, plot=False):
     '''
-    Generates a dataset of points from an image.
+    Generates a dataset of points from an image
     '''
     # Init Dataset
     Dataset = {}
@@ -182,7 +182,7 @@ def GeneratePointsFromImage(I, plot=False):
 
 def GeneratePolynomialDistributionData(N, x_dim, y_dim, valRange=[-1.0, 1.0]):
     '''
-    Generates a dataset of Xs with Y = poly(X).
+    Generates a dataset of Xs with Y = poly(X)
     '''
     # Init Dataset
     Dataset = {}
@@ -205,7 +205,7 @@ def GeneratePolynomialDistributionData(N, x_dim, y_dim, valRange=[-1.0, 1.0]):
 
 def GeneratePolynomialNoisyData_2D(N, degree, noise_factor=0.5, valRange=[-1.0, 1.0], coeffValRange=[-1.0, 1.0]):
     '''
-    Generates a dataset of Xs with Y = poly(X) with noise.
+    Generates a dataset of Xs with Y = poly(X) with noise
     '''
     # Init Dataset
     Dataset = {}
@@ -226,7 +226,7 @@ def GeneratePolynomialNoisyData_2D(N, degree, noise_factor=0.5, valRange=[-1.0, 
 # Graph Datasets
 def GenerateRandomAdjacencyMatrix(N, prob_edge=0.5, weight_range=[0.1, 1.0], weights_int_only=False, no_self_loops=True, undirected=True):
     '''
-    Generates a random adjacency matrix.
+    Generates a random adjacency matrix
     '''
     # Generate random adjacency matrix
     Adj = np.random.uniform(low=weight_range[0], high=weight_range[1], size=(N, N))
@@ -244,7 +244,7 @@ def GenerateRandomAdjacencyMatrix(N, prob_edge=0.5, weight_range=[0.1, 1.0], wei
 
 def GenerateJSONDataFromAdjacencyMatrix(Adj):
     '''
-    Generates jsonData from a adjacency matrix.
+    Generates jsonData from a adjacency matrix
     '''
     # Generate jsonData
     AdjData = Adj.tolist()
@@ -258,7 +258,7 @@ def GenerateJSONDataFromAdjacencyMatrix(Adj):
 
 def GenerateAdjacencyMatrixFromJSONData(jsonData):
     '''
-    Generates a adjacency matrix from jsonData.
+    Generates a adjacency matrix from jsonData
     '''
     # Generate adjacency matrix
     AdjData = jsonData["adjacency_matrix"]
@@ -271,7 +271,7 @@ def GenerateAdjacencyMatrixFromJSONData(jsonData):
 
 def DirectReturn(data):
     '''
-    Directly returns the data.
+    Directly returns the data
     '''
     return data
 
