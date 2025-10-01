@@ -86,7 +86,7 @@ def PlotGraph_AdjacencyMatrix(Adj, colors="#1f78b4", show_edge_wt=False, title="
 
     return I_plot, pos
 
-# Driver Code
+# Run Code
 # Params
 
 # Params

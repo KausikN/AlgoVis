@@ -24,7 +24,7 @@ def Effect_Gravity(sP, time, vi=[0, 0, 0], g=9.8):
     x_t = np.array(x_t)
     return x_t
 
-# Driver Code
+# Run Code
 # Params
 initial_velocity = [0, 0, 10]
 g = 9.8

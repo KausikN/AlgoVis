@@ -126,5 +126,5 @@ def random_generators():
     RANDOMGENERATOR_VISUALISAITON_MAP[USERINPUT_VisChoice]()
     
 #############################################################################################################################
-# Driver Code
+# Run Code
 main_GeneratorAlgos()

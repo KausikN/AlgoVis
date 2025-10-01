@@ -131,5 +131,5 @@ def kmeans_clustering():
         st.video(PATHS["default"]["save"]["video_converted"]) 
     
 #############################################################################################################################
-# Driver Code
+# Run Code
 main_ClusteringAlgos()

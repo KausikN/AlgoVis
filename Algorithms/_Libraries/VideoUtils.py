@@ -133,7 +133,7 @@ def ImageAddText(I, text, textColor=[255, 255, 255]):
     I_t = cv2.putText(I_t, text, pos, font, fontScale, textColor, fontThickness)
     return I_t
 
-# Driver Code
+# Run Code
 # Params
 
 # # Params

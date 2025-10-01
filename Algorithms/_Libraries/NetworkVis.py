@@ -236,7 +236,7 @@ def GenerateNetworkImage(network):
 
     return I
 
-# Driver Code
+# Run Code
 # # Params
 # NetworkSizes = [2, 4, 2]
 # # Params

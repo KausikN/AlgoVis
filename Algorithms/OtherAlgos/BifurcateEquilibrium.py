@@ -70,7 +70,7 @@ def BifurcatePlot(rValues, eqPops, titles=["", "", ""]):
     plt.title(titles[2])
     plt.show()
 
-# Driver Code
+# Run Code
 # Params
 ConvergeFunc = Converge_Logistic
 

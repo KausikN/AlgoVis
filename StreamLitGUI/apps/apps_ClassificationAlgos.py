@@ -98,5 +98,5 @@ def linear_regression():
         st.plotly_chart(fig_errors, use_container_width=True)
     
 #############################################################################################################################
-# Driver Code
+# Run Code
 main_ClassificationAlgos()

@@ -105,6 +105,6 @@ def search_algorithms():
     st.markdown("In Developement :stuck_out_tongue_winking_eye:")
 
 #############################################################################################################################
-# Driver Code
+# Run Code
 if __name__ == "__main__":
     main()

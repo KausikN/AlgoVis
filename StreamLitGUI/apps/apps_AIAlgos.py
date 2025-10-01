@@ -148,5 +148,5 @@ def feed_forward_neural_network():
         st.video(PATHS["default"]["save"]["video_converted"])
     
 #############################################################################################################################
-# Driver Code
+# Run Code
 main_AIAlgos()

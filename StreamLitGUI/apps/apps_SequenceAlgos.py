@@ -184,5 +184,5 @@ def recaman_sequence():
     UI_SingleValueConvergence(ConvergeFunc, "Recaman Sequence")
     
 #############################################################################################################################
-# Driver Code
+# Run Code
 main_SequenceAlgos()

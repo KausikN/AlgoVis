@@ -62,7 +62,7 @@ def GenerateCellMatrix_Random(size):
     cell_matrix = np.random.randint(0, 2, (size[0], size[1], 4), dtype=bool)
     return cell_matrix
 
-# Driver Code
+# Run Code
 # Params
 size = (10, 10)
 

@@ -26,7 +26,7 @@ def Effect_UpwardSpiral(sP, time, ls=50, r=15, rs=1):
     x_t = np.array(x_t)
     return x_t
 
-# Driver Code
+# Run Code
 # Params
 N_trajectories = 500
 GeneratorFunc = P3L.GeneratePoints_UniformRandom

@@ -101,5 +101,5 @@ def sort_algorithms():
         UI_DisplaySortingOutput(array, array_sorted, trace)
     
 #############################################################################################################################
-# Driver Code
+# Run Code
 main_SortAlgos()

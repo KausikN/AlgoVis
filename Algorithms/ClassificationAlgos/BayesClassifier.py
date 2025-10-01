@@ -8,7 +8,7 @@ Bayes Classifier
 # Main Functions
 
 
-# Driver Code
+# Run Code
 # Params
 
 # Params

@@ -27,7 +27,7 @@ def ExtremaFitter_Fit(extremas):
 
     return equation
 
-# Driver Code
+# Run Code
 # Params
 FitFunc = ExtremaFitter_Fit
 # Params
