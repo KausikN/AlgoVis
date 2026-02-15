@@ -67,7 +67,7 @@ def linear_regression():
     # Process Inputs
     if st.button("Visualise"):
         # Generate Dataset
-        Dataset = DatasetGenerators.GeneratePolynomialNoisyData_2D(
+        Dataset = generate_polynomial_noisy_data_2D(
             N=USERINPUT_N, degree=USERINPUT_TrueDegree, noise_factor=USERINPUT_NoiseFactor, valRange=[-1.0, 1.0], coeffValRange=[-1.0, 1.0]
         )
 

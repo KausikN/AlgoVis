@@ -11,7 +11,7 @@ from stqdm import stqdm
 
 from sklearn.cluster import KMeans
 
-from .._Libraries import DatasetGenerators
+from .._Libraries.DatasetGenerators import *
 from .._Libraries import VideoUtils
 
 # Main Functions
@@ -31,7 +31,7 @@ def Animate_KMeansConvergence(Dataset, Results, savePath, duration=2.0, use_stqd
         Dataset_iter["labels"] = iterData["labels"]
         Dataset_iter["unique_labels"] = np.unique(Dataset_iter["labels"])
         Dataset_iter["centers"] = iterData["centers"]
-        I_plot = DatasetGenerators.PlotLabelledData(Dataset_iter, title="KMeans Trace Iteration " + str(iterData["iter"]), plot=False)
+        I_plot = plot_labelled_data(Dataset_iter, title="KMeans Trace Iteration " + str(iterData["iter"]), plot=False)
         Is.append(I_plot)
 
     # Save Video/GIF

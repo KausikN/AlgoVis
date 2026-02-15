@@ -35,15 +35,6 @@ def ReadImage(imgPath, imgSize=None, keepAspectRatio=False):
     # I = cv2.cvtColor(I, cv2.COLOR_BGR2RGB)
     return I
 
-def DisplayImage(I, title=""):
-    '''
-    Display an image with a given title
-    '''
-    I = cv2.cvtColor(I, cv2.COLOR_BGR2RGB)
-    plt.imshow(I, "gray")
-    plt.title(title)
-    plt.show()
-
 def SaveImage(I, path):
     '''
     Save an image to a given path

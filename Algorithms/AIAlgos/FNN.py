@@ -9,8 +9,8 @@ from tqdm import tqdm
 from stqdm import stqdm
 
 from .._Libraries import VideoUtils
-from .._Libraries import NetworkVis
-from .._Libraries import DatasetGenerators
+from .._Libraries.NetworkVis import *
+from .._Libraries.DatasetGenerators import *
 from .FunctionsLibrary.LossFunctions import *
 from .FunctionsLibrary.ActivationFunctions import *
 
@@ -79,7 +79,7 @@ def GenerateHistoryVideo(history, savePath, duration=2.0, use_stqdm=False):
             "node_range": nodes_range,
             "weight_range": weights_range
         }
-        I = NetworkVis.GenerateNetworkImage(network)
+        I = GenerateNeuralNetworkImage(network)
         I_rgb = np.array(I[:, :, :3], dtype=np.uint8)
         # Add iteration text
         itText = str(i) + "/" + str(history["n_iters"]) + ": " + str(round(history["loss"][i], 2))
@@ -105,7 +105,7 @@ def PlotFunctionAndDerivative(fn_name, fn, fn_deriv, valRange=[0.0, 1.0], N=100)
         "dim": 2
     }
     fn_title = fn_name + " Function Plot"
-    I_fn = DatasetGenerators.PlotUnlabelledData(Dataset, fn_title, lines=True, plot=False)
+    I_fn = plot_unlabelled_data(Dataset, fn_title, lines=True, plot=False)
 
     # Function Derivative Plot
     # Ys_deriv = np.array([fn_deriv(X) for X in Xs])
@@ -116,7 +116,7 @@ def PlotFunctionAndDerivative(fn_name, fn, fn_deriv, valRange=[0.0, 1.0], N=100)
         "dim": 2
     }
     fn_deriv_title = fn_name + " Deriv" + " Function Plot"
-    I_fn_deriv = DatasetGenerators.PlotUnlabelledData(Dataset_deriv, fn_deriv_title, lines=True, plot=False)
+    I_fn_deriv = plot_unlabelled_data(Dataset_deriv, fn_deriv_title, lines=True, plot=False)
 
     return I_fn, I_fn_deriv
 

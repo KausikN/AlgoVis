@@ -61,7 +61,7 @@ def UI_GraphLoad():
             USERINPUT_JSONData = open(GRAPH_DEFAULT_PATH_EXAMPLE, "rb")
         USERINPUT_JSONData = json.load(USERINPUT_JSONData)
 
-        USERINPUT_AdjMatrix = DatasetGenerators.GenerateAdjacencyMatrixFromJSONData(USERINPUT_JSONData)
+        USERINPUT_AdjMatrix = generate_adjacency_matrix_from_json_data(USERINPUT_JSONData)
 
     # Genrate Random Graph
     elif USERINPUT_GraphLoadType == GRAPH_LOADTYPES[1]:
@@ -71,10 +71,10 @@ def UI_GraphLoad():
         USERINPUT_WeightRange = col3.slider("Enter Weights Range", -100, 100, (-10, 10), 1)
         USERINPUT_WeightsIntOnly = st.checkbox("Integer Weights Only?")
 
-        USERINPUT_AdjMatrix = DatasetGenerators.GenerateRandomAdjacencyMatrix(USERINPUT_N, USERINPUT_ProbEdge, USERINPUT_WeightRange, USERINPUT_WeightsIntOnly)
+        USERINPUT_AdjMatrix = generate_adjacency_matrix_random(USERINPUT_N, USERINPUT_ProbEdge, USERINPUT_WeightRange, USERINPUT_WeightsIntOnly)
 
     # Display Graph
-    USERINPUT_Image, NodesPos = GraphVis.PlotGraph_AdjacencyMatrix(USERINPUT_AdjMatrix, show_edge_wt=True, plot=False)
+    USERINPUT_Image, NodesPos = PlotGraph_AdjacencyMatrix(USERINPUT_AdjMatrix, show_edge_wt=True)
     st.image(USERINPUT_Image, caption="Input Graph", use_container_width=True)
 
     return USERINPUT_AdjMatrix, NodesPos

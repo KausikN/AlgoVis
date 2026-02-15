@@ -65,8 +65,8 @@ def UI_PointsDatasetLoad():
 
         DatasetLoader = {
             "name": "Generate Random",
-            "func": DatasetGenerators.GenerateRandomBlobs,
-            "params": {"N": USERINPUT_N, "dim": USERINPUT_DIM, "centers": USERINPUT_ClusterCount, "plot": False}
+            "func": generate_random_blobs,
+            "params": {"N": USERINPUT_N, "dim": USERINPUT_DIM, "centers": USERINPUT_ClusterCount}
         }
 
     # Load Image
@@ -91,8 +91,8 @@ def UI_PointsDatasetLoad():
 
         DatasetLoader = {
             "name": "Load Image",
-            "func": DatasetGenerators.GeneratePointsFromImage,
-            "params": {"I": USERINPUT_Image, "plot": False}
+            "func": generate_points_from_image,
+            "params": {"I": USERINPUT_Image}
         }
 
     return DatasetLoader

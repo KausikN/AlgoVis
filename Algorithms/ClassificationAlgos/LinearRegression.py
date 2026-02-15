@@ -8,7 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 
-from .._Libraries import DatasetGenerators
+from .._Libraries.DatasetGenerators import *
 
 # Main Vars
 fig = plt.figure()

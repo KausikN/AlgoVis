@@ -11,3 +11,5 @@ scikit_learn
 
 networkx
 plotly
+
+git+https://github.com/KausikN/StreamlitCommonUtils.git[color,dataset,graph,plot]

@@ -46,7 +46,7 @@ def GenerateDataset(N, x_dim, y_dim, valRange):
     '''
     Generate dataset
     '''
-    Dataset = DatasetGenerators.GeneratePolynomialDistributionData(N, x_dim, y_dim, valRange)
+    Dataset = generate_polynomial_dist_data(N, x_dim, y_dim, valRange)
     return Dataset
 
 # UI Functions
@@ -59,8 +59,8 @@ def UI_GetNetworkInputs(USERINPUT_DIM_X, USERINPUT_DIM_Y):
     USERINPUT_network_size = col1.text_input("Network Size (',' separated sizes of each hidden layer)", "2, 4, 2")
     USERINPUT_NETWORK_SIZES = [USERINPUT_DIM_X] + GetNetworkSize(USERINPUT_network_size) + [USERINPUT_DIM_Y]
     
-    NetworkFull = NetworkVis.GenerateFullNetwork(USERINPUT_NETWORK_SIZES)
-    I_NetworkFull = NetworkVis.GenerateNetworkImage(NetworkFull)
+    NetworkFull = GenerateNeuralNetwork_Full(USERINPUT_NETWORK_SIZES)
+    I_NetworkFull = GenerateNeuralNetworkImage(NetworkFull)
     col2.image(I_NetworkFull, use_container_width=True)
 
     # Functions

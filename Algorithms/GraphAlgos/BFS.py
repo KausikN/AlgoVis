@@ -9,8 +9,8 @@ from copy import deepcopy
 from tqdm import tqdm
 from stqdm import stqdm
 
-from .._Libraries import GraphVis
-from .._Libraries import DatasetGenerators
+from .._Libraries.GraphVis import *
+from .._Libraries.DatasetGenerators import *
 from .._Libraries import VideoUtils
 
 # Main Functions
@@ -27,8 +27,8 @@ def Animate_BFS(AdjMatrix, Results, NodesPos, savePath, duration=2.0, use_stqdm=
     for i in TQDM(range(len(trace))):
         iterData = trace[i]
         visited = iterData["visited"]
-        colors = [GraphVis.GetColor(visited[i]) for i in range(len(visited))]
-        I_plot, _ = GraphVis.PlotGraph_AdjacencyMatrix(AdjMatrix, colors, title="BFS Trace Iteration " + str(iterData["iter"]), pos=NodesPos, plot=False)
+        colors = [get_cmap_gradient_color_point(visited[i]) for i in range(len(visited))]
+        I_plot, _ = PlotGraph_AdjacencyMatrix(AdjMatrix, colors, title="BFS Trace Iteration " + str(iterData["iter"]), pos=NodesPos)
         Is.append(I_plot)
 
     # Save Video/GIF

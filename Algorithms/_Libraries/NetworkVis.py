@@ -7,42 +7,21 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
+from streamlit_common_utils.color import *
+
 # Main Functions
 # Utils Functions
-def DisplayImage(I, title=""):
-    '''
-    Displays an image
-    '''
-    plt.imshow(I)
-    plt.title(title)
-    plt.show()
-
 def GetRatio(val, valRange):
     '''
     Gets the ratio of a value to a range
     '''
-    if valRange[0] == valRange[1]:
-        return 1.0
+    if valRange[0] == valRange[1]: return 1.0
     return abs((val - valRange[0]) / (valRange[1] - valRange[0]))
 
-def CombineColors(col1, col2):
+# Generate Neural Network Functions
+def GenerateNeuralNetwork_Random(layer_sizes):
     '''
-    Combines col1 with col2 based on alpha of col1
-    '''
-    a1 = col1[3]
-    # a2 = col2[3]
-    a2 = 255 - a1
-    amuls = [a1 / (a1 + a2), a2 / (a1 + a2)]
-    combCol = [(col1[i]*amuls[0] + col2[i]*amuls[1]) for i in range(len(col1)-1)]
-    combCol.append(max(a1, a2))
-    # combCol = np.array(combCol, dtype=int)
-
-    return combCol
-
-# Generate Network Functions
-def GenerateRandomNetwork(layer_sizes):
-    '''
-    Generates a network from a list of layer sizes
+    Generates a neural network from a list of layer sizes
     '''
 
     # Random Params
@@ -79,9 +58,9 @@ def GenerateRandomNetwork(layer_sizes):
     }
     return network
 
-def GenerateFullNetwork(layer_sizes):
+def GenerateNeuralNetwork_Full(layer_sizes):
     '''
-    Generates a network from a list of layer sizes with all weights and nodes set to 1 (For visualising the network)
+    Generates a neural network from a list of layer sizes with all weights and nodes set to 1 (For visualising the network)
     '''
     # Network Params
     n_layers = len(layer_sizes)
@@ -114,9 +93,9 @@ def GenerateFullNetwork(layer_sizes):
     return network
 
 # Generate Functions
-def GenerateNetworkImage(network):
+def GenerateNeuralNetworkImage(network):
     '''
-    Generates an image of the network
+    Generates an image of the neural network
     '''
     # print()
     # print("GEN IMAGE")
@@ -214,7 +193,7 @@ def GenerateNetworkImage(network):
             node_val_range = [0, np.max(np.abs(network["node_range"]))]
             NODE_ALPHA = GetRatio(nodes_values[layer][node], node_val_range)
             NODE_COLOR[3] = int(NODE_ALPHA * NODE_COLOR[3])
-            NODE_COLOR = tuple(CombineColors(NODE_COLOR, IMAGE_COLOR_BG))
+            NODE_COLOR = tuple(combine_colors_alpha_composite(NODE_COLOR, IMAGE_COLOR_BG))
             # NODE_COLOR = tuple(NODE_COLOR)
             # print("NODE:", layer, node, nodes_values[layer][node], NODE_COLOR)
 
@@ -235,13 +214,3 @@ def GenerateNetworkImage(network):
         I = np.array(cv2.circle(I, pos, NODE_RADIUS, IMAGE_COLOR_FG, NODE_OUTLINE), dtype=np.uint8)
 
     return I
-
-# Run Code
-# # Params
-# NetworkSizes = [2, 4, 2]
-# # Params
-
-# # RunCode
-# Network = GenerateRandomNetwork(NetworkSizes)
-# I = GenerateNetworkImage(Network)
-# DisplayImage(I, "Network " + str(NetworkSizes))
