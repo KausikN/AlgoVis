@@ -30,7 +30,7 @@ initial_velocity = [0, 0, 10]
 g = 9.8
 
 N_trajectories = 1
-GeneratorFunc = P3L.GeneratePoints_UniformRandom
+GeneratorFunc = P3L.generate_points_3D_random
 
 timeInterval = [0, 10]
 EffectFunc = functools.partial(Effect_Gravity, vi=initial_velocity, g=g)
@@ -47,7 +47,7 @@ plotData = False
 saveData = {
     "save": True,
     "path": "Data/GeneratedVisualisations/" + saveName + "_" +
-        ("Uniform" if GeneratorFunc == P3L.GeneratePoints_Uniform else "Random") + ".gif",
+        ("Uniform" if GeneratorFunc == P3L.generate_points_3D_grid else "Random") + ".gif",
     "fps": 30,
     "figSize": [320, 240]
     }

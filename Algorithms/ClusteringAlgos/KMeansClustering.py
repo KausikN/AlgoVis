@@ -12,7 +12,7 @@ from stqdm import stqdm
 from sklearn.cluster import KMeans
 
 from .._Libraries.DatasetGenerators import *
-from .._Libraries import VideoUtils
+from .._Libraries.VideoUtils import *
 
 # Main Functions
 # Evaluation and Visualization
@@ -36,7 +36,7 @@ def Animate_KMeansConvergence(Dataset, Results, savePath, duration=2.0, use_stqd
 
     # Save Video/GIF
     fps = len(Is)/duration
-    VideoUtils.SaveFrames2Video(Is, savePath, fps=fps)
+    save_images_as_video_moviepy(Is, savePath, fps=fps)
 
 # KMeans
 def KMeansClustering(Dataset, K, max_iters=300, use_stqdm=False):

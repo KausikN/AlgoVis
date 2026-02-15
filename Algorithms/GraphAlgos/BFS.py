@@ -11,7 +11,7 @@ from stqdm import stqdm
 
 from .._Libraries.GraphVis import *
 from .._Libraries.DatasetGenerators import *
-from .._Libraries import VideoUtils
+from .._Libraries.VideoUtils import *
 
 # Main Functions
 # Evaluation and Visualization
@@ -33,7 +33,7 @@ def Animate_BFS(AdjMatrix, Results, NodesPos, savePath, duration=2.0, use_stqdm=
 
     # Save Video/GIF
     fps = len(Is)/duration
-    VideoUtils.SaveFrames2Video(Is, savePath, fps=fps)
+    save_images_as_video_moviepy(Is, savePath, fps=fps)
 
 # BFS Algorithm
 def BFS(AdjMatrix, source=0):

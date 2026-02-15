@@ -57,9 +57,7 @@ def UI_RandomFrequencyDistribution():
 
         # Display Outputs
         st.markdown("## Generated Random Frequency Distribution")
-        VideoUtils.SaveFrames2Video(Is, PATHS["default"]["save"]["video_converted"], USERINPUT_saveFPS)
-        # VideoUtils.SaveFrames2Video(Is, PATHS["default"]["save"]["video"], USERINPUT_saveFPS)
-        # VideoUtils.FixVideoFile(PATHS["default"]["save"]["video"], PATHS["default"]["save"]["video_converted"])
+        save_images_as_video_moviepy(Is, PATHS["default"]["save"]["video_converted"], USERINPUT_saveFPS))
         # Display Animation Video
         st.video(PATHS["default"]["save"]["video_converted"])
 
@@ -79,9 +77,7 @@ def UI_Random2DPoints():
 
         # Display Outputs
         st.markdown("## Generated Random 2D Points")
-        VideoUtils.SaveFrames2Video(Is, PATHS["default"]["save"]["video_converted"], USERINPUT_saveFPS)
-        # VideoUtils.SaveFrames2Video(Is, PATHS["default"]["save"]["video"], USERINPUT_saveFPS)
-        # VideoUtils.FixVideoFile(PATHS["default"]["save"]["video"], PATHS["default"]["save"]["video_converted"])
+        save_images_as_video_moviepy(Is, PATHS["default"]["save"]["video_converted"], USERINPUT_saveFPS)
         # Display Animation Video
         st.video(PATHS["default"]["save"]["video_converted"])
 
@@ -102,9 +98,7 @@ def UI_Random3DPoints():
 
         # Display Outputs
         st.markdown("## Generated Random 3D Points")
-        VideoUtils.SaveFrames2Video(Is, PATHS["default"]["save"]["video_converted"], USERINPUT_saveFPS)
-        # VideoUtils.SaveFrames2Video(Is, PATHS["default"]["save"]["video"], USERINPUT_saveFPS)
-        # VideoUtils.FixVideoFile(PATHS["default"]["save"]["video"], PATHS["default"]["save"]["video_converted"])
+        save_images_as_video_moviepy(Is, PATHS["default"]["save"]["video_converted"], USERINPUT_saveFPS)
         # Display Animation Video
         st.video(PATHS["default"]["save"]["video_converted"])
 

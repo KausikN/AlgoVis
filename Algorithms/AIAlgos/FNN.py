@@ -8,7 +8,7 @@ import numpy as np
 from tqdm import tqdm
 from stqdm import stqdm
 
-from .._Libraries import VideoUtils
+from .._Libraries.VideoUtils import *
 from .._Libraries.NetworkVis import *
 from .._Libraries.DatasetGenerators import *
 from .FunctionsLibrary.LossFunctions import *
@@ -83,12 +83,12 @@ def GenerateHistoryVideo(history, savePath, duration=2.0, use_stqdm=False):
         I_rgb = np.array(I[:, :, :3], dtype=np.uint8)
         # Add iteration text
         itText = str(i) + "/" + str(history["n_iters"]) + ": " + str(round(history["loss"][i], 2))
-        I_rgb = VideoUtils.ImageAddText(I_rgb, itText)
+        I_rgb = Image_AddTextBox_TopLeft(I_rgb, itText)
         # I_rgb = cv2.cvtColor(I_rgb, cv2.COLOR_BGR2RGB)
         Is.append(I_rgb)
 
     fps = len(Is) / duration
-    VideoUtils.SaveFrames2Video(Is, savePath, fps)
+    save_images_as_video_moviepy(Is, savePath, fps)
 
 def PlotFunctionAndDerivative(fn_name, fn, fn_deriv, valRange=[0.0, 1.0], N=100):
     '''

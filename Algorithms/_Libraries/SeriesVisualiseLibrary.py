@@ -52,7 +52,7 @@ def Series_ValueConvergeVis(ConvergeFunc, startVal, titles=["values", "iters", "
     Series - Visualise the convergence of a function on a single value
     '''
     trace, iterCount = Series_ValueExecute(ConvergeFunc, startVal)
-    I_plot = PAL.List_PlotVisualise(trace, titles=titles, plotLines=plotLines, plotPoints=plotPoints, annotate=annotate, plot=plot)
+    I_plot = PAL.plot_values_list(trace, titles=titles, plotLines=plotLines, plotPoints=plotPoints, annotate=annotate, plot=plot)
 
     return trace, iterCount, I_plot
 
@@ -61,7 +61,7 @@ def Series_GroupConvergeVis(ConvergeFunc, computeValues, plotSkip=1, titles=["va
     Series - Visualise the convergence of a function on a group of values
     '''
     traces, iters = Series_GroupExecute(ConvergeFunc, computeValues, use_stqdm=use_stqdm)
-    PAL.List_PlotVisualise(iters[::plotSkip], titles=titles)
+    PAL.plot_values_list(iters[::plotSkip], titles=titles)
     
     return traces, iters
 
@@ -70,7 +70,7 @@ def Series_RangeConvergeVis(ConvergeFunc, computeRange, plotSkip=1, titles=["val
     Series - Visualise the convergence of a function on a range of values
     '''
     traces, iters = Series_RangeExecute(ConvergeFunc, computeRange, use_stqdm=use_stqdm)
-    I_plot = PAL.List_PlotVisualise(iters[::plotSkip], titles=titles, plot=plot)
+    I_plot = PAL.plot_values_list(iters[::plotSkip], titles=titles, plot=plot)
     
     return traces, iters, I_plot
 
@@ -96,7 +96,7 @@ def Series_GroupSubPlotConvergeVis(ConvergeFunc, computeValues, plotSkip=1, titl
         plt.ylabel(titles[1])
     plt.show()
 
-    PAL.List_PlotVisualise(iters[::plotSkip])
+    PAL.plot_values_list(iters[::plotSkip])
 
     return traces, iters
 

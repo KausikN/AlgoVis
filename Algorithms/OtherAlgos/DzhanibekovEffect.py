@@ -29,7 +29,7 @@ def Effect_UpwardSpiral(sP, time, ls=50, r=15, rs=1):
 # Run Code
 # Params
 N_trajectories = 500
-GeneratorFunc = P3L.GeneratePoints_UniformRandom
+GeneratorFunc = P3L.generate_points_3D_random
 
 timeInterval = [0, 2.5]
 EffectFunc = Effect_UpwardSpiral
@@ -46,7 +46,7 @@ plotData = False
 saveData = {
     "save": True,
     "path": "Data/GeneratedVisualisations/" + saveName + "_" +
-        ("Uniform" if GeneratorFunc == P3L.GeneratePoints_Uniform else "Random") + ".gif",
+        ("Uniform" if GeneratorFunc == P3L.generate_points_3D_grid else "Random") + ".gif",
     "fps": 30,
     "figSize": [640, 480]
 }

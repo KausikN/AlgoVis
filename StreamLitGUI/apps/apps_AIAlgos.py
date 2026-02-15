@@ -141,9 +141,6 @@ def feed_forward_neural_network():
 
         # Generate Video
         GenerateHistoryVideo(history, PATHS["default"]["save"]["video_converted"], DEFAULT_VIDEO_DURATION, use_stqdm=True)
-        # GenerateHistoryVideo(history, PATHS["default"]["save"]["video"], DEFAULT_VIDEO_DURATION, use_stqdm=True)
-        # Fix Video
-        # VideoUtils.FixVideoFile(PATHS["default"]["save"]["video"], PATHS["default"]["save"]["video_converted"])
         # Display Animation Video
         st.video(PATHS["default"]["save"]["video_converted"])
     

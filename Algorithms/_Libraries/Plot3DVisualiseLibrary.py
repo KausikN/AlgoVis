@@ -5,11 +5,12 @@ Library Functions for 3D Plot Visualisation
 # Imports
 import os
 import numpy as np
-
-from matplotlib import pyplot as plt
-from matplotlib import animation
 from tqdm import tqdm
 from stqdm import stqdm
+from matplotlib import animation
+from matplotlib import pyplot as plt
+
+from streamlit_common_utils.dataset import *
 
 # Main Variables
 Lines = []
@@ -22,37 +23,6 @@ rotationSpeed = 3
 initRot = 30
 
 # Main Functions
-# Generation Functions
-def GeneratePoints_UniformRandom(N, Limits=[(-15, 15), (-15, 15), (-15, 15)], seed=5):
-    '''
-    Generate Points - Generate N points uniformly randomly distributed within the given Limits
-    '''
-    np.random.seed(seed)
-    x = Limits[0][0] + (Limits[0][1] - Limits[0][0]) * np.random.random(N)
-    y = Limits[1][0] + (Limits[1][1] - Limits[1][0]) * np.random.random(N)
-    z = Limits[2][0] + (Limits[2][1] - Limits[2][0]) * np.random.random(N)
-    pts = np.reshape(np.dstack((x, y, z)), (-1, 3))
-    print(pts.shape)
-    return pts
-
-def GeneratePoints_Uniform(N, Limits=[(-15, 15), (-15, 15), (-15, 15)]):
-    '''
-    Generate Points - Generate N points uniformly distributed within the given Limits
-    '''
-    x = np.linspace(Limits[0][0], Limits[0][1], N)
-    y = np.linspace(Limits[1][0], Limits[1][1], N)
-    z = np.linspace(Limits[2][0], Limits[2][1], N)
-
-    pts = []
-    for x0 in x:
-        for y0 in y:
-            for z0 in z:
-                pts.append([x0, y0, z0])
-    pts = np.array(pts)
-
-    print(pts.shape)
-    return pts
-
 # Visualisation Functions
 # initialization function: plot the background of each frame
 def InitAnimation():

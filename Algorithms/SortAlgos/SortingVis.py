@@ -5,7 +5,7 @@ Algorithm Visualisation for Sorting Algorithms
 # Imports
 import numpy as np
 from .._Libraries import PlotAnimateLibrary as PAL
-from .._Libraries import VideoUtils
+from .._Libraries.VideoUtils import *
 
 # Main Functions
 # Generate Array Functions
@@ -32,7 +32,7 @@ def SortVis_PlotGIF(SortFunc, inputArr, savePath="AlgoVis/GeneratedVisualisation
     padding = 5
     PlotIs = [PlotIs[0]] * padding + PlotIs + [PlotIs[-1]] * padding
 
-    PAL.SaveImages2GIF(PlotIs, savePath, fps=len(PlotIs)/duration)
+    PAL.save_images_as_video_moviepy(PlotIs, savePath, fps=len(PlotIs)/duration)
 
     return sortedArr, trace
 

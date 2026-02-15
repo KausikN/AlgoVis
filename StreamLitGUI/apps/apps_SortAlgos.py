@@ -65,7 +65,6 @@ def UI_DisplaySortingOutput(array, array_sorted, trace):
     col2.markdown("```python\n" + str(len(trace)) + " swaps")
 
     # Display Video
-    # VideoUtils.FixVideoFile(PATHS["default"]["save"]["video"], PATHS["default"]["save"]["video_converted"])
     VideoData = open(PATHS["default"]["save"]["video_converted"], "rb").read()
     st.video(VideoData)
 

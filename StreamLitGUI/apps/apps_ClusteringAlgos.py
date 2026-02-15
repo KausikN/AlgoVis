@@ -125,8 +125,6 @@ def kmeans_clustering():
         # print(Results)
         # Save Animation
         Animate_KMeansConvergence(Dataset, Results, PATHS["default"]["save"]["video_converted"], duration=DEFAULT_VIDEO_DURATION, use_stqdm=True)
-        # Animate_KMeansConvergence(Dataset, Results, PATHS["default"]["save"]["video"], duration=DEFAULT_VIDEO_DURATION, use_stqdm=True)
-        # VideoUtils.FixVideoFile(PATHS["default"]["save"]["video"], PATHS["default"]["save"]["video_converted"])
         # Display Animation Video
         st.video(PATHS["default"]["save"]["video_converted"]) 
     
