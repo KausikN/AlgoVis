@@ -3,7 +3,6 @@ Stream lit GUI for Graph Algorithms
 """
 
 # Imports
-import json
 from streamlit_common_utils._common import DictData
 from streamlit_common_utils.streamlit_common_ui_setup import *
 

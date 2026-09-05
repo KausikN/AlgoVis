@@ -4,7 +4,6 @@ Library Functions for 3D Plot Visualisation
 
 # Imports
 import os
-import numpy as np
 from tqdm import tqdm
 from stqdm import stqdm
 from matplotlib import animation

@@ -3,13 +3,6 @@ Graph Visualiser
 """
 
 # Imports
-import cv2
-import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.backends.backend_agg import FigureCanvasAgg
-
-import networkx as nx
-
 from streamlit_common_utils.color import *
 from streamlit_common_utils.graph import *
 from streamlit_common_utils.plot import *

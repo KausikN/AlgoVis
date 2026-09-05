@@ -3,7 +3,6 @@ Stream lit GUI for hosting AlgoVis
 """
 
 # Imports
-from streamlit_common_utils._common import DictData
 from streamlit_common_utils.streamlit_common_ui_setup import *
 
 from AlgoVis import *

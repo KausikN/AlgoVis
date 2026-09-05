@@ -3,10 +3,7 @@ PlotGIFLibrary is a library for generation, editing and viewing of GIFs / Videos
 """
 
 # Imports
-import cv2
-import numpy as np
 from matplotlib.figure import Figure
-from matplotlib.backends.backend_agg import FigureCanvasAgg
 
 from streamlit_common_utils.color import *
 from streamlit_common_utils.plot import *

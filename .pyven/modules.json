@@ -342,13 +342,6 @@
         "parent_dir": "",
         "dependencies": []
     },
-    "PIL": {
-        "name": "PIL",
-        "type": "inbuilt",
-        "path": "PIL",
-        "parent_dir": "",
-        "dependencies": []
-    },
     "copy": {
         "name": "copy",
         "type": "inbuilt",
@@ -367,13 +360,6 @@
         "name": "functools",
         "type": "inbuilt",
         "path": "functools",
-        "parent_dir": "",
-        "dependencies": []
-    },
-    "json": {
-        "name": "json",
-        "type": "inbuilt",
-        "path": "json",
         "parent_dir": "",
         "dependencies": []
     },
@@ -416,20 +402,6 @@
         "name": "pyplot",
         "type": "missing",
         "path": "matplotlib.pyplot",
-        "parent_dir": "",
-        "dependencies": []
-    },
-    "moviepy": {
-        "name": "moviepy",
-        "type": "inbuilt",
-        "path": "moviepy",
-        "parent_dir": "",
-        "dependencies": []
-    },
-    "networkx": {
-        "name": "networkx",
-        "type": "inbuilt",
-        "path": "networkx",
         "parent_dir": "",
         "dependencies": []
     },
@@ -514,13 +486,6 @@
         "name": "video",
         "type": "missing",
         "path": "streamlit_common_utils.video",
-        "parent_dir": "",
-        "dependencies": []
-    },
-    "subprocess": {
-        "name": "subprocess",
-        "type": "inbuilt",
-        "path": "subprocess",
         "parent_dir": "",
         "dependencies": []
     },
