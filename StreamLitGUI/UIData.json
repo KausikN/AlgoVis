@@ -1,0 +1,13 @@
+{
+    "paths": {
+        "cache": "StreamLitGUI/CacheData/Cache.json",
+        "sub_apps": "StreamLitGUI/apps/",
+        "default": {
+            "save": {
+                "gif": "Data/DefaultData/SavedGIF.gif",
+                "video": "Data/DefaultData/SavedVideo.avi",
+                "video_converted": "Data/DefaultData/SavedVideo_Converted.mp4"
+            }
+        }
+    }
+}

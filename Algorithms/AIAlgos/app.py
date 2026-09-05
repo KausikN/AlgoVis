@@ -3,29 +3,30 @@ Stream lit GUI for AI Algorithms
 """
 
 # Imports
-import streamlit as st
+from streamlit_common_utils._common import DictData
+from streamlit_common_utils.streamlit_common_ui_setup import *
 
-from Algorithms.AIAlgos.FNN import *
+from .FNN import *
+
+# Main Vars
 
 # Main Functions
-def main_AIAlgos():
-    SUBAPP_MODES = config_subapp["ALGORITHMS"]
+def main(selected="Neural Networks", MODES=[], global_override_vars=None, **kwargs):
+    # Update global variables
+    if global_override_vars: globals().update(global_override_vars)
+
+    # Set Project Modes
+    UI_CONFIG = DictData({
+        "PROJECT_MODES": MODES
+    })
 
     # Create Sidebar
-    selected_box = st.sidebar.selectbox(
-    "Choose AI Algorithm",
-        tuple(
-            SUBAPP_MODES
-        )
-    )
-
-    # Add Functions
-    correspondingFuncName = selected_box.replace(" ", "_").lower()
-    if correspondingFuncName in globals().keys():
-        globals()[correspondingFuncName]()
+    build_sidebar_app(UI_CONFIG, globals(), show_home_page=False, sidebar_title="Choose AI Algorithm")
 
 #############################################################################################################################
 # Repo Based Vars
+PATHS = {}
+DEFAULT_VIDEO_DURATION = 2.0
 
 # Util Vars
 
@@ -99,9 +100,7 @@ def UI_GetNetworkInputs(USERINPUT_DIM_X, USERINPUT_DIM_Y):
     return USERINPUT_NETWORK_SIZES, USERINPUT_ActivationFunc, USERINPUT_OutputActivationFunc, USERINPUT_LossFunc
 
 # Repo Based Functions
-def feed_forward_neural_network():
-    global DEFAULT_VIDEO_DURATION
-
+def feed_forward_neural_network(**kwargs):
     # Title
     st.header("Feed Forward Neural Network")
 
@@ -146,4 +145,5 @@ def feed_forward_neural_network():
     
 #############################################################################################################################
 # Run Code
-main_AIAlgos()
+if __name__ == "__main__":
+    main()

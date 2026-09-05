@@ -11,6 +11,7 @@
         "Pillow",
         "scikit_learn",
         "networkx",
-        "plotly"
+        "plotly",
+        "git+https://github.com/KausikN/StreamlitCommonUtils.git[color,dataset,graph,image,plot,video]"
     ]
 }

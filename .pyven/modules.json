@@ -1,806 +1,514 @@
 {
-    "name": "AlgoVis",
-    "repo_link": "https://github.com/KausikN/AlgoVis",
-    "local_path": "D:/Github Codes and Projects/Projects/AlgoVis",
-    "modules": {
-        "*.py": {
-            "name": "*",
-            "type": "missing",
-            "link": "",
-            "parent_dir": "",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "Algorithms/AIAlgos/FNN.py": {
-            "name": "FNN",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/AIAlgos/FNN.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/AIAlgos",
-            "dependencies": [
-                "*.py",
-                "*.py",
-                "DatasetGenerators.py",
-                "NetworkVis.py",
-                "VideoUtils.py",
-                "cv2.py",
-                "numpy.py",
-                "stqdm.py",
-                "tqdm.py"
-            ]
-        },
-        "Algorithms/AIAlgos/FunctionsLibrary/ActivationFunctions.py": {
-            "name": "ActivationFunctions",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/AIAlgos/FunctionsLibrary/ActivationFunctions.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/AIAlgos/FunctionsLibrary",
-            "dependencies": [
-                "numpy.py"
-            ]
-        },
-        "Algorithms/AIAlgos/FunctionsLibrary/LossFunctions.py": {
-            "name": "LossFunctions",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/AIAlgos/FunctionsLibrary/LossFunctions.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/AIAlgos/FunctionsLibrary",
-            "dependencies": [
-                "numpy.py"
-            ]
-        },
-        "Algorithms/ClassificationAlgos/BayesClassifier.py": {
-            "name": "BayesClassifier",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/ClassificationAlgos/BayesClassifier.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/ClassificationAlgos",
-            "dependencies": []
-        },
-        "Algorithms/ClassificationAlgos/LDA.py": {
-            "name": "LDA",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/ClassificationAlgos/LDA.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/ClassificationAlgos",
-            "dependencies": []
-        },
-        "Algorithms/ClassificationAlgos/LinearRegression.py": {
-            "name": "LinearRegression",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/ClassificationAlgos/LinearRegression.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/ClassificationAlgos",
-            "dependencies": [
-                "DatasetGenerators.py",
-                "FigureCanvasAgg.py",
-                "cv2.py",
-                "matplotlib/pyplot.py",
-                "numpy.py"
-            ]
-        },
-        "Algorithms/ClusteringAlgos/KMeansClustering.py": {
-            "name": "KMeansClustering",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/ClusteringAlgos/KMeansClustering.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/ClusteringAlgos",
-            "dependencies": [
-                "DatasetGenerators.py",
-                "KMeans.py",
-                "VideoUtils.py",
-                "deepcopy.py",
-                "matplotlib/pyplot.py",
-                "numpy.py",
-                "stqdm.py",
-                "tqdm.py"
-            ]
-        },
-        "Algorithms/EquationAlgos/EquationVis.py": {
-            "name": "EquationVis",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/EquationAlgos/EquationVis.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/EquationAlgos",
-            "dependencies": [
-                "*.py",
-                "Plot3DVisualiseLibrary.py",
-                "functools.py",
-                "numpy.py",
-                "ycor.py"
-            ]
-        },
-        "Algorithms/EquationAlgos/ExtremaEquationFitter.py": {
-            "name": "ExtremaEquationFitter",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/EquationAlgos/ExtremaEquationFitter.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/EquationAlgos",
-            "dependencies": [
-                "SeriesVisualiseLibrary.py",
-                "matplotlib/pyplot.py",
-                "numpy.py"
-            ]
-        },
-        "Algorithms/EquationAlgos/FunctionsLibrary/TransformFunctions.py": {
-            "name": "TransformFunctions",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/EquationAlgos/FunctionsLibrary/TransformFunctions.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/EquationAlgos/FunctionsLibrary",
-            "dependencies": [
-                "math.py"
-            ]
-        },
-        "Algorithms/GeneratorAlgos/RandomGenerator.py": {
-            "name": "RandomGenerator",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/GeneratorAlgos/RandomGenerator.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/GeneratorAlgos",
-            "dependencies": [
-                "Figure.py",
-                "FigureCanvasAgg.py",
-                "PlotAnimateLibrary.py",
-                "VideoUtils.py",
-                "cv2.py",
-                "matplotlib/pyplot.py",
-                "numpy.py",
-                "random.py"
-            ]
-        },
-        "Algorithms/GraphAlgos/BFS.py": {
-            "name": "BFS",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/GraphAlgos/BFS.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/GraphAlgos",
-            "dependencies": [
-                "DatasetGenerators.py",
-                "GraphVis.py",
-                "VideoUtils.py",
-                "deepcopy.py",
-                "matplotlib/pyplot.py",
-                "numpy.py",
-                "stqdm.py",
-                "tqdm.py"
-            ]
-        },
-        "Algorithms/OtherAlgos/BifurcateEquilibrium.py": {
-            "name": "BifurcateEquilibrium",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/OtherAlgos/BifurcateEquilibrium.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/OtherAlgos",
-            "dependencies": [
-                "SeriesVisualiseLibrary.py",
-                "functools.py",
-                "matplotlib/cm.py",
-                "matplotlib/pyplot.py",
-                "numpy.py"
-            ]
-        },
-        "Algorithms/OtherAlgos/DzhanibekovEffect.py": {
-            "name": "DzhanibekovEffect",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/OtherAlgos/DzhanibekovEffect.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/OtherAlgos",
-            "dependencies": [
-                "Plot3DVisualiseLibrary.py",
-                "functools.py",
-                "math.py",
-                "numpy.py"
-            ]
-        },
-        "Algorithms/OtherAlgos/Gravity.py": {
-            "name": "Gravity",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/OtherAlgos/Gravity.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/OtherAlgos",
-            "dependencies": [
-                "Plot3DVisualiseLibrary.py",
-                "functools.py",
-                "math.py",
-                "numpy.py"
-            ]
-        },
-        "Algorithms/SequenceAlgos/CollatzConjecture.py": {
-            "name": "CollatzConjecture",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/SequenceAlgos/CollatzConjecture.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/SequenceAlgos",
-            "dependencies": [
-                "SeriesVisualiseLibrary.py",
-                "functools.py"
-            ]
-        },
-        "Algorithms/SequenceAlgos/DigitSeries.py": {
-            "name": "DigitSeries",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/SequenceAlgos/DigitSeries.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/SequenceAlgos",
-            "dependencies": [
-                "SeriesVisualiseLibrary.py",
-                "functools.py",
-                "numpy.py"
-            ]
-        },
-        "Algorithms/SequenceAlgos/FibonacciSequence.py": {
-            "name": "FibonacciSequence",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/SequenceAlgos/FibonacciSequence.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/SequenceAlgos",
-            "dependencies": [
-                "SeriesVisualiseLibrary.py",
-                "functools.py",
-                "numpy.py"
-            ]
-        },
-        "Algorithms/SequenceAlgos/RecamanSequence.py": {
-            "name": "RecamanSequence",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/SequenceAlgos/RecamanSequence.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/SequenceAlgos",
-            "dependencies": [
-                "SeriesVisualiseLibrary.py",
-                "functools.py"
-            ]
-        },
-        "Algorithms/SortAlgos/SortingVis.py": {
-            "name": "SortingVis",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/SortAlgos/SortingVis.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/SortAlgos",
-            "dependencies": [
-                "PlotAnimateLibrary.py",
-                "VideoUtils.py",
-                "numpy.py"
-            ]
-        },
-        "Algorithms/_Libraries/DatasetGenerators.py": {
-            "name": "DatasetGenerators",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/_Libraries/DatasetGenerators.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/_Libraries",
-            "dependencies": [
-                "FigureCanvasAgg.py",
-                "cv2.py",
-                "json.py",
-                "make_blobs.py",
-                "matplotlib/pyplot.py",
-                "numpy.py"
-            ]
-        },
-        "Algorithms/_Libraries/GraphVis.py": {
-            "name": "GraphVis",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/_Libraries/GraphVis.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/_Libraries",
-            "dependencies": [
-                "FigureCanvasAgg.py",
-                "cv2.py",
-                "matplotlib/pyplot.py",
-                "networkx.py",
-                "numpy.py"
-            ]
-        },
-        "Algorithms/_Libraries/MazeGen.py": {
-            "name": "MazeGen",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/_Libraries/MazeGen.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/_Libraries",
-            "dependencies": [
-                "cv2.py",
-                "matplotlib/pyplot.py",
-                "numpy.py"
-            ]
-        },
-        "Algorithms/_Libraries/NetworkVis.py": {
-            "name": "NetworkVis",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/_Libraries/NetworkVis.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/_Libraries",
-            "dependencies": [
-                "cv2.py",
-                "matplotlib/pyplot.py",
-                "numpy.py"
-            ]
-        },
-        "Algorithms/_Libraries/Plot3DVisualiseLibrary.py": {
-            "name": "Plot3DVisualiseLibrary",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/_Libraries/Plot3DVisualiseLibrary.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/_Libraries",
-            "dependencies": [
-                "animation.py",
-                "numpy.py",
-                "os.py",
-                "pyplot.py",
-                "stqdm.py",
-                "tqdm.py"
-            ]
-        },
-        "Algorithms/_Libraries/PlotAnimateLibrary.py": {
-            "name": "PlotAnimateLibrary",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/_Libraries/PlotAnimateLibrary.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/_Libraries",
-            "dependencies": [
-                "Figure.py",
-                "FigureCanvasAgg.py",
-                "FuncAnimation.py",
-                "Image.py",
-                "ImageClip.py",
-                "PillowWriter.py",
-                "colorsys.py",
-                "concatenate_videoclips.py",
-                "cv2.py",
-                "matplotlib/pyplot.py",
-                "numpy.py",
-                "os.py",
-                "stqdm.py",
-                "tqdm.py"
-            ]
-        },
-        "Algorithms/_Libraries/SeriesVisualiseLibrary.py": {
-            "name": "SeriesVisualiseLibrary",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/_Libraries/SeriesVisualiseLibrary.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/_Libraries",
-            "dependencies": [
-                "Algorithms/_Libraries/PlotAnimateLibrary.py",
-                "Algorithms/_Libraries/TurtleAnimateLibrary.py",
-                "matplotlib/cm.py",
-                "matplotlib/pyplot.py",
-                "numpy.py",
-                "stqdm.py",
-                "tqdm.py"
-            ]
-        },
-        "Algorithms/_Libraries/TurtleAnimateLibrary.py": {
-            "name": "TurtleAnimateLibrary",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/_Libraries/TurtleAnimateLibrary.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/_Libraries",
-            "dependencies": [
-                "turtle.py"
-            ]
-        },
-        "Algorithms/_Libraries/VideoUtils.py": {
-            "name": "VideoUtils",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/Algorithms/_Libraries/VideoUtils.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "Algorithms/_Libraries",
-            "dependencies": [
-                "Image.py",
-                "ImageClip.py",
-                "concatenate_videoclips.py",
-                "cv2.py",
-                "matplotlib/pyplot.py",
-                "numpy.py",
-                "os.py",
-                "subprocess.py"
-            ]
-        },
-        "DatasetGenerators.py": {
-            "name": "DatasetGenerators",
-            "type": "missing",
-            "link": "",
-            "parent_dir": "",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "Figure.py": {
-            "name": "Figure",
-            "type": "missing",
-            "link": "",
-            "parent_dir": "",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "FigureCanvasAgg.py": {
-            "name": "FigureCanvasAgg",
-            "type": "missing",
-            "link": "",
-            "parent_dir": "",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "FuncAnimation.py": {
-            "name": "FuncAnimation",
-            "type": "missing",
-            "link": "",
-            "parent_dir": "",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "GraphVis.py": {
-            "name": "GraphVis",
-            "type": "missing",
-            "link": "",
-            "parent_dir": "",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "Image.py": {
-            "name": "Image",
-            "type": "missing",
-            "link": "",
-            "parent_dir": "",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "ImageClip.py": {
-            "name": "ImageClip",
-            "type": "missing",
-            "link": "",
-            "parent_dir": "",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "KMeans.py": {
-            "name": "KMeans",
-            "type": "missing",
-            "link": "",
-            "parent_dir": "",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "NetworkVis.py": {
-            "name": "NetworkVis",
-            "type": "missing",
-            "link": "",
-            "parent_dir": "",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "PillowWriter.py": {
-            "name": "PillowWriter",
-            "type": "missing",
-            "link": "",
-            "parent_dir": "",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "Plot3DVisualiseLibrary.py": {
-            "name": "Plot3DVisualiseLibrary",
-            "type": "missing",
-            "link": "",
-            "parent_dir": "",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "PlotAnimateLibrary.py": {
-            "name": "PlotAnimateLibrary",
-            "type": "missing",
-            "link": "",
-            "parent_dir": "",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "RECAMAN_FUNCS.py": {
-            "name": "RECAMAN_FUNCS",
-            "type": "missing",
-            "link": "",
-            "parent_dir": "",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "SeriesVisualiseLibrary.py": {
-            "name": "SeriesVisualiseLibrary",
-            "type": "missing",
-            "link": "",
-            "parent_dir": "",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "StreamLitGUI/apps/apps_AIAlgos.py": {
-            "name": "apps_AIAlgos",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/StreamLitGUI/apps/apps_AIAlgos.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "StreamLitGUI/apps",
-            "dependencies": [
-                "*.py",
-                "streamlit.py"
-            ]
-        },
-        "StreamLitGUI/apps/apps_ClassificationAlgos.py": {
-            "name": "apps_ClassificationAlgos",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/StreamLitGUI/apps/apps_ClassificationAlgos.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "StreamLitGUI/apps",
-            "dependencies": [
-                "*.py",
-                "streamlit.py"
-            ]
-        },
-        "StreamLitGUI/apps/apps_ClusteringAlgos.py": {
-            "name": "apps_ClusteringAlgos",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/StreamLitGUI/apps/apps_ClusteringAlgos.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "StreamLitGUI/apps",
-            "dependencies": [
-                "*.py",
-                "cv2.py",
-                "streamlit.py"
-            ]
-        },
-        "StreamLitGUI/apps/apps_EquationAlgos.py": {
-            "name": "apps_EquationAlgos",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/StreamLitGUI/apps/apps_EquationAlgos.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "StreamLitGUI/apps",
-            "dependencies": [
-                "*.py",
-                "json.py",
-                "matplotlib/pyplot.py",
-                "streamlit.py"
-            ]
-        },
-        "StreamLitGUI/apps/apps_GeneratorAlgos.py": {
-            "name": "apps_GeneratorAlgos",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/StreamLitGUI/apps/apps_GeneratorAlgos.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "StreamLitGUI/apps",
-            "dependencies": [
-                "*.py",
-                "streamlit.py"
-            ]
-        },
-        "StreamLitGUI/apps/apps_GraphAlgos.py": {
-            "name": "apps_GraphAlgos",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/StreamLitGUI/apps/apps_GraphAlgos.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "StreamLitGUI/apps",
-            "dependencies": [
-                "*.py",
-                "json.py",
-                "streamlit.py"
-            ]
-        },
-        "StreamLitGUI/apps/apps_SequenceAlgos.py": {
-            "name": "apps_SequenceAlgos",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/StreamLitGUI/apps/apps_SequenceAlgos.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "StreamLitGUI/apps",
-            "dependencies": [
-                "*.py",
-                "*.py",
-                "*.py",
-                "RECAMAN_FUNCS.py",
-                "pyplot.py",
-                "streamlit.py"
-            ]
-        },
-        "StreamLitGUI/apps/apps_SortAlgos.py": {
-            "name": "apps_SortAlgos",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/StreamLitGUI/apps/apps_SortAlgos.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "StreamLitGUI/apps",
-            "dependencies": [
-                "*.py",
-                "streamlit.py"
-            ]
-        },
-        "VideoUtils.py": {
-            "name": "VideoUtils",
-            "type": "missing",
-            "link": "",
-            "parent_dir": "",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "animation.py": {
-            "name": "animation",
-            "type": "missing",
-            "link": "",
-            "parent_dir": "",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "app.py": {
-            "name": "app",
-            "type": "local",
-            "link": "https://github.com/KausikN/AlgoVis/blob/master/app.py",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "",
-            "dependencies": [
-                "json.py",
-                "os.py",
-                "streamlit.py"
-            ]
-        },
-        "colorsys.py": {
-            "name": "colorsys",
-            "type": "inbuilt",
-            "link": "",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "concatenate_videoclips.py": {
-            "name": "concatenate_videoclips",
-            "type": "missing",
-            "link": "",
-            "parent_dir": "",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "cv2.py": {
-            "name": "cv2",
-            "type": "inbuilt",
-            "link": "",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "deepcopy.py": {
-            "name": "deepcopy",
-            "type": "missing",
-            "link": "",
-            "parent_dir": "",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "functools.py": {
-            "name": "functools",
-            "type": "inbuilt",
-            "link": "",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "json.py": {
-            "name": "json",
-            "type": "inbuilt",
-            "link": "",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "make_blobs.py": {
-            "name": "make_blobs",
-            "type": "missing",
-            "link": "",
-            "parent_dir": "",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "math.py": {
-            "name": "math",
-            "type": "inbuilt",
-            "link": "",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "matplotlib/cm.py": {
-            "name": "cm",
-            "type": "inbuilt",
-            "link": "",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "matplotlib",
-            "dependencies": []
-        },
-        "matplotlib/pyplot.py": {
-            "name": "pyplot",
-            "type": "inbuilt",
-            "link": "",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "matplotlib",
-            "dependencies": []
-        },
-        "networkx.py": {
-            "name": "networkx",
-            "type": "inbuilt",
-            "link": "",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "numpy.py": {
-            "name": "numpy",
-            "type": "inbuilt",
-            "link": "",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "os.py": {
-            "name": "os",
-            "type": "inbuilt",
-            "link": "",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "pyplot.py": {
-            "name": "pyplot",
-            "type": "missing",
-            "link": "",
-            "parent_dir": "",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "random.py": {
-            "name": "random",
-            "type": "inbuilt",
-            "link": "",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "stqdm.py": {
-            "name": "stqdm",
-            "type": "inbuilt",
-            "link": "",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "streamlit.py": {
-            "name": "streamlit",
-            "type": "inbuilt",
-            "link": "",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "subprocess.py": {
-            "name": "subprocess",
-            "type": "inbuilt",
-            "link": "",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "tqdm.py": {
-            "name": "tqdm",
-            "type": "inbuilt",
-            "link": "",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "turtle.py": {
-            "name": "turtle",
-            "type": "inbuilt",
-            "link": "",
-            "parent_dir": "D:/Github Codes and Projects/Projects/AlgoVis",
-            "sub_dir": "",
-            "dependencies": []
-        },
-        "ycor.py": {
-            "name": "ycor",
-            "type": "missing",
-            "link": "",
-            "parent_dir": "",
-            "sub_dir": "",
-            "dependencies": []
-        }
+    "app": {
+        "name": "app",
+        "type": "local",
+        "path": "app.py",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "Algorithms/AIAlgos/FNN": {
+        "name": "FNN",
+        "type": "local",
+        "path": "Algorithms/AIAlgos/FNN.py",
+        "parent_dir": "Algorithms/AIAlgos",
+        "dependencies": [
+            "Algorithms/AIAlgos/FunctionsLibrary/ActivationFunctions",
+            "Algorithms/AIAlgos/FunctionsLibrary/LossFunctions"
+        ]
+    },
+    "Algorithms/AIAlgos/FunctionsLibrary/ActivationFunctions": {
+        "name": "ActivationFunctions",
+        "type": "local",
+        "path": "Algorithms/AIAlgos/FunctionsLibrary/ActivationFunctions.py",
+        "parent_dir": "Algorithms/AIAlgos/FunctionsLibrary",
+        "dependencies": []
+    },
+    "Algorithms/AIAlgos/FunctionsLibrary/LossFunctions": {
+        "name": "LossFunctions",
+        "type": "local",
+        "path": "Algorithms/AIAlgos/FunctionsLibrary/LossFunctions.py",
+        "parent_dir": "Algorithms/AIAlgos/FunctionsLibrary",
+        "dependencies": []
+    },
+    "Algorithms/ClassificationAlgos/BayesClassifier": {
+        "name": "BayesClassifier",
+        "type": "local",
+        "path": "Algorithms/ClassificationAlgos/BayesClassifier.py",
+        "parent_dir": "Algorithms/ClassificationAlgos",
+        "dependencies": []
+    },
+    "Algorithms/ClassificationAlgos/LDA": {
+        "name": "LDA",
+        "type": "local",
+        "path": "Algorithms/ClassificationAlgos/LDA.py",
+        "parent_dir": "Algorithms/ClassificationAlgos",
+        "dependencies": []
+    },
+    "Algorithms/ClassificationAlgos/LinearRegression": {
+        "name": "LinearRegression",
+        "type": "local",
+        "path": "Algorithms/ClassificationAlgos/LinearRegression.py",
+        "parent_dir": "Algorithms/ClassificationAlgos",
+        "dependencies": []
+    },
+    "Algorithms/ClusteringAlgos/KMeansClustering": {
+        "name": "KMeansClustering",
+        "type": "local",
+        "path": "Algorithms/ClusteringAlgos/KMeansClustering.py",
+        "parent_dir": "Algorithms/ClusteringAlgos",
+        "dependencies": []
+    },
+    "Algorithms/EquationAlgos/EquationVis": {
+        "name": "EquationVis",
+        "type": "local",
+        "path": "Algorithms/EquationAlgos/EquationVis.py",
+        "parent_dir": "Algorithms/EquationAlgos",
+        "dependencies": [
+            "Algorithms/EquationAlgos/FunctionsLibrary/TransformFunctions"
+        ]
+    },
+    "Algorithms/EquationAlgos/ExtremaEquationFitter": {
+        "name": "ExtremaEquationFitter",
+        "type": "local",
+        "path": "Algorithms/EquationAlgos/ExtremaEquationFitter.py",
+        "parent_dir": "Algorithms/EquationAlgos",
+        "dependencies": []
+    },
+    "Algorithms/EquationAlgos/FunctionsLibrary/TransformFunctions": {
+        "name": "TransformFunctions",
+        "type": "local",
+        "path": "Algorithms/EquationAlgos/FunctionsLibrary/TransformFunctions.py",
+        "parent_dir": "Algorithms/EquationAlgos/FunctionsLibrary",
+        "dependencies": []
+    },
+    "Algorithms/GeneratorAlgos/RandomGenerator": {
+        "name": "RandomGenerator",
+        "type": "local",
+        "path": "Algorithms/GeneratorAlgos/RandomGenerator.py",
+        "parent_dir": "Algorithms/GeneratorAlgos",
+        "dependencies": []
+    },
+    "Algorithms/GraphAlgos/BFS": {
+        "name": "BFS",
+        "type": "local",
+        "path": "Algorithms/GraphAlgos/BFS.py",
+        "parent_dir": "Algorithms/GraphAlgos",
+        "dependencies": []
+    },
+    "Algorithms/OtherAlgos/BifurcateEquilibrium": {
+        "name": "BifurcateEquilibrium",
+        "type": "local",
+        "path": "Algorithms/OtherAlgos/BifurcateEquilibrium.py",
+        "parent_dir": "Algorithms/OtherAlgos",
+        "dependencies": []
+    },
+    "Algorithms/OtherAlgos/DzhanibekovEffect": {
+        "name": "DzhanibekovEffect",
+        "type": "local",
+        "path": "Algorithms/OtherAlgos/DzhanibekovEffect.py",
+        "parent_dir": "Algorithms/OtherAlgos",
+        "dependencies": []
+    },
+    "Algorithms/OtherAlgos/Gravity": {
+        "name": "Gravity",
+        "type": "local",
+        "path": "Algorithms/OtherAlgos/Gravity.py",
+        "parent_dir": "Algorithms/OtherAlgos",
+        "dependencies": []
+    },
+    "Algorithms/SequenceAlgos/CollatzConjecture": {
+        "name": "CollatzConjecture",
+        "type": "local",
+        "path": "Algorithms/SequenceAlgos/CollatzConjecture.py",
+        "parent_dir": "Algorithms/SequenceAlgos",
+        "dependencies": []
+    },
+    "Algorithms/SequenceAlgos/DigitSeries": {
+        "name": "DigitSeries",
+        "type": "local",
+        "path": "Algorithms/SequenceAlgos/DigitSeries.py",
+        "parent_dir": "Algorithms/SequenceAlgos",
+        "dependencies": []
+    },
+    "Algorithms/SequenceAlgos/FibonacciSequence": {
+        "name": "FibonacciSequence",
+        "type": "local",
+        "path": "Algorithms/SequenceAlgos/FibonacciSequence.py",
+        "parent_dir": "Algorithms/SequenceAlgos",
+        "dependencies": []
+    },
+    "Algorithms/SequenceAlgos/RecamanSequence": {
+        "name": "RecamanSequence",
+        "type": "local",
+        "path": "Algorithms/SequenceAlgos/RecamanSequence.py",
+        "parent_dir": "Algorithms/SequenceAlgos",
+        "dependencies": []
+    },
+    "Algorithms/SortAlgos/SortingVis": {
+        "name": "SortingVis",
+        "type": "local",
+        "path": "Algorithms/SortAlgos/SortingVis.py",
+        "parent_dir": "Algorithms/SortAlgos",
+        "dependencies": []
+    },
+    "Algorithms/_Libraries/DatasetGenerators": {
+        "name": "DatasetGenerators",
+        "type": "local",
+        "path": "Algorithms/_Libraries/DatasetGenerators.py",
+        "parent_dir": "Algorithms/_Libraries",
+        "dependencies": []
+    },
+    "Algorithms/_Libraries/GraphVis": {
+        "name": "GraphVis",
+        "type": "local",
+        "path": "Algorithms/_Libraries/GraphVis.py",
+        "parent_dir": "Algorithms/_Libraries",
+        "dependencies": []
+    },
+    "Algorithms/_Libraries/MazeGen": {
+        "name": "MazeGen",
+        "type": "local",
+        "path": "Algorithms/_Libraries/MazeGen.py",
+        "parent_dir": "Algorithms/_Libraries",
+        "dependencies": []
+    },
+    "Algorithms/_Libraries/NetworkVis": {
+        "name": "NetworkVis",
+        "type": "local",
+        "path": "Algorithms/_Libraries/NetworkVis.py",
+        "parent_dir": "Algorithms/_Libraries",
+        "dependencies": []
+    },
+    "Algorithms/_Libraries/Plot3DVisualiseLibrary": {
+        "name": "Plot3DVisualiseLibrary",
+        "type": "local",
+        "path": "Algorithms/_Libraries/Plot3DVisualiseLibrary.py",
+        "parent_dir": "Algorithms/_Libraries",
+        "dependencies": []
+    },
+    "Algorithms/_Libraries/PlotAnimateLibrary": {
+        "name": "PlotAnimateLibrary",
+        "type": "local",
+        "path": "Algorithms/_Libraries/PlotAnimateLibrary.py",
+        "parent_dir": "Algorithms/_Libraries",
+        "dependencies": []
+    },
+    "Algorithms/_Libraries/SeriesVisualiseLibrary": {
+        "name": "SeriesVisualiseLibrary",
+        "type": "local",
+        "path": "Algorithms/_Libraries/SeriesVisualiseLibrary.py",
+        "parent_dir": "Algorithms/_Libraries",
+        "dependencies": []
+    },
+    "Algorithms/_Libraries/TurtleAnimateLibrary": {
+        "name": "TurtleAnimateLibrary",
+        "type": "local",
+        "path": "Algorithms/_Libraries/TurtleAnimateLibrary.py",
+        "parent_dir": "Algorithms/_Libraries",
+        "dependencies": []
+    },
+    "Algorithms/_Libraries/VideoUtils": {
+        "name": "VideoUtils",
+        "type": "local",
+        "path": "Algorithms/_Libraries/VideoUtils.py",
+        "parent_dir": "Algorithms/_Libraries",
+        "dependencies": []
+    },
+    "StreamLitGUI/apps/apps_AIAlgos": {
+        "name": "apps_AIAlgos",
+        "type": "local",
+        "path": "StreamLitGUI/apps/apps_AIAlgos.py",
+        "parent_dir": "StreamLitGUI/apps",
+        "dependencies": [
+            "Algorithms/AIAlgos/FNN"
+        ]
+    },
+    "StreamLitGUI/apps/apps_ClassificationAlgos": {
+        "name": "apps_ClassificationAlgos",
+        "type": "local",
+        "path": "StreamLitGUI/apps/apps_ClassificationAlgos.py",
+        "parent_dir": "StreamLitGUI/apps",
+        "dependencies": [
+            "Algorithms/ClassificationAlgos/LinearRegression"
+        ]
+    },
+    "StreamLitGUI/apps/apps_ClusteringAlgos": {
+        "name": "apps_ClusteringAlgos",
+        "type": "local",
+        "path": "StreamLitGUI/apps/apps_ClusteringAlgos.py",
+        "parent_dir": "StreamLitGUI/apps",
+        "dependencies": [
+            "Algorithms/ClusteringAlgos/KMeansClustering"
+        ]
+    },
+    "StreamLitGUI/apps/apps_EquationAlgos": {
+        "name": "apps_EquationAlgos",
+        "type": "local",
+        "path": "StreamLitGUI/apps/apps_EquationAlgos.py",
+        "parent_dir": "StreamLitGUI/apps",
+        "dependencies": [
+            "Algorithms/EquationAlgos/EquationVis"
+        ]
+    },
+    "StreamLitGUI/apps/apps_GeneratorAlgos": {
+        "name": "apps_GeneratorAlgos",
+        "type": "local",
+        "path": "StreamLitGUI/apps/apps_GeneratorAlgos.py",
+        "parent_dir": "StreamLitGUI/apps",
+        "dependencies": []
+    },
+    "StreamLitGUI/apps/apps_GraphAlgos": {
+        "name": "apps_GraphAlgos",
+        "type": "local",
+        "path": "StreamLitGUI/apps/apps_GraphAlgos.py",
+        "parent_dir": "StreamLitGUI/apps",
+        "dependencies": [
+            "Algorithms/GraphAlgos/BFS"
+        ]
+    },
+    "StreamLitGUI/apps/apps_SequenceAlgos": {
+        "name": "apps_SequenceAlgos",
+        "type": "local",
+        "path": "StreamLitGUI/apps/apps_SequenceAlgos.py",
+        "parent_dir": "StreamLitGUI/apps",
+        "dependencies": [
+            "Algorithms/SequenceAlgos/CollatzConjecture",
+            "Algorithms/SequenceAlgos/DigitSeries",
+            "Algorithms/SequenceAlgos/FibonacciSequence",
+            "Algorithms/SequenceAlgos/RecamanSequence"
+        ]
+    },
+    "StreamLitGUI/apps/apps_SortAlgos": {
+        "name": "apps_SortAlgos",
+        "type": "local",
+        "path": "StreamLitGUI/apps/apps_SortAlgos.py",
+        "parent_dir": "StreamLitGUI/apps",
+        "dependencies": [
+            "Algorithms/SortAlgos/SortingVis"
+        ]
+    },
+    "..._Libraries": {
+        "name": "_Libraries",
+        "type": "missing",
+        "path": "..._Libraries",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "..._Libraries.DatasetGenerators": {
+        "name": "DatasetGenerators",
+        "type": "missing",
+        "path": "..._Libraries.DatasetGenerators",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "..._Libraries.GraphVis": {
+        "name": "GraphVis",
+        "type": "missing",
+        "path": "..._Libraries.GraphVis",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "..._Libraries.NetworkVis": {
+        "name": "NetworkVis",
+        "type": "missing",
+        "path": "..._Libraries.NetworkVis",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "..._Libraries.VideoUtils": {
+        "name": "VideoUtils",
+        "type": "missing",
+        "path": "..._Libraries.VideoUtils",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "PIL": {
+        "name": "PIL",
+        "type": "inbuilt",
+        "path": "PIL",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "copy": {
+        "name": "copy",
+        "type": "inbuilt",
+        "path": "copy",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "cv2": {
+        "name": "cv2",
+        "type": "missing",
+        "path": "cv2",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "functools": {
+        "name": "functools",
+        "type": "inbuilt",
+        "path": "functools",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "json": {
+        "name": "json",
+        "type": "inbuilt",
+        "path": "json",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "math": {
+        "name": "math",
+        "type": "inbuilt",
+        "path": "math",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "matplotlib": {
+        "name": "matplotlib",
+        "type": "inbuilt",
+        "path": "matplotlib",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "matplotlib.backends.backend_agg": {
+        "name": "backend_agg",
+        "type": "missing",
+        "path": "matplotlib.backends.backend_agg",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "matplotlib.cm": {
+        "name": "cm",
+        "type": "missing",
+        "path": "matplotlib.cm",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "matplotlib.figure": {
+        "name": "figure",
+        "type": "missing",
+        "path": "matplotlib.figure",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "matplotlib.pyplot": {
+        "name": "pyplot",
+        "type": "missing",
+        "path": "matplotlib.pyplot",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "moviepy": {
+        "name": "moviepy",
+        "type": "missing",
+        "path": "moviepy",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "networkx": {
+        "name": "networkx",
+        "type": "missing",
+        "path": "networkx",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "numpy": {
+        "name": "numpy",
+        "type": "inbuilt",
+        "path": "numpy",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "os": {
+        "name": "os",
+        "type": "inbuilt",
+        "path": "os",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "sklearn.cluster": {
+        "name": "cluster",
+        "type": "missing",
+        "path": "sklearn.cluster",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "stqdm": {
+        "name": "stqdm",
+        "type": "inbuilt",
+        "path": "stqdm",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "streamlit": {
+        "name": "streamlit",
+        "type": "inbuilt",
+        "path": "streamlit",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "streamlit_common_utils.color": {
+        "name": "color",
+        "type": "missing",
+        "path": "streamlit_common_utils.color",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "streamlit_common_utils.dataset": {
+        "name": "dataset",
+        "type": "missing",
+        "path": "streamlit_common_utils.dataset",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "streamlit_common_utils.graph": {
+        "name": "graph",
+        "type": "missing",
+        "path": "streamlit_common_utils.graph",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "streamlit_common_utils.image": {
+        "name": "image",
+        "type": "missing",
+        "path": "streamlit_common_utils.image",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "streamlit_common_utils.plot": {
+        "name": "plot",
+        "type": "missing",
+        "path": "streamlit_common_utils.plot",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "streamlit_common_utils.video": {
+        "name": "video",
+        "type": "missing",
+        "path": "streamlit_common_utils.video",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "subprocess": {
+        "name": "subprocess",
+        "type": "inbuilt",
+        "path": "subprocess",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "tqdm": {
+        "name": "tqdm",
+        "type": "inbuilt",
+        "path": "tqdm",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "turtle": {
+        "name": "turtle",
+        "type": "inbuilt",
+        "path": "turtle",
+        "parent_dir": "",
+        "dependencies": []
     }
 }

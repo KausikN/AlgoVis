@@ -31,7 +31,7 @@ def main_ClusteringAlgos():
 
 #############################################################################################################################
 # Repo Based Vars
-GRAPH_DEFAULT_PATH_EXAMPLE = "StreamLitGUI/DefaultData/ExampleGraph.json"
+GRAPH_DEFAULT_PATH_EXAMPLE = "Data/DefaultData/ExampleGraph.json"
 GRAPH_LOADTYPES = ["Load JSON", "Generate Random Graph"]
 
 # Util Vars

@@ -33,7 +33,7 @@ def main_ClusteringAlgos():
 #############################################################################################################################
 # Repo Based Vars
 KMEANS_DIM_OPTIONS = ["1D", "2D", "3D"]
-DATASET_DEFAULT_PATH_EXAMPLEIMAGE = "StreamLitGUI/DefaultData/ExampleDataset.PNG"
+DATASET_DEFAULT_PATH_EXAMPLEIMAGE = "Data/DefaultData/ExampleDataset.PNG"
 DATASET_LOADTYPES = ["Generate Random", "Load Image"]
 
 # Util Vars

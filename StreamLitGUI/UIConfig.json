@@ -6,72 +6,63 @@
 
     "PROJECT_README": "README.md",
 
-    "SUB_APPS": [
-        {
+    "SUB_APPS": {
+        "neural_networks": {
             "APP_NAME": "Neural Networks",
-            "FILE_NAME": "apps_AIAlgos",
-            "ALGORITHMS": [
+            "MODES": [
                 "Feed Forward Neural Network"
             ]
         },
-        {
+        "classification_algorithms": {
             "APP_NAME": "Classification Algorithms",
-            "FILE_NAME": "apps_ClassificationAlgos",
-            "ALGORITHMS": [
+            "MODES": [
                 "Linear Regression"
             ]
         },
-        {
+        "clustering_algorithms": {
             "APP_NAME": "Clustering Algorithms",
-            "FILE_NAME": "apps_ClusteringAlgos",
-            "ALGORITHMS": [
+            "MODES": [
                 "KMeans Clustering"
             ]
         },
-        {
+        "sort_algorithms": {
             "APP_NAME": "Sort Algorithms",
-            "FILE_NAME": "apps_SortAlgos",
-            "ALGORITHMS": [
+            "MODES": [
                 "Sort Algorithms"
             ]
         },
-        {
+        "graph_algorithms": {
             "APP_NAME": "Graph Algorithms",
-            "FILE_NAME": "apps_GraphAlgos",
-            "ALGORITHMS": [
+            "MODES": [
                 "BFS"
             ]
         },
-        {
+        "generator_algorithms": {
             "APP_NAME": "Generator Algorithms",
-            "FILE_NAME": "apps_GeneratorAlgos",
-            "ALGORITHMS": [
+            "MODES": [
                 "Random Generators"
             ]
         },
-        {
+        "sequence_algorithms": {
             "APP_NAME": "Sequence Algorithms",
-            "FILE_NAME": "apps_SequenceAlgos",
-            "ALGORITHMS": [
+            "MODES": [
                 "Collatz Conjecture",
                 "Digit Series",
                 "Fibonacci Series",
                 "Recaman Sequence"
             ]
         },
-        {
+        "equation_algorithms": {
             "APP_NAME": "Equation Algorithms",
-            "FILE_NAME": "apps_EquationAlgos",
-            "ALGORITHMS": [
+            "MODES": [
                 "Equation Vis"
             ]
         },
-        {
+        "other_algorithms": {
             "APP_NAME": "Other Algorithms",
-            "FILE_NAME": "apps_OtherAlgos",
-            "ALGORITHMS": [
+            "MODES": [
                 
             ]
         }
-    ]
+    }
 }
