@@ -3,35 +3,29 @@ Stream lit GUI for Generator Algorithms
 """
 
 # Imports
-# import os
-# import cv2
-import streamlit as st
-# import json
-# import subprocess
-# import functools
+from streamlit_common_utils._common import DictData
+from streamlit_common_utils.streamlit_common_ui_setup import *
 
-from Algorithms.GeneratorAlgos.RandomGenerator import *
+from .RandomGenerator import *
 
 # Main Functions
-def main_GeneratorAlgos():
-    SUBAPP_MODES = config_subapp["ALGORITHMS"]
+def main(selected="Generator Algorithms", MODES=[], global_override_vars=None, **kwargs):
+    # Update global variables
+    if global_override_vars: globals().update(global_override_vars)
+
+    # Set Project Modes
+    UI_CONFIG = DictData({
+        "PROJECT_MODES": MODES
+    })
 
     # Create Sidebar
-    selected_box = st.sidebar.selectbox(
-    "Choose Generator Algorithm",
-        tuple(
-            SUBAPP_MODES
-        )
-    )
+    build_sidebar_app(UI_CONFIG, globals(), show_home_page=False, sidebar_title="Choose Generator Algorithm")
 
-    # Add Functions
-    correspondingFuncName = selected_box.replace(" ", "_").lower()
-    if correspondingFuncName in globals().keys():
-        globals()[correspondingFuncName]()
 
 #############################################################################################################################
 # Repo Based Vars
-
+PATHS = {}
+DEFAULT_VIDEO_DURATION = 2.0
 
 # Util Vars
 
@@ -57,7 +51,7 @@ def UI_RandomFrequencyDistribution():
 
         # Display Outputs
         st.markdown("## Generated Random Frequency Distribution")
-        save_images_as_video_moviepy(Is, PATHS["default"]["save"]["video_converted"], USERINPUT_saveFPS))
+        save_images_as_video_moviepy(Is, PATHS["default"]["save"]["video_converted"], USERINPUT_saveFPS)
         # Display Animation Video
         st.video(PATHS["default"]["save"]["video_converted"])
 
@@ -109,7 +103,7 @@ RANDOMGENERATOR_VISUALISAITON_MAP = {
 }
 
 # Repo Based Functions
-def random_generators():
+def random_generators(**kwargs):
     # Title
     st.header("Random Generators")
 
@@ -121,4 +115,5 @@ def random_generators():
     
 #############################################################################################################################
 # Run Code
-main_GeneratorAlgos()
+if __name__ == "__main__":
+    main()

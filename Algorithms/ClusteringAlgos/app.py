@@ -3,35 +3,30 @@ Stream lit GUI for Clustering Algorithms
 """
 
 # Imports
-# import os
 import cv2
-# import numpy as np
-import streamlit as st
-# import json
-# import subprocess
-# import functools
+from streamlit_common_utils._common import DictData
+from streamlit_common_utils.streamlit_common_ui_setup import *
 
-from Algorithms.ClusteringAlgos.KMeansClustering import *
+from .KMeansClustering import *
 
 # Main Functions
-def main_ClusteringAlgos():
-    SUBAPP_MODES = config_subapp["ALGORITHMS"]
+def main(selected="Clustering Algorithms", MODES=[], global_override_vars=None, **kwargs):
+    # Update global variables
+    if global_override_vars: globals().update(global_override_vars)
+
+    # Set Project Modes
+    UI_CONFIG = DictData({
+        "PROJECT_MODES": MODES
+    })
 
     # Create Sidebar
-    selected_box = st.sidebar.selectbox(
-    "Choose Clustering Algorithm",
-        tuple(
-            SUBAPP_MODES
-        )
-    )
+    build_sidebar_app(UI_CONFIG, globals(), show_home_page=False, sidebar_title="Choose Clustering Algorithm")
 
-    # Add Functions
-    correspondingFuncName = selected_box.replace(" ", "_").lower()
-    if correspondingFuncName in globals().keys():
-        globals()[correspondingFuncName]()
 
 #############################################################################################################################
 # Repo Based Vars
+PATHS = {}
+DEFAULT_VIDEO_DURATION = 2.0
 KMEANS_DIM_OPTIONS = ["1D", "2D", "3D"]
 DATASET_DEFAULT_PATH_EXAMPLEIMAGE = "Data/DefaultData/ExampleDataset.PNG"
 DATASET_LOADTYPES = ["Generate Random", "Load Image"]
@@ -98,9 +93,7 @@ def UI_PointsDatasetLoad():
     return DatasetLoader
 
 # Repo Based Functions
-def kmeans_clustering():
-    global DEFAULT_VIDEO_DURATION
-
+def kmeans_clustering(**kwargs):
     # Title
     st.header("K-Means Clustering")
 
@@ -130,4 +123,5 @@ def kmeans_clustering():
     
 #############################################################################################################################
 # Run Code
-main_ClusteringAlgos()
+if __name__ == "__main__":
+    main()

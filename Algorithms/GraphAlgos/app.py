@@ -3,34 +3,30 @@ Stream lit GUI for Graph Algorithms
 """
 
 # Imports
-# import os
-# import cv2
-# import numpy as np
-import streamlit as st
 import json
-# import functools
+from streamlit_common_utils._common import DictData
+from streamlit_common_utils.streamlit_common_ui_setup import *
 
 from Algorithms.GraphAlgos.BFS import *
 
 # Main Functions
-def main_ClusteringAlgos():
-    SUBAPP_MODES = config_subapp["ALGORITHMS"]
+def main(selected="Graph Algorithms", MODES=[], global_override_vars=None, **kwargs):
+    # Update global variables
+    if global_override_vars: globals().update(global_override_vars)
+
+    # Set Project Modes
+    UI_CONFIG = DictData({
+        "PROJECT_MODES": MODES
+    })
 
     # Create Sidebar
-    selected_box = st.sidebar.selectbox(
-    "Choose Graph Algorithm",
-        tuple(
-            SUBAPP_MODES
-        )
-    )
+    build_sidebar_app(UI_CONFIG, globals(), show_home_page=False, sidebar_title="Choose Graph Algorithm")
 
-    # Add Functions
-    correspondingFuncName = selected_box.replace(" ", "_").lower()
-    if correspondingFuncName in globals().keys():
-        globals()[correspondingFuncName]()
 
 #############################################################################################################################
 # Repo Based Vars
+PATHS = {}
+DEFAULT_VIDEO_DURATION = 2.0
 GRAPH_DEFAULT_PATH_EXAMPLE = "Data/DefaultData/ExampleGraph.json"
 GRAPH_LOADTYPES = ["Load JSON", "Generate Random Graph"]
 
@@ -80,9 +76,7 @@ def UI_GraphLoad():
     return USERINPUT_AdjMatrix, NodesPos
 
 # Repo Based Functions
-def bfs():
-    global DEFAULT_VIDEO_DURATION
-
+def bfs(**kwargs):
     # Title
     st.header("BFS: Breadth First Search")
 
@@ -108,4 +102,5 @@ def bfs():
     
 #############################################################################################################################
 # Run Code
-main_ClusteringAlgos()
+if __name__ == "__main__":
+    main()

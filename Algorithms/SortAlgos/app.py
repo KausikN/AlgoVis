@@ -3,35 +3,29 @@ Stream lit GUI for Sort Algorithms
 """
 
 # Imports
-# import os
-# import cv2
-import streamlit as st
-# import json
-# import subprocess
-# import functools
+from streamlit_common_utils._common import DictData
+from streamlit_common_utils.streamlit_common_ui_setup import *
 
-from Algorithms.SortAlgos.SortingVis import *
+from .SortingVis import *
 
 # Main Functions
-def main_SortAlgos():
-    SUBAPP_MODES = config_subapp["ALGORITHMS"]
+def main(selected="Sort Algorithms", MODES=[], global_override_vars=None, **kwargs):
+    # Update global variables
+    if global_override_vars: globals().update(global_override_vars)
+
+    # Set Project Modes
+    UI_CONFIG = DictData({
+        "PROJECT_MODES": MODES
+    })
 
     # Create Sidebar
-    selected_box = st.sidebar.selectbox(
-    "Choose Sort Algorithm",
-        tuple(
-            SUBAPP_MODES
-        )
-    )
+    build_sidebar_app(UI_CONFIG, globals(), show_home_page=False, sidebar_title="Choose Sort Algorithm")
 
-    # Add Functions
-    correspondingFuncName = selected_box.replace(" ", "_").lower()
-    if correspondingFuncName in globals().keys():
-        globals()[correspondingFuncName]()
 
 #############################################################################################################################
 # Repo Based Vars
-
+PATHS = {}
+DEFAULT_VIDEO_DURATION = 2.0
 
 # Util Vars
 
@@ -69,9 +63,7 @@ def UI_DisplaySortingOutput(array, array_sorted, trace):
     st.video(VideoData)
 
 # Repo Based Functions
-def sort_algorithms():
-    global DEFAULT_VIDEO_DURATION
-
+def sort_algorithms(**kwargs):
     # Title
     st.header("Sort Algorithms")
 
@@ -82,8 +74,6 @@ def sort_algorithms():
     USERINPUT_SortAlgoName = st.selectbox("Select Sort Algorithm", SORT_FUNCS_NAMES)
 
     USERINPUT_ArraySize = st.slider("Select Array Size", 5, 100, 25, 5)
-
-    # DEFAULT_VIDEO_DURATION = st.number_input("Select Video Duration", 0.5, 10.0, 2.0, 0.5)
 
     # Process Inputs
     if st.button("Visualise"):
@@ -101,4 +91,5 @@ def sort_algorithms():
     
 #############################################################################################################################
 # Run Code
-main_SortAlgos()
+if __name__ == "__main__":
+    main()

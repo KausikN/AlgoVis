@@ -3,39 +3,34 @@ Stream lit GUI for Sequence Algorithms
 """
 
 # Imports
-# import os
-# import cv2
-import streamlit as st
-# import json
-# import subprocess
-# import functools
-
 from matplotlib import pyplot as plt
-from Algorithms.SequenceAlgos.CollatzConjecture import *
-from Algorithms.SequenceAlgos.DigitSeries import *
-from Algorithms.SequenceAlgos.FibonacciSequence import *
-from Algorithms.SequenceAlgos.RecamanSequence import RECAMAN_FUNCS
+
+from streamlit_common_utils._common import DictData
+from streamlit_common_utils.streamlit_common_ui_setup import *
+
+from .CollatzConjecture import *
+from .DigitSeries import *
+from .FibonacciSequence import *
+from .RecamanSequence import RECAMAN_FUNCS
 
 # Main Functions
-def main_SequenceAlgos():
-    SUBAPP_MODES = config_subapp["ALGORITHMS"]
+def main(selected="Sequence Algorithms", MODES=[], global_override_vars=None, **kwargs):
+    # Update global variables
+    if global_override_vars: globals().update(global_override_vars)
+
+    # Set Project Modes
+    UI_CONFIG = DictData({
+        "PROJECT_MODES": MODES
+    })
 
     # Create Sidebar
-    selected_box = st.sidebar.selectbox(
-    "Choose Sequence Algorithm",
-        tuple(
-            SUBAPP_MODES
-        )
-    )
+    build_sidebar_app(UI_CONFIG, globals(), show_home_page=False, sidebar_title="Choose Sequence Algorithm")
 
-    # Add Functions
-    correspondingFuncName = selected_box.replace(" ", "_").lower()
-    if correspondingFuncName in globals().keys():
-        globals()[correspondingFuncName]()
 
 #############################################################################################################################
 # Repo Based Vars
-
+PATHS = {}
+DEFAULT_VIDEO_DURATION = 2.0
 
 # Util Vars
 
@@ -116,7 +111,7 @@ def UI_RangeConvergence(ConvergeFunc, title=""):
         UI_DisplayRangeTraces(traces, "Values vs " + title + " Convergence Iterations")
 
 # Repo Based Functions
-def collatz_conjecture():
+def collatz_conjecture(**kwargs):
     # Title
     st.header("Collatz Conjecture")
 
@@ -131,7 +126,7 @@ def collatz_conjecture():
     elif USERINPUT_Mode == "Converge Range of Values":
         UI_RangeConvergence(ConvergeFunc, "Collatz")
 
-def digit_series():
+def digit_series(**kwargs):
     # Title
     st.header("Digit Series")
 
@@ -146,7 +141,7 @@ def digit_series():
     elif USERINPUT_Mode == "Converge Range of Values":
         UI_RangeConvergence(USERINPUT_VariantFunc, USERINPUT_Variant)
 
-def fibonacci_series():
+def fibonacci_series(**kwargs):
     # Title
     st.header("Fibonacci Series")
 
@@ -171,7 +166,7 @@ def fibonacci_series():
         col2.markdown("``` " + str(iterCount) + " ```")
         UI_DisplaySingleTrace(trace, "Fibonacci Series")
 
-def recaman_sequence():
+def recaman_sequence(**kwargs):
     # Title
     st.header("Recaman Sequence")
 
@@ -185,4 +180,5 @@ def recaman_sequence():
     
 #############################################################################################################################
 # Run Code
-main_SequenceAlgos()
+if __name__ == "__main__":
+    main()

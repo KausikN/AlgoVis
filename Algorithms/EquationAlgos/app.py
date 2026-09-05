@@ -3,36 +3,30 @@ Stream lit GUI for Equation Algorithms
 """
 
 # Imports
-# import os
-# import cv2
-import streamlit as st
-import json
 import matplotlib.pyplot as plt
-# import subprocess
-# import functools
+from streamlit_common_utils._common import DictData
+from streamlit_common_utils.streamlit_common_ui_setup import *
 
-from Algorithms.EquationAlgos.EquationVis import *
+from .EquationVis import *
 
 # Main Functions
-def main_EquationAlgos():
-    SUBAPP_MODES = config_subapp["ALGORITHMS"]
+def main(selected="Equation Algorithms", MODES=[], global_override_vars=None, **kwargs):
+    # Update global variables
+    if global_override_vars: globals().update(global_override_vars)
+
+    # Set Project Modes
+    UI_CONFIG = DictData({
+        "PROJECT_MODES": MODES
+    })
 
     # Create Sidebar
-    selected_box = st.sidebar.selectbox(
-    "Choose Sort Algorithm",
-        tuple(
-            SUBAPP_MODES
-        )
-    )
+    build_sidebar_app(UI_CONFIG, globals(), show_home_page=False, sidebar_title="Choose Equation Algorithm")
 
-    # Add Functions
-    correspondingFuncName = selected_box.replace(" ", "_").lower()
-    if correspondingFuncName in globals().keys():
-        globals()[correspondingFuncName]()
 
 #############################################################################################################################
 # Repo Based Vars
-
+PATHS = {}
+DEFAULT_VIDEO_DURATION = 2.0
 
 # Util Vars
 
@@ -83,7 +77,7 @@ def UI_ConstructTransformFuncs():
     return Funcs, USERINPUT_CombinationStr
 
 # Repo Based Functions
-def equation_vis():
+def equation_vis(**kwargs):
     # Title
     st.header("Equation Vis")
 
@@ -112,4 +106,5 @@ def equation_vis():
     
 #############################################################################################################################
 # Run Code
-main_EquationAlgos()
+if __name__ == "__main__":
+    main()
