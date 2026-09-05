@@ -1,17 +1,6 @@
 {
     "repo_name": "AlgoVis",
     "requirements": [
-        "streamlit",
-        "matplotlib",
-        "numpy",
-        "opencv-python-headless",
-        "tqdm",
-        "stqdm",
-        "moviepy",
-        "Pillow",
-        "scikit_learn",
-        "networkx",
-        "plotly",
-        "git+https://github.com/KausikN/StreamlitCommonUtils.git[color,dataset,graph,image,plot,video]"
+        "git+https://github.com/KausikN/StreamlitCommonUtils.git[dataset,graph,plot,video]"
     ]
 }

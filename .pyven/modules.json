@@ -1,10 +1,37 @@
 {
+    "AlgoVis": {
+        "name": "AlgoVis",
+        "type": "local",
+        "path": "AlgoVis.py",
+        "parent_dir": "",
+        "dependencies": [
+            "Algorithms/AIAlgos/app",
+            "Algorithms/ClassificationAlgos/app",
+            "Algorithms/ClusteringAlgos/app",
+            "Algorithms/EquationAlgos/app",
+            "Algorithms/GeneratorAlgos/app",
+            "Algorithms/GraphAlgos/app",
+            "Algorithms/SequenceAlgos/app",
+            "Algorithms/SortAlgos/app"
+        ]
+    },
     "app": {
         "name": "app",
         "type": "local",
         "path": "app.py",
         "parent_dir": "",
-        "dependencies": []
+        "dependencies": [
+            "AlgoVis"
+        ]
+    },
+    "Algorithms/AIAlgos/app": {
+        "name": "app",
+        "type": "local",
+        "path": "Algorithms/AIAlgos/app.py",
+        "parent_dir": "Algorithms/AIAlgos",
+        "dependencies": [
+            "Algorithms/AIAlgos/FNN"
+        ]
     },
     "Algorithms/AIAlgos/FNN": {
         "name": "FNN",
@@ -30,6 +57,15 @@
         "parent_dir": "Algorithms/AIAlgos/FunctionsLibrary",
         "dependencies": []
     },
+    "Algorithms/ClassificationAlgos/app": {
+        "name": "app",
+        "type": "local",
+        "path": "Algorithms/ClassificationAlgos/app.py",
+        "parent_dir": "Algorithms/ClassificationAlgos",
+        "dependencies": [
+            "Algorithms/ClassificationAlgos/LinearRegression"
+        ]
+    },
     "Algorithms/ClassificationAlgos/BayesClassifier": {
         "name": "BayesClassifier",
         "type": "local",
@@ -51,12 +87,30 @@
         "parent_dir": "Algorithms/ClassificationAlgos",
         "dependencies": []
     },
+    "Algorithms/ClusteringAlgos/app": {
+        "name": "app",
+        "type": "local",
+        "path": "Algorithms/ClusteringAlgos/app.py",
+        "parent_dir": "Algorithms/ClusteringAlgos",
+        "dependencies": [
+            "Algorithms/ClusteringAlgos/KMeansClustering"
+        ]
+    },
     "Algorithms/ClusteringAlgos/KMeansClustering": {
         "name": "KMeansClustering",
         "type": "local",
         "path": "Algorithms/ClusteringAlgos/KMeansClustering.py",
         "parent_dir": "Algorithms/ClusteringAlgos",
         "dependencies": []
+    },
+    "Algorithms/EquationAlgos/app": {
+        "name": "app",
+        "type": "local",
+        "path": "Algorithms/EquationAlgos/app.py",
+        "parent_dir": "Algorithms/EquationAlgos",
+        "dependencies": [
+            "Algorithms/EquationAlgos/EquationVis"
+        ]
     },
     "Algorithms/EquationAlgos/EquationVis": {
         "name": "EquationVis",
@@ -81,12 +135,30 @@
         "parent_dir": "Algorithms/EquationAlgos/FunctionsLibrary",
         "dependencies": []
     },
+    "Algorithms/GeneratorAlgos/app": {
+        "name": "app",
+        "type": "local",
+        "path": "Algorithms/GeneratorAlgos/app.py",
+        "parent_dir": "Algorithms/GeneratorAlgos",
+        "dependencies": [
+            "Algorithms/GeneratorAlgos/RandomGenerator"
+        ]
+    },
     "Algorithms/GeneratorAlgos/RandomGenerator": {
         "name": "RandomGenerator",
         "type": "local",
         "path": "Algorithms/GeneratorAlgos/RandomGenerator.py",
         "parent_dir": "Algorithms/GeneratorAlgos",
         "dependencies": []
+    },
+    "Algorithms/GraphAlgos/app": {
+        "name": "app",
+        "type": "local",
+        "path": "Algorithms/GraphAlgos/app.py",
+        "parent_dir": "Algorithms/GraphAlgos",
+        "dependencies": [
+            "Algorithms/GraphAlgos/BFS"
+        ]
     },
     "Algorithms/GraphAlgos/BFS": {
         "name": "BFS",
@@ -116,6 +188,18 @@
         "parent_dir": "Algorithms/OtherAlgos",
         "dependencies": []
     },
+    "Algorithms/SequenceAlgos/app": {
+        "name": "app",
+        "type": "local",
+        "path": "Algorithms/SequenceAlgos/app.py",
+        "parent_dir": "Algorithms/SequenceAlgos",
+        "dependencies": [
+            "Algorithms/SequenceAlgos/CollatzConjecture",
+            "Algorithms/SequenceAlgos/DigitSeries",
+            "Algorithms/SequenceAlgos/FibonacciSequence",
+            "Algorithms/SequenceAlgos/RecamanSequence"
+        ]
+    },
     "Algorithms/SequenceAlgos/CollatzConjecture": {
         "name": "CollatzConjecture",
         "type": "local",
@@ -143,6 +227,15 @@
         "path": "Algorithms/SequenceAlgos/RecamanSequence.py",
         "parent_dir": "Algorithms/SequenceAlgos",
         "dependencies": []
+    },
+    "Algorithms/SortAlgos/app": {
+        "name": "app",
+        "type": "local",
+        "path": "Algorithms/SortAlgos/app.py",
+        "parent_dir": "Algorithms/SortAlgos",
+        "dependencies": [
+            "Algorithms/SortAlgos/SortingVis"
+        ]
     },
     "Algorithms/SortAlgos/SortingVis": {
         "name": "SortingVis",
@@ -214,79 +307,6 @@
         "parent_dir": "Algorithms/_Libraries",
         "dependencies": []
     },
-    "StreamLitGUI/apps/apps_AIAlgos": {
-        "name": "apps_AIAlgos",
-        "type": "local",
-        "path": "StreamLitGUI/apps/apps_AIAlgos.py",
-        "parent_dir": "StreamLitGUI/apps",
-        "dependencies": [
-            "Algorithms/AIAlgos/FNN"
-        ]
-    },
-    "StreamLitGUI/apps/apps_ClassificationAlgos": {
-        "name": "apps_ClassificationAlgos",
-        "type": "local",
-        "path": "StreamLitGUI/apps/apps_ClassificationAlgos.py",
-        "parent_dir": "StreamLitGUI/apps",
-        "dependencies": [
-            "Algorithms/ClassificationAlgos/LinearRegression"
-        ]
-    },
-    "StreamLitGUI/apps/apps_ClusteringAlgos": {
-        "name": "apps_ClusteringAlgos",
-        "type": "local",
-        "path": "StreamLitGUI/apps/apps_ClusteringAlgos.py",
-        "parent_dir": "StreamLitGUI/apps",
-        "dependencies": [
-            "Algorithms/ClusteringAlgos/KMeansClustering"
-        ]
-    },
-    "StreamLitGUI/apps/apps_EquationAlgos": {
-        "name": "apps_EquationAlgos",
-        "type": "local",
-        "path": "StreamLitGUI/apps/apps_EquationAlgos.py",
-        "parent_dir": "StreamLitGUI/apps",
-        "dependencies": [
-            "Algorithms/EquationAlgos/EquationVis"
-        ]
-    },
-    "StreamLitGUI/apps/apps_GeneratorAlgos": {
-        "name": "apps_GeneratorAlgos",
-        "type": "local",
-        "path": "StreamLitGUI/apps/apps_GeneratorAlgos.py",
-        "parent_dir": "StreamLitGUI/apps",
-        "dependencies": []
-    },
-    "StreamLitGUI/apps/apps_GraphAlgos": {
-        "name": "apps_GraphAlgos",
-        "type": "local",
-        "path": "StreamLitGUI/apps/apps_GraphAlgos.py",
-        "parent_dir": "StreamLitGUI/apps",
-        "dependencies": [
-            "Algorithms/GraphAlgos/BFS"
-        ]
-    },
-    "StreamLitGUI/apps/apps_SequenceAlgos": {
-        "name": "apps_SequenceAlgos",
-        "type": "local",
-        "path": "StreamLitGUI/apps/apps_SequenceAlgos.py",
-        "parent_dir": "StreamLitGUI/apps",
-        "dependencies": [
-            "Algorithms/SequenceAlgos/CollatzConjecture",
-            "Algorithms/SequenceAlgos/DigitSeries",
-            "Algorithms/SequenceAlgos/FibonacciSequence",
-            "Algorithms/SequenceAlgos/RecamanSequence"
-        ]
-    },
-    "StreamLitGUI/apps/apps_SortAlgos": {
-        "name": "apps_SortAlgos",
-        "type": "local",
-        "path": "StreamLitGUI/apps/apps_SortAlgos.py",
-        "parent_dir": "StreamLitGUI/apps",
-        "dependencies": [
-            "Algorithms/SortAlgos/SortingVis"
-        ]
-    },
     "..._Libraries": {
         "name": "_Libraries",
         "type": "missing",
@@ -338,7 +358,7 @@
     },
     "cv2": {
         "name": "cv2",
-        "type": "missing",
+        "type": "inbuilt",
         "path": "cv2",
         "parent_dir": "",
         "dependencies": []
@@ -401,14 +421,14 @@
     },
     "moviepy": {
         "name": "moviepy",
-        "type": "missing",
+        "type": "inbuilt",
         "path": "moviepy",
         "parent_dir": "",
         "dependencies": []
     },
     "networkx": {
         "name": "networkx",
-        "type": "missing",
+        "type": "inbuilt",
         "path": "networkx",
         "parent_dir": "",
         "dependencies": []
@@ -441,10 +461,10 @@
         "parent_dir": "",
         "dependencies": []
     },
-    "streamlit": {
-        "name": "streamlit",
-        "type": "inbuilt",
-        "path": "streamlit",
+    "streamlit_common_utils._common": {
+        "name": "_common",
+        "type": "missing",
+        "path": "streamlit_common_utils._common",
         "parent_dir": "",
         "dependencies": []
     },
@@ -480,6 +500,13 @@
         "name": "plot",
         "type": "missing",
         "path": "streamlit_common_utils.plot",
+        "parent_dir": "",
+        "dependencies": []
+    },
+    "streamlit_common_utils.streamlit_common_ui_setup": {
+        "name": "streamlit_common_ui_setup",
+        "type": "missing",
+        "path": "streamlit_common_utils.streamlit_common_ui_setup",
         "parent_dir": "",
         "dependencies": []
     },
