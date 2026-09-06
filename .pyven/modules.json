@@ -433,6 +433,13 @@
         "parent_dir": "",
         "dependencies": []
     },
+    "streamlit_common_utils": {
+        "name": "streamlit_common_utils",
+        "type": "inbuilt",
+        "path": "streamlit_common_utils",
+        "parent_dir": "",
+        "dependencies": []
+    },
     "streamlit_common_utils._common": {
         "name": "_common",
         "type": "missing",

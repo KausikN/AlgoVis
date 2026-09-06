@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 
 from streamlit_common_utils._common import DictData
 from streamlit_common_utils.streamlit_common_ui_setup import *
+from streamlit_common_utils import ui as streamlit_common_utils_ui
 
 from .EquationVis import *
 
@@ -46,8 +47,18 @@ def UI_TransformFunc(groupNum, st=st):
     st.markdown("Transform Function " + str(groupNum))
     # Get Func and Params
     USERINPUT_FuncName = st.selectbox("Function", tuple(TRANSFORM_FUNCS.keys()), key="Func_" + str(groupNum))
-    USERINPUT_FuncParamsStr = st.text_input("Parameters", "", key="Param_" + str(groupNum))
-    USERINPUT_FuncParams = json.loads("{" + USERINPUT_FuncParamsStr + "}")
+
+    # USERINPUT_FuncParamsStr = st.text_input("Parameters", "", key="Param_" + str(groupNum))
+    # USERINPUT_FuncParams = json.loads("{" + USERINPUT_FuncParamsStr + "}")
+
+    with st.expander("Edit Parameters", expanded=False):
+        USERINPUT_FuncParams = streamlit_common_utils_ui.ui_input_json(
+            {},
+            key="FuncParams_" + str(groupNum),
+            code_editor_kwargs={"height": 10},
+            display=False
+        )
+
     # Construct
     USERINPUT_Func = functools.partial(TRANSFORM_FUNCS[USERINPUT_FuncName], **USERINPUT_FuncParams)
     # Display
